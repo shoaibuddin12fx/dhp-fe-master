@@ -1,0 +1,470 @@
+<div class="donatehome-layout">
+  <div class="left-box">
+    <app-header></app-header>
+    <div class="donor-box">
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-1.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-35"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-2.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-90"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-3.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-10"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-1.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-35"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-2.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-90"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="profile-box">
+        <div
+          class="profile-inner-box"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="profile-cover">
+            <img
+              class="image"
+              src="../../../assets/images/donation/home/image-3.jpg"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="heading">
+              <div class="head-inner">
+                <p>Organizer</p>
+                <h4 class="title">Support Our Cause</h4>
+              </div>
+              <p class="profile-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                sit laborum libero incidunt dolorem aliquam sint ullam placeat
+                voluptate eaque!
+              </p>
+              <ul class="donation-ratio">
+                <li class="item">
+                  <div class="donation-ratio-box">
+                    <p>
+                      <span class="value-left">$5,000</span> of
+                      <span class="value-right">12,000</span> donated
+                    </p>
+                    <div class="line">
+                      <span class="w-10"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+  <app-right-bar></app-right-bar>
+</div>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+  <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="calendar" width="23" height="23" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAACAUlEQVRIia2Vz0tVQRTHP973QjJRQoWnFImC1OKBgaIuciEkUSsXbsSVLmzjqj+gRYvav0WbFoG0UNCW5a9NKyGhQCxqFQhhq8jyd/piet8b592585T0C8Pc851zvnM5c+YMKWgANoAufykV1+XfmlzMmO9rEhwF7gLVwC+gvcJoA8aAAWkdSuu73eQhUDzH8cSJVgGDwDzwFSgAeWAEWASW5BOCE+oH7gFzwFtgQikacjEv5JSXQA44Am4FBJPoBI6BDvGt0pvOmj/b1rwphw1PJh3vdV6x/47mYgQcyLhkQk8rnOZfq/kw8txKiHQWTYZrAW4n/PqAXi/a4Hki5w6T4l4bbl3csOzLprpqjV+buKmst1UJq8Ab4KXhpoA7wEfZe8ArCR14CkLan58F//48lHMSBxziIo1UhBaGdfULhpsRNyC7DthXemo8BSCU83jTTIpvlOCKXrRBKOf1nqfPXVSDs7hyUrU4/PAYn9v1POCn5qpQzrvVtMYN90DcDcNd0Ll8Br4An4Blrf3VTktLfIkWDPchcYkcHpmL5JrXN2MXQuJZtdGc4a7qEbGYV2xcoo9lvwMaHTEtotlLzsmYNdVyX9+rcWVF5kmq2IACiGOfAU+BNaAH+O1I18vdAxv3i5V44ZS4aVLihJ3tHpoyuPbqTvx/3tEtNbnysgb+AFtRlA3hKjSmAAAAAElFTkSuQmCC"/>
+  </g>
+</svg>

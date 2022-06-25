@@ -1,0 +1,640 @@
+<div
+  infinite-scroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle"
+  (scrolled)="onScrollDown()"
+  (scrolledUp)="onUp()"
+>
+  <div class="activity-box" *ngFor="let post of posts">
+    <div class="activity-info">
+      <div *ngIf="post?.isSharedPost" (click)="$event.stopPropagation()">
+        <ng-container *ngIf="post?.sharedBy?.profileImage; else elseTemplate">
+          <img
+            class="avatar"
+            [src]="post?.sharedBy?.profileImage"
+            download
+            [routerLink]="[
+              '/social',
+              'profile',
+              post?.sharedBy?.id,
+              'user-feed'
+            ]"
+          />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img
+            class="avatar"
+            [routerLink]="[
+              '/social',
+              'profile',
+              post?.sharedBy?.id,
+              'user-feed'
+            ]"
+            src="../assets/images/home/sidebar/profile-image2.png"
+          />
+        </ng-template>
+        <div class="title-status">
+          <h4
+            class="title"
+            [routerLink]="[
+              '/social',
+              'profile',
+              post?.sharedBy?.id,
+              'user-feed'
+            ]"
+          >
+            {{ post?.sharedBy?.fullName }}
+          </h4>
+          <span class="status"
+            >Shared an update
+            <span *ngIf="post?.groupName"> in {{ post?.groupName }} </span>
+          </span>
+          <span class="post-time">{{ post?.sharedPostDate | dateAgo }}</span>
+          <p>
+            {{ post?.sharedDescription }}
+          </p>
+        </div>
+      </div>
+      <br />
+      <ng-container *ngIf="post?.user?.profileImage; else elseTemplate">
+        <img
+          class="avatar"
+          [src]="post?.user?.profileImage"
+          [routerLink]="['/social', 'profile', post?.user?.id, 'user-feed']"
+        />
+      </ng-container>
+      <ng-template #elseTemplate>
+        <img
+          class="avatar"
+          [routerLink]="['/social', 'profile', post?.user?.id, 'user-feed']"
+          src="../assets/images/home/sidebar/profile-image2.png"
+        />
+      </ng-template>
+      <!-- <img
+        class="avatar"
+        src="../../../assets/images/home/sidebar/profile-image.PNG"
+      /> -->
+      <!-- <div class="title-status" *ngIf="post.isSharedPost">+
+        <h4 class="title">
+          {{ post.user.firstName }} {{ post.user.lastName }}
+        </h4>
+        <span class="status"> shared a post</span>
+        <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+        <p>
+          {{ post.description }}
+        </p>
+      </div>
+      <br> -->
+      <div class="title-status">
+        <h4
+          class="title"
+          [routerLink]="['/social', 'profile', post?.user?.id, 'user-feed']"
+        >
+          {{ post.user.firstName }} {{ post.user.lastName }}
+        </h4>
+        <span class="status"
+          >posted an update
+          <span *ngIf="post.groupName && !post?.isSharedPost">
+            in {{ post.groupName }}
+          </span>
+        </span>
+        <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+        <p>
+          {{ post.description }}
+        </p>
+      </div>
+      <button class="settings">
+        <i
+          class="fa fa-ellipsis-h icon"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+        ></i>
+      </button>
+      <mat-menu #menu>
+        <button
+          mat-menu-item
+          *ngIf="post?.userId === user?.id"
+          (click)="deletePost(post.id)"
+        >
+          <p class="popup-title">
+            <span>Delete Post</span>
+          </p>
+        </button>
+        <button mat-menu-item>
+          <p class="popup-title">
+            <span (click)="unFollowUser(post)">Unfollow</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="openReportDialog(post)">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+        <button
+          mat-menu-item
+          (click)="onEditPost(post)"
+          *ngIf="post?.userId === user?.id"
+        >
+          <p class="popup-title">
+            <span>Edit</span>
+          </p>
+        </button>
+        <!-- <button mat-menu-item>
+          <p class="popup-title">
+            <span>Copy Link</span>
+          </p>
+        </button> -->
+      </mat-menu>
+    </div>
+    <div class="activity-image-box">
+      <div class="icon-box">
+        <div class="like" (click)="openLikePostDialog(post?.likeUsers)">
+          <i class="fa fa-thumbs-o-up icon"></i>
+          <span>{{ post?.likeCount }}</span>
+        </div>
+        <div class="comment">
+          <i class="fa fa-commenting-o icon"></i>
+          <span>{{ post?.commentsCount }}</span>
+        </div>
+      </div>
+      <div class="image-box" (click)="openPostViewDialog(post)">
+        <img
+          class="activity-image"
+          *ngIf="post?.type === 'photo'"
+          [src]="
+            post?.url && post?.url.length > 0 ? post?.url[0].url : post?.url.url
+          "
+        />
+        <!-- <img class="activity-image" *ngIf="post?.url && post?.url.length > 0" [src]="post?.url[0].url" /> -->
+        <span *ngIf="isVideo">
+          <!-- <iframe width="420" [src]="videoURL(post?.url.url)"> </iframe> -->
+          <iframe
+            style="width: 100%; height: 300px"
+            [src]="post?.url.url | safe: 'resourceUrl'"
+          >
+          </iframe>
+        </span>
+      </div>
+      <ul class="activity-bottom-menu">
+        <li
+          class="menu-item"
+          (click)="Like(post)"
+          [ngStyle]="{ color: post?.isLike ? '#23cf70' : '' }"
+        >
+          <i class="fa fa-thumbs-o-up icon"></i>
+          <span>Like</span>
+        </li>
+        <li
+          class="menu-item"
+          (click)="post.toggle = !post.toggle; getComment(post.id)"
+        >
+          <i class="fa fa-commenting-o icon"></i>
+          <span>Comment</span>
+        </li>
+        <li class="menu-item">
+          <!--  -->
+          <app-share-popup
+            [post]="post"
+            (upsertPost)="upsertPost($event)"
+          ></app-share-popup>
+        </li>
+      </ul>
+    </div>
+    <div class="comment-box-main" *ngIf="post.toggle">
+      <div class="comment-item-top">
+        <div class="image-box">
+          <!-- <ng-container *ngIf="user?.profileImage; else elseTemplate">
+            <img class="image" [src]="user?.profileImage" />
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img class="image" src="../assets/images/home/sidebar/profile-image2.png" />
+          </ng-template> -->
+          <img
+            *ngIf="user?.profileImage"
+            class="image"
+            [src]="user?.profileImage"
+          />
+          <img
+            *ngIf="!user?.profileImage"
+            class="image"
+            src="../assets/images/home/sidebar/profile-image2.png"
+          />
+        </div>
+        <div class="comment-box">
+          <textarea
+            class="field"
+            #addcomment
+            name="addcomment"
+            placeholder="write a comment"
+            (keyup.enter)="AddComment($event, post)"
+          >
+          </textarea>
+        </div>
+      </div>
+      <ul
+        class="comment-section"
+        *ngFor="let comments of post.comments; let indexcomment = index"
+      >
+        <li class="comment-item" *ngIf="post.comments.length > 0">
+          <div class="image-box">
+            <img
+              *ngIf="comments?.profileImage"
+              class="image"
+              [src]="comments?.profileImage"
+            />
+            <img
+              *ngIf="!comments?.profileImage"
+              class="image"
+              src="../assets/images/home/sidebar/profile-image2.png"
+            />
+          </div>
+          <div class="comment-box">
+            <div class="comment-box-inner">
+              <p class="title">
+                {{ comments.firstName + " " + comments.lastName }}
+              </p>
+              <ng-container
+                *ngIf="
+                  post.id === toEditPost &&
+                    comments.id === toEditComment &&
+                    user.id === comments.userId;
+                  else elseTemplate
+                "
+              >
+                <textarea
+                  class="field"
+                  #editcomment
+                  name="editcomment"
+                  placeholder="write a comment"
+                  [(ngModel)]="comments.description"
+                  (keyup.enter)="
+                    UpdateComment(post, comments.description, comments.id)
+                  "
+                >
+                </textarea>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <p class="comment">
+                  {{ comments.description }}
+                </p>
+              </ng-template>
+              <i
+                class="fa fa-ellipsis-h icon"
+                mat-icon-button
+                [matMenuTriggerFor]="comment"
+              ></i>
+              <mat-menu #comment>
+                <button
+                  mat-menu-item
+                  *ngIf="user.id === comments.userId"
+                  (click)="deleteComment(post.id, comments.id)"
+                >
+                  <p class="popup-title">
+                    <span>Remove Comment</span>
+                  </p>
+                </button>
+                <button
+                  mat-menu-item
+                  *ngIf="user.id === comments.userId"
+                  (click)="editComment(post.id, comments.id)"
+                >
+                  <p class="popup-title">
+                    <span>Edit Comment</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="actions">
+              <span
+                class="like"
+                (click)="Like(post, comments)"
+                [ngStyle]="{ color: comments.isLike ? '#23cf70' : '' }"
+                >Like</span
+              >
+              <span
+                class="reply"
+                (click)="
+                  comments.reply = !comments.reply; replyComment(comments)
+                "
+                >Reply</span
+              >
+              <span class="time-ago">{{ comments.createdDate | dateAgo }}</span>
+            </div>
+          </div>
+          <ul class="sub-comment-section">
+            <li
+              class="sub-comment-item"
+              *ngFor="let item of comments.childComment; let indexchild = index"
+            >
+              <div class="image-box">
+                <img
+                  *ngIf="item?.profileImage"
+                  class="image"
+                  [src]="item?.profileImage"
+                />
+                <img
+                  *ngIf="!item?.profileImage"
+                  class="image"
+                  src="../assets/images/home/sidebar/profile-image2.png"
+                />
+                <!-- <img
+                  class="image"
+                  src="../../../assets/images/home/sidebar/profile-image.PNG"
+                /> -->
+              </div>
+              <div class="comment-box">
+                <div class="comment-box-inner">
+                  <p class="title">
+                    {{ item.firstName + " " + item.lastName }}
+                  </p>
+                  <ng-container
+                    *ngIf="
+                      post.id === toEditPost &&
+                        item.id === toEditComment &&
+                        user.id === item.userId;
+                      else elseTemplate
+                    "
+                  >
+                    <textarea
+                      class="field"
+                      #editChildComment
+                      name="editChildComment"
+                      placeholder="write a comment"
+                      [(ngModel)]="item.description"
+                      (keyup.enter)="
+                        UpdateComment(post, item.description, item.id)
+                      "
+                    >
+                    </textarea>
+                  </ng-container>
+
+                  <ng-template #elseTemplate>
+                    <p class="comment">{{ item.description }}</p>
+                  </ng-template>
+                  <i
+                    class="fa fa-ellipsis-h icon"
+                    mat-icon-button
+                    [matMenuTriggerFor]="comment"
+                  ></i>
+                  <mat-menu #comment>
+                    <button
+                      mat-menu-item
+                      *ngIf="user.id === item.userId"
+                      (click)="deleteComment(post.id, item.id)"
+                    >
+                      <p class="popup-title">
+                        <span>Remove Comment</span>
+                      </p>
+                    </button>
+                    <button
+                      mat-menu-item
+                      *ngIf="user.id === item.userId"
+                      (click)="editComment(post.id, item.id)"
+                    >
+                      <p class="popup-title">
+                        <span>Edit Comment</span>
+                      </p>
+                    </button>
+                  </mat-menu>
+                </div>
+                <div class="actions">
+                  <span
+                    class="like"
+                    (click)="Like(post, comment, item)"
+                    [ngStyle]="{ color: item?.isLike ? '#23cf70' : '' }"
+                    >Like</span
+                  >
+                  <span
+                    class="reply"
+                    (click)="
+                      comments.reply = !comments.reply; replyComment(item)
+                    "
+                    >Reply</span
+                  >
+                  <span class="time-ago">{{ item.createdDate | dateAgo }}</span>
+                </div>
+              </div>
+            </li>
+            <li class="sub-comment-item" *ngIf="comments.reply">
+              <div class="image-box">
+                <img
+                  *ngIf="user?.profileImage"
+                  class="image"
+                  [src]="user?.profileImage"
+                />
+                <img
+                  *ngIf="!user?.profileImage"
+                  class="image"
+                  src="../assets/images/home/sidebar/profile-image2.png"
+                />
+                <!-- <img class="image" src="../../../assets/images/home/sidebar/profile-image.PNG" /> -->
+              </div>
+              <div class="comment-box">
+                <div class="comment-box-inner">
+                  <input
+                    class="field"
+                    type="text"
+                    [placeholder]="replyPlaceHolder"
+                    (keyup.enter)="AddComment($event, post, comments)"
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- <div class="activity-box"  *ngFor="let post of posts">
+  <div class="activity-info">
+    <img
+      class="avatar"
+      src="../../../assets/images/home/sidebar/profile-image.PNG"
+    />
+    <div class="title-status">
+      <h4 class="title">  {{ post.user.firstName }} {{ post.user.lastName }}</h4>
+      <span class="status">posted an update</span>
+      <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+      <p>
+        {{ post.description }}
+      </p>
+      <button class="link">www.videolink.com</button>
+    </div>
+    <button class="settings">
+      <i
+        class="fa fa-ellipsis-h icon"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+      ></i>
+    </button>
+    <mat-menu #menu>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>Hide Post</span>
+        </p>
+      </button>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>Unfollow</span>
+        </p>
+      </button>
+      <button mat-menu-item (click)="openReportDialog()">
+        <p class="popup-title">
+          <span>Report</span>
+        </p>
+      </button>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>Copy Link</span>
+        </p>
+      </button>
+    </mat-menu>
+  </div>
+  <div class="activity-image-box">
+    <div class="icon-box">
+      <div class="like" (click)="openLikePostDialog()">
+        <i class="fa fa-thumbs-o-up icon"></i>
+        <span>{{ post?.likeCount }}</span>
+      </div>
+      <div class="comment">
+        <i class="fa fa-commenting-o icon"></i>
+        <span>16</span>
+      </div>
+    </div>
+    <div class="image-box">
+      <img
+        class="activity-image"
+        src="../../../assets/images/home/main/feed-image.PNG"
+      />
+      <button class="play-button">
+        <i class="fa fa-play icon"></i>
+      </button>
+    </div>
+    <ul class="activity-bottom-menu">
+      <li class="menu-item">
+        <i class="fa fa-thumbs-o-up icon primary"></i>
+        <span class="primary">Like</span>
+      </li>
+      <li class="menu-item">
+        <i class="fa fa-commenting-o icon"></i>
+        <span>Comment</span>
+      </li>
+      <li class="menu-item">
+        <app-share-popup></app-share-popup>
+      </li>
+    </ul>
+  </div>
+  <div class="comment-box-main">
+    <div class="comment-item-top">
+      <div class="image-box">
+        <img
+          class="image"
+          src="../../../assets/images/home/sidebar/profile-image.PNG"
+        />
+      </div>
+      <div class="comment-box">
+        <textarea class="field" placeholder="write a comment"></textarea>
+      </div>
+    </div>
+    <ul class="comment-section">
+      <li class="comment-item">
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <div class="comment-box">
+          <div class="comment-box-inner">
+            <p class="title">Emanuel Treutel</p>
+            <p class="comment">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Consequuntur nemo iure esse commodi sit. Eveniet est nulla
+              repellat cum, rerum beatae, fugit aut quidem perspiciatis maiores
+              deleniti, quos ex voluptas.
+            </p>
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="comment"
+            ></i>
+            <mat-menu #comment>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Hide Comment</span>
+                </p>
+              </button>
+              <button mat-menu-item (click)="openReportDialog()">
+                <p class="popup-title">
+                  <span>Report</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="actions">
+            <span class="like">Like</span>
+            <span class="reply">Reply</span>
+            <span class="time-ago">2 min ago</span>
+          </div>
+        </div>
+        <ul class="sub-comment-section">
+          <li class="sub-comment-item">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </div>
+            <div class="comment-box">
+              <div class="comment-box-inner">
+                <p class="title">Emanuel Treutel</p>
+                <p class="comment">Lorem ipsum dolor sit amet</p>
+                <i
+                  class="fa fa-ellipsis-h icon"
+                  mat-icon-button
+                  [matMenuTriggerFor]="comment"
+                ></i>
+                <mat-menu #comment>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>Hide Comment</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item (click)="openReportDialog()">
+                    <p class="popup-title">
+                      <span>Report</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="actions">
+                <span class="like">Like</span>
+                <span class="reply">Reply</span>
+                <span class="time-ago">2 min ago</span>
+              </div>
+            </div>
+          </li>
+          <li class="sub-comment-item">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </div>
+            <div class="comment-box">
+              <div class="comment-box-inner">
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Reply to Emanuel Treutel"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div> -->

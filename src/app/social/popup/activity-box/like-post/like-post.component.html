@@ -1,0 +1,110 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Likes on Post</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <ul class="like-list" *ngFor="let user of users">
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">{{ user.firstName + " " + user.lastName }}</p>
+        </div>
+        <button *ngIf="!user.isMyFriend" class="button request-send">
+          Request Send
+        </button>
+      </li>
+      <!-- <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button">
+          <i class="fas fa-plus add-icon"></i>
+          Add Friend
+        </button>
+      </li>
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button request-send">Request Send</button>
+      </li>
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button request-send">Request Send</button>
+      </li>
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button">
+          <i class="fas fa-plus add-icon"></i>
+          Add Friend
+        </button>
+      </li>
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button">
+          <i class="fas fa-plus add-icon"></i>
+          Add Friend
+        </button>
+      </li>
+      <li class="item">
+        <div class="friend-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Emmanuel Treute</p>
+        </div>
+        <button class="button">
+          <i class="fas fa-plus add-icon"></i>
+          Add Friend
+        </button>
+      </li> -->
+    </ul>
+  </div>
+</div>

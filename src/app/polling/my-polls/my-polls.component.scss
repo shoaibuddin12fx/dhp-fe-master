@@ -1,0 +1,108 @@
+@import "../../../assets/partials/variable.scss";
+.activity-box {
+  .activity-info {
+    .title-status {
+      .post-time {
+        .polling-status {
+          font-weight: 700;
+          color: $theme-warning;
+          &.secondary {
+            color: $theme-primary-dark;
+          }
+        }
+      }
+    }
+  }
+  .activity-image-box {
+    padding-left: 60px;
+    justify-content: flex-start;
+    .polling-result {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .item {
+        width: 100%;
+        z-index: 99;
+        height: 40px;
+        display: flex;
+        padding: 0 15px;
+        flex-flow: wrap;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 10px;
+        align-items: center;
+        background: $theme-bg-sidebar;
+        justify-content: space-between;
+        .title {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .percentage {
+          line-height: 1;
+          font-size: 16px;
+          font-weight: 800;
+          color: $theme-black;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .line-indication {
+          top: 0;
+          left: 0;
+          z-index: -1;
+          height: 100%;
+          display: block;
+          position: absolute;
+          border-radius: 5px;
+          background-color: #aef4cf;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mat-radio-group {
+  width: 100%;
+}
+::ng-deep .mat-radio-group .mat-radio-button {
+  width: 100%;
+  z-index: 99;
+  height: 40px;
+  display: flex;
+  padding: 0 15px;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  align-items: center;
+  background: #deffee;
+}
+::ng-deep .mat-radio-group .mat-radio-button:last-child {
+  margin-bottom: 0;
+}
+::ng-deep .mat-radio-group .mat-radio-button .mat-radio-label-content {
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+::ng-deep .mat-radio-group .mat-radio-button .percentage {
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 800;
+  color: $theme-black;
+}
+::ng-deep .mat-radio-group .mat-radio-button .line-indication {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #aef4cf;
+}
+::ng-deep .mat-radio-group .mat-radio-button .mat-radio-outer-circle {
+  border-width: 0;
+  background-color: $theme-white;
+}

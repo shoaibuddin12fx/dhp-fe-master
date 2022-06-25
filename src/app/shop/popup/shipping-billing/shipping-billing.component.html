@@ -1,0 +1,204 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title black">Shipping & Billing</h4>
+  </div>
+  <div class="popup-body">
+    <div *ngIf="type === 'shipping'">
+      <div class="shipping-address">
+        <p>Shipping Address</p>
+      </div>
+      <form
+        name="shippingForm"
+        [formGroup]="shippingForm"
+        novalidate
+        *ngIf="shippingForm"
+        id="form-groupForm"
+      >
+        <label>Full name</label>
+        <input
+          type="text"
+          placeholder="Full name"
+          class="field"
+          formControlName="fullName"
+        />
+        <label>Phone number</label>
+        <input
+          type="text"
+          placeholder="Phone number"
+          class="field"
+          formControlName="phoneNumber"
+        />
+        <label>Email</label>
+        <input
+          type="text"
+          placeholder="Email"
+          class="field"
+          formControlName="email"
+        />
+        <label>Country</label>
+        <ng-select
+          class="arrow"
+          [items]="countryList"
+          formControlName="country"
+          [multiple]="false"
+          [searchable]="true"
+          [clearable]="billingForm.get('country').value"
+          placeholder="Enter Country"
+        >
+        </ng-select>
+        <!-- <select class="field arrow">
+          <option value="" disabled selected>Country</option>
+          <option value="male">Canada</option>
+          <option value="female">Turkey</option>
+        </select> -->
+        <label>City</label>
+        <ng-select
+          class="arrow"
+          [items]="cityList"
+          formControlName="city"
+          [multiple]="false"
+          [searchable]="true"
+          [clearable]="billingForm.get('city').value"
+          placeholder="Enter city"
+        >
+        </ng-select>
+        <!-- <select class="field arrow">
+          <option value="" disabled selected>City</option>
+          <option value="male">City</option>
+          <option value="female">City</option>
+        </select> -->
+        <label>Area</label>
+        <input
+          type="text"
+          placeholder="Area"
+          class="field"
+          formControlName="area"
+        />
+        <label>Address</label>
+        <div class="popup-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.43556854007!2d-118.69193128882294!3d34.020730494168454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1642767474772!5m2!1sen!2s"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+          <div class="location-box">
+            <div class="location-search">
+              <input type="text" placeholder="Enter Location" />
+              <i class="fas fa-map-marker-alt icon"></i>
+            </div>
+            <button class="">Save</button>
+          </div>
+        </div>
+      </form>
+      <div class="billing-address">
+        <p hidd>Billing Address</p>
+        <form>
+          <mat-radio-group (ngModel)="(changeState)">
+            <mat-radio-button
+              [value]="1"
+              #button
+              [checked]="isVisible"
+              (click)="checkState($event, button)"
+              >Same as Shipping</mat-radio-button
+            >
+          </mat-radio-group>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="popup-body" *ngIf="(type === 'shipping' && changeState == 1) || type === 'billing'"> -->
+    <div
+      class="billing-box"
+      *ngIf="(type === 'shipping' && changeState == 1) || type === 'billing'"
+    >
+      <div class="shipping-address" *ngIf="type === 'billing'">
+        <p>Billing Address</p>
+      </div>
+      <form
+        name="billingForm"
+        [formGroup]="billingForm"
+        novalidate
+        *ngIf="billingForm"
+        id="form-groupForm"
+      >
+        <label>Full name</label>
+        <input
+          type="text"
+          placeholder="Full name"
+          class="field"
+          formControlName="fullName"
+        />
+        <label>Phone number</label>
+        <input
+          type="text"
+          placeholder="Phone number"
+          class="field"
+          formControlName="phoneNumber"
+        />
+        <label>Email</label>
+        <input
+          type="text"
+          placeholder="Email"
+          class="field"
+          formControlName="email"
+        />
+        <label>Country</label>
+        <ng-select
+          [items]="countryList"
+          formControlName="country"
+          [multiple]="false"
+          [searchable]="true"
+          [clearable]="billingForm.get('country').value"
+          placeholder="Enter Country"
+        >
+        </ng-select>
+        <!-- <select class="field arrow">
+          <option value="" disabled selected>Country</option>
+          <option value="male">Canada</option>
+          <option value="female">Turkey</option>
+        </select> -->
+        <label>City</label>
+        <ng-select
+          class="arrow"
+          [items]="cityList"
+          formControlName="city"
+          [multiple]="false"
+          [searchable]="true"
+          [clearable]="billingForm.get('city').value"
+          placeholder="Enter city"
+        >
+        </ng-select>
+        <!-- <select class="field arrow">
+          <option value="" disabled selected>City</option>
+          <option value="male">City</option>
+          <option value="female">City</option>
+        </select> -->
+        <label>Area</label>
+        <input type="text" placeholder="Area" class="field" />
+        <label>Address</label>
+        <div class="popup-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.43556854007!2d-118.69193128882294!3d34.020730494168454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1642767474772!5m2!1sen!2s"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+          <div class="location-box">
+            <div class="location-search">
+              <input type="text" placeholder="Enter Location" />
+              <i class="fas fa-map-marker-alt icon"></i>
+            </div>
+            <button class="">Save</button>
+          </div>
+        </div>
+      </form>
+      <!-- </div> -->
+    </div>
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" [mat-dialog-close]>Cancel</button>
+        <button class="btn add" (click)="add()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+.addional-image {
+  padding-left: 5px;
+
+  .main-image {
+    // height         : 220px;
+    background-size: cover;
+    margin: 10px;
+    @media (max-width: 460px) {
+      padding: 0 16px 0 0;
+    }
+  }
+
+  .upload-image-box {
+    // width: 120px;
+    // height: 120px;
+    margin: 2px;
+    background: #f0f2f4;
+    border-radius: 10px;
+
+    .addional-item {
+      height: 150px;
+      position: relative;
+      background-size: contain;
+      margin: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 1px solid #728591;
+      border-radius: 10px;
+
+      i {
+        font-size: 16px;
+        padding: 4px 5px;
+        width: max-content;
+        float: right;
+        margin-top: 4px;
+        margin-right: 4px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 100;
+        background: #00000061;
+        @media (max-width: 991px) {
+          font-size: 12px;
+        }
+      }
+      @media (max-width: 1024px) {
+        height: 80px;
+      }
+      @media (max-width: 560px) {
+        height: 70px;
+      }
+    }
+
+    .additional-show-image {
+      height: 150px;
+      position: relative;
+      background-size: contain;
+      border: 1px dashed #b3b2ae;
+      border-radius: 2px;
+      background-repeat: no-repeat;
+      margin: 0;
+      background-position: center;
+      @media (max-width: 1024px) {
+        height: 80px;
+      }
+      @media (max-width: 560px) {
+        height: 70px;
+      }
+    }
+  }
+}
+
+@import "../../../assets/partials/variable.scss";
+
+.cover-box {
+  margin: 0;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  background-color: #fbfbfb;
+  border: 1px solid $theme-background-light;
+  .cover-photo {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 50%;
+  }
+  .browse {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    transition: 0.2s ease-out;
+    .upload-field {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      position: absolute;
+      z-index: 1;
+      &[type="file"] {
+        cursor: pointer;
+      }
+    }
+    .main {
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      display: flex;
+      cursor: pointer;
+      flex-flow: wrap;
+      position: absolute;
+      color: $theme-border;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+      height: 100%;
+    }
+    .icon {
+      font-size: 30px;
+      cursor: pointer;
+      font-size: 30px;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $theme-content;
+    }
+    p {
+      width: 100%;
+      line-height: 1;
+      margin-top: 6px;
+      font-size: 12px;
+      margin-bottom: 0;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+  &:hover {
+    .browse {
+      opacity: 1;
+    }
+  }
+}
+// &:last-child {
+//   margin-right: 0;
+// }

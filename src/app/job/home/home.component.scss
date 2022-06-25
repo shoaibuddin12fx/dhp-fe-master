@@ -1,0 +1,246 @@
+@import "../../../assets/partials/variable.scss";
+.job-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .job-box {
+      margin: 20px 0;
+      .inner-box-main {
+        position: relative;
+        .inner-box {
+          padding: 22px 25px 22px 15px;
+          border-radius: 8px;
+          position: relative;
+          overflow: hidden;
+          border: 1px solid $theme-background-light;
+          margin-bottom: 10px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .image-box {
+            flex: 0 0 12%;
+            max-width: 12%;
+            text-align: center;
+            .image {
+              width: 50px;
+              object-fit: cover;
+              border-radius: 8px;
+            }
+          }
+          .content-box {
+            flex: 0 0 88%;
+            max-width: 88%;
+            padding-left: 20px;
+            .title {
+              margin-bottom: 0;
+              font-size: 15px;
+              font-weight: 800;
+              color: $theme-black;
+              line-height: 1.3;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              margin-bottom: 0px;
+              padding-right: 55px;
+            }
+            .address {
+              font-size: 12px;
+              font-weight: 500;
+              display: block;
+              line-height: 1.3;
+              color: $theme-content;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              margin: 0px 0 5px;
+              padding-right: 55px;
+            }
+            .job-type {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-top: 5px;
+              .left {
+                flex: 0 0 50%;
+                display: flex;
+                span {
+                  margin-right: 5px;
+                  display: inline-block;
+                  font-size: 13px;
+                  font-weight: 500;
+                  line-height: 1.1;
+                  i {
+                    font-size: 10px;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: $theme-primary;
+                    color: $theme-white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                }
+              }
+              .right {
+                flex: 0 0 50%;
+                text-align: end;
+                cursor: auto;
+                span {
+                  display: inline-block;
+                  margin-right: 10px;
+                  color: $theme-content;
+                  font-size: 12px;
+                  i {
+                    font-size: 12px;
+                    padding-right: 7px;
+                  }
+                  &:last-child {
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .button {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          line-height: 1;
+          .icon {
+            color: $theme-content;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      .search-box {
+        .button {
+          margin-bottom: 15px;
+        }
+        .feild {
+          color: $theme-black;
+          font-weight: 600;
+          font-size: 14px;
+          &::placeholder {
+            font-weight: 600;
+          }
+        }
+      }
+      .card-main-box {
+        .card-item {
+          .cards {
+            .category {
+              width: 100%;
+              margin-top: 5px;
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              .list {
+                display: flex;
+                flex-flow: wrap;
+                justify-content: space-between;
+                position: relative;
+                margin-bottom: 10px;
+                .title {
+                  color: $theme-content;
+                  text-decoration: none;
+                  font-weight: 500;
+                  font-size: 13px;
+                }
+                .action-buttons {
+                  display: unset;
+                  flex: unset;
+                  .button {
+                    border: 1px solid $theme-content;
+                    .icon {
+                      padding: 0;
+                      font-size: 10px;
+                      opacity: 0;
+                    }
+                    &.button-success {
+                      border-color: $theme-primary;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      .icon {
+                        color: $theme-primary;
+                        opacity: 1;
+                      }
+                    }
+                  }
+                }
+                &:hover {
+                  .title {
+                    color: $theme-primary;
+                  }
+                  &::before {
+                    background: $theme-primary;
+                  }
+                }
+              }
+            }
+            .feild {
+              font-weight: 600;
+              font-size: 14px;
+              &::placeholder {
+                font-weight: 600;
+              }
+            }
+            .location {
+              position: relative;
+              width: 100%;
+              .feild {
+                padding: 6px 20px 6px 33px;
+                border-radius: 25px;
+                width: 100%;
+                font-size: 13px;
+                line-height: 1;
+                border: 1px solid $theme-border;
+                &::placeholder {
+                  font-size: 12px;
+                  color: $theme-content;
+                  line-height: 1;
+                  font-weight: 600;
+                }
+              }
+              button {
+                position: absolute;
+                left: 13px;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 1;
+                .icon {
+                  color: $theme-primary;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+::ng-deep.expansion-header .mat-expansion-indicator::after {
+  color: $theme-content !important;
+}

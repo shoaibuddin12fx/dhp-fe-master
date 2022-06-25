@@ -1,0 +1,125 @@
+<div class="review-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Review Management</h4>
+    </div>
+  </div>
+  <mat-tab-group disableRipple>
+    <mat-tab label="Product Reviews">
+      <div class="row filter">
+        <!-- <div class="col-lg-3 col-3 pl-0">
+          <label>Order Number</label>
+          <input class="field" type="text" />
+        </div> -->
+        <div class="col-lg-3 col-3">
+          <label>Product Name</label>
+          <input class="field" [(ngModel)]="prodRev.prodName" type="text" />
+        </div>
+
+        <div class="col-lg-3 col-3 pr-0">
+          <label>Rating</label>
+          <ng-select
+            [items]="ratingList"
+            bindLabel="id"
+            bindValue="id"
+            [(ngModel)]="prodRev.rating"
+            [multiple]="false"
+            [searchable]="true"
+            [clearable]="prodRev.rating"
+            placeholder="Select Rating"
+          >
+          </ng-select>
+          <!-- <select class="field arrow" [(ngModel)]="prodRev.rating">
+            <option value="" disabled selected>Rating</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select> -->
+        </div>
+      </div>
+      <button class="search-button" (click)="getProdReviews()">Search</button>
+      <section class="data-table">
+        <div class="table-box">
+          <table class="w-100">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Review Content</th>
+                <th>Product Name</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of productReviews">
+                <td>
+                  {{ item.id }}
+                </td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.productName }}</td>
+                <td>{{ item.rating }}</td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="shopReviews.length == 0">
+              <td class="text-left" colspan="4">
+                <p class="record-status">No Record Available</p>
+              </td>
+            </tfoot>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </section>
+    </mat-tab>
+    <mat-tab label="Seller Reviews">
+      <!-- <div class="row filter">
+        <div class="col-lg-3 col-3 pl-0">
+          <label>Order Number</label>
+          <input class="field" type="text" />
+        </div>
+      </div>
+      <button class="search-button">Search</button> -->
+      <section class="data-table">
+        <div class="table-box">
+          <table class="w-100">
+            <thead>
+              <tr>
+                <th>Review Content</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of shopReviews">
+                <td
+                  class="pointer"
+                  [routerLink]="['/e-seller', 'order-detail']"
+                >
+                  {{ item.description }}
+                </td>
+                <td>{{ item.rating }}</td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="shopReviews.length == 0">
+              <td class="text-left" colspan="4">
+                <p class="record-status">No Record Available</p>
+              </td>
+            </tfoot>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</div>

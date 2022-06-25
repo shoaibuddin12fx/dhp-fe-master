@@ -1,0 +1,213 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <div class="search-box">
+      <div class="search">
+        <i class="fa fa-search icon"></i>
+        <input
+          type="text"
+          placeholder="Search by groups"
+          [(ngModel)]="search"
+        />
+      </div>
+    </div>
+    <div class="title-box">
+      <h4 class="title">Groups you manage</h4>
+      <button class="button">View All</button>
+    </div>
+    <div class="discover-group-section">
+      <div
+        class="group-box"
+        *ngFor="
+          let item of myGroupList | filter: [{ field: 'name', value: search }]
+        "
+      >
+        <div
+          class="group-cover"
+          [routerLink]="['/social/groups/admin', item.id, 'feed']"
+        >
+          <ng-container *ngIf="item.coverPhoto !== ''; else elseCoverPhoto">
+            <img class="image" [src]="item.coverPhoto" />
+          </ng-container>
+          <ng-template #elseCoverPhoto>
+            <img
+              class="image"
+              src="../../../assets/images/groups/group-bg.jpg"
+            />
+          </ng-template>
+        </div>
+        <div class="group-info">
+          <div class="group-image">
+            <ng-container
+              *ngIf="item.profilePhoto !== ''; else elseProfilePhoto"
+            >
+              <img class="image" [src]="item.profilePhoto" />
+            </ng-container>
+            <ng-template #elseProfilePhoto>
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </ng-template>
+          </div>
+          <h4 class="title">{{ item.name }}</h4>
+          <p class="group-status">
+            {{ item.privacyType | uppercase }} Group({{
+              item.groupFriendCount <= 9
+                ? item.groupFriendCount
+                : item.groupFriendCount - (item.groupFriendCount % 10)
+            }}<span *ngIf="item.groupFriendCount > 9">+</span> member<span
+              *ngIf="item.groupFriendCount > 1"
+              >s</span
+            >)
+          </p>
+        </div>
+      </div>
+      <div *ngIf="myGroupList.length <= 0">You have not created any group.</div>
+    </div>
+    <div class="title-box">
+      <h4 class="title">Groups you're joined</h4>
+      <button class="button">View All</button>
+    </div>
+    <div class="discover-group-section">
+      <div
+        class="group-box"
+        *ngFor="
+          let item of joinedGroups | filter: [{ field: 'name', value: search }]
+        "
+      >
+        <div class="group-cover">
+          <ng-container *ngIf="item.coverPhoto !== ''; else elseCoverPhoto">
+            <img class="image" [src]="item.coverPhoto" />
+          </ng-container>
+          <ng-template #elseCoverPhoto>
+            <img
+              class="image"
+              src="../../../assets/images/groups/group-bg.jpg"
+            />
+          </ng-template>
+        </div>
+        <div class="group-info">
+          <div class="group-image">
+            <ng-container
+              *ngIf="item.profilePhoto !== ''; else elseProfilePhoto"
+            >
+              <img class="image" [src]="item.profilePhoto" />
+            </ng-container>
+            <ng-template #elseProfilePhoto>
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </ng-template>
+          </div>
+          <h4 class="title">{{ item.name }}</h4>
+          <p class="group-status">
+            {{ item.privacyType | uppercase }} Group({{
+              item.groupFriendCount <= 9
+                ? item.groupFriendCount
+                : item.groupFriendCount - (item.groupFriendCount % 10)
+            }}<span *ngIf="item.groupFriendCount > 9">+</span> member<span
+              *ngIf="item.groupFriendCount > 1"
+              >s</span
+            >)
+          </p>
+          <button class="button button-warning">Leave Group</button>
+        </div>
+      </div>
+      <div *ngIf="joinedGroups.length <= 0">You have not joined any group.</div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Invitations</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">50 members | 5 Active</span>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-gray">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">50 members | 5 Active</span>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-gray">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-warning">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">50 members | 5 Active</span>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-gray">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-gray">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

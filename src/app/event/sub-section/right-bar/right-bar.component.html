@@ -1,0 +1,96 @@
+<div class="search-box">
+  <div class="search">
+    <i class="fa fa-search icon"></i>
+    <input type="text" placeholder="Discover events" />
+  </div>
+  <button class="button" (click)="createEventDialog()">
+    <i class="fas fa-pencil-alt icon"></i>Create Event
+  </button>
+</div>
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Scheduled events</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="card-main-box">
+      <div class="card-item">
+        <div class="cards row gx-0">
+          <div class="col-lg-3">
+            <img
+              class="avatar edge-sm"
+              src="../../../assets/images/event/home/event-image.jpg"
+            />
+          </div>
+          <div class="col-lg-9">
+            <p class="title">Auto Showcase</p>
+            <p class="content">
+              <span class="right-content">900 interested</span>
+              <span class="left-content">400 Going</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Suggested events</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="card-main-box">
+      <div class="card-item">
+        <div class="cards row gx-0">
+          <div class="col-lg-3">
+            <img
+              class="avatar edge-sm"
+              src="../../../assets/images/event/home/event-image.jpg "
+            />
+          </div>
+          <div class="col-lg-9">
+            <p class="title">Auto Showcase</p>
+            <p class="content">
+              <span class="right-content">900 interested</span>
+              <span class="left-content">400 Going</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="cards row gx-0">
+          <div class="col-lg-3">
+            <img
+              class="avatar edge-sm"
+              src="../../../assets/images/event/home/event-image4.jpg "
+            />
+          </div>
+          <div class="col-lg-9">
+            <p class="title">Carmeet</p>
+            <p class="content">
+              <span class="right-content">900 interested</span>
+              <span class="left-content">400 Going</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="cards row gx-0">
+          <div class="col-lg-3">
+            <img
+              class="avatar edge-sm"
+              src="../../../assets/images/event/home/event-image5.jpg "
+            />
+          </div>
+          <div class="col-lg-9">
+            <p class="title">Lowriders</p>
+            <p class="content">
+              <span class="right-content">900 interested</span>
+              <span class="left-content">400 Going</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

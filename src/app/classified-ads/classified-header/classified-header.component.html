@@ -1,0 +1,56 @@
+<ul class="section-nav">
+  <li
+    class="item"
+    [routerLink]="['/classified-ads', 'home']"
+    [routerLinkActive]="['active']"
+  >
+    Adverts
+  </li>
+  <li class="item">
+    Categories
+    <i class="fas fa-angle-down icon"></i>
+    <ul class="category">
+      <li class="ad-list">
+        local Places
+        <i class="fas fa-angle-right"></i>
+        <ul class="sub-category">
+          <li class="ad-list">Grocery Stores</li>
+          <li class="ad-list">Restaurant</li>
+          <li class="ad-list">Doctors</li>
+          <li class="ad-list">Islamic schools</li>
+          <li class="ad-list">Class/Workshop</li>
+          <li class="ad-list">General</li>
+          <li class="ad-list">Lost & Found</li>
+          <li class="ad-list">Mucicians/DJ</li>
+        </ul>
+      </li>
+      <li class="ad-list">
+        Services
+        <i class="fas fa-angle-right"></i>
+      </li>
+      <li class="ad-list">
+        For Rent
+        <i class="fas fa-angle-right"></i>
+      </li>
+      <li class="ad-list">
+        Real Estate for Sale
+        <i class="fas fa-angle-right"></i>
+      </li>
+      <li class="ad-list">
+        Items for sale
+        <i class="fas fa-angle-right"></i>
+      </li>
+      <li class="ad-list">
+        Vehicles
+        <i class="fas fa-angle-right"></i>
+      </li>
+    </ul>
+  </li>
+  <li
+    class="item"
+    [routerLink]="['/classified-ads', 'my-ads']"
+    [routerLinkActive]="['active']"
+  >
+    My Adverts
+  </li>
+</ul>

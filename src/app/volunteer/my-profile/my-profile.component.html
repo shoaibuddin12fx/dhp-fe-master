@@ -1,0 +1,278 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <ul class="section-nav">
+      <li
+        class="item"
+        [routerLink]="['/volunteer', 'home']"
+        [routerLinkActive]="['active']"
+      >
+        Volunteers
+      </li>
+      <li
+        class="item"
+        [routerLink]="['/volunteer', 'my-profile']"
+        [routerLinkActive]="['active']"
+      >
+        My Profile
+      </li>
+    </ul>
+
+    <div class="setup-box">
+      <div class="title-box">
+        <h4 class="title">Profile Information</h4>
+      </div>
+      <ul class="listing">
+        <li class="item">
+          <span class="label">Volunteer Profile</span>
+          <ul class="image-upload-box">
+            <li class="image-main">
+              <figure class="cover-box">
+                <div class="browse" #image>
+                  <input
+                    class="upload-field"
+                    type="file"
+                    id="file"
+                    accept="image/*"
+                  />
+                  <div class="main" for="file">
+                    <label class="fa fa-camera icon"></label>
+                    <p>Profile Picture</p>
+                  </div>
+                </div>
+              </figure>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <form class="row">
+            <div class="col-lg-12 col-12">
+              <label class="label">Name</label>
+              <input class="field" type="text" placeholder="Name" />
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="label">Email</label>
+              <input class="field" type="mail" placeholder="Email" />
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="label">Contact Number</label>
+              <input class="field" type="text" placeholder="Contact Number" />
+            </div>
+            <div class="col-lg-12 col-12">
+              <label class="label">Category</label>
+              <select class="field arrow">
+                <option value="" disabled selected>Category</option>
+                <option value="1">Attorney</option>
+                <option value="2">Doctor</option>
+                <option value="3">Social Worker</option>
+                <option value="4">Politician</option>
+                <option value="5">Technology</option>
+                <option value="6">Engineering</option>
+                <option value="7">Self-Employed</option>
+                <option value="8">Media/Journalist</option>
+                <option value="9">Education</option>
+                <option value="10">Environment</option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="label">City</label>
+              <input class="field" type="text" placeholder="City" />
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="label">Country</label>
+              <input class="field" type="text" placeholder="Country" />
+            </div>
+            <div class="col-lg-12 col-12">
+              <label class="label">Reason for joining as volunteer?</label>
+              <textarea
+                class="field text-field"
+                placeholder="Reason here...."
+              ></textarea>
+            </div>
+          </form>
+        </li>
+        <li class="item">
+          <button class="button">Save Changes</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-title"
+              >Related Volunteers</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3 col-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9 col-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-title"
+              >Other Volunteers</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Kate Wilson</p>
+                  <span class="content"
+                    ><i class="fas fa-shapes icon"></i>Attorney, Doctor,
+                    Social</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

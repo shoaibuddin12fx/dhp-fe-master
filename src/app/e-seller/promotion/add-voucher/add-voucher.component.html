@@ -1,0 +1,198 @@
+<div class="voucher-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Add New Voucher</h4>
+    </div>
+  </div>
+  <div class="setup-section">
+    <div class="setup-box">
+      <ul class="listing">
+        <li class="item">
+          <form class="row" [formGroup]="myForm" novalidate *ngIf="myForm">
+            <div class="col-lg-6 col-6">
+              <label class="label">Voucher Name</label>
+              <input
+                class="field"
+                formControlName="voucherName"
+                type="text"
+                placeholder="Voucher Name"
+              />
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Voucher Code</label>
+              <input
+                class="field"
+                formControlName="voucherCode"
+                type="text"
+                placeholder="Code"
+              />
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Select Date</label>
+              <input class="field" formControlName="selectDate" type="date" />
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">End Date</label>
+              <input class="field" formControlName="endDate" type="date" />
+            </div>
+            <div class="col-lg-12">
+              <div class="voucher-discount">
+                <mat-radio-group formControlName="discountType">
+                  <label>Discount Type</label>
+                  <mat-radio-button
+                    [value]="1"
+                    [checked]="myForm.get('discountType').value === '1'"
+                    >Money Value Voucher
+                  </mat-radio-button>
+                  <mat-radio-button
+                    [value]="2"
+                    [checked]="myForm.get('discountType').value === '2'"
+                    >Percentage Value Voucher</mat-radio-button
+                  >
+                </mat-radio-group>
+              </div>
+              <div
+                class="money-voucher"
+                *ngIf="myForm.controls['discountType'].value == 1"
+              >
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="label">Discount Value</label>
+                    <input
+                      class="field"
+                      formControlName="discountValue"
+                      type="number"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label"
+                      >Minimum value order to apply voucher</label
+                    >
+                    <input
+                      class="field"
+                      formControlName="minValueOrder"
+                      type="number"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label">Total voucher to be issued</label>
+                    <input
+                      class="field"
+                      formControlName="totalVoucher"
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label">Usage limit per Customer</label>
+                    <input
+                      class="field"
+                      formControlName="usageLimitPerCustomer"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="percentage-voucher"
+                *ngIf="myForm.controls['discountType'].value == 2"
+              >
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="label">Discount value (%)</label>
+                    <input
+                      class="field"
+                      type="number"
+                      formControlName="discountValue"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label"
+                      >Minimum value order to apply voucher</label
+                    >
+                    <input
+                      class="field"
+                      formControlName="discountPercentageValue"
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label">Maximum Discount</label>
+                    <input
+                      class="field"
+                      formControlName="maximumDiscount"
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label">Total voucher to be issued</label>
+                    <input
+                      class="field"
+                      formControlName="totalVoucher"
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="label">Usage limit per Customer</label>
+                    <input
+                      class="field"
+                      formControlName="usageLimitPerCustomer"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="voucher-discount">
+                <form>
+                  <mat-radio-group (change)="applyVoucher = $event.value">
+                    <label>Apply To</label>
+                    <mat-radio-button [value]="0" [checked]="applyVoucher === 0"
+                      >Shop</mat-radio-button
+                    >
+                    <mat-radio-button [value]="1" [checked]="applyVoucher === 1"
+                      >Product SKU</mat-radio-button
+                    >
+                  </mat-radio-group>
+                </form>
+              </div>
+              <div class="Product-sku" *ngIf="applyVoucher == 1">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="label">SKU</label>
+                    <!-- <input
+                      class="field"
+                      type="text"
+                      formControlName="productSku"
+                    /> -->
+                    <ng-select
+                      class="arrow"
+                      bindLabel="sku"
+                      bindValue="sku"
+                      [items]="sku"
+                      formControlName="productSku"
+                      [multiple]="true"
+                      [searchable]="true"
+                      [clearable]="myForm.get('productSku').value"
+                      placeholder="Enter SKU"
+                    >
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div class="action-buttons">
+      <button
+        class="button"
+        [routerLink]="['/e-seller', 'main', shopId, 'manage-voucher']"
+      >
+        Cancel
+      </button>
+      <button class="button" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+<div class="row gx-0">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="left-box">
+      <div class="logo">
+        <img src="../../../assets/images/authentication/logo-black.png" />
+      </div>
+      <div class="main-box">
+        <h2 class="title">Create <span>Shop</span></h2>
+        <form
+          class="form"
+          name="groupForm"
+          [formGroup]="form"
+          novalidate
+          *ngIf="form"
+          id="form-groupForm"
+        >
+          <!-- <div class="field"> -->
+          <label class="label">Select Type</label>
+          <ng-select
+            class="arrow"
+            [items]="shopType"
+            formControlName="type"
+            [multiple]="false"
+            [searchable]="true"
+            bindValue="value"
+            bindLabel="name"
+            [clearable]="form.get('type').value"
+          >
+          </ng-select>
+          <p
+            class="custom-error"
+            *ngIf="
+              form.get('type').hasError('required') &&
+              (form.get('type').touched || isError)
+            "
+          >
+            Type is required.
+          </p>
+          <!-- </div> -->
+          <!-- <div class="field"> -->
+          <label class="label">Select Country</label>
+
+          <ng-select
+            class="arrow"
+            [items]="countryList"
+            formControlName="country"
+            [multiple]="true"
+            [searchable]="true"
+            [clearable]="form.get('country').value"
+          >
+          </ng-select>
+          <p
+            class="custom-error"
+            *ngIf="
+              form.get('country').hasError('required') &&
+              (form.get('country').touched || isError)
+            "
+          >
+            Country is required.
+          </p>
+          <!-- </div> -->
+          <div class="field-container">
+            <label class="label">Shop Name</label>
+            <input class="field" type="text" formControlName="name" />
+            <p
+              class="custom-error"
+              *ngIf="
+                form.get('name').hasError('required') &&
+                (form.get('name').touched || isError)
+              "
+            >
+              Name is required.
+            </p>
+          </div>
+          <div class="field-container">
+            <label class="label">Email</label>
+
+            <input class="field" type="mail" formControlName="email" />
+            <p
+              class="custom-error"
+              *ngIf="
+                form.get('email').hasError('required') &&
+                (form.get('email').touched || isError)
+              "
+            >
+              Email is required.
+            </p>
+
+            <p class="custom-error" *ngIf="invalidEmail">Invalid Email.</p>
+          </div>
+          <div class="action-button">
+            <button
+              class="button"
+              type="submit"
+              (click)="save()"
+              [disabled]="showLoading"
+            >
+              Create
+              <img
+                src="../../../assets/images/tail-spin.svg"
+                alt="loading"
+                width="23px"
+                *ngIf="showLoading"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="right-box">
+      <div class="content-box">
+        <h1 class="title">
+          <b>Welcome to <span>E-SELLER</span></b>
+        </h1>
+        <p class="content">
+          Simple Steps to <br />
+          Earn using Dil Hai Pakistani Shop Platform
+        </p>
+        <ul class="login-list">
+          <li class="list">
+            <img src="../../assets/images/seller/signup.png" class="image" />
+            <p class="item">
+              <span>1</span>Sign <br />
+              Up
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/profile.png" class="image" />
+            <p class="item">
+              <span>2</span>Create Shop <br />
+              Profile
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/products.png" class="image" />
+            <p class="item">
+              <span>3</span>Upload <br />
+              products
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/sell.png" class="image" />
+            <p class="item">
+              <span>4</span>Sell and <br />
+              Earn
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

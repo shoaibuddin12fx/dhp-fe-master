@@ -1,0 +1,396 @@
+<div class="volunteer-layout">
+  <div class="left-box">
+    <ul class="section-nav">
+      <li
+        class="item"
+        [routerLink]="['/volunteer', 'home']"
+        [routerLinkActive]="['active']"
+      >
+        Volunteers
+      </li>
+      <li
+        class="item"
+        [routerLink]="['/volunteer', 'my-profile']"
+        [routerLinkActive]="['active']"
+      >
+        My Profile
+      </li>
+    </ul>
+    <div class="title-box">
+      <h4 class="title">Volunteers</h4>
+      <button class="icon-button" (click)="openTermsDialog()">
+        <i class="fas fa-plus icon"></i>
+      </button>
+    </div>
+    <div class="volunteer-box">
+      <div class="inner-box" [routerLink]="['/volunteer', 'detail-view']">
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Wilson</p>
+          </li>
+          <li class="item">
+            <span>Volunteering in:</span>
+            <p class="content">Engineering, Education</p>
+          </li>
+          <li class="item">
+            <span>Email:</span>
+            <p class="content">wilson@gmail.com</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">
+              Lorem ipsum dolor, sit amet consectetur adipisicin.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="volunteer-box">
+      <div class="inner-box" [routerLink]="['/volunteer', 'detail-view']">
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Wilson</p>
+          </li>
+          <li class="item">
+            <span>Volunteering in:</span>
+            <p class="content">Engineering, Education</p>
+          </li>
+          <li class="item">
+            <span>Email:</span>
+            <p class="content">wilson@gmail.com</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">
+              Lorem ipsum dolor, sit amet consectetur adipisicin.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="volunteer-box">
+      <div class="inner-box" [routerLink]="['/volunteer', 'detail-view']">
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Wilson</p>
+          </li>
+          <li class="item">
+            <span>Volunteering in:</span>
+            <p class="content">Engineering, Education</p>
+          </li>
+          <li class="item">
+            <span>Email:</span>
+            <p class="content">wilson@gmail.com</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">
+              Lorem ipsum dolor, sit amet consectetur adipisicin.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button mb-10" (click)="openTermsDialog()">
+          Become a Volunteer
+        </button>
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="top-bar">
+        <h4 class="title">Location</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="location">
+              <input
+                type="text"
+                class="feild"
+                placeholder="Search City, Country"
+              />
+              <button>
+                <i class="fas fa-map-marker-alt icon"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-title">Category</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Attorney</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Doctor</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Social Worker</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Politician</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Technology</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Engineering</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Self-Employed</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Media/Journalist</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Education</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10 col-md-10 col-10">
+                  <span class="storage-title">Environment</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

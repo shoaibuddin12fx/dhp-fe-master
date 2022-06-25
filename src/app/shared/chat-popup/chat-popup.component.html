@@ -1,0 +1,116 @@
+<!-- <span [ngClass]="!isMaster ? 'popup-box' : ''"> -->
+<div class="popup-box-chat">
+  <div class="inner-chat">
+    <div class="title-chat">
+      <div class="name-chat">
+        <div class="image">
+          <img
+            class=""
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+            alt=""
+          />
+        </div>
+        <p class="">{{ recipient?.fullName || groupChatRoom?.name }}</p>
+      </div>
+      <div class="icon">
+        <button (click)="minimize()">
+          <i class="fas fa-minus" *ngIf="!isMinimize"></i>
+          <i
+            class="fa fa-window-maximize"
+            aria-hidden="true"
+            *ngIf="isMinimize"
+          ></i>
+        </button>
+        <button (click)="closeChatBox()"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div *ngIf="!isMinimize">
+      <div
+        class="content-chat"
+        id="{{ 'chat_container_div' + modalId }}"
+        *ngIf="!showEmojiPicker"
+      >
+        <div *ngIf="isLoadingMessages" class="loader"></div>
+        <div *ngIf="!messages?.length && !isLoadingMessages">
+          No chat data found
+        </div>
+        <ng-container *ngFor="let message of messages">
+          <div
+            class="received-message"
+            *ngIf="message?.sender != currentUser?.id"
+          >
+            <img [src]="message?.userImage" alt="" />
+            <div class="message">
+              <p>
+                {{ message?.message }}
+                <span
+                  style="
+                    display: flex;
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-left: 30px;
+                  "
+                >
+                  {{ message.createdDate | date }}</span
+                >
+              </p>
+              <div class="emoji">
+                <button><i class="far fa-laugh-squint"></i></button>
+                <button><i class="fas fa-reply"></i></button>
+                <button><i class="fas fa-ellipsis-h"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="sent-messsage" *ngIf="message?.sender == currentUser?.id">
+            <img [src]="message?.userImage" alt="" />
+            <div class="message">
+              <p>
+                {{ message?.message }}
+                <span
+                  style="
+                    display: flex;
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-left: 30px;
+                  "
+                >
+                  {{ message.createdDate | date }}</span
+                >
+              </p>
+              <div class="emoji">
+                <button><i class="fas fa-ellipsis-h"></i></button>
+                <button><i class="fas fa-reply"></i></button>
+                <button><i class="far fa-laugh-squint"></i></button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <emoji-mart
+        class="emoji-mart"
+        set="{{ set }}"
+        *ngIf="showEmojiPicker"
+        (emojiSelect)="addEmoji($event)"
+        perLine="8"
+      >
+      </emoji-mart>
+      <div class="type-message">
+        <button><i class="far fa-image image-emoji"></i></button>
+        <div class="text-field">
+          <textarea
+            row="1"
+            name=""
+            placeholder="Say something"
+            [(ngModel)]="message"
+            (focus)="onFocus()"
+            (keyup.enter)="onSendMessage($event)"
+          ></textarea>
+
+          <button (click)="toggleEmojiPicker()">
+            <i class="fa fa-smile-o text-emoji"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

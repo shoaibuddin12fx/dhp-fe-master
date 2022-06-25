@@ -1,0 +1,103 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Give a Review</h4>
+  </div>
+  <div class="popup-body">
+    <mat-tab-group disableRipple mat-align-tabs="start">
+      <mat-tab label="Product Review">
+        <form
+          name="groupForm"
+          [formGroup]="reviewForm"
+          novalidate
+          *ngIf="reviewForm"
+          id="form-groupForm"
+        >
+          <div class="tab-content">
+            <label>Product Name</label>
+            <input
+              class="field"
+              [(ngModel)]="product.name"
+              [ngModelOptions]="{ standalone: true }"
+              type="text"
+              readonly
+              value="Samsung S9"
+            />
+
+            <label>Review</label>
+            <textarea
+              formControlName="description"
+              class="text-field field"
+              placeholder="Write a Review"
+            ></textarea>
+
+            <label>Rating</label>
+            <!-- <ul class="rating">
+            <li class="list">
+              <i class="fas fa-star icon active-icon"></i>
+            </li>
+            <li class="list">
+              <i class="fas fa-star icon active-icon"></i>
+            </li>
+            <li class="list">
+              <i class="fas fa-star icon active-icon"></i>
+            </li>
+            <li class="list">
+              <i class="fas fa-star icon gray"></i>
+            </li>
+            <li class="list">
+              <i class="fas fa-star icon gray"></i>
+            </li>
+          </ul> -->
+            <ngx-star-rating
+              formControlName="rating"
+              [id]="'rating'"
+            ></ngx-star-rating>
+            <div class="action-buttons">
+              <div class="right-box">
+                <button class="btn close" [mat-dialog-close]>Cancel</button>
+                <button class="btn add" (click)="save(true)">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Seller Review">
+        <form
+          name="groupForm"
+          [formGroup]="sellerReviewForm"
+          novalidate
+          *ngIf="sellerReviewForm"
+          id="form-groupForm"
+        >
+          <div class="tab-content">
+            <label>Seller Name</label>
+            <input
+              class="field"
+              type="text"
+              [ngModel]="product.shop.name"
+              [ngModelOptions]="{ standalone: true }"
+              readonly
+            />
+
+            <label>Review</label>
+            <textarea
+              formControlName="description"
+              class="text-field field"
+              placeholder="Write a Review"
+            ></textarea>
+            <ngx-star-rating
+              formControlName="rating"
+              [id]="'rating'"
+            ></ngx-star-rating>
+            <div class="action-buttons">
+              <div class="right-box">
+                <button class="btn close" [mat-dialog-close]>Cancel</button>
+                <button class="btn add" (click)="save(false)">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

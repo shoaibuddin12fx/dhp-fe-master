@@ -1,0 +1,78 @@
+@import "../../../assets/partials/variable.scss";
+.section-nav {
+  .item {
+    cursor: pointer;
+    .icon {
+      font-size: 13px;
+      position: absolute;
+      line-height: 0.6;
+      display: inline-block;
+      bottom: 18px;
+      right: -2px;
+    }
+    .category {
+      position: absolute;
+      top: calc(0% - -52px);
+      width: 170px;
+      left: 0;
+      background: $theme-white;
+      list-style: none;
+      padding: 10px 0px;
+      z-index: 1;
+      border: 1px solid $theme-bg-sidebar;
+      border-radius: 10px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s all;
+      .ad-list {
+        padding: 0;
+        margin: 0;
+        color: $theme-black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 0 15px;
+        i {
+          color: $theme-content;
+          font-size: 12px;
+        }
+        .sub-category {
+          position: absolute;
+          right: -170px;
+          padding: 0;
+          width: 170px;
+          background: $theme-bg-sidebar;
+          border: 1px solid $theme-bg-sidebar;
+          border-radius: 10px;
+          padding: 10px 15px;
+          visibility: hidden;
+          opacity: 0;
+          transition: 0.3s all;
+          top: 0;
+        }
+        &:hover {
+          .sub-category {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        &:hover {
+          color: $theme-primary;
+          i {
+            color: $theme-primary;
+          }
+        }
+      }
+    }
+    &:hover {
+      .category {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    &:nth-child(2) {
+      padding-right: 10px;
+    }
+  }
+}

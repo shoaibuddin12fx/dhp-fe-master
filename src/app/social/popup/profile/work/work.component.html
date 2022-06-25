@@ -1,0 +1,63 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else elseTemplate"> Add </ng-container>
+      <ng-template #elseTemplate> Update </ng-template>
+      Company
+    </h4>
+  </div>
+  <div class="popup-body">
+    <input
+      class="field"
+      type="text"
+      placeholder="Company name"
+      [(ngModel)]="name"
+    />
+    <input
+      class="field"
+      type="text"
+      placeholder="Position"
+      [(ngModel)]="position"
+    />
+    <label class="label">Time Period</label>
+    <form>
+      <mat-radio-group>
+        <mat-checkbox
+          class="example-margin"
+          [checked]="isCurrentlyEmployed"
+          (change)="check($event.checked)"
+          >Currently Employed</mat-checkbox
+        >
+        <!-- <mat-radio-button value="currentlyEmployed">Currently Employed</mat-radio-button> -->
+      </mat-radio-group>
+    </form>
+    <div class="field-container">
+      <select class="field arrow" [(ngModel)]="fromDate">
+        <option *ngFor="let item of yearList" [value]="item" [label]="item">
+          Year
+        </option>
+      </select>
+      <label class="label" [hidden]="isCurrentlyEmployed">To</label>
+      <select
+        class="field arrow"
+        [hidden]="isCurrentlyEmployed"
+        [(ngModel)]="toDate"
+      >
+        <option *ngFor="let item of yearList" [value]="item" [label]="item">
+          Year
+        </option>
+      </select>
+      <!-- <ng-select [items]="yearList" name="fromYear" ngDefaultControl class="field" [(ngModel)]="fromDate">
+      </ng-select>
+      <label class="label">To</label>
+      <ng-select [items]="yearList" name="fromYear" ngDefaultControl class="field" [(ngModel)]="toDate">
+      </ng-select> -->
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Add</button>
+    </div>
+  </div>
+</div>

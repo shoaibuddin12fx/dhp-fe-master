@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let item of memberList | slice: 0:5">
+    <button class="profile-image">
+      <img class="image" [src]="item.profileImage" />
+    </button>
+    <div class="profile-info">
+      <p class="profile-title">{{ item.fullName }}</p>
+    </div>
+    <div
+      class="profile-button"
+      *ngIf="!isAbout"
+      mat-icon-button
+      [matMenuTriggerFor]="admin"
+    >
+      <i class="fa fa-ellipsis-h icon"></i>
+    </div>
+    <mat-menu #admin>
+      <button mat-menu-item (click)="$event.stopPropagation()">
+        <p class="popup-title">
+          <span>Post Approval</span>
+          <mat-slide-toggle
+            [(ngModel)]="item.isPostApproval"
+            (change)="onPostApproval(item, $event)"
+          ></mat-slide-toggle>
+        </p>
+      </button>
+      <button
+        mat-menu-item
+        (click)="item.role == '2' ? removeAsAdmin(item) : addAsAdmin(item)"
+      >
+        <p class="popup-title">
+          <span>{{ item.role == "2" ? "Remove" : "Add" }} as Admin</span>
+        </p>
+      </button>
+      <button mat-menu-item (click)="blockFromGroup(item)">
+        <p class="popup-title">
+          <span>Block from Group</span>
+        </p>
+      </button>
+      <button mat-menu-item (click)="removeMember(item)">
+        <p class="popup-title">
+          <span>Remove Member</span>
+        </p>
+      </button>
+    </mat-menu>
+  </div>
+</div>

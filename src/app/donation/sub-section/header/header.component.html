@@ -1,0 +1,51 @@
+<ul class="section-nav">
+  <li
+    class="item"
+    [routerLink]="['/donation', 'home']"
+    [routerLinkActive]="['active']"
+  >
+    Home
+  </li>
+  <li class="item">
+    Donate for
+    <i class="fas fa-angle-down icon"></i>
+    <ul class="category">
+      <li class="ad-list">Accident and Emergencies</li>
+      <li class="ad-list">Funerals</li>
+      <li class="ad-list">Animals & Pets</li>
+      <li class="ad-list">Medical</li>
+      <li class="ad-list">Kids & Family</li>
+      <li class="ad-list">Mosques</li>
+      <li class="ad-list">Celebration & Event</li>
+      <li class="ad-list">Rent, Food & Monthly Expense</li>
+      <li class="ad-list">Creative Arts</li>
+      <li class="ad-list">Sports</li>
+      <li class="ad-list">Dreams, Hope & Wishes</li>
+      <li class="ad-list">Education</li>
+      <li class="ad-list">Volunteer Service</li>
+      <li class="ad-list">Enviroment</li>
+      <li class="ad-list">Other</li>
+    </ul>
+  </li>
+  <li
+    class="item"
+    [routerLink]="['/donation', 'donor-wall']"
+    [routerLinkActive]="['active']"
+  >
+    Donor Wall
+  </li>
+  <li
+    class="item"
+    [routerLink]="['/donation', 'my-campaigns']"
+    [routerLinkActive]="['active']"
+  >
+    My Campaigns
+  </li>
+  <li
+    class="item"
+    [routerLink]="['/donation', 'my-donations']"
+    [routerLinkActive]="['active']"
+  >
+    My Donations
+  </li>
+</ul>

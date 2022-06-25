@@ -1,0 +1,505 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <app-header></app-header>
+    <div class="title-box">
+      <h4 class="title">Matrimonials</h4>
+      <button class="icon-button" [routerLink]="['/matrimonial', 'my-profile']">
+        <i class="fas fa-plus icon"></i>
+      </button>
+    </div>
+    <div class="matrimonial-box">
+      <div class="inner-box">
+        <div class="image-box">
+          <div class="image-main">
+            <img
+              class="image"
+              src="../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+            <div class="create-account">
+              <i class="far fa-eye-slash icon"></i>
+              <span>Create Profile</span>
+            </div>
+          </div>
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">**********</p>
+            <button
+              class="create"
+              [routerLink]="['/matrimonial', 'my-profile']"
+            >
+              Create Profile to view
+            </button>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="matrimonial-box">
+      <div
+        class="inner-box"
+        [routerLink]="['/matrimonial', 'profile-view', 'user-detail']"
+      >
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Kate Wilson</p>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="openReportDialog()">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="matrimonial-box">
+      <div class="inner-box">
+        <div class="image-box">
+          <div class="image-main">
+            <img
+              class="image"
+              src="../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+            <div class="create-account">
+              <i class="far fa-eye-slash icon"></i>
+              <span>Create Profile</span>
+            </div>
+          </div>
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">**********</p>
+            <button
+              class="create"
+              [routerLink]="['/matrimonial', 'my-profile']"
+            >
+              Create Profile to view
+            </button>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="matrimonial-box">
+      <div class="inner-box">
+        <div class="image-box">
+          <div class="image-main">
+            <img
+              class="image"
+              src="../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+            <div class="create-account">
+              <i class="far fa-eye-slash icon"></i>
+              <span>Create Profile</span>
+            </div>
+          </div>
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">**********</p>
+            <button
+              class="create"
+              [routerLink]="['/matrimonial', 'my-profile']"
+            >
+              Create Profile to view
+            </button>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="matrimonial-box">
+      <div
+        class="inner-box"
+        [routerLink]="['/matrimonial', 'profile-view', 'user-detail']"
+      >
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Kate Wilson</p>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="openReportDialog()">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="matrimonial-box">
+      <div
+        class="inner-box"
+        [routerLink]="['/matrimonial', 'profile-view', 'user-detail']"
+      >
+        <div class="image-box">
+          <img
+            class="image"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </div>
+        <ul class="detail-box">
+          <li class="item">
+            <span>Name:</span>
+            <p class="content">Kate Wilson</p>
+          </li>
+          <li class="item">
+            <span>Age:</span>
+            <p class="content">26</p>
+          </li>
+          <li class="item">
+            <span>Religion:</span>
+            <p class="content">Christian</p>
+          </li>
+          <li class="item">
+            <span>Mother Tongue:</span>
+            <p class="content">French</p>
+          </li>
+          <li class="item">
+            <span>Profession:</span>
+            <p class="content">Consultant / Supervisor / Team Lead</p>
+          </li>
+          <li class="item">
+            <span>Location:</span>
+            <p class="content">Toronto, Canada</p>
+          </li>
+        </ul>
+      </div>
+      <button class="setting" mat-button [matMenuTriggerFor]="status">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #status>
+        <button mat-menu-item (click)="openReportDialog()">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button" [routerLink]="['/matrimonial', 'my-profile']">
+          <i class="fas fa-pencil-alt icon"></i>
+          Create Profile
+        </button>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-title">Partner</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <form>
+                      <mat-radio-group>
+                        <p class="title">Male</p>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <p class="title">Female</p>
+                        <mat-radio-button value="2"></mat-radio-button>
+                      </mat-radio-group>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-title"
+              >Martial Status</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <form>
+                      <mat-radio-group>
+                        <p class="title">Single</p>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <p class="title">Married but looking</p>
+                        <mat-radio-button value="2"></mat-radio-button>
+                        <p class="title">Widowed</p>
+                        <mat-radio-button value="3"></mat-radio-button>
+                        <p class="title">Divorced</p>
+                        <mat-radio-button value="4"></mat-radio-button>
+                      </mat-radio-group>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div class="top-bar">
+        <h4 class="title">Religion</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <select class="field arrow">
+              <option value="" disabled selected>Religion</option>
+              <option value="1">Islam</option>
+              <option value="2">Buddhism</option>
+              <option value="3">Christianity</option>
+              <option value="4">Judaism</option>
+              <option value="5">Hinduism</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="top-bar">
+        <h4 class="title">location</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="location">
+              <input
+                type="text"
+                class="feild"
+                placeholder="Search City, Country"
+              />
+              <button>
+                <i class="fas fa-map-marker-alt icon"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="top-bar">
+        <h4 class="title">Nationality</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <select class="field arrow">
+              <option value="" disabled selected>Nationality</option>
+              <option value="1">Pakistani</option>
+              <option value="2">Algerian</option>
+              <option value="3">Australian</option>
+              <option value="4">Brazilian</option>
+              <option value="5">Albanian</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

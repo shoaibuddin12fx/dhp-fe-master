@@ -1,0 +1,309 @@
+<div class="cart-layout">
+  <div class="left-box">
+    <div class="main-title">
+      <h4>My Cart</h4>
+    </div>
+    <div class="cart-box" *ngIf="+shopType === 1">
+      <div class="inner-box">
+        <div class="item-check">
+          <form class="form-checkbox" (change)="selectAllProducts()">
+            <input
+              type="checkbox"
+              id="category"
+              class="feild"
+              [checked]="ifAllChecked()"
+            />
+            <label for="category"></label>
+          </form>
+          <label class="title">Retail Items</label>
+        </div>
+        <div class="product-head">
+          <div class="product">Product Name & ID</div>
+          <div class="color">Color</div>
+          <div class="quantity">Quantity</div>
+          <div class="price">Price</div>
+        </div>
+        <div
+          class="product-detail"
+          *ngFor="let item of retailCartData; let i = index"
+        >
+          <div class="product-body">
+            <div class="form-checkbox" (change)="selectProduct(item)">
+              <input
+                type="checkbox"
+                [id]="item.id"
+                class="feild"
+                [checked]="item.selected"
+              />
+              <label [for]="item.id"></label>
+            </div>
+            <div class="left-detail">
+              <div class="product-name-body">
+                <div class="image-box">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/order/order-1.jpg"
+                  />
+                </div>
+                <div class="product-title">
+                  <p class="title">{{ item.productName }}</p>
+                  <!-- <p class="order-number">
+                    Order ID: <span>000000000000000</span>
+                  </p> -->
+                </div>
+              </div>
+            </div>
+            <div class="right-detail">
+              <div class="color-body">
+                <div class="color-inner">
+                  <p class="color-circle" [id]="item.color + i">
+                    {{ getColor(item.color + i, item.color) }}
+                  </p>
+                  <!-- <img
+                    class="image"
+                    src="../../../assets/images/shop/home/seller.png"
+                  /> -->
+                  <span class="title">{{ item.color }}</span>
+                </div>
+              </div>
+              <div class="quantity-body">
+                <div class="quantity-inner">
+                  <input
+                    class="field"
+                    [(ngModel)]="item.quantity"
+                    (change)="onQuantityChange(item)"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div class="price-body">
+                <div class="price-inner">
+                  <p>
+                    $<span>{{ item.cartPrice * item.quantity }}</span
+                    >USD
+                  </p>
+                </div>
+              </div>
+            </div>
+            <i class="fas fa-times icon" (click)="deleteItem(item.cartId)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-box" *ngIf="+shopType !== 1">
+      <div class="inner-box">
+        <div class="item-check">
+          <form class="form-checkbox" (change)="selectAllProducts()">
+            <input
+              type="checkbox"
+              id="category"
+              class="feild"
+              [checked]="ifAllChecked()"
+            />
+            <label for="category"></label>
+          </form>
+          <label class="title">Wholesale Items</label>
+        </div>
+        <div class="product-head">
+          <div class="product">Product Name & ID</div>
+          <div class="color">Color</div>
+          <div class="quantity">Quantity</div>
+          <div class="price">Price</div>
+        </div>
+        <div class="product-detail" *ngFor="let item of wholesaleCartData">
+          <div class="product-body">
+            <div class="form-checkbox" (change)="selectProduct(item)">
+              <input
+                type="checkbox"
+                [id]="item.id"
+                class="feild"
+                [checked]="item.selected"
+              />
+              <label [for]="item.id"></label>
+            </div>
+            <div class="left-detail">
+              <div class="product-name-body">
+                <div class="image-box">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/order/order-1.jpg"
+                  />
+                </div>
+                <div class="product-title">
+                  <p class="title">{{ item.productName }}</p>
+                  <!-- <p class="order-number">
+                    Order ID: <span>000000000000000</span>
+                  </p> -->
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="right-detail"
+                style="width: 100%"
+                *ngFor="let det of item.wholesaleCartDetails; let i = index"
+              >
+                <div class="color-body">
+                  <div class="color-inner">
+                    <!-- <img
+                      class="image"
+                      src="../../../assets/images/shop/home/seller.png"
+                    /> -->
+                    <p class="color-circle" [id]="det.color + i">
+                      {{ getColor(det.color + i, det.color) }}
+                    </p>
+                    <span class="title">{{ det.color }}</span>
+                  </div>
+                  <!-- <div class="color-inner">
+                  <img
+                    class="image"
+                    src="../../../assets/images/shop/home/seller.png"
+                  />
+                  <span class="title">Royal Blue</span>
+                </div>
+                <div class="color-inner">
+                  <img
+                    class="image"
+                    src="../../../assets/images/shop/home/seller.png"
+                  />
+                  <span class="title">Royal Blue</span>
+                </div> -->
+                </div>
+                <div class="quantity-body">
+                  <div class="quantity-inner">
+                    <input
+                      class="field"
+                      [(ngModel)]="det.quantity"
+                      (change)="onQuantityChange(det)"
+                      type="number"
+                    />
+                  </div>
+                  <!-- <div class="quantity-inner">
+                  <input class="field" type="number" />
+                </div>
+                <div class="quantity-inner">
+                  <input class="field" type="number" />
+                </div> -->
+                </div>
+                <div class="price-body">
+                  <div class="price-inner">
+                    <p>
+                      $<span>{{ det.price }}</span
+                      >USD
+                    </p>
+                  </div>
+                  <!-- <div class="price-inner">
+                  <p>$<span>1,500</span>USD</p>
+                </div>
+                <div class="price-inner">
+                  <p>$<span>1,500</span>USD</p>
+                </div> -->
+                </div>
+              </div>
+            </div>
+            <i class="fas fa-times icon" (click)="deleteItem(item.cartId)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Order Summary</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards c-auto border-bottom-cart row gx-0">
+            <div class="col-lg-9">
+              <p class="title">
+                Subtotal<span>({{ selectedProductList.length }} items)</span>
+              </p>
+            </div>
+            <div class="col-lg-3">
+              <p class="subtotal-price">${{ getSubTotal() }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards c-auto align-cart row gx-0">
+            <div class="col-lg-9">
+              <p class="title">Shipping</p>
+            </div>
+            <div class="col-lg-3">
+              <p class="price">$5,000</p>
+              <p
+                class="shipping-variant primary"
+                mat-icon-button
+                [matMenuTriggerFor]="variant"
+              >
+                FedEx <i class="fas fa-angle-down"></i>
+              </p>
+              <mat-menu #variant>
+                <button mat-menu-item>
+                  <p class="popup-title">
+                    <span>FedEx</span>
+                  </p>
+                </button>
+                <button mat-menu-item>
+                  <p class="popup-title">
+                    <span>FedEx</span>
+                  </p>
+                </button>
+                <button mat-menu-item>
+                  <p class="popup-title">
+                    <span>FedEx</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards c-auto">
+            <form class="voucher-code">
+              <input
+                type="text"
+                class="feild"
+                placeholder="Enter Voucher Code (if any)"
+                [(ngModel)]="voucher"
+                [ngModelOptions]="{ standalone: true }"
+                (change)="setVoucher()"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards c-auto row gx-0">
+            <div class="col-lg-9">
+              <p class="title">Total</p>
+            </div>
+            <div class="col-lg-3">
+              <p class="subtotal-price black">${{ getSubTotal() }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards c-auto row gx-0">
+            <div class="col-lg-12">
+              <p class="shipping-duration">Shipping time 9-15 working days</p>
+            </div>
+            <div class="col-lg-12">
+              <button
+                class="proceed-button"
+                [ngStyle]="
+                  !isProductSelected() ? { 'background-color': 'gray' } : ''
+                "
+                [disabled]="!isProductSelected()"
+                [routerLink]="['/shop', shopType, 'checkout']"
+              >
+                Proceed to Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

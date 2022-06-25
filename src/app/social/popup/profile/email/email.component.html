@@ -1,0 +1,30 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else isNewTemplate"> Add </ng-container>
+      <ng-template #isNewTemplate> Update </ng-template>
+      Email Address
+    </h4>
+  </div>
+  <div class="popup-body">
+    <input
+      class="field"
+      type="mail"
+      placeholder="Add Email Address"
+      [(ngModel)]="email"
+    />
+    <label class="field-notify"
+      >Code sent on your given Email Address please verify</label
+    >
+    <input class="field" type="text" placeholder="Code (000000)" />
+  </div>
+  <div class="action-buttons">
+    <div class="left-box">
+      <button class="btn remove">Remove</button>
+    </div>
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Add</button>
+    </div>
+  </div>
+</div>

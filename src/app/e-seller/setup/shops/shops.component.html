@@ -1,0 +1,76 @@
+<div class="row gx-0">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="left-box">
+      <div class="logo">
+        <img src="../../../assets/images/authentication/logo-black.png" />
+      </div>
+      <div class="main-box">
+        <h2 class="title">My <span>Shops</span></h2>
+        <ul class="shop-list">
+          <li
+            *ngFor="let item of shops"
+            class="shop"
+            [routerLink]="['/e-seller', 'main', item.id, 'dashboard']"
+          >
+            <img class="image" [src]="item.logo" />
+            <p class="title">{{ item.name }}</p>
+            <span class="shop-type">{{
+              item.type == "1" ? "Retail" : "Wholesale"
+            }}</span>
+          </li>
+
+          <li
+            class="shop create-shop"
+            [routerLink]="['/e-seller', 'create-shop']"
+          >
+            <i class="fas fa-plus icon"></i>
+            <p class="title">Create Shop</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="right-box">
+      <div class="content-box">
+        <h1 class="title">
+          <b>Welcome to <span>E-SELLER</span></b>
+        </h1>
+        <p class="content">
+          Simple Steps to <br />
+          Earn using Dil Hai Pakistani Shop Platform
+        </p>
+        <ul class="login-list">
+          <li class="list">
+            <img src="../../assets/images/seller/signup.png" class="image" />
+            <p class="item">
+              <span>1</span>Sign <br />
+              Up
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/profile.png" class="image" />
+            <p class="item">
+              <span>2</span>Create Shop <br />
+              Profile
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/products.png" class="image" />
+            <p class="item">
+              <span>3</span>Upload <br />
+              products
+            </p>
+          </li>
+          <li class="list">
+            <img src="../../assets/images/seller/sell.png" class="image" />
+            <p class="item">
+              <span>4</span>Sell and <br />
+              Earn
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

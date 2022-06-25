@@ -1,0 +1,115 @@
+.main-section {
+  top: 60px;
+  left: 300px;
+  padding-left: 20px;
+  position: absolute;
+  // padding-right: 20px;
+  padding-right: 65px;
+  width: calc(100% - 300px);
+  height: calc(100% - 60px);
+}
+
+// ***********Responsive************* //
+@media (max-width: 1920px) {
+  .main-section {
+    top: 80px;
+    left: 400px;
+    height: calc(100% - 80px);
+    width: calc(100% - 435px);
+  }
+}
+@media (max-width: 1680px) {
+  .main-section {
+    top: 80px;
+    left: 345px;
+    height: calc(100% - 80px);
+    width: calc(100% - 370px);
+  }
+}
+@media (max-width: 1440px) {
+  .main-section {
+    top: 60px;
+    left: 300px;
+    width: calc(100% - 300px);
+    height: calc(100% - 60px);
+  }
+}
+@media (max-width: 1280px) {
+  .main-section {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+}
+@media (max-width: 1024px) {
+  .main-section {
+    top: 50px;
+    left: 90px;
+    padding-right: 51px;
+    width: calc(100% - 90px);
+    height: calc(100% - 50px);
+  }
+}
+@media (max-width: 991px) {
+  .main-section {
+    padding-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .main-section {
+    top: 100px;
+    height: calc(100% - 100px);
+  }
+}
+@media (max-width: 767px) {
+  .main-section {
+    left: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  .main-section {
+    padding-left: 10px;
+  }
+}
+
+.input-container {
+  display: flex;
+  width: 70vw;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.icon {
+  color: #49d485;
+  margin: 5px;
+  // width: 10%;
+  // padding-right: 10px;
+}
+
+.search-container {
+  max-height: calc(100vh - 360px);
+  overflow: auto;
+  background: #fff;
+  // margin-top: -20px;
+  z-index: 11111;
+  position: absolute;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 4px 0 rgb(0 0 0 / 21%);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 21%);
+}
+
+.data-item {
+  cursor: pointer;
+}
+.data-item:hover {
+  font-size: 18px;
+  background: #dfffee;
+  padding: 5px;
+}

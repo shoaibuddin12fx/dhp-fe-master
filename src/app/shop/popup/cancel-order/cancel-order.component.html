@@ -1,0 +1,44 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Order Cancellation</h4>
+  </div>
+  <div class="popup-body">
+    <span class="note">Select the reason for Order Cancellation</span>
+    <form>
+      <mat-radio-group
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="description"
+      >
+        <mat-radio-button value="Delivery time is too long."
+          >Delivery time is too long.</mat-radio-button
+        >
+        <mat-radio-button value="Change of Mind."
+          >Change of Mind.</mat-radio-button
+        >
+        <mat-radio-button value="Expected delivery date has changed."
+          >Expected delivery date has changed.</mat-radio-button
+        >
+        <mat-radio-button value="Product is not required anymore."
+          >Product is not required anymore.</mat-radio-button
+        >
+        <mat-radio-button
+          value="Cheaper alternative available for lesser price."
+          >Cheaper alternative available for lesser price.</mat-radio-button
+        >
+        <mat-radio-button value="Change of Shipping Address."
+          >Change of Shipping Address.</mat-radio-button
+        >
+        <mat-radio-button value="Change Payment Method."
+          >Change Payment Method.</mat-radio-button
+        >
+        <mat-radio-button value="Others.">Others.</mat-radio-button>
+      </mat-radio-group>
+    </form>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="cancelOrder()">Submit</button>
+    </div>
+  </div>
+</div>

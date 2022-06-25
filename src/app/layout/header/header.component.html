@@ -1,0 +1,204 @@
+<div class="top-bar topbar-primary">
+  <div class="ham-icon" (click)="status = !status">
+    <i class="fas fa-bars icon"></i>
+  </div>
+  <ul class="menu">
+    <li
+      class="menu-item ripple"
+      [routerLink]="['/social', 'news-feed']"
+      [routerLinkActive]="['menu-item-active']"
+    >
+      <i class="fa fa-home icon"></i>
+      <span class="item">Home</span>
+    </li>
+    <li
+      class="menu-item ripple"
+      [routerLink]="['/social', 'friends']"
+      [routerLinkActive]="['menu-item-active']"
+    >
+      <i class="fa fa-user icon"></i>
+      <span class="item">Friends</span>
+      <span class="badge">{{ friendRequestCount }}</span>
+    </li>
+    <li
+      class="menu-item ripple"
+      [routerLink]="['/social', 'groups']"
+      [routerLinkActive]="['menu-item-active']"
+    >
+      <i class="fa fa-users icon"></i>
+      <span class="item">Groups</span>
+    </li>
+    <li
+      class="menu-item ripple"
+      [routerLink]="['/social', 'photos']"
+      [routerLinkActive]="['menu-item-active']"
+    >
+      <i class="fa fa-file-image-o icon"></i>
+      <span class="item">Photos</span>
+    </li>
+    <li
+      class="menu-item ripple"
+      [routerLink]="['/social', 'watch']"
+      [routerLinkActive]="['menu-item-active']"
+    >
+      <i class="fa fa-play icon"></i>
+      <span class="item">Watch</span>
+    </li>
+  </ul>
+  <ul class="social-icons" (click)="activeSearchBar()">
+    <li class="social-list">
+      <i
+        class="fa fa-search icon"
+        [routerLinkActive]="['social-list-active']"
+      ></i>
+    </li>
+
+    <li class="social-list">
+      <i
+        class="fa fa-comment icon"
+        [routerLinkActive]="['social-list-active']"
+        (click)="toggleContactPopup()"
+      >
+        <span class="badge" *ngIf="chatCount">{{ chatCount }}</span>
+      </i>
+    </li>
+    <li class="social-list">
+      <i
+        class="fa fa-bell icon"
+        [routerLinkActive]="['social-list-active']"
+      ></i>
+    </li>
+    <li class="social-list" *ngIf="shopType">
+      <i
+        class="fa fa-shopping-cart icon"
+        [routerLinkActive]="['social-list-active']"
+        [routerLink]="['/shop', shopType, 'cart']"
+      >
+        <span class="badge">{{ cartCount }}</span>
+        <!-- <span class="badge" *ngIf="shopType != 1">{{cartCount > 0 ? cartCount : wholesaleCartData}}</span> -->
+      </i>
+    </li>
+    <li class="social-list">
+      <i class="fa fa-user icon" mat-icon-button [matMenuTriggerFor]="menu"></i>
+      <mat-menu #menu>
+        <button
+          mat-menu-item
+          [routerLink]="['/social', 'profile', user?.id, 'my-feed']"
+          [routerLinkActive]="['social-list-active']"
+        >
+          <p class="popups-title">
+            <i class="fas fa-user icon"></i>
+            Profile
+          </p>
+        </button>
+        <button mat-menu-item>
+          <p class="popups-title">
+            <i class="fas fa-cog icon"></i>
+            Setting
+          </p>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <p class="popups-title">
+            <i class="fas fa-sign-out-alt icon"></i>
+            Logout
+          </p>
+        </button>
+      </mat-menu>
+    </li>
+  </ul>
+
+  <div class="side-bar" [ngClass]="status ? 'isVisible' : 'hidden'">
+    <div class="side-bar-main">
+      <button class="logo">
+        <img src="../assets/images/home/sidebar/logo.PNG" />
+      </button>
+      <div class="profile">
+        <button class="profile-image" [routerLink]="['/social', 'profile']">
+          <img src="../../../assets/images/home/sidebar/profile-image.PNG" />
+        </button>
+        <h4 class="title">Usman</h4>
+        <p class="designation">Artist</p>
+        <ul class="social-graph">
+          <li class="list-item">
+            <p class="value">43</p>
+            <p class="title">Friends</p>
+          </li>
+          <li class="list-item">
+            <p class="value">90</p>
+            <p class="title">Followers</p>
+          </li>
+        </ul>
+      </div>
+      <ul class="menu-list">
+        <li
+          class="list-item"
+          [routerLink]="['/social']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/social.svg" />
+          <p class="title">Social</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/event']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/events.svg" />
+          <p class="title">Events</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/classified-ads']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/classified-ads.svg" />
+          <p class="title">Classified<br />Ads</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/shop']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/shop.svg" />
+          <p class="title">Shop</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/job', 'home']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/jobs.svg" />
+          <p class="title">Jobs</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/polling']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/polling.svg" />
+          <p class="title">Polling</p>
+        </li>
+        <li class="list-item">
+          <img src="../assets/images/home/sidebar/donations.svg" />
+          <p class="title">Donation</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/matrimonial']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/matrimonial.svg" />
+          <p class="title">Matrimonial</p>
+        </li>
+        <li
+          class="list-item"
+          [routerLink]="['/volunteer']"
+          [routerLinkActive]="['active']"
+        >
+          <img src="../assets/images/home/sidebar/volunteer.svg" />
+          <p class="title">Volunteer</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

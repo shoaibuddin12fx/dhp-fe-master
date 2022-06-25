@@ -1,0 +1,782 @@
+<div class="product-layout">
+  <div class="left-box">
+    <ul class="breadcrumbs" *ngIf="productData">
+      <li class="item">
+        <span *ngIf="productData.type == 1">Retail</span>
+        <span *ngIf="productData.type == 2">Whole Sale</span>
+      </li>
+      <li class="item">{{ productData.mainCategory }}</li>
+      <li class="item">{{ productData.productCategory }}</li>
+      <li class="item">{{ productData.productSubCategory }}</li>
+      <li class="item">{{ productData.name }}</li>
+    </ul>
+    <div class="product-box" *ngIf="productData">
+      <div class="gallery-images">
+        <div class="image-box">
+          <img
+            (click)="openGalleryDialog()"
+            class="image"
+            src="../../../../assets/images/shop/retail/product/product-img.jpg"
+          />
+          <div class="tag-box">
+            <h2 class="tag">On Sale</h2>
+          </div>
+        </div>
+        <div class="gallery-box">
+          <div class="image-gallery-box">
+            <img
+              (click)="openGalleryDialog()"
+              class="image"
+              src="../../../../assets/images/shop/retail/product/product-img.jpg"
+            />
+          </div>
+          <div class="image-gallery-box">
+            <img
+              (click)="openGalleryDialog()"
+              class="image"
+              src="../../../../assets/images/shop/retail/product/product-img.jpg"
+            />
+          </div>
+          <div class="image-gallery-box">
+            <img
+              (click)="openGalleryDialog()"
+              class="image"
+              src="../../../../assets/images/shop/retail/product/product-img.jpg"
+            />
+          </div>
+          <div class="image-gallery-box">
+            <img
+              (click)="openGalleryDialog()"
+              class="image"
+              src="../../../../assets/images/shop/retail/product/product-img.jpg"
+            />
+          </div>
+        </div>
+        <div *ngIf="shopType == 2">
+          <div class="product-brand">
+            <span>Sold By:</span>
+            <h6
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+            >
+              {{ productData?.shop?.name }}
+            </h6>
+            <img
+              class="image"
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+              src="../../../../assets/images/shop/retail/product/brand.png"
+            />
+          </div>
+          <div class="shop-rating">
+            <p class="sub-heading">Average Shop Rating</p>
+            <ul class="rating">
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon gray"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon gray"></i>
+              </li>
+              <p class="total-reviews">3,1500 Reviews</p>
+            </ul>
+          </div>
+          <div class="action-buttons">
+            <button class="button gray">
+              <i class="fa fa-comment icon"></i>
+              Ask Questions
+            </button>
+            <button
+              class="button"
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+            >
+              Visit Shop
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-description">
+        <h4 class="product-title">{{ productData.name }}</h4>
+        <ul class="rating">
+          <li class="list" *ngFor="let item of avgStarRatSumary">
+            <i class="fas fa-star icon" *ngIf="item == 1"></i>
+            <i class="fas fa-star icon gray" *ngIf="item == 0.5"></i>
+            <i class="fas fa-star-half half-icon" *ngIf="item == 0.5"></i>
+
+            <i class="fas fa-star icon gray" *ngIf="item == 0"></i>
+          </li>
+          <p class="total-reviews">{{ reviews.length }} Reviews</p>
+        </ul>
+        <div class="product-brand">
+          <!-- <span>Brand:</span>
+          <p>Seiko</p> -->
+          <!-- <i class="fas fa-share icon" mat-icon-button [matMenuTriggerFor]="share"></i> -->
+          <mat-menu #share>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <!-- <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul> -->
+          </mat-menu>
+        </div>
+        <div class="pricing-box" *ngIf="shopType == 1">
+          <h2 class="price">
+            <i class="fas fa-dollar-sign icon"></i>
+            {{ selectedSkuData?.price }}
+            <sub>USD</sub>
+          </h2>
+          <!-- <h5 class="net-price">
+            <i class="fas fa-dollar-sign icon"></i>
+            3,000
+            <span>USD</span>
+          </h5>
+          <div class="discount">
+            <h2>50%</h2>
+            <span>OFF</span>
+          </div> -->
+        </div>
+        <div *ngIf="shopType == 1">
+          <div class="product-brand">
+            <span>Sold By:</span>
+            <h6
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+            >
+              {{ productData?.shop?.name }}
+            </h6>
+            <img
+              class="image"
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+              src="../../../../assets/images/shop/retail/product/brand.png"
+            />
+          </div>
+          <div class="shop-rating">
+            <p class="sub-heading">Average Shop Rating</p>
+            <ul class="rating">
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon gray"></i>
+              </li>
+              <li class="list">
+                <i class="fas fa-star icon gray"></i>
+              </li>
+              <p class="total-reviews">3,1500 Reviews</p>
+            </ul>
+            <span>120 Product Sold</span>
+          </div>
+          <div class="action-buttons">
+            <button class="button gray">
+              <i class="fa fa-comment icon"></i>
+              Ask Questions
+            </button>
+            <button
+              class="button"
+              [routerLink]="['/shop', shopType, 'store', productData?.shopId]"
+            >
+              Visit Shop
+            </button>
+          </div>
+        </div>
+        <div *ngIf="shopType == 2">
+          <ul class="pricing-range">
+            <li class="range-item" *ngFor="let item of selectedSkuDetailData">
+              <p class="range">{{ item.min }}-{{ item.max }}</p>
+              <p class="price">$ {{ item.price | number: "1.0-2" }} USD</p>
+            </li>
+          </ul>
+          <ul class="product-variation">
+            <li
+              class="product-item"
+              *ngFor="let item of cartArr; let i = index"
+            >
+              <div class="product-info">
+                <!-- <img
+                  class="image"
+                  src="../../../assets/images/shop/cart/rainbow.png"
+                /> -->
+                <p class="color-circle" [id]="'cartArr' + item.color + i">
+                  {{ getColor("cartArr" + item.color + i, item.color) }}
+                </p>
+                <p class="product">{{ item.color }}</p>
+              </div>
+              <div class="product-info">
+                <p class="size">{{ item.size }}</p>
+              </div>
+              <div class="product-info">
+                <p class="pieces">{{ item.quantity }} pcs</p>
+              </div>
+              <div class="product-info">
+                <button class="button" (click)="changeCartArr(i)">
+                  CHANGE
+                </button>
+              </div>
+            </li>
+            <li class="add-product-item">
+              <div class="product-info">
+                <p class="title">Color</p>
+                <div class="inner-box">
+                  <!-- <img
+                    class="image"
+                    src="../../../assets/images/shop/cart/rainbow.png"
+                  /> -->
+                  <span class="color-circle" [id]="selectedColor">
+                    {{ getColor(selectedColor, selectedColor) }}
+                  </span>
+                  <!-- babar -->
+                  <input
+                    type="text"
+                    class="product w-100"
+                    [(ngModel)]="selectedColor"
+                  />
+                </div>
+              </div>
+              <div class="product-info">
+                <p class="title">Size</p>
+                <div class="inner-box">
+                  <input
+                    type="text"
+                    class="size w-100"
+                    [(ngModel)]="selectedSize"
+                  />
+                </div>
+              </div>
+              <div class="product-info">
+                <p class="title">Quantity</p>
+                <div class="inner-box">
+                  <input
+                    type="number"
+                    class="pieces w-100"
+                    [(ngModel)]="selectedQuantity"
+                  />
+                </div>
+              </div>
+              <div class="product-info">
+                <button
+                  class="button"
+                  [ngStyle]="selectedQuantity < 1 ? { color: 'grey' } : ''"
+                  [disabled]="selectedQuantity < 1"
+                  (click)="addToCartArr()"
+                >
+                  <ng-container *ngIf="isCartEdit; else elseTemplate">
+                    Update
+                  </ng-container>
+                  <ng-template #elseTemplate> ADD </ng-template>
+                </button>
+              </div>
+            </li>
+            <button
+              class="action-button"
+              [ngStyle]="
+                cartArr.length < 1 ? { 'background-color': 'grey' } : ''
+              "
+              [disabled]="cartArr.length < 1"
+              (click)="saveWholesaleCart()"
+            >
+              <i class="fas fa-plus icon"></i> add order
+            </button>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="product-tabs">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Product Details">
+          <div class="tab-content">
+            <ul class="information">
+              <li class="item">
+                <i class="fas fa-phone-alt icon"></i>
+                {{ productData?.shop?.contactNo }}
+              </li>
+              <li class="item">
+                <i class="fas fa-envelope icon"></i>
+                {{ productData?.shop?.email }}
+              </li>
+              <li class="item">
+                <i class="fas fa-map-marker-alt icon"></i>
+                {{ productData?.shop?.country }}
+              </li>
+            </ul>
+            <div class="product-detail">
+              <h4 class="title">PRODUCT DETAILS</h4>
+              <p
+                [ngClass]="hideDescription ? 'show-description' : 'description'"
+              >
+                {{ productData?.description }}
+              </p>
+              <button class="button" (click)="showDescription()">
+                <ng-container *ngIf="hideDescription; else elseTemplate">
+                  Show Less
+                </ng-container>
+                <ng-template #elseTemplate> Read More </ng-template>
+              </button>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Customer Reviews">
+          <div class="tab-content">
+            <div class="review-box">
+              <ul class="rating">
+                <h4 class="title">{{ avgStar }} <span>/ 5</span></h4>
+                <li class="list" *ngFor="let item of avgStarRatSumary">
+                  <i class="fas fa-star icon" *ngIf="item == 1"></i>
+                  <i class="fas fa-star icon gray" *ngIf="item == 0.5"></i>
+                  <i class="fas fa-star-half half-icon" *ngIf="item == 0.5"></i>
+
+                  <i class="fas fa-star icon gray" *ngIf="item == 0"></i>
+                </li>
+                <!-- <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                  <i class="fas fa-star-half half-icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                </li> -->
+                <p class="total-reviews">{{ reviews.length }} Reviews</p>
+              </ul>
+              <ul class="review-table">
+                <li class="item">
+                  <div class="review-left-box">
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                  </div>
+                  <div class="review-right-box">
+                    <div class="line">
+                      <span [ngClass]="getReviewBorderClass(5)"></span>
+                    </div>
+                    <span>{{ getRatingCount(5) }}</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="review-left-box">
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                  </div>
+                  <div class="review-right-box">
+                    <div class="line">
+                      <span [ngClass]="getReviewBorderClass(4)"></span>
+                    </div>
+                    <span>{{ getRatingCount(4) }}</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="review-left-box">
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                  </div>
+                  <div class="review-right-box">
+                    <div class="line">
+                      <span [ngClass]="getReviewBorderClass(3)"></span>
+                    </div>
+                    <span>{{ getRatingCount(3) }}</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="review-left-box">
+                    <i class="fas fa-star icon"></i>
+                    <i class="fas fa-star icon"></i>
+                  </div>
+                  <div class="review-right-box">
+                    <div class="line">
+                      <span [ngClass]="getReviewBorderClass(2)"></span>
+                    </div>
+                    <span>{{ getRatingCount(2) }}</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="review-left-box">
+                    <i class="fas fa-star icon"></i>
+                  </div>
+                  <div class="review-right-box">
+                    <div class="line">
+                      <span [ngClass]="getReviewBorderClass(1)"></span>
+                    </div>
+                    <span>{{ getRatingCount(1) }}</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="comment-box" *ngFor="let item of reviews">
+              <!-- <ul class="rating">
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                  <i class="fas fa-star-half half-icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                </li>
+              </ul> -->
+              <ngx-star-rating
+                [(ngModel)]="item.rating"
+                [id]="'rating3'"
+                [disabled]="true"
+              ></ngx-star-rating>
+              <span class="time-ago">{{ item.createdDate | date }}</span>
+              <div class="deliver-by"><span>By</span> {{ item.fullName }}</div>
+              <p class="comment">{{ item.description }}.</p>
+            </div>
+            <!-- <div class="comment-box">
+              <ul class="rating">
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                  <i class="fas fa-star-half half-icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                </li>
+              </ul>
+              <span class="time-ago">3 week ago</span>
+              <div class="deliver-by"><span>By</span> Liam</div>
+              <p class="comment">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Blanditiis excepturi soluta asperiores. Minima rem eius unde
+                molestias ducimus dolorem cupiditate atque, explicabo.
+              </p>
+            </div> -->
+            <div class="pagination-main">
+              <ul class="pagination">
+                <li class="list">
+                  <span class="item">1</span>
+                </li>
+                <li class="list grey-list">
+                  <span class="item">2</span>
+                </li>
+                <li class="list grey-list">
+                  <span class="item">3</span>
+                </li>
+                <li class="list grey-list">
+                  <span class="item">4</span>
+                </li>
+                <li class="list white-bg">
+                  <i class="fa fa-ellipsis-h icon"></i>
+                </li>
+                <li class="list grey-list">
+                  <span class="item">10</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Delivery Details</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-2">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/product/location.png"
+                  />
+                </div>
+                <div class="col-lg-10">
+                  <p class="content"><span>Available</span> in Pakistan</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-2">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/product/payment.png"
+                  />
+                </div>
+                <div class="col-lg-10">
+                  <p class="content">Payment methods</p>
+                </div>
+                <div class="col-lg-12 offset-2">
+                  <ul class="payment-methods">
+                    <li class="item">
+                      <img
+                        class="image"
+                        src="../../../../assets/images/shop/retail/product/visa.png"
+                      />
+                    </li>
+                    <li class="item">
+                      <img
+                        class="image"
+                        src="../../../../assets/images/shop/retail/product/mc.png"
+                      />
+                    </li>
+                    <li class="item">
+                      <img
+                        class="image"
+                        src="../../../../assets/images/shop/retail/product/ae.png"
+                      />
+                    </li>
+                    <li class="item">
+                      <img
+                        class="image"
+                        src="../../../../assets/images/shop/retail/product/discover.png"
+                      />
+                    </li>
+                    <li class="item">
+                      <img
+                        class="image"
+                        src="../../../../assets/images/shop/retail/product/paypal.png"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <!-- <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Return & Warranty</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-2">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/product/return.png"
+                  />
+                </div>
+                <div class="col-lg-10">
+                  <p class="content">No Return Policy</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-2">
+                  <img
+                    class="image"
+                    src="../../../../assets/images/shop/retail/product/warrenty.png"
+                  />
+                </div>
+                <div class="col-lg-10">
+                  <p class="content">1 Year exchange warranty</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion> -->
+      <!-- <div *ngIf="shopType == 2"> -->
+      <div class="top-bar">
+        <h4 class="title">Buy Product</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <p class="title">
+              <span class="content">Colors |</span>
+              <span>
+                {{ selectedColor }}
+              </span>
+            </p>
+            <ul class="image-sort">
+              <li
+                class="item"
+                [ngClass]="{ active: selectedColor === item }"
+                *ngFor="let item of colorArr; let i = index"
+                [id]="'colorArr' + colorArr[i]"
+                (click)="selectColorAndSize(item, 'color')"
+              >
+                {{ getColor("colorArr" + colorArr[i], item) }}
+              </li>
+              <li class="item"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards" *ngIf="sizeArr.length > 0">
+            <p class="title">
+              <span class="content">Sizes |</span>
+              <span>
+                {{ selectedSize }}
+              </span>
+            </p>
+            <ul class="image-sort">
+              <li
+                class="item"
+                [ngClass]="{ active: selectedSize === item }"
+                *ngFor="let item of sizeArr"
+                (click)="selectColorAndSize(item, 'size')"
+              >
+                <span class="size">{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-item" *ngIf="shopType == 1">
+          <div class="cards">
+            <div class="quantity-main">
+              <span class="content">Quantity</span>
+              <div class="quantity-box">
+                <span
+                  class="minus"
+                  (click)="
+                    cart.quantity <= 1
+                      ? (cart.quantity = 1)
+                      : (cart.quantity = cart.quantity - 1)
+                  "
+                  >-</span
+                >
+                <input
+                  class="field"
+                  type="number"
+                  [(ngModel)]="cart.quantity"
+                  (change)="validateQuantity()"
+                />
+                <span class="plus" (click)="cart.quantity = cart.quantity + 1"
+                  >+</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="shopType == 2">
+          <div class="top-bar">
+            <h4 class="title">Calculations</h4>
+          </div>
+          <div *ngFor="let item of cartArr">
+            <!-- {{+item.price}} -->
+            <div class="cal-card">
+              <div class="content">{{ item.quantity }} Pieces</div>
+              <div class="content">${{ +item.price }}</div>
+            </div>
+            <div class="cal-card" style="margin-top: -20px">
+              <div class="content">{{ item.color }} | {{ item.size }}</div>
+              <div class="content"></div>
+            </div>
+            <h4 class="top-bar"></h4>
+          </div>
+          <div class="shipping" style="margin-top: 15px">
+            <div class="align-cart row gx-0">
+              <div class="col-lg-9">
+                <p class="title">Shipping</p>
+              </div>
+              <div class="col-lg-3">
+                <p class="price">$5,000</p>
+                <p
+                  class="shipping-variant primary"
+                  mat-icon-button
+                  [matMenuTriggerFor]="variant"
+                >
+                  FedEx <i class="fas fa-angle-down"></i>
+                </p>
+                <mat-menu #variant>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>FedEx</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>FedEx</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>FedEx</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="cards c-auto row gx-0">
+              <div class="col-lg-9 shipping">
+                <p class="title">Total</p>
+              </div>
+              <div class="col-lg-3">
+                <p class="subtotal-price black">${{ getSubTotal() }}</p>
+              </div>
+            </div>
+          </div>
+          <p class="shipping-duration">Shipping time 9-15 working days</p>
+        </div>
+        <div class="action-buttons">
+          <button class="button" *ngIf="shopType == 1" (click)="addToCart()">
+            Add to cart
+          </button>
+          <button class="button" *ngIf="shopType == 2">Contact Supplier</button>
+          <button (click)="goToCart()" class="button dark">Buy Now</button>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

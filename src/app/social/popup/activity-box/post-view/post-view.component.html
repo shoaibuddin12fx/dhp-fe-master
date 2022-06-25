@@ -1,0 +1,317 @@
+<div class="model-box row" *ngIf="post">
+  <div class="col-lg-7 h-100 p-0">
+    <div class="left-box">
+      <img class="image" *ngIf="post?.url && post?.url.length > 0" [src]="post?.url[0].url" />
+      <!-- <img *ngIf="!post?.url" class="image" src="../assets/images/home/sidebar/profile-image2.png" /> -->
+      <span *ngIf="post.type === 'video'">
+        <!-- <iframe width="420" [src]="videoURL(post?.url.url)"> </iframe> -->
+        <iframe style="width: 100%; height: 300px" [src]="post?.url.url | safe: 'resourceUrl'">
+        </iframe>
+      </span>
+      <div class="icon-box">
+        <div class="like">
+          <i class="fa fa-thumbs-o-up icon"></i>
+          <span>{{ post?.likeCount }}</span>
+        </div>
+        <div class="comment">
+          <i class="fa fa-commenting-o icon"></i>
+          <span>{{ post?.commentsCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5 h-100 pl-0">
+    <div class="right-box">
+      <div class="activity-info">
+        <img class="avatar" [src]="post?.user?.profileImage" />
+        <div class="title-status">
+          <h4 class="title">
+            {{ post.user.firstName }} {{ post.user.lastName }}
+          </h4>
+          <span class="status">posted an update</span>
+          <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+        </div>
+        <p>
+          {{ post.description }}
+        </p>
+        <button class="settings"><i class="fa fa-ellipsis-h icon"></i></button>
+      </div>
+      <div style="overflow-y: auto; height: 250px">
+        <ul class="comment-section">
+          <li class="comment-item" *ngFor="let comments of post.comments; let indexcomment = index">
+            <div class="image-box">
+              <img *ngIf="comments?.profileImage" class="image" [src]="comments?.profileImage" />
+              <img *ngIf="!comments?.profileImage" class="image"
+                src="../assets/images/home/sidebar/profile-image2.png" />
+            </div>
+            <div class="comment-box">
+              <div class="comment-box-inner">
+                <div style="flex-grow: 1">
+                  <p class="title">
+                    {{ comments.firstName + " " + comments.lastName }}
+                  </p>
+                  <ng-container *ngIf="
+                      comments.id === toEditComment &&
+                        currentUser.id === comments.userId;
+                      else elseTemplate
+                    ">
+                    <textarea class="field" #editcomment name="editcomment" placeholder="write a comment"
+                      [(ngModel)]="comments.description" (keyup.enter)="
+                        UpdateComment(post, comments.description, comments.id)
+                      ">
+                    </textarea>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <p class="comment">
+                      {{ comments.description }}
+                    </p>
+                  </ng-template>
+                </div>
+                <i class="fa fa-ellipsis-h icon" mat-icon-button [matMenuTriggerFor]="comment"></i>
+                <mat-menu #comment>
+                  <button mat-menu-item *ngIf="currentUser.id === comments.userId"
+                    (click)="deleteComment(post.id, comments.id)">
+                    <p class="popup-title">
+                      <span>Remove Comment</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item *ngIf="currentUser.id === comments.userId"
+                    (click)="editComment(post.id, comments.id)">
+                    <p class="popup-title">
+                      <span>Edit Comment</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="actions">
+                <span class="like" (click)="Like(post, comments)"
+                  [ngStyle]="{ color: comments.isLike ? '#23cf70' : '' }">Like</span>
+                <span class="reply" (click)="
+                    comments.reply = !comments.reply; replyComment(comments)
+                  ">Reply</span>
+                <span class="time-ago">{{
+                  comments.createdDate | dateAgo
+                  }}</span>
+              </div>
+            </div>
+            <ul class="sub-comment-section">
+              <li class="sub-comment-item" *ngFor="
+                  let item of comments.childComment;
+                  let indexchild = index
+                ">
+                <div class="image-box">
+                  <img *ngIf="item?.profileImage" class="image" [src]="item?.profileImage" />
+                  <img *ngIf="!item?.profileImage" class="image"
+                    src="../assets/images/home/sidebar/profile-image2.png" />
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <p class="title">
+                      {{ item.firstName + " " + item.lastName }}
+                    </p>
+                    <ng-container *ngIf="
+                        item.id === toEditComment &&
+                          currentUser.id === item.userId;
+                        else elseTemplate
+                      ">
+                      <textarea class="field" #editChildComment name="editChildComment" placeholder="write a comment"
+                        [(ngModel)]="item.description" (keyup.enter)="
+                          UpdateComment(post, item.description, item.id)
+                        ">
+                      </textarea>
+                    </ng-container>
+
+                    <ng-template #elseTemplate>
+                      <p class="comment">{{ item.description }}</p>
+                    </ng-template>
+                  </div>
+                  <div class="actions">
+                    <span class="like" (click)="Like(post, comments, item)"
+                      [ngStyle]="{ color: item?.isLike ? '#23cf70' : '' }">Like</span>
+                    <span class="reply" (click)="
+                        comments.reply = !comments.reply; replyComment(item)
+                      ">Reply</span>
+                    <span class="time-ago">{{
+                      item.createdDate | dateAgo
+                      }}</span>
+                  </div>
+                </div>
+              </li>
+              <!-- <li class="sub-comment-item" *ngIf="comments.reply">
+              <div class="image-box">
+                <img *ngIf="currentUser?.profileImage" class="image" [src]="currentUser?.profileImage" />
+                <img *ngIf="!currentUser?.profileImage" class="image"
+                  src="../assets/images/home/sidebar/profile-image2.png" />
+              </div>
+              <div class="comment-box">
+                <div class="comment-box-inner">
+                  <input class="field" type="text" [placeholder]="replyPlaceHolder"
+                    (keyup.enter)="AddComment($event, post, comments)" />
+                </div>
+              </div>
+            </li> -->
+              <li class="sub-comment-item" *ngIf="comments.reply">
+                <div class="image-box">
+                  <img *ngIf="currentUser?.profileImage" class="image" [src]="currentUser?.profileImage" />
+                  <img *ngIf="!currentUser?.profileImage" class="image"
+                    src="../assets/images/home/sidebar/profile-image2.png" />
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <input class="field" type="text" [placeholder]="replyPlaceHolder"
+                      (keyup.enter)="AddComment($event, post, comments)" />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- <div>
+        <ul class="comment-section" *ngFor="let comments of post.comments; let indexcomment = index">
+          <li class="comment-item" *ngIf="post.comments.length > 0">
+            <div class="image-box">
+              <img *ngIf="comments?.profileImage" class="image" [src]="comments?.profileImage" />
+              <img *ngIf="!comments?.profileImage" class="image"
+                src="../assets/images/home/sidebar/profile-image2.png" />
+            </div>
+            <div class="comment-box">
+              <div class="comment-box-inner">
+                <p class="title">
+                  {{ comments.firstName + " " + comments.lastName }}
+                </p>
+                <ng-container *ngIf="
+
+                  comments.id === toEditComment &&
+                  currentUser.id === comments.userId;
+                else elseTemplate
+              ">
+                  <textarea class="field" #editcomment name="editcomment" placeholder="write a comment"
+                    [(ngModel)]="comments.description" (keyup.enter)="
+                  UpdateComment(post, comments.description, comments.id)
+                ">
+              </textarea>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <p class="comment">
+                    {{ comments.description }}
+                  </p>
+                </ng-template>
+                <i class="fa fa-ellipsis-h icon" mat-icon-button [matMenuTriggerFor]="comment"></i>
+                <mat-menu #comment>
+                  <button mat-menu-item *ngIf="currentUser.id === comments.userId"
+                    (click)="deleteComment(post.id, comments.id)">
+                    <p class="popup-title">
+                      <span>Remove Comment</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item *ngIf="currentUser.id === comments.userId"
+                    (click)="editComment(post.id, comments.id)">
+                    <p class="popup-title">
+                      <span>Edit Comment</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="actions">
+                <span class="like" (click)="Like(post, comments)"
+                  [ngStyle]="{ color: comments.isLike ? '#23cf70' : '' }">Like</span>
+                <span class="reply" (click)="
+                comments.reply = !comments.reply; replyComment(comments)
+              ">Reply</span>
+                <span class="time-ago">{{ comments.createdDate | dateAgo }}</span>
+              </div>
+            </div>
+            <ul class="sub-comment-section">
+              <li class="sub-comment-item" *ngFor="let item of comments.childComment; let indexchild = index">
+                <div class="image-box">
+                  <img *ngIf="item?.profileImage" class="image" [src]="item?.profileImage" />
+                  <img *ngIf="!item?.profileImage" class="image"
+                    src="../assets/images/home/sidebar/profile-image2.png" />
+
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <p class="title">
+                      {{ comments.firstName + " " + comments.lastName }}
+                    </p>
+                    <ng-container *ngIf="
+                      item.id === toEditComment &&
+                      currentUser.id === item.userId;
+                    else elseTemplate
+                  ">
+                      <textarea class="field" #editChildComment name="editChildComment" placeholder="write a comment"
+                        [(ngModel)]="item.description" (keyup.enter)="
+                      UpdateComment(post, item.description, item.id)
+                    ">
+                  </textarea>
+                    </ng-container>
+
+                    <ng-template #elseTemplate>
+                      <p class="comment">{{ item.description }}</p>
+                    </ng-template>
+                    <i class="fa fa-ellipsis-h icon" mat-icon-button [matMenuTriggerFor]="comment"></i>
+                    <mat-menu #comment>
+                      <button mat-menu-item *ngIf="currentUser.id === item.userId"
+                        (click)="deleteComment(post.id, item.id)">
+                        <p class="popup-title">
+                          <span>Remove Comment</span>
+                        </p>
+                      </button>
+                      <button mat-menu-item *ngIf="currentUser.id === item.userId"
+                        (click)="editComment(post.id, item.id)">
+                        <p class="popup-title">
+                          <span>Edit Comment</span>
+                        </p>
+                      </button>
+                    </mat-menu>
+                  </div>
+                  <div class="actions">
+                    <span class="like" (click)="Like(post, comment, item)"
+                      [ngStyle]="{ color: item?.isLike ? '#23cf70' : '' }">Like</span>
+                    <span class="reply" (click)="
+                    comments.reply = !comments.reply; replyComment(item)
+                  ">Reply</span>
+                    <span class="time-ago">{{ item.createdDate | dateAgo }}</span>
+                  </div>
+                </div>
+              </li>
+              <li class="sub-comment-item" *ngIf="comments.reply">
+                <div class="image-box">
+                  <img *ngIf="currentUser?.profileImage" class="image" [src]="currentUser?.profileImage" />
+                  <img *ngIf="!currentUser?.profileImage" class="image"
+                    src="../assets/images/home/sidebar/profile-image2.png" />
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <input class="field" type="text" [placeholder]="replyPlaceHolder"
+                      (keyup.enter)="AddComment($event, post, comments)" />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+      <div class="outside-comment-box">
+        <div class="icons-box">
+          <i class="fa fa-thumbs-o-up icon" (click)="Like(post)"
+            [ngStyle]="{ color: post?.isLike ? '#23cf70' : '#222222' }"></i>
+          <i class="fas fa-share icon"></i>
+        </div>
+        <div class="comment-item">
+          <div class="image-box">
+            <img *ngIf="currentUser?.profileImage" class="image" [src]="currentUser?.profileImage" />
+            <img *ngIf="!currentUser?.profileImage" class="image"
+              src="../assets/images/home/sidebar/profile-image2.png" />
+          </div>
+          <div class="comment-box">
+            <textarea class="field" #addcomment name="addcomment" placeholder="write a comment"
+              (keyup.enter)="AddComment($event, post)">
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else elseTemplate"> Add </ng-container>
+      <ng-template #elseTemplate> Update </ng-template>
+      Hobby
+    </h4>
+  </div>
+  <div class="popup-body">
+    <input
+      class="field"
+      type="text"
+      placeholder="Add Hobby"
+      [(ngModel)]="hobby"
+    />
+  </div>
+  <div class="action-buttons">
+    <div class="left-box">
+      <button class="btn remove" *ngIf="!isNew" (click)="remove()">
+        Remove
+      </button>
+    </div>
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Add</button>
+    </div>
+  </div>
+</div>

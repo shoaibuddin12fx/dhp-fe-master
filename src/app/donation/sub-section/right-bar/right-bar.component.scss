@@ -1,0 +1,54 @@
+@import "../../../../assets/partials/variable.scss";
+.right-box {
+  flex: 0 0 30%;
+  padding: 0px 20px;
+  background-color: $theme-white;
+  .right-box-inner {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: $theme-bg-sidebar;
+    .top-bar {
+      .title {
+        margin-bottom: 0;
+      }
+    }
+    .card-main-box {
+      .card-item {
+        .cards {
+          .donor {
+            width: 100%;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            .avatar {
+              height: 40px;
+              border-radius: 50%;
+              width: 40px;
+              border: 1px solid $theme-bg-sidebar;
+            }
+            .title {
+              line-height: 1.1;
+              margin-bottom: 2px;
+              padding-left: 0;
+            }
+            .total-amount {
+              position: relative;
+              color: $theme-primary;
+              display: block;
+              font-weight: 600;
+              font-size: 13px;
+              line-height: 1.1;
+            }
+            .total-donation {
+              color: $theme-content;
+              font-size: 12px;
+              font-weight: 500;
+              display: block;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+<div class="manage-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Order Management</h4>
+    </div>
+    <div class="row filter">
+      <div class="col-lg-3 col-3 pl-0">
+        <label>Order Number</label>
+        <input
+          class="field"
+          type="text"
+          [(ngModel)]="searchableData.orderNumber"
+        />
+      </div>
+      <div class="col-lg-3 col-3">
+        <label>Product Name</label>
+        <input
+          class="field"
+          type="text"
+          [(ngModel)]="searchableData.productName"
+        />
+      </div>
+      <div class="col-lg-3 col-3">
+        <label>SKU</label>
+        <input class="field" type="text" [(ngModel)]="searchableData.sku" />
+      </div>
+      <div class="col-lg-3 col-3 pr-0">
+        <label>Status</label>
+        <ng-select
+          [items]="statusList"
+          bindLabel="name"
+          bindValue="value"
+          [(ngModel)]="searchableData.status"
+          [multiple]="false"
+          [searchable]="true"
+          [clearable]="searchableData.status"
+          placeholder="Enter Status"
+        >
+        </ng-select>
+      </div>
+    </div>
+    <button class="search-button" (click)="search()">Search</button>
+  </div>
+  <section class="data-table">
+    <div class="table-box">
+      <table class="w-100">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Order Date</th>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderList; let i = index">
+            <td
+              class="pointer success"
+              [routerLink]="[
+                '/e-seller',
+                'main',
+                shopId,
+                'order-detail',
+                item.orderNumber
+              ]"
+            >
+              {{ item.orderNumber }}
+            </td>
+            <td>{{ item.createdDate | date }}</td>
+            <td>{{ item.productName }}</td>
+            <td>{{ item.sku }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.subTotal }}</td>
+            <td class="pointer success">
+              <select
+                class="field arrow"
+                [(ngModel)]="item.status"
+                (change)="
+                  changeAction($event.target.value, item.orderNumber, i)
+                "
+              >
+                <option
+                  [value]="a.value"
+                  *ngFor="let a of setAction(item.status)"
+                >
+                  {{ a.name }}
+                </option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot *ngIf="orderList.length <= 0">
+          <td class="text-left" colspan="8">
+            <p class="record-status">No Record Available</p>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageData.limit"
+      [pageSizeOptions]="[2, 5, 10, 25, 100]"
+      (page)="search($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </section>
+</div>

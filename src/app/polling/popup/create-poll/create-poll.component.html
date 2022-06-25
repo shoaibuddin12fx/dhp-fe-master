@@ -1,0 +1,61 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create a Poll</h4>
+  </div>
+  <div class="popup-body">
+    <ul class="user">
+      <li class="item">
+        <div class="user-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">Sarah Cruise</p>
+        </div>
+      </li>
+    </ul>
+    <textarea
+      class="field text-field"
+      placeholder="Your thoughts (important)"
+    ></textarea>
+    <select class="field arrow" formControlName="privacyType">
+      <option value="" disabled selected>
+        Poll tags (e.g. Politics, Movies, Music etc.)
+      </option>
+      <option value="politics">Politics</option>
+      <option value="culture">Culture</option>
+      <option value="entertainment">Entertainment</option>
+      <option value="movies">Movies</option>
+      <option value="music">Music</option>
+      <option value="sports">Sports</option>
+      <option value="education">Education</option>
+      <option value="technology">Technology</option>
+      <option value="lifestyle">Lifestyle</option>
+      <option value="environment">Environment</option>
+      <option value="social cause">Social Cause</option>
+      <option value="others">Others</option>
+    </select>
+    <ul class="polling-tag">
+      <li class="tag-box">
+        <input class="field" placeholder="Option 1" />
+        <i class="far fa-times-circle icon"></i>
+      </li>
+      <li class="tag-box">
+        <input class="field" placeholder="Option 2" />
+        <i class="far fa-times-circle icon"></i>
+      </li>
+      <li class="add-option">
+        <i class="fas fa-plus icon"></i>
+        <span class="title">Add Option</span>
+      </li>
+    </ul>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Create</button>
+    </div>
+  </div>
+</div>

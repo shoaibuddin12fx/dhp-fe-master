@@ -1,0 +1,76 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Share on your Timeline</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <div class="comment-item-top">
+      <div class="image-box">
+        <img [src]="post.image" alt="" />
+        <ng-container *ngIf="post?.user?.profileImage; else elseTemplate">
+          <img class="image" [src]="post?.user?.profileImage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img
+            class="image"
+            src="../assets/images/home/sidebar/profile-image2.png"
+          />
+        </ng-template>
+      </div>
+      <div class="comment-box">
+        <input
+          type="text"
+          class="field"
+          [placeholder]="placeholder"
+          [(ngModel)]="sharedDescription"
+        />
+      </div>
+    </div>
+    <div class="post-box">
+      <p class="content">
+        {{ post.description }}
+      </p>
+      <div class="image-box">
+        <img
+          class="image"
+          *ngIf="post?.url && post?.url.length > 0"
+          [src]="post?.url[0].url"
+        />
+
+        <img
+          class="image"
+          *ngIf="post?.url && post?.url.length > 0"
+          [src]="post?.url[0].url"
+        />
+        <span *ngIf="post.type">
+          <!-- <iframe width="420" [src]="videoURL(post?.url.url)"> </iframe> -->
+          <iframe
+            style="width: 100%; height: 200px"
+            [src]="post?.url.url | safe: 'resourceUrl'"
+          >
+          </iframe>
+        </span>
+      </div>
+      <!-- <div class="post-creater">
+        <ul class="group-list">
+          <li class="item">
+            <div class="group-box">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../../assets/images/photos/profile.jpg"
+                />
+              </div>
+              <p class="title">The A Group</p>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button class="btn-save" (click)="share()">Share</button>
+  </div>
+</div>

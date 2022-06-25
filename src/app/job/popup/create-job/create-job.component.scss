@@ -1,0 +1,268 @@
+@import "../../../../assets/partials/variable.scss";
+//  job details //
+.popup-box {
+  overflow: hidden;
+  .popup-body {
+    overflow: overlay;
+    height: 75%;
+    padding: 0 15px;
+    .job-detail {
+      label {
+        display: block;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+      .field {
+        height: 35px;
+        margin-bottom: 15px;
+      }
+      .text-area {
+        resize: unset;
+        height: 120px;
+        padding-top: 10px;
+      }
+      .basic-info {
+        .field {
+          font-size: 13px;
+          color: $theme-content;
+        }
+        .arrow {
+          background-size: 30px 10px;
+        }
+      }
+    }
+
+    .company-detail {
+      label {
+        display: block;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+      .field {
+        height: 35px;
+        margin-bottom: 15px;
+      }
+      .text-area {
+        resize: unset;
+        height: 120px;
+        padding-top: 10px;
+      }
+      .company-info {
+        display: flex;
+        flex-flow: wrap;
+        margin-bottom: 15px;
+        .right-detail {
+          flex: 0 0 30%;
+          .browse {
+            opacity: 1;
+            width: 90%;
+            height: 105px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 8px;
+            background: $theme-bg-sidebar;
+            transition: 0.2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .upload-field {
+              opacity: 0;
+              cursor: pointer;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              position: absolute;
+            }
+            .icon {
+              cursor: pointer;
+              color: $theme-content;
+              font-size: 40px;
+            }
+          }
+        }
+        .left-detail {
+          flex: 0 0 70%;
+          .field {
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .popup-map {
+        position: relative;
+        margin-bottom: 15px;
+        iframe {
+          width: 100%;
+          height: 180px;
+          border-radius: 5px;
+        }
+        .location-box {
+          position: absolute;
+          top: 20px;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 15px;
+          .location-search {
+            position: relative;
+            width: 55%;
+            .field {
+              width: 100%;
+              padding: 8px 30px 8px 15px;
+              border-radius: 25px;
+              background-color: #fff;
+              margin-bottom: 0;
+              &::placeholder {
+                color: $theme-content;
+              }
+            }
+            .icon {
+              position: absolute;
+              right: 15px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: $theme-primary;
+            }
+          }
+          button {
+            width: 70px;
+            padding: 7px 0;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 25px;
+            color: $theme-white;
+            background-color: $theme-primary;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 30px;
+    .btn {
+      width: 130px;
+    }
+  }
+}
+
+// company details //
+// .popup-box {
+//   .popup-body {
+//     .create-ad {
+//       label {
+//         display: block;
+//         font-weight: 800;
+//         font-size: 13px;
+//         margin-bottom: 8px;
+//       }
+//       .field {
+//         height: 35px;
+//         margin-bottom: 15px;
+//       }
+//       .text-area {
+//         resize: unset;
+//         height: 120px;
+//         padding-top: 10px;
+//       }
+//       .company-info {
+//         display: flex;
+//         flex-flow: wrap;
+//         margin-bottom: 15px;
+//         .right-detail {
+//           flex: 0 0 30%;
+//           .browse {
+//             opacity: 1;
+//             width: 90%;
+//             height: 105px;
+//             cursor: pointer;
+//             position: relative;
+//             border-radius: 8px;
+//             background: $theme-bg-sidebar;
+//             transition: 0.2s ease-out;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             .upload-field {
+//               opacity: 0;
+//               cursor: pointer;
+//               width: 100%;
+//               height: 100%;
+//               top: 0;
+//               left: 0;
+//               position: absolute;
+//             }
+//             .icon {
+//               cursor: pointer;
+//               color: $theme-content;
+//               font-size: 40px;
+//             }
+//           }
+//         }
+//         .left-detail {
+//           flex: 0 0 70%;
+//           .field {
+//             margin-bottom: 5px;
+//           }
+//         }
+//       }
+//       .popup-map {
+//         position: relative;
+//         margin-bottom: 15px;
+//         iframe {
+//           width: 100%;
+//           height: 180px;
+//           border-radius: 5px;
+//         }
+//         .location-box {
+//           position: absolute;
+//           top: 20px;
+//           left: 0;
+//           display: flex;
+//           align-items: center;
+//           justify-content: space-between;
+//           width: 100%;
+//           padding: 0 15px;
+//           .location-search {
+//             position: relative;
+//             width: 55%;
+//             .field {
+//               width: 100%;
+//               padding: 8px 30px 8px 15px;
+//               border-radius: 25px;
+//               background-color: #fff;
+//               margin-bottom: 0;
+//               &::placeholder {
+//                 color: $theme-content;
+//               }
+//             }
+//             .icon {
+//               position: absolute;
+//               right: 15px;
+//               top: 50%;
+//               transform: translateY(-50%);
+//               color: $theme-primary;
+//             }
+//           }
+//           button {
+//             width: 70px;
+//             padding: 7px 0;
+//             font-size: 12px;
+//             font-weight: 600;
+//             border-radius: 25px;
+//             color: $theme-white;
+//             background-color: $theme-primary;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .action-buttons {
+//     position: unset;
+//     padding-bottom: 30px;
+//   }
+// }

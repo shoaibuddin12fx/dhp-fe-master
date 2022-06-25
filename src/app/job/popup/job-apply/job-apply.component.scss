@@ -1,0 +1,57 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-body {
+    .create-ad {
+      label {
+        display: block;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+      .field {
+        height: 35px;
+        margin-bottom: 15px;
+      }
+      .browse {
+        opacity: 1;
+        width: 100%;
+        height: 35px;
+        cursor: pointer;
+        position: relative;
+        border-radius: 8px;
+        background: $theme-bg-sidebar;
+        transition: 0.2s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .upload-field {
+          opacity: 0;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+        .content {
+          color: $theme-primary;
+          font-size: 12px;
+          margin-bottom: 0;
+          font-weight: 700;
+          .icon {
+            cursor: pointer;
+            color: $theme-primary;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 30px;
+    .btn {
+      width: 120px;
+    }
+  }
+}

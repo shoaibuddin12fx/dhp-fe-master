@@ -1,0 +1,108 @@
+@import "../../../assets/partials/variable.scss";
+.home-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .left-box {
+    padding: 20px;
+    flex: 0 0 70%;
+    border-radius: 8px;
+    background-color: $theme-white;
+    .title {
+      font-size: 22px;
+      font-weight: 600;
+      color: $theme-black;
+      margin-bottom: 10px;
+    }
+    .performance-box {
+      display: flex;
+      flex-flow: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      .title {
+        margin-left: 0;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: $theme-black;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        border-bottom: 1px solid $theme-light-border;
+      }
+      .inner-box {
+        width: 50%;
+        padding: 0 10px;
+        border-right: 1px solid $theme-light-border;
+        &:last-child {
+          border-right: unset;
+        }
+        .heading {
+          display: block;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 0.8;
+          margin-bottom: 10px;
+          color: $theme-black;
+        }
+        .listing {
+          margin: 0;
+          padding: 8px 0;
+          padding-bottom: 0;
+          list-style-type: none;
+          .item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            span {
+              font-size: 13px;
+              font-weight: 500;
+              color: $theme-black;
+            }
+            .value {
+              font-size: 13px;
+              font-weight: 500;
+              color: $theme-black;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-white;
+      .card-main-box {
+        .card-item {
+          .cards {
+            align-items: flex-start;
+            span {
+              font-weight: 600;
+            }
+            p {
+              width: 90%;
+              float: right;
+              display: block;
+              font-size: 14px;
+              font-weight: 500;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

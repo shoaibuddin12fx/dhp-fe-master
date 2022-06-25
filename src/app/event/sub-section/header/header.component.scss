@@ -1,0 +1,56 @@
+@import "../../../../assets/partials/variable.scss";
+.header {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $theme-bg-sidebar;
+  margin-bottom: 30px;
+  .section-nav {
+    padding: 0;
+    margin-bottom: 0;
+    width: 80%;
+    border-radius: unset !important;
+    background-color: transparent !important;
+    .item {
+      margin: 0 30px;
+      margin-left: 0;
+      .icon {
+        position: absolute;
+        top: 52%;
+        transform: translateY(-50%);
+        padding-left: 5px;
+      }
+      &:nth-child(2) {
+        padding-right: 15px;
+      }
+      .active {
+        color: $theme-primary;
+      }
+    }
+  }
+  .dropdown-selection {
+    margin-left: 20px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 20%;
+    list-style-type: none;
+    .item {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 10px 0;
+      font-weight: 600;
+      position: relative;
+      border-bottom: 2px solid transparent;
+      .icon {
+        padding-left: 10px;
+      }
+    }
+  }
+}

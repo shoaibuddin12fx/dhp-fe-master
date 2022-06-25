@@ -1,0 +1,254 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <div class="search-box">
+      <div class="search">
+        <i class="fa fa-search icon"></i>
+        <input type="text" placeholder="Search by name" [(ngModel)]="search" />
+      </div>
+    </div>
+    <ul class="friend-list">
+      <li
+        class="item row gx-0"
+        *ngFor="
+          let friend of friends | filter: [{ field: 'fullname', value: search }]
+        "
+        [routerLink]="[
+          '/social',
+          'profile',
+          friend.userId === currentUser.id ? friend.friendId : friend.userId,
+          'user-feed'
+        ]"
+      >
+        <div class="col-lg-2">
+          <button class="profile-image">
+            <ng-container *ngIf="friend.profileimage; else elseTemplate">
+              <img [src]="friend.profileimage" />
+            </ng-container>
+            <ng-template #elseTemplate>
+              <img src="../assets/images/home/sidebar/profile-image2.png" />
+            </ng-template>
+          </button>
+        </div>
+        <div class="col-lg-10">
+          <div class="profile-info">
+            <p class="title">{{ friend?.fullname }}</p>
+            <span
+              class="content"
+              *ngIf="
+                +friend.userId
+                  ? +friend.userId
+                  : +friend.friendId !== +currentUser.id
+              "
+              >{{ friend.mutualFriendCount }} mutual friends</span
+            >
+            <div
+              class="icon"
+              *ngIf="
+                friend.userId
+                  ? friend.userId
+                  : friend.friendId !== currentUser.id
+              "
+            >
+              <button
+                mat-icon-button
+                *ngIf="!friend.isMyFriend && friend.friendStatus"
+                class="button button-success add-frined-btn"
+                (click)="$event.stopPropagation()"
+                disabled
+              >
+                {{ friend.friendStatus }}
+              </button>
+              <button
+                mat-icon-button
+                *ngIf="!friend.isMyFriend && !friend.friendStatus"
+                class="button button-success add-frined-btn"
+                (click)="
+                  $event.stopPropagation();
+                  AddFriend(friend.userId ? friend.userId : friend.friendId)
+                "
+              >
+                Add Friend
+              </button>
+
+              <button
+                mat-icon-button
+                *ngIf="friend.isMyFriend"
+                [matMenuTriggerFor]="friends"
+                (click)="$event.stopPropagation()"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #friends>
+                <button mat-menu-item (click)="unFriendUser(friend)">
+                  <p class="popup-title">
+                    <span>Unfriend</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <app-widget-wrapper class="right-box">
+    <app-friend-request-widget
+      title="Friend Requests"
+      [friendRequestList]="friendRequests"
+      (approveRequest)="onApproveRequest($event)"
+      (rejectRequest)="onRejectRequest($event)"
+    ></app-friend-request-widget>
+  </app-widget-wrapper>
+  <!-- <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Friend Requests</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0 pl-5">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-gray">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0 pl-5">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-gray">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-gray">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar circle border"
+                src="../../../assets/images/groups/group-profile.jpg "
+              />
+            </div>
+            <div class="col-lg-10">
+              <div class="cards row gx-0 pt-0 pl-5">
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                </div>
+                <div class="col-lg-3">
+                  <div class="action-buttons">
+                    <button class="button button-gray">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                    <button class="button button-warning">
+                      <i class="fas fa-times icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="top-bar">
+        <h4 class="title">Coming Birthdays</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar border circle"
+                src="../../../assets/images/home/main/abc-group-logo.PNG"
+              />
+            </div>
+            <div class="col-lg-10">
+              <p class="title">The A Group</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar border circle"
+                src="../../../assets/images/home/main/abc-group-logo.PNG"
+              />
+            </div>
+            <div class="col-lg-10">
+              <p class="title">The A Group</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar border circle"
+                src="../../../assets/images/home/main/abc-group-logo.PNG"
+              />
+            </div>
+            <div class="col-lg-10">
+              <p class="title">The A Group</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-2">
+              <img
+                class="avatar border circle"
+                src="../../../assets/images/home/main/abc-group-logo.PNG"
+              />
+            </div>
+            <div class="col-lg-10">
+              <p class="title">The A Group</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

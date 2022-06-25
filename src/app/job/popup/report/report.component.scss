@@ -1,0 +1,40 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-header {
+    position: relative;
+    .close-button {
+      top: 0;
+      right: 20px;
+      line-height: 1;
+      position: absolute;
+      color: $theme-content;
+      transform: translateY(-50%);
+    }
+  }
+  .popup-body {
+    margin: 20px 0 0;
+    .report-main {
+      .field {
+        height: 35px;
+        margin-bottom: 15px;
+        border-radius: 25px;
+      }
+      .text-area {
+        resize: unset;
+        height: 120px;
+        padding-top: 10px;
+        border-radius: 15px;
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    .button {
+      width: 100%;
+      background: $theme-primary;
+      color: #fff;
+      border-radius: 25px;
+      padding: 7px;
+    }
+  }
+}

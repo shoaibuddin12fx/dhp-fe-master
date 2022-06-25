@@ -1,0 +1,312 @@
+<div class="campaign-layout">
+  <div class="left-box">
+    <app-header></app-header>
+    <div class="chart-box">
+      <div class="total-campaign">
+        <p class="content">Campaign Created</p>
+        <h3 class="number">15</h3>
+      </div>
+      <div class="total-campaign">
+        <p class="content">Total Donors on all Campaigns</p>
+        <h3 class="number">10,956</h3>
+      </div>
+      <div class="total-campaign">
+        <p class="content">Total Amount Raised</p>
+        <h3 class="number">$1,000,000,00</h3>
+      </div>
+    </div>
+    <div class="campaign-main">
+      <h6 class="title-main">My Campaigns</h6>
+      <div class="head">
+        <p class="name">Campaign</p>
+        <p class="member">Donors</p>
+        <p class="amount">Donations</p>
+        <p class="date">Start Date</p>
+      </div>
+      <div class="campaign-detail-main">
+        <div class="tag-box">
+          <h2 class="tag">Active</h2>
+        </div>
+        <div
+          class="campaign-detail"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="campaign-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/donation/home/group-profile.jpg"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Red Panda Habitat Project</h6>
+            </div>
+          </div>
+          <div class="donor-description">
+            <span>23,000</span>
+          </div>
+          <div class="donation-description">
+            <p>$100,000,00</p>
+          </div>
+          <div class="date">
+            <p class="content">Nov 24, 2020</p>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>End</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Edit</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="campaign-detail-main">
+        <div
+          class="campaign-detail"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="campaign-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/donation/home/group-profile.jpg"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Red Panda Habitat Project</h6>
+            </div>
+          </div>
+          <div class="donor-description">
+            <span>23,000</span>
+          </div>
+          <div class="donation-description">
+            <p>$100,000,00</p>
+          </div>
+          <div class="date">
+            <p class="content">Nov 24, 2020</p>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>End</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Edit</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="campaign-detail-main">
+        <div
+          class="campaign-detail"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="campaign-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/donation/home/group-profile.jpg"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Red Panda Habitat Project</h6>
+            </div>
+          </div>
+          <div class="donor-description">
+            <span>23,000</span>
+          </div>
+          <div class="donation-description">
+            <p>$100,000,00</p>
+          </div>
+          <div class="date">
+            <p class="content">Nov 24, 2020</p>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>End</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Edit</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="campaign-detail-main">
+        <div
+          class="campaign-detail"
+          [routerLink]="['/donation', 'donation-detail']"
+        >
+          <div class="campaign-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/donation/home/group-profile.jpg"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Red Panda Habitat Project</h6>
+            </div>
+          </div>
+          <div class="donor-description">
+            <span>23,000</span>
+          </div>
+          <div class="donation-description">
+            <p>$100,000,00</p>
+          </div>
+          <div class="date">
+            <p class="content">Nov 24, 2020</p>
+          </div>
+        </div>
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>End</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Edit</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+  <app-right-bar></app-right-bar>
+</div>

@@ -1,0 +1,310 @@
+@import "../../../../assets/partials/variable.scss";
+.friends-section {
+  display: flex;
+  flex-flow: wrap;
+  margin-left: -10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 calc(100% + 10px);
+  .friend-box {
+    margin: 0 auto;
+    padding: 20px 5px;
+    margin-left: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    flex: 0 0 calc(33.33% - 10px);
+    background-color: $theme-white;
+    border: 1px solid $theme-border;
+    margin-right: 0;
+    display: flex;
+    min-height: 276px;
+    flex-flow: wrap;
+    .friend-profile {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 66px;
+        height: 66px;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid $theme-white;
+      }
+      &:before {
+        top: 50%;
+        left: 50%;
+        width: 70px;
+        content: "";
+        height: 70px;
+        border-radius: 50%;
+        position: absolute;
+        background: $theme-gradient;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .title {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      font-size: 14px;
+      margin-bottom: 0;
+      color: $theme-black;
+    }
+    .designation {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: $theme-content;
+    }
+    .social-graph {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: wrap;
+      position: relative;
+      align-items: center;
+      list-style-type: none;
+      justify-content: center;
+      &:before {
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 75%;
+        content: "";
+        position: absolute;
+        transform: translate(-50%, -50%);
+        background-color: $theme-background-light;
+      }
+      .list-item {
+        flex: 0 0 50%;
+        .value {
+          margin: 0;
+          line-height: 1;
+          font-size: 12px;
+          font-weight: 700;
+          text-align: center;
+          color: $theme-black;
+        }
+        .title {
+          margin: 0;
+          line-height: 1;
+          font-size: 12px;
+          font-weight: 700;
+          text-align: center;
+          color: $theme-black;
+        }
+      }
+    }
+    .action-buttons {
+      margin-top: 15px;
+      width: 100%;
+      .button {
+        width: 80%;
+        padding: 5px;
+        margin: 0 auto;
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        border: 2px solid;
+        margin-bottom: 8px;
+        border-radius: 25px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1920px) {
+  .friends-section {
+    .friend-box {
+      min-height: 348px;
+      .friend-profile {
+        height: 90px;
+        img {
+          height: 86px;
+          width: 86px;
+        }
+        &:before {
+          width: 90px;
+          height: 90px;
+        }
+      }
+      .title {
+        font-size: 20px;
+        margin-top: 18px;
+      }
+      .designation {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .social-graph {
+        .list-item {
+          .value {
+            font-size: 16px;
+          }
+          .title {
+            font-size: 16px;
+          }
+        }
+      }
+      .action-buttons {
+        margin-top: 18px;
+        .button {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1660px) {
+  .friends-section {
+    .friend-box {
+      .friend-profile {
+        height: 85px;
+        img {
+          height: 81px;
+          width: 81px;
+        }
+        &:before {
+          width: 85px;
+          height: 85px;
+        }
+      }
+      .title {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+      .designation {
+        font-size: 15px;
+      }
+      .social-graph {
+        .list-item {
+          .value {
+            font-size: 15px;
+          }
+          .title {
+            font-size: 15px;
+          }
+        }
+      }
+      .action-buttons {
+        .button {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .friends-section {
+    .friend-box {
+      min-height: 294px;
+      .friend-profile {
+        height: 75px;
+        img {
+          height: 70px;
+          width: 70px;
+        }
+        &:before {
+          width: 75px;
+          height: 75px;
+        }
+      }
+      .title {
+        font-size: 16px;
+      }
+      .designation {
+        font-size: 12px;
+      }
+      .social-graph {
+        .list-item {
+          .value {
+            font-size: 12px;
+          }
+          .title {
+            font-size: 12px;
+          }
+        }
+      }
+      .action-buttons {
+        .button {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1366px) {
+  .friends-section {
+    .friend-box {
+      min-height: 282px;
+      .friend-profile {
+        height: 70px;
+        img {
+          height: 66px;
+          width: 66px;
+        }
+        &:before {
+          width: 70px;
+          height: 70px;
+        }
+      }
+      .title {
+        font-size: 14px;
+      }
+      .designation {
+        font-size: 12px;
+      }
+      .social-graph {
+        .list-item {
+          .value {
+            font-size: 12px;
+          }
+          .title {
+            font-size: 12px;
+          }
+        }
+      }
+      .action-buttons {
+        .button {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .friends-section {
+    .friend-box {
+      flex: 0 0 calc(50% - 10px);
+      .friend-profile {
+        img {
+        }
+        &:before {
+        }
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
+  .friends-section {
+    .friend-box {
+      flex: 0 0 calc(100% - 10px);
+      .friend-profile {
+        img {
+        }
+        &:before {
+        }
+      }
+    }
+  }
+}

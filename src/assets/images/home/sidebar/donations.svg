@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="charity" y="1" width="23" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAVCAYAAACt4nWrAAABsklEQVQ4ja3UzYvPURQG8I+3vGRYSQxKKE15TY2SbKQUxUKxQtlaIAslFsrkb5AFzUwaLGQjFkJTUjYUEeUlJVFWIumnW2d0597vb/wyv6dufbvPOc8936dzji5gD653Q6gJN9DCDsxo4P8b50N47NzOhaZPQngNTmEUlzAbH/KAqVVK5/gVoQuwHG9wq5u27MOrzJZzVcQkMAv92B3iH3Op5Pl29OI3HkclnWA1XhRxZ8q8VnF2Zdwy9GFmw2M9OIGXkX+kisCmGIT9+IkvWIcHxaOD2Fxlcwzfq9sGXG0QPItn2d2BOu0vDmEAaysG10LgOTYW3Hy8Db6n4PqKAlrhxjjcD2IMvdEBV7AkWq0VDyUswnAmuBOH4/tuKT5aiC/F56Kir9iCk4V90+L+R/bQODwMouyObRhp6Kz3mX0Dcfepnedl5SUWR8udzipLs/I68kYm2lf3ImhlxTRjb/YXxxsjMlwufvspLuIotmIh5mIDhiLmW5v+r/AoElJ3JOHS4/LcxJx2YlPwJPZEWkJpBSfhg1nMCqzC+pjmeTHyaSbSFE+IO3gXC+tCh17/G/gDwruB2o5cX4IAAAAASUVORK5CYII="/>
+  </g>
+</svg>

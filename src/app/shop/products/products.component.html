@@ -1,0 +1,440 @@
+<div class="product-list-layout">
+  <div class="shop-header">
+    <app-shop-header></app-shop-header>
+  </div>
+  <div class="left-box">
+    <ul class="breadcrumbs">
+      <li class="item">{{ shopType == 1 ? "Retail" : "WholeSale" }}</li>
+      <!-- <li class="item">{{data.name}}</li> -->
+      <li class="item" *ngFor="let item of breadcrumb">{{ item }}</li>
+      <!-- <li class="item">Cellphones</li>
+      <li class="item">AndroidPhones</li> -->
+    </ul>
+    <div class="product-filter">
+      <div class="left">
+        <h6 class="left-title">Filtered by |</h6>
+        <div class="filter-items-main">
+          <div class="item" *ngFor="let item of brandArr">
+            <span class="title">{{ getBrandName(item) }}</span>
+            <i class="fas fa-times icon" (click)="addBrandItem(item)"></i>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="sort-main">
+          <span>Sort by Price</span>
+          <div
+            class="sorting-box"
+            mat-icon-button
+            [matMenuTriggerFor]="statusList"
+          >
+            <h4 class="filter-title">High to Low</h4>
+            <i class="fas fa-chevron-down icon"></i>
+          </div>
+          <mat-menu #statusList>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>High to Low</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Low to High</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div class="featured-product">
+      <div class="row gx-0">
+        <div class="col-lg-4" *ngFor="let p of productData">
+          <div class="products">
+            <div
+              class="main"
+              [routerLink]="['/shop', shopType, 'product', p.id]"
+            >
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>{{ p?.shopName }}</p>
+                <h6>
+                  {{ p.name }}<span>{{ p.color }}</span>
+                </h6>
+                <h5>${{ p.price }}<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageData.limit"
+      [pageSizeOptions]="[2, 5, 10, 25, 100]"
+      (page)="search($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+    <!-- <div class="pagination-main">
+      <ul class="pagination">
+        <li class="list green-list">
+          <span class="item">1</span>
+        </li>
+        <li class="list">
+          <span class="item">2</span>
+        </li>
+        <li class="list">
+          <span class="item">3</span>
+        </li>
+        <li class="list">
+          <span class="item">4</span>
+        </li>
+        <li class="list white-bg">
+          <i class="fa fa-ellipsis-h icon"></i>
+        </li>
+        <li class="list">
+          <span class="item">10</span>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Category</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <mat-accordion>
+                    <mat-expansion-panel
+                      *ngFor="let item of mainCategories"
+                      [expanded]="false"
+                    >
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">{{ item.name }}</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="product-category">
+                        <mat-expansion-panel
+                          *ngFor="let item1 of item.prodCat"
+                          (opened)="item1.panelOpenState = true"
+                          (closed)="item1.panelOpenState = false"
+                          hideToggle="true"
+                          [expanded]="false"
+                        >
+                          <mat-expansion-panel-header
+                            class="expansion-header border-none h-20"
+                          >
+                            <mat-panel-title>
+                              <p class="expansion-title">{{ item1.name }}</p>
+                            </mat-panel-title>
+                            <i
+                              *ngIf="!item1.panelOpenState"
+                              class="fas fa-plus icon"
+                            ></i>
+                            <i
+                              *ngIf="item1.panelOpenState"
+                              class="fas fa-minus icon"
+                            ></i>
+                          </mat-expansion-panel-header>
+                          <ul class="sub-category">
+                            <li
+                              class="list"
+                              *ngFor="let item2 of item1.subCat"
+                              (click)="addBrandItem(item2.id)"
+                            >
+                              <!-- <a class="title">{{item2.name}}</a> -->
+                              <button class="">
+                                {{ item2.name }}
+                                <i
+                                  class="fas fa-check icon"
+                                  *ngIf="checkBrandExsist(item2)"
+                                ></i>
+                              </button>
+                            </li>
+                          </ul>
+                        </mat-expansion-panel>
+                      </ul>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <!-- <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Brands</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item" *ngFor="let item of brands; let i = index">
+              <div class="cards row gx-0" (click)="addBrandItem(item.id)">
+                <div class="col-lg-10">
+                  <span class="storage-title">{{ item.name }}</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i
+                        class="fas fa-check icon"
+                        *ngIf="checkBrandExsist(item)"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel> -->
+      </mat-accordion>
+      <!-- <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Storage</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">256 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">128 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">64 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">32 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">16 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>RAM</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">16 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">8 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">4 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-success">
+                      <i class="fas fa-check icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">3 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-10">
+                  <span class="storage-title">2 GB</span>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button class="button button-gray"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion> -->
+      <div class="top-bar">
+        <h4 class="title">Location</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="location">
+              <!-- <input type="text" class="feild" placeholder="Enter Country" />
+              <button>
+                <i class="fas fa-map-marker-alt icon"></i>
+              </button> -->
+              <ng-select
+                class="field"
+                [items]="countrys"
+                [virtualScroll]="true"
+                [ngModelOptions]="{ standalone: true }"
+                (change)="gethomePageData()"
+                [(ngModel)]="location"
+                [multiple]="true"
+                [searchable]="true"
+                [clearable]="true"
+                placeholder="Enter Country"
+              >
+                <!-- <ng-template ng-label-tmp let-item="item" let-search="searchTerm">
+                {{ item.fullName }}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                {{ item.firstName }} {{ item.lastName }}
+              </ng-template> -->
+              </ng-select>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-bar">
+        <h4 class="title">Price Range</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0 c-auto">
+            <div class="col-lg-2">
+              <span>From</span>
+            </div>
+            <div class="col-lg-10">
+              <form action="" class="price-range">
+                <input
+                  type="number"
+                  [(ngModel)]="minPrice"
+                  (ngModelChange)="gethomePageData()"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="feild"
+                  placeholder="$0"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0 c-auto">
+            <div class="col-lg-2">
+              <span>To</span>
+            </div>
+            <div class="col-lg-10">
+              <form action="" class="price-range">
+                <input
+                  type="number"
+                  class="feild"
+                  (ngModelChange)="gethomePageData()"
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="maxPrice"
+                  placeholder="$0"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

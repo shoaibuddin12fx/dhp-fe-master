@@ -1,0 +1,260 @@
+<div class="track-layout">
+  <div class="shop-header">
+    <app-shop-header></app-shop-header>
+  </div>
+  <div class="left-box">
+    <ul class="breadcrumbs">
+      <li class="item">Whole sale</li>
+      <li class="item">My Orders</li>
+      <li class="item">Track Order {{ orderNum }}</li>
+    </ul>
+    <div class="order-box">
+      <h4 class="order-title">Track Your Order</h4>
+      <div class="order-detail" *ngFor="let item of orderDetails">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../assets/images/shop/retail/order/order-1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">{{ item.productName }}</h6>
+            <p class="content">Qty: {{ item.quantity }} pieces</p>
+          </div>
+        </div>
+        <div class="cost-descripttion">
+          <div class="cost-description-inner">
+            <h6 class="title">Total</h6>
+            <p class="price">
+              $<span>{{ item.subTotal }}</span
+              >USD
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="status-box">
+        <div class="head">
+          <div class="order-id">
+            <p class="id">Order ID: {{ orderNum }}</p>
+            <p class="date">Placed on : {{ orderData.createdDate | date }}</p>
+          </div>
+          <div class="order-type">
+            <p>
+              Order Type:
+              {{ orderData.orderType == 1 ? "Retailer" : "Wholesale" }}
+            </p>
+          </div>
+        </div>
+        <div class="discription">
+          <div class="deleverd-status">
+            <p>
+              {{ orderData.status }}: {{ orderData.statusDate
+              }}<span>(visible when delivered)</span>
+            </p>
+          </div>
+          <div class="image-box">
+            <img
+              src="../../../assets/images/shop/delivery/processing.png"
+              class="image"
+            />
+            <h5 class="title">Your order is being processed</h5>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="chat">
+            <i class="fas fa-comment icon"></i>
+            <h6>Chat with Supplier</h6>
+          </div>
+          <div class="action-button">
+            <button
+              class="button"
+              *ngIf="orderData.status != 'Cancelled'"
+              (click)="cancelOrderDialog()"
+            >
+              Cancel
+            </button>
+            <button class="button" *ngIf="orderData.status != 'Cancelled'">
+              Return
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="other-detail">
+        <div
+          class="contact-info"
+          *ngIf="orderData.shop && orderData.shop.length > 0"
+        >
+          <p>
+            <i class="fas fa-phone-alt icon"></i>
+            {{ orderData.shop[0]?.contactNo || "" }}
+          </p>
+          <p>
+            <i class="fas fa-envelope icon"></i>
+            {{ orderData.shop[0]?.email || "" }}
+          </p>
+        </div>
+        <div class="review">
+          <p class="content">
+            (visible when delivered)
+            <span (click)="openReviewDialog()">Give a Review</span>
+          </p>
+        </div>
+      </div>
+      <div class="amount-main">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="shipping">
+              <h6 class="title">Shipping Address</h6>
+              <ul class="detail">
+                <li class="list">{{ shippingData.fullName }}</li>
+                <li class="list">{{ shippingData.phoneNumber }}</li>
+                <li class="list">
+                  <span>Address</span> {{ shippingData.country }},
+                  {{ shippingData.city }},
+                  {{ shippingData.area }}
+                </li>
+              </ul>
+            </div>
+            <div class="shipping">
+              <h6 class="title">Billing Address</h6>
+              <ul class="detail">
+                <li class="list">{{ billingData.fullName }}</li>
+                <li class="list">{{ billingData.phoneNumber }}</li>
+                <li class="list">
+                  <span>Address</span> {{ billingData.country }},
+                  {{ billingData.city }},
+                  {{ billingData.area }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 pl-0">
+            <div class="summary">
+              <h6 class="title">Total Summary</h6>
+              <div class="content">
+                <p>Subtotal</p>
+                <span>$ {{ getSubTotal() }} USD</span>
+              </div>
+              <div class="content">
+                <p>Shipping</p>
+                <span>$ {{ orderData.shippingFees }} USD</span>
+              </div>
+              <div class="total">
+                <p>Total</p>
+                <span
+                  >$ {{ +getSubTotal() + +orderData.shippingFees }} USD</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Track with order ID</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="track-id">
+              <input type="text" class="feild" placeholder="Order ID" />
+              <button>
+                <i class="fas fa-hashtag icon"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Your Orders</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <div class="your-order">
+                  <div class="row align-items-center gx-0">
+                    <div class="col-lg-4">
+                      <div class="image-box">
+                        <img
+                          class="image"
+                          src="../../../assets/images/shop/retail/order/order-3.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="title">Watch</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards">
+                <div class="your-order">
+                  <div class="row align-items-center gx-0">
+                    <div class="col-lg-4">
+                      <div class="image-box">
+                        <img
+                          class="image"
+                          src="../../../assets/images/shop/retail/order/order-2.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="title">Camera</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards">
+                <div class="your-order">
+                  <div class="row align-items-center gx-0">
+                    <div class="col-lg-4">
+                      <div class="image-box">
+                        <img
+                          class="image"
+                          src="../../../assets/images/shop/retail/order/order-3.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="title">Watch</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards">
+                <div class="your-order">
+                  <div class="row align-items-center gx-0">
+                    <div class="col-lg-4">
+                      <div class="image-box">
+                        <img
+                          class="image"
+                          src="../../../assets/images/shop/retail/order/order-2.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="title">Camera</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

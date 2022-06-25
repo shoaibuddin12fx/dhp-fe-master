@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="polling" y="1" width="23" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAVCAYAAACt4nWrAAACLElEQVQ4ja2UP0hWYRTGf19+lJlWRglRDmEEIlTYpFCKuOgWVFCRFkVLELgUQUNNDdLU6JIKhbMQDg0JgiChixGUligRmGX/rCxNeeJ55fVePvsiHzjcc897znPPPX9eIpwE5oEF4DLriCpgCbhmYukN60V/2oQB+oObKa//gMifAYPWt/4DVSHQYdkYjBk/7wP7gQmgANgJfAZOAYspqtXYAgwDpeabAY4A3+TV4kzbgEPAQeC8bbdSVGlcTZRU+hUpWWc2DlwCrtvhI/AS+JKg2ge8Ttj6gDngqDOfs20VioBiS1HibJf7seRE9kRnDbbHUh8H3wVeAG8sIuiKzp8Ck87uuUU4bMILQJnlom3VIfg30AuctXTZYYPPPwDt1m/414U79nsCDFn6bQv+fAJao0wb7RDG6l40qnp2Rj1QCc5EiWln6nSWtdMv1zVgt58/gSagGbgNbAZ6PGHngG6PrsZ4u2NmgSk1PktufHVZHlkfAb4DmzxqKt0D90MffWWmCn+wYC1yPKrdno52B2l0R51hxhfdCfdMOA48DMG5UOz6tjjbcB1kvL0//K4N3RFxlLqcK9OQCwte5UmPp2TM73WOWUzwrOhrZU509arZxyL7Yze6PxWRqGk+0GINRH5T+QT9rSyCSqNGJpPS+OZFriZoSwP+NMRQTcMMB2yLdDU0/pD0kpBBJfAW2AvU2OGAb0S9lwPTQK3P1If37oPO33mJQqzmfBqoWgYVPIcip+0ZWwAAAABJRU5ErkJggg=="/>
+  </g>
+</svg>

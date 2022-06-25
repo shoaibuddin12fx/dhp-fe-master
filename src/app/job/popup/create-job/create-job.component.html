@@ -1,0 +1,108 @@
+<!-- job detail -->
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create Job</h4>
+  </div>
+  <div class="popup-body">
+    <div class="job-detail">
+      <label>Job Position</label>
+      <input type="text" placeholder="Job Position" class="field" />
+      <div class="basic-info">
+        <div class="row">
+          <div class="col-lg-12">
+            <label>Job Category</label>
+            <select class="field arrow">
+              <option value="" disabled selected>Job Categories</option>
+              <option value="male">Category One</option>
+              <option value="female">Category Two</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="basic-info">
+        <div class="row">
+          <div class="col-lg-6">
+            <label>Job Type</label>
+            <select class="field arrow">
+              <option value="" disabled selected>Job type</option>
+              <option value="male">Type One</option>
+              <option value="female">Type Two</option>
+            </select>
+          </div>
+          <div class="col-lg-6">
+            <label>Salary</label>
+            <input type="text" placeholder="Salary (optional)" class="field" />
+          </div>
+        </div>
+      </div>
+
+      <label>Description</label>
+      <textarea
+        class="field text-area"
+        placeholder="Job Description"
+      ></textarea>
+      <label>Job Responsibilities</label>
+      <textarea
+        class="field text-area"
+        placeholder="Job Description"
+      ></textarea>
+      <label>Job Requirement</label>
+      <textarea
+        class="field text-area mb-0"
+        placeholder="Job Description"
+      ></textarea>
+    </div>
+
+    <!-- <div class="company-detail">
+      <div class="company-info">
+        <div class="right-detail">
+          <label>Company Logo</label>
+          <div class="browse" #image>
+            <input class="upload-field" type="file" id="file" accept="image/*" />
+            <label for="file" class="fa fa-camera icon"></label>
+          </div>
+        </div>
+        <div class="left-detail">
+          <label>Company Name</label>
+          <input type="text" placeholder="Company Name" class="field" />
+          <label>Company Email</label>
+          <input type="text" placeholder="Company Email" class="field" />
+        </div>
+      </div>
+
+
+      <label>Company Description</label>
+      <textarea class="field text-area" placeholder="Company Description"></textarea>
+      <div class="popup-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.43556854007!2d-118.69193128882294!3d34.020730494168454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1642767474772!5m2!1sen!2s"
+          style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+        <div class="location-box">
+          <div class="location-search">
+            <input type="text" placeholder="Enter Location" class="field" />
+            <i class="fas fa-map-marker-alt icon"></i>
+          </div>
+          <button class="">Save</button>
+        </div>
+      </div>
+
+      <label>Company Website</label>
+      <input type="text" placeholder="Company Website(optional)" class="field" />
+      <label>Company Linkedin</label>
+      <input type="text" placeholder="Company Linkedin(optional)" class="field mb-0" />
+    </div> -->
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Continue</button>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Back</button>
+      <button class="btn add">Post</button>
+    </div>
+  </div>
+</div>

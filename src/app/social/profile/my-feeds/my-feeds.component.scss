@@ -1,0 +1,25 @@
+@import "../../../../assets/partials/variable.scss";
+.profile-layout {
+  display: flex;
+  padding: 20px;
+  flex-flow: wrap;
+  padding-left: 0;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 10px 20px;
+    padding-right: 0;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+    }
+  }
+}

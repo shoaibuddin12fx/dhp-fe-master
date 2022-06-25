@@ -1,0 +1,354 @@
+<div class="member-layout">
+  <div class="main-box">
+    <div class="member">
+      <div class="title-box">
+        <h6 class="title">Members</h6>
+        <span>{{ totalMembers }}</span>
+      </div>
+      <div class="search-box">
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Search a member"
+          />
+        </div>
+      </div>
+      <ul class="profile-box" *ngFor="let item of filter()">
+        <li class="item">
+          <button class="profile-image">
+            <img class="image" [src]="item.profileImage" />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">{{ item.fullName }}</p>
+          </div>
+        </li>
+      </ul>
+      <ul class="profile-box">
+        <h5 class="inner-title">Admins</h5>
+        <!-- *ngFor="let item of groupAdmins | slice: 0:5" -->
+        <li class="item">
+          <app-group-member-item
+            [memberList]="groupAdmins"
+            [isAbout]="false"
+            (onSuccess)="getMembers()"
+          ></app-group-member-item>
+        </li>
+        <!-- <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Alfonzo Raynor</p>
+          </div>
+          <div
+            class="profile-button"
+            mat-icon-button
+            [matMenuTriggerFor]="admin"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </div>
+          <mat-menu #admin>
+            <button mat-menu-item (click)="$event.stopPropagation()">
+              <p class="popup-title">
+                <span>Post Approval</span>
+                <mat-slide-toggle></mat-slide-toggle>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Remove as Admin</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Block from Group</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Remove Member</span>
+              </p>
+            </button>
+          </mat-menu>
+        </li> -->
+        <div class="action-button">
+          <button class="button" (click)="GroupMembersDialog(groupAdmins, 'Admins')">
+            See all
+          </button>
+        </div>
+      </ul>
+      <ul class="profile-box">
+        <h5 class="inner-title">Friends with you</h5>
+        <li class="item">
+          <app-group-member-item
+            [memberList]="myFriends"
+            [isAbout]="false"
+            (onSuccess)="getMembers()"
+          ></app-group-member-item>
+        </li>
+
+        <div class="action-button">
+          <button
+            class="button"
+            (click)="GroupMembersDialog(myFriends, 'Friends with you')"
+          >
+            See all
+          </button>
+        </div>
+      </ul>
+      <ul class="profile-box">
+        <h5 class="inner-title">New members this month</h5>
+        <li class="item">
+          <app-group-member-item
+            [memberList]="currentMonthMember"
+            [isAbout]="false"
+            (onSuccess)="getMembers()"
+          ></app-group-member-item>
+        </li>
+
+        <div class="action-button">
+          <button
+            class="button"
+            (click)="GroupMembersDialog(currentMonthMember, 'New members this month')"
+          >
+            See all
+          </button>
+        </div>
+      </ul>
+      <ul class="profile-box">
+        <h5 class="inner-title">All members</h5>
+        <li class="item">
+          <app-group-member-item
+            [memberList]="allMembers"
+            [isAbout]="false"
+            (onSuccess)="getMembers()"
+          ></app-group-member-item>
+        </li>
+        <!-- <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Ronny Hudson</p>
+          </div>
+          <div class="profile-button">
+            <button class="add-friend-button">
+              <i class="fas fa-plus add-icon"></i> Add Friend
+            </button>
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="allMember"
+            ></i>
+            <mat-menu #allMember>
+              <button mat-menu-item (click)="$event.stopPropagation()">
+                <p class="popup-title">
+                  <span>Post Approval</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Add as Admin</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Block from Group</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Remove Member</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+        <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Anika Schuster</p>
+          </div>
+          <div class="profile-button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="allMember"
+            ></i>
+            <mat-menu #allMember>
+              <button mat-menu-item (click)="$event.stopPropagation()">
+                <p class="popup-title">
+                  <span>Post Approval</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Add as Admin</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Block from Group</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Remove Member</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+        <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Alfanzo Raynor</p>
+          </div>
+          <div class="profile-button">
+            <button class="add-friend-button">
+              <i class="fas fa-plus add-icon"></i> Add Friend
+            </button>
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="allMember"
+            ></i>
+            <mat-menu #allMember>
+              <button mat-menu-item (click)="$event.stopPropagation()">
+                <p class="popup-title">
+                  <span>Post Approval</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Add as Admin</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Block from Group</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Remove Member</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+        <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Ronny Hudson</p>
+          </div>
+          <div class="profile-button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="allMember"
+            ></i>
+            <mat-menu #allMember>
+              <button mat-menu-item (click)="$event.stopPropagation()">
+                <p class="popup-title">
+                  <span>Post Approval</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Add as Admin</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Block from Group</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Remove Member</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+        <li class="item">
+          <button class="profile-image">
+            <img
+              class="image"
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </button>
+          <div class="profile-info">
+            <p class="profile-title">Anika Schuster</p>
+          </div>
+          <div class="profile-button">
+            <button class="add-friend-button">
+              <i class="fas fa-plus add-icon"></i> Add Friend
+            </button>
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="allMember"
+            ></i>
+            <mat-menu #allMember>
+              <button mat-menu-item (click)="$event.stopPropagation()">
+                <p class="popup-title">
+                  <span>Post Approval</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Add as Admin</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Block from Group</span>
+                </p>
+              </button>
+              <button mat-menu-item>
+                <p class="popup-title">
+                  <span>Remove Member</span>
+                </p>
+              </button>
+            </mat-menu>
+          </div>
+        </li> -->
+        <div class="action-button">
+          <button class="button" (click)="GroupMembersDialog(allMembers, 'All members')">
+            See all
+          </button>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

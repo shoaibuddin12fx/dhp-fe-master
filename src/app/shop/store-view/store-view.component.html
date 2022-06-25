@@ -1,0 +1,342 @@
+<div class="store-layout">
+  <div class="main-box">
+    <app-shop-header></app-shop-header>
+    <ul class="breadcrumbs">
+      <li class="item">{{ +shopData?.type === 1 ? "Retail" : "Wholesale" }}</li>
+      <!-- <li class="item">Cellphones & Devices</li>
+      <li class="item">Cellphones</li> -->
+      <li class="item">{{ shopData?.name }}</li>
+    </ul>
+    <div class="banner">
+      <img
+        class="image"
+        src="../../../../assets/images/shop/retail/banner.jpg"
+        alt=""
+      />
+      <h1 class="banner-title">seiko</h1>
+      <ul class="dots-main">
+        <li class="dot green-dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+      </ul>
+    </div>
+    <div class="product-page-detail">
+      <div class="row">
+        <div class="col-lg-7 gx-0">
+          <div class="left-detail">
+            <div class="product-brand">
+              <img
+                class="image"
+                src="../../../../assets/images/shop/retail/product/brand.png"
+              />
+              <h4>{{ shopData?.name }}</h4>
+            </div>
+            <div class="shop-rating">
+              <p class="sub-heading">Average Shop Rating</p>
+              <ul class="rating">
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                </li>
+                <li class="list">
+                  <i class="fas fa-star icon gray"></i>
+                </li>
+                <p class="total-reviews">3<span>500</span>Reviews</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 gx-0">
+          <div class="right-detail">
+            <span>120 Product Sold</span>
+            <div class="action-button">
+              <button class="button">
+                <i class="fa fa-comment icon"></i> Ask Questions
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="featured-product">
+      <!-- <div class="title-box">
+        <h4 class="title">Featured</h4>
+        <button class="button" [routerLink]="['/shop', 'products']">
+          See All Products <i class="fas fa-angle-right"></i>
+        </button>
+      </div> -->
+      <div class="row no-gutters">
+        <div class="col-lg-3" *ngFor="let item of products">
+          <div class="products">
+            <div
+              class="main"
+              [routerLink]="['/shop', shopData?.type, 'product', item.id]"
+            >
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>{{ item?.shopName }}</p>
+                <h6>{{ item.name }}</h6>
+                <h5>${{ item.price }}<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="featured-product">
+      <div class="title-box">
+        <h4 class="title">Mens Fashion</h4>
+        <button class="button" [routerLink]="['/shop', 'products']">
+          See All Products <i class="fas fa-angle-right"></i>
+        </button>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="products">
+            <div class="main" [routerLink]="['/shop', 'product']">
+              <div class="image-box">
+                <img
+                  class="image"
+                  src="../../../../assets/images/shop/retail/product.png"
+                  alt=""
+                />
+              </div>
+              <div class="content-box">
+                <p>nj wears</p>
+                <h6>nj watch<span>black</span></h6>
+                <h5>$1,000<span>usd</span></h5>
+              </div>
+            </div>
+            <div class="action-button">
+              <button><i class="fas fa-shopping-cart icon"></i></button>
+              <button mat-icon-button [matMenuTriggerFor]="report">
+                <i class="fas fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #report>
+                <button mat-menu-item (click)="openReportDialog()">
+                  <p class="popup-title">
+                    <span>Report</span>
+                  </p>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

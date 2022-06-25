@@ -1,0 +1,38 @@
+<div class="main">
+  <ul class="friend-list">
+    <li class="friend-search">
+      <i class="fas fa-search icon" (click)="toggleContactPopup()"></i>
+    </li>
+    <li
+      class="friend-item"
+      *ngFor="let user of userFriends"
+      (click)="openChatBox(user, true)"
+    >
+      <img
+        *ngIf="user.profileImage"
+        class="friend-profile"
+        [src]="user.profileImage"
+        alt=""
+      />
+      <img
+        *ngIf="!user.profileImage"
+        class="friend-profile"
+        src="../../../assets/images/home/main/friend.png"
+      />
+    </li>
+  </ul>
+  <app-contact-popup
+    [isOpened]="showContactPopup$ | async"
+    [userProfiles]="userProfiles"
+  ></app-contact-popup>
+
+  <div class="popup-box">
+    <app-chat-popup
+      *ngIf="showChatBox"
+      [recipient]="chatUserProfile"
+      (showChatBox)="closeChatBox($event)"
+      (hideChatBox)="closeChatBox(false)"
+    >
+    </app-chat-popup>
+  </div>
+</div>

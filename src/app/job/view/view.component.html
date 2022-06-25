@@ -1,0 +1,380 @@
+<div class="job-view-layout">
+  <div class="left-box">
+    <div class="job-view-box">
+      <div class="view-inner-box">
+        <div class="image-box">
+          <img
+            src="../../../assets/images/jobs/home/image.png"
+            class="image"
+            alt=""
+          />
+        </div>
+        <div class="content-box">
+          <h5 class="title">Sales & Customer Success Manager</h5>
+          <span class="name">Nozti Inc</span>
+          <span class="address"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
+            quos atque itaque commodi eius hic pariatur mollitia illo,
+            accusantium libero natus facere quibusdam possimus voluptate
+            delectus illum eaque quis laudantium?</span
+          >
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-globe icon"></i>
+          </button>
+          <button class="button">
+            <i class="fab fa-linkedin-in icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item (click)="openReportDialog()">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="job-description-box">
+        <div class="description">
+          <h5 class="title">job description:</h5>
+          <p class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+            officiis, sed quo facilis, doloribus consequatur adipisci,
+            reprehenderit quaerat dolor magni id quisquam reiciendis ipsam sunt
+            aliquam eius laboriosam harum placeat optio. Possimus harum dolores
+            illum aut quos rem voluptas, vitae ratione mollitia dignissimos fuga
+            ipsa soluta quam, reprehenderit quis illo.
+          </p>
+        </div>
+        <ul class="listing">
+          <h5 class="title">responsibilities:</h5>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+        </ul>
+        <ul class="listing">
+          <h5 class="title">requirements:</h5>
+          <li class="item">Lorem ipsum dolor sit.</li>
+          <li class="item">Lorem ipsum dolor sit.</li>
+        </ul>
+        <button class="button" (click)="jobApplyDialog()">Apply For Job</button>
+      </div>
+      <div class="related-job-box">
+        <h5 class="related-title">Related Jobs</h5>
+        <div class="inner-box-main">
+          <div class="inner-box" [routerLink]="['/job', 'view']">
+            <div class="image-box">
+              <img
+                src="../../../assets/images/jobs/home/image.png"
+                class="image"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h5 class="title">Sales & Customer Success Manager</h5>
+              <span class="address">4234 Chardonny Drive Fl, USA</span>
+              <div class="job-type">
+                <div class="left">
+                  <span><i class="fas fa-globe"></i></span>
+                  <span><i class="fab fa-linkedin-in"></i></span>
+                  <span>Nozi Inc</span>
+                </div>
+                <div class="right">
+                  <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                  <span><i class="fas fa-scroll"></i>Full-time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item (click)="openReportDialog()">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+        <div class="inner-box-main">
+          <div class="inner-box" [routerLink]="['/job', 'view']">
+            <div class="image-box">
+              <img
+                src="../../../assets/images/jobs/home/image-3.png"
+                class="image"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h5 class="title">iOs and Andriod Developer Needed</h5>
+              <span class="address">4234 Chardonny Drive Fl, USA</span>
+              <div class="job-type">
+                <div class="left">
+                  <span><i class="fas fa-globe"></i></span>
+                  <span><i class="fab fa-linkedin-in"></i></span>
+                  <span>Mexmon Team</span>
+                </div>
+                <div class="right">
+                  <span><i class="fas fa-briefcase"></i>Computing and ICT</span>
+                  <span><i class="fas fa-scroll"></i>Internship</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item (click)="openReportDialog()">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+        <div class="inner-box-main">
+          <div class="inner-box" [routerLink]="['/job', 'view']">
+            <div class="image-box">
+              <img
+                src="../../../assets/images/jobs/home/image-3.png"
+                class="image"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h5 class="title">Officer, Global Product Development</h5>
+              <span class="address">3500 Reynolds Alley, IN, USA</span>
+              <div class="job-type">
+                <div class="left">
+                  <span><i class="fas fa-globe"></i></span>
+                  <span><i class="fab fa-linkedin-in"></i></span>
+                  <span>Astray Dennison</span>
+                </div>
+                <div class="right">
+                  <span><i class="fas fa-briefcase"></i>Finance</span>
+                  <span><i class="fas fa-scroll"></i>Full-time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item (click)="openReportDialog()">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="event-rigth-box">
+        <div class="top-title">
+          <h5 class="title">Location</h5>
+        </div>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards">
+              <div class="location-box">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.9562469018674!2d-118.21527628544473!3d34.044993425560826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c605f6b265a1%3A0xca0b13e00e59e449!2sHollenbeck%20Community%20Police%20Station!5e0!3m2!1sen!2s!4v1641888029628!5m2!1sen!2s"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+                <p class="primary">East Orange, <span>NJ 07017, USA</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards c-auto">
+              <ul class="job-detail">
+                <li class="item">
+                  <i class="fas fa-briefcase icon"></i>
+                  <div class="right-detail">
+                    <span class="job-titel">Job Category</span>
+                    <span class="job-category">Adminstrative</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <i class="fas fa-scroll icon"></i>
+                  <div class="right-detail">
+                    <span class="job-titel">Job Type</span>
+                    <span class="job-category">Full-time</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <i class="fa fa-envelope icon"></i>
+                  <div class="right-detail">
+                    <span class="job-titel">Salary</span>
+                    <span class="job-category">$20,000</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <i class="fas fa-globe icon"></i>
+                  <div class="right-detail">
+                    <span class="job-category">www.website.co</span>
+                  </div>
+                </li>
+                <li class="item">
+                  <i class="fab fa-linkedin-in icon"></i>
+                  <div class="right-detail">
+                    <span class="job-category">Linkedin.com/company</span>
+                  </div>
+                </li>
+                <li class="item" (click)="jobApplyDialog()">
+                  <button class="button">Apply For Job</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+@import "../../../../assets/partials/variable.scss";
+.account-layout {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: $theme-white;
+  .detial-box {
+    margin-bottom: 20px;
+    .title-box {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        width: max-content;
+        color: $theme-black;
+      }
+    }
+  }
+  .tab-content {
+    overflow: hidden;
+    margin-top: 20px;
+    label {
+      width: 100%;
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: $theme-black;
+    }
+    .label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      width: max-content;
+      position: relative;
+      color: $theme-black;
+      .required {
+        top: -5px;
+        right: -8px;
+        font-size: 16px;
+        font-weight: 600;
+        position: absolute;
+        color: $theme-warning;
+      }
+    }
+    .field {
+      width: 100%;
+      padding: 8px;
+      outline: none;
+      font-size: 13px;
+      font-weight: 500;
+      appearance: none;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      color: $theme-black;
+      border: 1px solid $theme-border;
+      &.arrow {
+        cursor: pointer;
+        background-size: 30px 10px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-image: url("../../../../assets/images/profile/arrow.png");
+      }
+    }
+    .image-upload-box {
+      padding: 0;
+      width: 100%;
+      display: flex;
+      margin: 10px 0;
+      flex-flow: wrap;
+      align-items: center;
+      list-style-type: none;
+      justify-content: flex-start;
+      .image-main {
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        .upload-image {
+          width: 120px;
+          height: 120px;
+          margin-bottom: 0;
+          .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+        .cover-box {
+          margin: 0;
+          width: 120px;
+          height: 120px;
+          cursor: pointer;
+          position: relative;
+          border-radius: 8px;
+          background-color: #fbfbfb;
+          border: 1px solid $theme-background-light;
+          .cover-photo {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            object-fit: cover;
+            position: absolute;
+            border-radius: 50%;
+          }
+          .browse {
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: absolute;
+            border-radius: 50%;
+            transition: 0.2s ease-out;
+            .upload-field {
+              opacity: 0;
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              position: absolute;
+              z-index: 1;
+              &[type="file"] {
+                cursor: pointer;
+              }
+            }
+            .main {
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              display: flex;
+              cursor: pointer;
+              flex-flow: wrap;
+              position: absolute;
+              color: $theme-border;
+              align-items: center;
+              justify-content: center;
+              transform: translate(-50%, -50%);
+              height: 100%;
+            }
+            .icon {
+              font-size: 30px;
+              cursor: pointer;
+              font-size: 30px;
+              cursor: pointer;
+              height: 100%;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: $theme-content;
+            }
+            p {
+              width: 100%;
+              line-height: 1;
+              margin-top: 6px;
+              font-size: 12px;
+              margin-bottom: 0;
+              font-weight: 600;
+              text-align: center;
+            }
+          }
+          &:hover {
+            .browse {
+              opacity: 1;
+            }
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

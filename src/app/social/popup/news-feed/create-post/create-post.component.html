@@ -1,0 +1,79 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">{{ title }}</h4>
+  </div>
+  <form
+    *ngIf="postForm"
+    name="postForm"
+    [formGroup]="postForm"
+    novalidate
+    id="form-postForm"
+    (submit)="onSubmit()"
+  >
+    <div class="popup-body">
+      <div class="profile-box">
+        <ng-container *ngIf="currentUser?.profileImage; else elseTemplate">
+          <img class="image" [src]="currentUser?.profileImage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img
+            class="image"
+            src="../assets/images/home/sidebar/profile-image2.png"
+          />
+        </ng-template>
+
+        <h4 class="title">{{ currentUser.fullName }}</h4>
+      </div>
+      <div class="messgae-box">
+        <textarea
+          class="field"
+          placeholder="What's New?"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div *ngIf="data.type === 'photo'">
+        <h5 class="title">Upload Photo</h5>
+        <div class="image-upload-box">
+          <figure class="photo-box">
+            <img
+              *ngIf="selectedFile; else elseTemplate"
+              class="photo"
+              [src]="selectedFile"
+              alt=""
+            />
+            <!-- <ng-container *ngIf="currentUser?.profileImage; else elseTemplate">
+              <img class="photo" [src]="currentUser?.profileImage" />
+            </ng-container> -->
+            <ng-template #elseTemplate>
+              <img
+                class="photo"
+                src="../../../../../assets/images/photos/profile.jpg"
+              />
+            </ng-template>
+            <!-- <img
+              *ngIf="!selectedFile"
+              class="photo"
+              src="../../../../../assets/images/photos/profile.jpg"
+            /> -->
+            <div class="browse" #image>
+              <input
+                class="upload-field"
+                type="file"
+                id="file"
+                accept="image/*"
+                (change)="FileSelected($event)"
+              />
+              <label for="file" class="fa fa-camera icon"></label>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" [mat-dialog-close]>Cancel</button>
+        <button class="btn add">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

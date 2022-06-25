@@ -1,0 +1,122 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  overflow: hidden;
+  .popup-header {
+    position: relative;
+    .close-button {
+      top: 0;
+      right: 20px;
+      line-height: 1;
+      position: absolute;
+      color: $theme-content;
+      transform: translateY(-50%);
+    }
+  }
+  .popup-body {
+    overflow: overlay;
+    height: 75%;
+    padding: 0 15px;
+    .create-main {
+      .cover-box {
+        margin-bottom: 20px;
+        .title {
+          font-size: 13px;
+          font-weight: 800;
+        }
+        .browse {
+          opacity: 1;
+          width: 100%;
+          height: 120px;
+          cursor: pointer;
+          border-radius: 8px;
+          background: $theme-bg-sidebar;
+          transition: 0.2s ease-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          .upload-field {
+            opacity: 0;
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+          .icon {
+            cursor: pointer;
+            color: $theme-content;
+            font-size: 40px;
+          }
+        }
+        .campaign-name {
+          .field {
+            font-size: 12px;
+          }
+        }
+        .campaign-amount {
+          position: relative;
+          .field {
+            font-size: 12px;
+            &.arrow {
+              background-size: 30px 11px;
+            }
+          }
+          .price-sign {
+            position: absolute;
+            top: 61%;
+            left: 20px;
+            transform: translateY(-50%);
+            line-height: 1;
+            font-size: 13px;
+          }
+        }
+        .campaign-discripton {
+          textarea {
+            background: $theme-bg-sidebar;
+            width: 100%;
+            height: 120px;
+            padding: 10px 20px;
+            border: unset;
+            outline: unset;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            resize: unset;
+            &::placeholder {
+              font-size: 12px;
+              color: $theme-content;
+            }
+          }
+        }
+        .field {
+          height: 35px;
+          padding-left: 20px;
+          &::placeholder {
+            font-size: 12px;
+          }
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .field {
+          font-size: 12px;
+          &.arrow {
+            background-size: 30px 11px;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 40px;
+    .btn {
+      width: 120px;
+    }
+  }
+}
+::ng-deep .event-date .mat-radio-label-content {
+  font-size: 13px;
+  font-weight: 800;
+  color: $theme-black;
+}

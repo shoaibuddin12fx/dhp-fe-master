@@ -1,0 +1,48 @@
+<div class="member-item" *ngIf="member">
+  <div class="col-lg-2">
+    <button class="profile-image">
+      <ng-container *ngIf="member.profileImage; else elseTemplate">
+        <img class="image" [src]="member.profileImage" />
+      </ng-container>
+      <ng-template #elseTemplate>
+        <img class="image" src="../assets/images/home/sidebar/profile-image2.png" />
+      </ng-template>
+    </button>
+  </div>
+  <div class="col-lg-10">
+    <div class="profile-info">
+      <p class="title">{{ member.fullName }}</p>
+      <span class="content" *ngIf="selectedFilterOption === 'Followers' ? member.followerId : member.followeeId !== user.id">{{member.mutualFriendCount}} mutual friends</span>
+      <button mat-icon-button [matMenuTriggerFor]="list" (click)="$event.stopPropagation();">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #list>
+        <button mat-menu-item *ngIf="member.isfollowedbyyou === '0'" (click)="onFollowMember(member)">
+          <p class="popup-title">
+            <span>Follow</span>
+          </p>
+        </button>
+        <button mat-menu-item *ngIf="member.isfollowedbyyou !== '0'" (click)="onUnFollowMember(member)">
+          <p class="popup-title">
+            <span>UnFollow</span>
+          </p>
+        </button>
+        <button mat-menu-item *ngIf="member.isfriend === '0'" (click)="onAddFriend(member)">
+          <p class="popup-title">
+            <span>Add Friend</span>
+          </p>
+        </button>
+        <button mat-menu-item *ngIf="member.isfriend !== '0'" (click)="onUnFriendMember(member)">
+          <p class="popup-title">
+            <span>Unfriend</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="onOpenReportDialog()">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

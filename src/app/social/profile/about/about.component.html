@@ -1,0 +1,939 @@
+<div class="profile-layout">
+  <div class="main-box">
+    <div class="profile-tab">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Overview">
+          <div class="tab-content">
+            <div class="profile-description">
+              <h6 class="title">About Myself</h6>
+              <p
+                *ngIf="checkPermission(getPermission.ABOUT_MYSELF)"
+                class="content w-85"
+              >
+                {{ userData ? userData.description : "" }}
+              </p>
+              <!-- <button *ngIf="isMyProfile" class="button" mat-icon-button [matMenuTriggerFor]="options">
+                <i class="fas fa-globe-asia icon"></i>
+              </button>
+              <mat-menu #options>
+                <button mat-menu-item>
+                  <p class="popups-title">
+                    <i class="fas fa-globe-asia icon gray"></i>
+                    Public
+                  </p>
+                </button>
+                <button mat-menu-item>
+                  <p class="popups-title">
+                    <i class="fas fa-user-friends icon gray"></i>
+                    Friends
+                  </p>
+                </button>
+                <button mat-menu-item>
+                  <p class="popups-title">
+                    <i class="fas fa-lock icon gray"></i>
+                    Only me
+                  </p>
+                </button>
+              </mat-menu> -->
+            </div>
+            <ul class="profile-list">
+              <li class="list-item" *ngFor="let work of workData">
+                <!-- <span *ngIf="work.type == 'work'">
+
+                </span> -->
+                <ng-container
+                  *ngIf="
+                    checkPermission(getPermission.WORK) && work.type == 'work';
+                    else elseTemplate
+                  "
+                >
+                  <i class="fas fa-briefcase icon primary"></i>
+                  <span
+                    >Work<span *ngIf="!work.isCurrentlyEmployed">ed</span> at
+                    <b> {{ work.name }} </b></span
+                  >
+                  <!-- <button *ngIf="isMyProfile" class="button" mat-icon-button [matMenuTriggerFor]="options">
+                    <i class="fas fa-user-friends icon gray"></i>
+                  </button>
+                  <mat-menu #options>
+                    <button mat-menu-item>
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        Public
+                      </p>
+                    </button>
+                    <button mat-menu-item>
+                      <p class="popups-title">
+                        <i class="fas fa-user-friends icon gray"></i>
+                        Friends
+                      </p>
+                    </button>
+                    <button mat-menu-item>
+                      <p class="popups-title">
+                        <i class="fas fa-lock icon"></i>
+                        Only me
+                      </p>
+                    </button>
+                  </mat-menu> -->
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <span
+                    *ngIf="
+                      checkPermission(
+                        work.type == 'college'
+                          ? getPermission.COLLEGE
+                          : getPermission.HIGHSCHOOL
+                      )
+                    "
+                  >
+                    <i class="fas fa-graduation-cap icon primary"></i>
+                    <span
+                      >Studie<span *ngIf="work.isCurrentlyEmployed">s</span
+                      ><span *ngIf="!work.isCurrentlyEmployed">d</span> at
+                      <b>{{ work.name }}</b>
+                    </span>
+                  </span>
+                  <!-- <button class="button" *ngIf="isMyProfile">
+                    <i class="fas fa-lock icon"></i>
+                  </button> -->
+                </ng-template>
+              </li>
+              <li
+                class="list-item"
+                *ngIf="
+                  checkPermission(getPermission.CURRENT_ADDRESS) &&
+                  userData?.address
+                "
+              >
+                <i class="fa fa-home icon primary"></i>
+                <span
+                  >Lives in
+                  <b>
+                    {{ userData?.address }}
+                  </b></span
+                >
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+              <li
+                class="list-item"
+                *ngIf="
+                  checkPermission(getPermission.FROM) && userData?.originAddress
+                "
+              >
+                <i class="fas fa-map-marker-alt icon primary"></i>
+                <span
+                  >From <b>{{ userData?.originAddress }}</b></span
+                >
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+              <li
+                class="list-item"
+                *ngIf="
+                  checkPermission(getPermission.PHONENO) && userData?.contactNo
+                "
+              >
+                <i class="fas fa-phone-volume icon primary rotate"></i>
+                <b>{{ userData?.contactNo }}</b>
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+              <li
+                class="list-item"
+                *ngIf="
+                  checkPermission(getPermission.RELATIONSHIP) &&
+                  userData?.relationship
+                "
+              >
+                <i class="far fa-heart icon primary"></i>
+                <b>{{ userData?.relationship }}</b>
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+              <li
+                class="list-item"
+                *ngIf="checkPermission(getPermission.GENDER) && genderData?.key"
+              >
+                <i class="fas fa-venus-mars icon primary"></i>
+                <b>{{ genderData?.key }}</b>
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+              <li
+                class="list-item"
+                *ngIf="
+                  checkPermission(getPermission.DOB) && userData?.dateOfBirth
+                "
+              >
+                <i class="fas fa-birthday-cake icon primary"></i>
+                <b>{{ userData?.dateOfBirth | date }}</b>
+                <!-- <button class="button" *ngIf="isMyProfile">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button> -->
+              </li>
+            </ul>
+          </div>
+        </mat-tab>
+        <mat-tab label="About" *ngIf="isMyProfile">
+          <div class="tab-content">
+            <div class="profile-description">
+              <h6 class="title">About Myself</h6>
+              <ng-container *ngIf="isMyProfile; else elseTemplate">
+                <textarea
+                  class="add-description w-85"
+                  placeholder="Write Something about yourself"
+                  [(ngModel)]="description"
+                ></textarea>
+                <button
+                  *ngIf="isMyProfile"
+                  class="button"
+                  mat-icon-button
+                  [matMenuTriggerFor]="options1"
+                >
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <mat-menu #options1>
+                  <button
+                    mat-menu-item
+                    *ngFor="let item of permissionTypes"
+                    (click)="
+                      saveUserPermission(getPermission.ABOUT_MYSELF, item.id)
+                    "
+                  >
+                    <p class="popups-title">
+                      <i class="fas fa-globe-asia icon gray"></i>
+                      {{ item.name }}
+                    </p>
+                  </button>
+                  <!-- <button mat-menu-item>
+                  <p class="popups-title">
+                    <i class="fas fa-user-friends icon gray"></i>
+                    Friends
+                  </p>
+                </button>
+                <button mat-menu-item>
+                  <p class="popups-title">
+                    <i class="fas fa-lock icon gray"></i>
+                    Only me
+                  </p>
+                </button> -->
+                </mat-menu>
+                <div class="action-buttons">
+                  <button class="button-cancel btn" (click)="description = ''">
+                    Cancel
+                  </button>
+                  <button class="button-save btn" (click)="saveDescription()">
+                    Save
+                  </button>
+                </div>
+              </ng-container>
+              <ng-template #elseTemplate>
+                {{ description }}
+              </ng-template>
+            </div>
+
+            <div class="tab-description">
+              <h6 class="title">Hobbies</h6>
+              <ul class="listing">
+                <div *ngFor="let hobby of hobbiesData; let i = index">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <li class="item">{{ hobby.name || "N/A" }}</li>
+                    </div>
+                    <div class="col-md-2">
+                      <button
+                        class="button m-r"
+                        mat-icon-button
+                        [matMenuTriggerFor]="options2"
+                      >
+                        <i class="fas fa-globe-asia icon"></i>
+                      </button>
+                      <mat-menu #options2>
+                        <button
+                          mat-menu-item
+                          *ngFor="let item of permissionTypes"
+                          (click)="
+                            saveUserPermission(getPermission.HOBBIES, item.id)
+                          "
+                        >
+                          <p class="popups-title">
+                            <i class="fas fa-globe-asia icon gray"></i>
+                            {{ item.name }}
+                          </p>
+                        </button>
+                      </mat-menu>
+                      <button
+                        class="button setting"
+                        *ngIf="isMyProfile"
+                        (click)="openHobbyDialog('hobby', hobby)"
+                      >
+                        <i class="fas fa-pencil-alt icon"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <ng-template #elseTemplate> no Data </ng-template>
+
+                <li class="add-item" *ngIf="isMyProfile">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openHobbyDialog('hobby', '')"
+                    >Add Hobbies</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <!--
+            <div class="tab-description">
+              <h6 class="title">Hobbies</h6>
+              <ul class="listing">
+                <li class="item">Singing</li>
+                <button class="button globe">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <button class="button setting" (click)="openHobbyDialog()">
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+                <li class="add-item">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openHobbyDialog()">Add Hobby</span>
+                </li>
+              </ul>
+            </div> -->
+            <div class="tab-description">
+              <h6 class="title">Gender</h6>
+              <ul class="listing">
+                <li class="item">{{ genderData?.key || "N/A" }}</li>
+                <span *ngIf="genderData?.key">
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="
+                        saveUserPermission(getPermission.GENDER, item.id)
+                      "
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="
+                      openGenderDialog(
+                        'genderId',
+                        genderData && genderData.key ? genderData.key : ''
+                      )
+                    "
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </span>
+                <li class="add-item" *ngIf="!genderData?.key">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openGenderDialog(
+                          'genderId',
+                          genderData && genderData.key ? genderData.key : ''
+                        )
+                      "
+                    >
+                      Add Gender
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-description">
+              <h6 class="title">Date of birth</h6>
+              <ul class="listing">
+                <li class="item">
+                  {{ (userData?.dateOfBirth | date) || "N/A" }}
+                </li>
+                <span *ngIf="userData?.dateOfBirth">
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="saveUserPermission(getPermission.DOB, item.id)"
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="
+                      openDOBDialog(
+                        'dateOfBirth',
+                        userData && userData.dateOfBirth
+                          ? userData.dateOfBirth
+                          : ''
+                      )
+                    "
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </span>
+                <li class="add-item" *ngIf="!userData?.dateOfBirth">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openDOBDialog(
+                          'dateOfBirth',
+                          userData && userData.dateOfBirth
+                            ? userData.dateOfBirth
+                            : ''
+                        )
+                      "
+                      >Add Date of birth</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- <div class="tab-description">
+              <h6 class="title">Date of birth</h6>
+              <ul class="listing">
+                <li class="item">Sep 10th 1999</li>
+                <button class="button globe">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <button class="button setting" (click)="openDOBDialog()">
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+              </ul>
+            </div> -->
+
+            <div class="tab-description">
+              <h6 class="title">Relationship</h6>
+              <ul class="listing">
+                <li class="item">{{ userData?.relationship || "N/A" }}</li>
+                <span *ngIf="userData?.relationship">
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="
+                        saveUserPermission(getPermission.RELATIONSHIP, item.id)
+                      "
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="
+                      openRelationDialog(
+                        'relationship',
+                        userData && userData.relationship
+                          ? userData.relationship
+                          : ''
+                      )
+                    "
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </span>
+                <li class="add-item" *ngIf="!userData?.relationship">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openRelationDialog(
+                          'relationship',
+                          userData && userData.relationship
+                            ? userData.relationship
+                            : ''
+                        )
+                      "
+                      >Add Relationship</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <!--
+            <div class="tab-description">
+              <h6 class="title">Relationship</h6>
+              <ul class="listing">
+                <button class="button globe">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <button class="button setting" (click)="openRelationDialog()">
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+                <li class="add-item">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openRelationDialog()">Add a relationship status</span>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </mat-tab>
+        <mat-tab label="Education/Work" *ngIf="isMyProfile">
+          <div class="tab-content">
+            <div class="tab-description">
+              <h6 class="title">Work</h6>
+              <ul class="listing">
+                <div
+                  *ngFor="let work of filterWorkOfType('work'); let i = index"
+                >
+                  <div class="row">
+                    <div class="col-md-10">
+                      <li class="item">
+                        {{ work.position }} {{ work.name }}
+                        <span class="duration"
+                          >{{ work.fromDate }} -
+                          {{
+                            work.isCurrentlyEmployed
+                              ? "Present day"
+                              : work.toDate
+                          }}</span
+                        >
+                      </li>
+                    </div>
+                    <div class="col-md-2">
+                      <button
+                        *ngIf="isMyProfile"
+                        class="button m-r"
+                        mat-icon-button
+                        [matMenuTriggerFor]="options2"
+                      >
+                        <i class="fas fa-globe-asia icon"></i>
+                      </button>
+                      <mat-menu #options2>
+                        <button
+                          mat-menu-item
+                          *ngFor="let item of permissionTypes"
+                          (click)="
+                            saveUserPermission(getPermission.WORK, item.id)
+                          "
+                        >
+                          <p class="popups-title">
+                            <i class="fas fa-globe-asia icon gray"></i>
+                            {{ item.name }}
+                          </p>
+                        </button>
+                      </mat-menu>
+                      <button
+                        class="button setting"
+                        *ngIf="isMyProfile"
+                        (click)="openWorkDialog('work', work, i)"
+                      >
+                        <i class="fas fa-pencil-alt icon"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <ng-template #elseTemplate> no Data </ng-template>
+
+                <li class="add-item" *ngIf="isMyProfile">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openWorkDialog('work', '')">Add Company</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-description">
+              <h6 class="title">College</h6>
+              <ul class="listing">
+                <ng-container *ngFor="let work of filterWorkOfType('college')">
+                  <span *ngIf="work.type === 'college'">
+                    <li class="item">
+                      {{ work.degree }} {{ work.name }}
+                      <span class="duration"
+                        >{{ work.fromDate }} -
+                        {{
+                          work.isCurrentlyEmployed ? "Present day" : work.toDate
+                        }}</span
+                      >
+                    </li>
+                  </span>
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="
+                        saveUserPermission(getPermission.COLLEGE, item.id)
+                      "
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="openCollegeDialog('college', work)"
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </ng-container>
+                <ng-template #elseTemplate> no Data </ng-template>
+
+                <li class="add-item" *ngIf="isMyProfile">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openCollegeDialog('college', '')"
+                    >Add College</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- <div class="tab-description">
+              <h6 class="title">College</h6>
+              <ul class="listing">
+                <li class="item">
+                  Pre-Engineering ABC College
+                  <span class="duration">2017 - 2019</span>
+                </li>
+                <button class="button globe">
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <button class="button setting" (click)="openCollegeDialog()">
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+                <li class="add-item">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openCollegeDialog()">Add College</span>
+                </li>
+              </ul>
+            </div> -->
+            <div class="tab-description">
+              <h6 class="title">High School</h6>
+              <ul class="listing">
+                <ng-container *ngFor="let work of filterWorkOfType('school')">
+                  <span *ngIf="work.type === 'school'">
+                    <li class="item">
+                      {{ work.degree }} {{ work.name }}
+                      <span class="duration">{{ work.fromDate }} </span>
+                    </li>
+                  </span>
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="
+                        saveUserPermission(getPermission.HIGHSCHOOL, item.id)
+                      "
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="openSchoolDialog('school', work)"
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </ng-container>
+                <ng-template #elseTemplate> no Data </ng-template>
+
+                <li class="add-item" *ngIf="isMyProfile">
+                  <i class="fas fa-plus icon"></i>
+                  <span (click)="openSchoolDialog('school', '')"
+                    >Add High School</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Address and Contact" *ngIf="isMyProfile">
+          <div class="tab-content">
+            <div class="tab-description">
+              <h6 class="title">Current Address</h6>
+              <ul class="listing">
+                <li class="item">{{ userData?.address || "N/A" }}</li>
+                <span *ngIf="userData?.address">
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="
+                        saveUserPermission(
+                          getPermission.CURRENT_ADDRESS,
+                          item.id
+                        )
+                      "
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="
+                      openCityDialog(
+                        'address',
+                        userData && userData.address ? userData.address : ''
+                      )
+                    "
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </span>
+                <li class="add-item" *ngIf="!userData?.address">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openCityDialog(
+                          'address',
+                          userData && userData.address ? userData.address : ''
+                        )
+                      "
+                      >Add Current Address</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-description">
+              <h6 class="title">From</h6>
+              <ul class="listing">
+                <li class="item">{{ userData?.originAddress || "N/A" }}</li>
+                <span *ngIf="userData?.originAddress">
+                  <button
+                    *ngIf="isMyProfile"
+                    class="button m-r"
+                    mat-icon-button
+                    [matMenuTriggerFor]="options2"
+                  >
+                    <i class="fas fa-globe-asia icon"></i>
+                  </button>
+                  <mat-menu #options2>
+                    <button
+                      mat-menu-item
+                      *ngFor="let item of permissionTypes"
+                      (click)="saveUserPermission(getPermission.FROM, item.id)"
+                    >
+                      <p class="popups-title">
+                        <i class="fas fa-globe-asia icon gray"></i>
+                        {{ item.name }}
+                      </p>
+                    </button>
+                  </mat-menu>
+                  <button
+                    class="button setting"
+                    *ngIf="isMyProfile"
+                    (click)="
+                      openCityDialog(
+                        'originAddress',
+                        userData && userData.originAddress
+                          ? userData.originAddress
+                          : ''
+                      )
+                    "
+                  >
+                    <i class="fas fa-pencil-alt icon"></i>
+                  </button>
+                </span>
+                <li class="add-item" *ngIf="!userData?.originAddress">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openCityDialog(
+                          'originAddress',
+                          userData && userData.originAddress
+                            ? userData.originAddress
+                            : ''
+                        )
+                      "
+                      >Add Origin Address</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-description">
+              <h6 class="title">Phone Numbers</h6>
+              <ul class="listing">
+                <li class="item">{{ userData?.contactNo || "N/A" }}</li>
+                <button
+                  *ngIf="isMyProfile"
+                  class="button m-r"
+                  mat-icon-button
+                  [matMenuTriggerFor]="options2"
+                >
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <mat-menu #options2>
+                  <button
+                    mat-menu-item
+                    *ngFor="let item of permissionTypes"
+                    (click)="saveUserPermission(getPermission.PHONENO, item.id)"
+                  >
+                    <p class="popups-title">
+                      <i class="fas fa-globe-asia icon gray"></i>
+                      {{ item.name }}
+                    </p>
+                  </button>
+                </mat-menu>
+                <button
+                  class="button setting"
+                  *ngIf="isMyProfile"
+                  (click)="
+                    openNumberDialog(
+                      'contactNo',
+                      userData && userData.contactNo ? userData.contactNo : ''
+                    )
+                  "
+                >
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+                <li class="add-item" *ngIf="!userData?.contactNo">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openNumberDialog(
+                          'contactNo',
+                          userData && userData.contactNo
+                            ? userData.contactNo
+                            : ''
+                        )
+                      "
+                      >Add Phone number</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-description">
+              <h6 class="title">Email</h6>
+              <ul class="listing">
+                <li class="item">{{ userData?.email || "N/A" }}</li>
+                <button
+                  *ngIf="isMyProfile"
+                  class="button m-r"
+                  mat-icon-button
+                  [matMenuTriggerFor]="options2"
+                >
+                  <i class="fas fa-globe-asia icon"></i>
+                </button>
+                <mat-menu #options2>
+                  <button
+                    mat-menu-item
+                    *ngFor="let item of permissionTypes"
+                    (click)="saveUserPermission(getPermission.EMAIL, item.id)"
+                  >
+                    <p class="popups-title">
+                      <i class="fas fa-globe-asia icon gray"></i>
+                      {{ item.name }}
+                    </p>
+                  </button>
+                </mat-menu>
+                <button
+                  class="button setting"
+                  *ngIf="isMyProfile"
+                  (click)="
+                    openMailDialog(
+                      'email',
+                      userData && userData.email ? userData.email : ''
+                    )
+                  "
+                >
+                  <i class="fas fa-pencil-alt icon"></i>
+                </button>
+                <li class="add-item" *ngIf="!userData?.email">
+                  <span *ngIf="isMyProfile">
+                    <i class="fas fa-plus icon"></i>
+                    <span
+                      (click)="
+                        openMailDialog(
+                          'email',
+                          userData && userData.email ? userData.email : ''
+                        )
+                      "
+                      >Add Email</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

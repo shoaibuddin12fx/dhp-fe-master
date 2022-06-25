@@ -1,0 +1,151 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Report</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <h6 class="title" *ngIf="reportObj.reportType == ''">
+      Please select a reason
+    </h6>
+    <div class="report-box" *ngIf="reportObj.reportType == ''">
+      <div class="reason-content" (click)="setReportType('Nudity')">
+        <p class="content">Nudity</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('False information')">
+        <p class="content">False information</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Unauthorized sales')">
+        <p class="content">Unauthorized sales</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Gross content')">
+        <p class="content">Gross content</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Harasment')">
+        <p class="content">Harasment</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div
+        class="reason-content"
+        (click)="setReportType('Sucide or self injury')"
+      >
+        <p class="content">Sucide or self injury</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('spam')">
+        <p class="content">spam</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Hate speech')">
+        <p class="content">Hate speech</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Terrorism')">
+        <p class="content">Terrorism</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Violence')">
+        <p class="content">Violence</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div
+        class="reason-content"
+        (click)="setReportType('Copyright issue or Copyrighted Material')"
+      >
+        <p class="content">Copyright issue or Copyrighted Material</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+      <div class="reason-content" (click)="setReportType('Something else')">
+        <p class="content">Something else</p>
+        <i class="fas fa-chevron-right icon"></i>
+      </div>
+    </div>
+
+    <h6 class="title" *ngIf="reportObj.reportType === 'Something else'">
+      Something else
+    </h6>
+    <div
+      class="report-detail-box"
+      *ngIf="reportObj.reportType === 'Something else'"
+    >
+      <input
+        type="text"
+        class="field"
+        [(ngModel)]="reportObj.topic"
+        placeholder="Topic"
+      />
+
+      <span *ngIf="isSubmitted && reportObj.topic == ''"
+        >Topic is required</span
+      >
+      <textarea
+        [(ngModel)]="reportObj.details"
+        class="field text-area"
+        placeholder="Details"
+      ></textarea>
+      <span *ngIf="isSubmitted && reportObj.details == ''"
+        >Details is required</span
+      >
+    </div>
+
+    <h6
+      class="title"
+      *ngIf="
+        reportObj.reportType != '' &&
+        reportObj.reportType != 'Copyright issue or Copyrighted Material' &&
+        reportObj.reportType !== 'Something else'
+      "
+    >
+      You selected {{ reportObj.reportType }}
+    </h6>
+    <div
+      class="report-detail-content"
+      *ngIf="
+        reportObj.reportType != '' &&
+        reportObj.reportType !== 'Copyright issue or Copyrighted Material' &&
+        reportObj.reportType !== 'Something else'
+      "
+    >
+      <p class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, nemo at.
+        Voluptatem consequatur quae et odio, nesciunt velit est. Quos eveniet
+        reiciendis quia quis, ut aliquam? Debitis doloremque dicta aspernatur.
+      </p>
+    </div>
+
+    <h6
+      class="title"
+      *ngIf="reportObj.reportType === 'Copyright issue or Copyrighted Material'"
+    >
+      Copyright issue or Copyrighted Material
+    </h6>
+    <div
+      class="report-detail-copyright"
+      *ngIf="reportObj.reportType === 'Copyright issue or Copyrighted Material'"
+    >
+      <label class="field-content"
+        >Provide link of the original content to authentical the matter.</label
+      >
+      <input
+        class="field"
+        type="text"
+        [(ngModel)]="reportObj.link"
+        placeholder="Link of the original content (copy and past the link here)"
+      />
+      <span *ngIf="isSubmitted && reportObj.link == ''">Link is required</span>
+      <p class="content">
+        If there is other situation like, unauthorized use of brand name or
+        product, please contact our support centre for appropiate action against
+        it.
+      </p>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button class="btn-save" (click)="reportContent()">Submit</button>
+  </div>
+</div>

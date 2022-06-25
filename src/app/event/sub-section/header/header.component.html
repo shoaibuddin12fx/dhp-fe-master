@@ -1,0 +1,62 @@
+<div class="header">
+  <ul class="section-nav">
+    <li
+      class="item"
+      [routerLink]="['/event', 'home']"
+      [routerLinkActive]="['active']"
+    >
+      Home
+    </li>
+    <li class="item" mat-icon-button [matMenuTriggerFor]="eventStatus">
+      My Events
+      <i class="fas fa-angle-down icon"></i>
+    </li>
+    <mat-menu #eventStatus>
+      <button mat-menu-item>
+        <p class="popup-title" [routerLink]="['/event', 'my-events']">
+          <span>Current</span>
+        </p>
+      </button>
+      <button mat-menu-item [routerLink]="['/event', 'my-events']">
+        <p class="popup-title">
+          <span>Pending</span>
+        </p>
+      </button>
+      <button mat-menu-item [routerLink]="['/event', 'my-events']">
+        <p class="popup-title">
+          <span>Completed</span>
+        </p>
+      </button>
+    </mat-menu>
+    <li
+      class="item"
+      [routerLink]="['/event', 'notification']"
+      [routerLinkActive]="['active']"
+    >
+      Event Notification
+    </li>
+  </ul>
+  <ul class="dropdown-selection">
+    <li class="item black" mat-icon-button [matMenuTriggerFor]="eventType">
+      All Events
+      <i class="fas fa-angle-down icon"></i>
+    </li>
+    <mat-menu #eventType>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>All Events</span>
+        </p>
+      </button>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>In Person</span>
+        </p>
+      </button>
+      <button mat-menu-item>
+        <p class="popup-title">
+          <span>Online</span>
+        </p>
+      </button>
+    </mat-menu>
+  </ul>
+</div>

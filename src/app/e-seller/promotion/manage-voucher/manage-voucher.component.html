@@ -1,0 +1,75 @@
+<div class="voucher-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Voucher Management</h4>
+    </div>
+    <div class="row filter">
+      <div class="col-lg-3 col-3 pl-0">
+        <label>Voucher Name</label>
+        <input class="field" type="text" [(ngModel)]="searchData[0].value" />
+      </div>
+      <div class="col-lg-3 col-3">
+        <label>Voucher Code</label>
+        <input class="field" type="text" [(ngModel)]="searchData[1].value" />
+      </div>
+    </div>
+    <button class="search-button" (click)="filterSearch()">Search</button>
+  </div>
+  <section class="data-table">
+    <div class="table-box">
+      <table class="w-100">
+        <thead>
+          <tr>
+            <th>Actions</th>
+            <th>Voucher Name</th>
+            <th>Valid Period</th>
+            <th>Applied to</th>
+            <th>Total Vouchers</th>
+            <th>Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>
+              <div class="crud-buttons">
+                <button
+                  class="button edit"
+                  [routerLink]="[
+                    '/e-seller',
+                    'main',
+                    shopId,
+                    'add-voucher',
+                    item.id
+                  ]"
+                >
+                  <i class="fas fa-pen icon"></i>
+                </button>
+                <button class="button delete" (click)="deleteVoucher(item.id)">
+                  <i class="fas fa-trash icon"></i>
+                </button>
+              </div>
+            </td>
+            <td>{{ item.voucherName }} ({{ item.voucherCode }})</td>
+            <td>{{ item.selectDate | date }} to {{ item.endDate | date }}</td>
+            <td>{{ item.productSku == "" ? "Shop" : item.productSku }}</td>
+            <td>{{ item.totalVoucher }}</td>
+            <td>{{ +item.discountType === 1 ? 'Discount in amount' : 'Discount in %' }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td class="text-left" *ngIf="data.length == 0" colspan="6">
+            <p class="record-status">No Record Available</p>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageData.limit"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="filterSearch($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </section>
+</div>

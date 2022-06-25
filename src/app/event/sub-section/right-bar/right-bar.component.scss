@@ -1,0 +1,39 @@
+@import "../../../../assets/partials/variable.scss";
+.top-bar {
+  .title {
+    margin-bottom: 0;
+  }
+}
+.card-main-box {
+  .card-item {
+    .cards {
+      .avatar {
+        height: 45px;
+      }
+      .title {
+        line-height: 1;
+        margin-bottom: 2px;
+      }
+      .content {
+        margin-bottom: 0;
+        .right-content {
+          padding-right: 5px;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 1px;
+            height: 10px;
+            transform: translateY(-50%);
+            background: $theme-content;
+          }
+        }
+        .left-content {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="top-bar">
+  <h4 class="title">{{ title }}</h4>
+</div>
+<div class="card-main-box">
+  <div class="card-item">
+    <div class="cards">
+      <div class="gallery-image" *ngFor="let photo of photos">
+        <img
+          class="avatar edge"
+          [src]="photo?.url || photo?.image"
+          [alt]="photo?.title"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="card-main-box" *ngIf="photos.length <= 0">No phots found</div>
+</div>

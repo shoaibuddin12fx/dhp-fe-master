@@ -1,0 +1,152 @@
+<div *ngIf="friends?.length <= 0">No friends yet.</div>
+<div *ngIf="friends?.length > 0">
+  <div class="friends-section">
+    <div class="friend-box" *ngFor="let friend of friends" [routerLink]="[
+        '/social',
+        'profile',
+        friend.userId !== user.id ? friend.userId : friend.friendId,
+        'user-feed'
+      ]">
+      <div class="friend-profile">
+        <ng-container *ngIf="friend.profileimage; else elseTemplate">
+          <img [src]="friend.profileimage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="../assets/images/home/sidebar/profile-image2.png" />
+        </ng-template>
+      </div>
+      <h4 class="title">{{ friend?.fullname }}</h4>
+      <p class="designation">{{ friend.bio || "" }}</p>
+      <ul class="social-graph">
+        <li class="list-item">
+          <p class="value">{{ friend?.friends }}</p>
+          <p class="title">Friends</p>
+        </li>
+        <li class="list-item">
+          <p class="value">{{ friend?.followers }}</p>
+          <p class="title">Followers</p>
+        </li>
+      </ul>
+      <p class="designation">{{ friend.mutualFriendCount }} mutual friends</p>
+      <div class="action-buttons">
+        <button class="button button-warning" (click)="$event.stopPropagation(); unFriendUser(friend)">
+          Unfriend
+        </button>
+        <button class="button button-success" (click)="$event.stopPropagation(); followUser(friend)"
+          *ngIf="friend.isfollow == '0'; else elseTemp">
+          Follow
+        </button>
+        <ng-template #elseTemp>
+          <button class="button button-success" (click)="$event.stopPropagation()">
+            Followed
+          </button>
+        </ng-template>
+      </div>
+    </div>
+    <!-- <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-success">Add Friend</button>
+      <button class="button button-success">Follow</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-gray">Request sent</button>
+      <button class="button button-warning">Unfollow</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-warning">Unfriend</button>
+      <button class="button button-success">Follow</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-success">Add Friend</button>
+      <button class="button button-success">Follow</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-success">Add Friend</button>
+      <button class="button button-warning">Unfollow</button>
+    </div>
+  </div> -->
+  </div>
+</div>

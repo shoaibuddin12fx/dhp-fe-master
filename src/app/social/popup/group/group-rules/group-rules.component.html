@@ -1,0 +1,26 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Add Group Rule</h4>
+  </div>
+  <form name="groupForm" [formGroup]="groupForm" novalidate id="form-groupForm">
+    <div class="popup-body">
+      <input
+        class="field"
+        type="text"
+        formControlName="title"
+        placeholder="Enter Title"
+      />
+      <textarea
+        class="field text-field"
+        formControlName="description"
+        placeholder="Description"
+      ></textarea>
+    </div>
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" [mat-dialog-close]>Cancel</button>
+        <button class="btn add" (click)="saveGroupRules()">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

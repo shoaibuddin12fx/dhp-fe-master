@@ -1,0 +1,25 @@
+<div class="photo-layout">
+  <div class="main-box">
+    <h2 class="heading">Photos</h2>
+    <div class="gallery-section">
+      <div class="image-box w-60" [routerLink]="['../single-page', 2]">
+        <img class="image" src="../../../assets/images/photos/my-photos.jpg" />
+        <p class="title">My Photos</p>
+      </div>
+      <div class="image-box w-40">
+        <div class="image-box quater" [routerLink]="['../single-page', 0]">
+          <img class="image" src="../../../assets/images/photos/profile.jpg" />
+          <p class="title-right">Profile</p>
+        </div>
+        <div class="image-box quater" [routerLink]="['../single-page', 1]">
+          <img class="image" src="../../../assets/images/photos/cover.jpg" />
+          <p class="title-right">Cover</p>
+        </div>
+      </div>
+      <!-- <div class="image-box w-100 full">
+          <img class="image" src="../../../assets/images/photos/favourite.jpg" />
+          <p class="title">Favourite</p>
+        </div> -->
+    </div>
+  </div>
+</div>

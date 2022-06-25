@@ -1,0 +1,27 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <app-post-upload
+      *ngIf="isMyProfile"
+      (upsertPost)="UpsertPost($event)"
+    ></app-post-upload>
+    <app-activity-box
+      (getNewsFeed)="GetNewsFeed($event)"
+      (deletedPost)="deletedPost($event)"
+      (upsertedPost)="UpsertPost($event)"
+      [totalPostCount]="totalPostCount"
+    ></app-activity-box>
+  </div>
+  <app-widget-wrapper class="right-box">
+    <app-friend-request-widget
+      title="Friend Requests"
+      [friendRequestList]="friendRequests"
+      (approveRequest)="onApproveRequest($event)"
+      (rejectRequest)="onRejectRequest($event)"
+    ></app-friend-request-widget>
+    <app-groups-widget
+      title="Groups you manage"
+      [groupList]="userGroupList"
+    ></app-groups-widget>
+    <app-photos-widget title="Photos" [photos]="photos"></app-photos-widget>
+  </app-widget-wrapper>
+</div>

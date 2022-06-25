@@ -1,0 +1,487 @@
+<div class="order-layout">
+  <div class="shop-header">
+    <app-shop-header></app-shop-header>
+  </div>
+  <div class="left-box">
+    <div class="title-box">
+      <div class="main-title">
+        <h1 class="title">my orders</h1>
+      </div>
+      <span>Sort by</span>
+      <div class="sorting-box" mat-icon-button [matMenuTriggerFor]="statusList">
+        <h4 class="filter-title" *ngIf="orderType == 0">All</h4>
+        <h4 class="filter-title" *ngIf="orderType == 1">Retail</h4>
+        <h4 class="filter-title" *ngIf="orderType == 2">Wholesale</h4>
+        <i class="fas fa-chevron-down icon"></i>
+      </div>
+      <mat-menu #statusList>
+        <button mat-menu-item (click)="changeOrderType(0)">
+          <p class="popup-title">
+            <span>All</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="changeOrderType(1)">
+          <p class="popup-title">
+            <span>Retail</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="changeOrderType(2)">
+          <p class="popup-title">
+            <span>Wholesale</span>
+          </p>
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="order-detail-main">
+      <div class="head">
+        <p class="name">Order Name and ID</p>
+        <p class="quantity">Quantity</p>
+        <p class="status">Status</p>
+        <p class="cost">Cost</p>
+      </div>
+      <div class="order-detail" *ngFor="let item of orderList">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-1.jpg"
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">{{ item.productName }}</h6>
+            <p class="id">
+              Order ID:
+              <span
+                [routerLink]="[
+                  '/shop',
+                  shopType,
+                  'track-order',
+                  item.id,
+                  item.productId,
+                  item.orderNumber
+                ]"
+                >{{ item.orderNumber }}</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>{{ item.quantity }}pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">{{ item.status }}</p>
+          <p class="place">Placed on | {{ item.createdDate | date }}</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">
+            $<span>{{ item.subTotal }}</span
+            >USD
+          </p>
+        </div>
+      </div>
+      <!-- <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Watch</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>99pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Shipping</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>80,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">
+              Camera Lorem ipsum dolor sit amet consectetur.
+            </h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>10pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on I Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>15,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Suit</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>200pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>100,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Samsung</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>50pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>500,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Samsung</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>50pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Processing</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>500,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Watch</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>99pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Shipping</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>80,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">
+              Camera Lorem ipsum dolor sit amet consectetur.
+            </h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>10pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>15,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Suit</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>200pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>100,000</span>USD</p>
+        </div>
+      </div>
+      <div class="order-detail">
+        <div class="order-description">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../assets/images/shop/retail/order/order-1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="detail">
+            <h6 class="title">Samsung</h6>
+            <p class="id">
+              Order ID:
+              <span [routerLink]="['/shop', 'track-order']"
+                >000000000000000</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="quantity-description">
+          <span>50pcs</span>
+        </div>
+        <div class="status-description">
+          <p class="delivery">Delivered | Nov 24 2020</p>
+          <p class="place">Places on | Nov 24 2020</p>
+        </div>
+        <div class="cost-descripttion">
+          <p class="price">$<span>500,000</span>USD</p>
+        </div>
+      </div> -->
+    </div>
+    <mat-paginator
+      #paginator
+      [length]="length"
+      [pageSize]="pageData.limit"
+      [pageSizeOptions]="[2, 5, 10, 25, 100]"
+      (page)="search($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>My Orders</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0 pt-15">
+                <div class="col-lg-10">
+                  <p class="title">All</p>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button
+                      class="button"
+                      [ngClass]="
+                        searchableData.status == ''
+                          ? 'button-success'
+                          : 'button-gray'
+                      "
+                      (click)="searchableData.status = ''; getOrderList()"
+                    >
+                      <i
+                        class="fas fa-check icon"
+                        *ngIf="searchableData.status == ''"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0 pt-15">
+                <div class="col-lg-10">
+                  <p class="title">Received</p>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button
+                      class="button"
+                      [ngClass]="
+                        searchableData.status == 'Received'
+                          ? 'button-success'
+                          : 'button-gray'
+                      "
+                      (click)="
+                        searchableData.status = 'Received'; getOrderList()
+                      "
+                    >
+                      <i
+                        class="fas fa-check icon"
+                        *ngIf="searchableData.status == 'Received'"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0 pt-15">
+                <div class="col-lg-10">
+                  <p class="title">In Process</p>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button
+                      class="button"
+                      [ngClass]="
+                        searchableData.status == 'In Process'
+                          ? 'button-success'
+                          : 'button-gray'
+                      "
+                      (click)="
+                        searchableData.status = 'In Process'; getOrderList()
+                      "
+                    >
+                      <i
+                        class="fas fa-check icon"
+                        *ngIf="searchableData.status == 'In Process'"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0 pt-15">
+                <div class="col-lg-10">
+                  <p class="title">Cancelled</p>
+                </div>
+                <div class="col-lg-2">
+                  <div class="action-buttons">
+                    <button
+                      class="button"
+                      [ngClass]="
+                        searchableData.status == 'Cancelled'
+                          ? 'button-success'
+                          : 'button-gray'
+                      "
+                      (click)="
+                        searchableData.status = 'Cancelled'; getOrderList()
+                      "
+                    >
+                      <i
+                        class="fas fa-check icon"
+                        *ngIf="searchableData.status == 'Cancelled'"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+<div class="view-layout">
+  <div class="left-box">
+    <div class="banner-profile">
+      <img
+        class="cover"
+        src="../../../assets/images/event/view/event-image.jpg"
+      />
+      <div class="banner-content">
+        <p class="date">
+          <i class="fas fa-clock icon primary"></i>
+          <span>saturday</span>,
+          <span>january 25, 2022</span>
+          at
+          <span>10 am</span>
+        </p>
+        <p class="price">
+          <i class="fas fa-pound-sign icon"></i> 25/
+          <i class="fas fa-ticket-alt icon primary rotat"></i>
+        </p>
+      </div>
+    </div>
+    <div class="event-detail">
+      <div class="top-detail">
+        <h5 class="title">auto showcase</h5>
+        <p class="name">host: <span>sarah cruise</span></p>
+      </div>
+      <div class="bottom-detail">
+        <div class="detail-button">
+          <button class="button active">
+            interested<i class="fas fa-heart icon"></i>
+          </button>
+          <button class="button">
+            buy passes<i class="fas fa-ticket-alt icon"></i>
+          </button>
+        </div>
+        <div class="detail-icon">
+          <button><app-share-popup></app-share-popup></button>
+          <button mat-icon-button [matMenuTriggerFor]="eventAction">
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div class="event-description">
+      <div class="profile-description">
+        <h5 class="title">Details</h5>
+      </div>
+      <ul class="profile-list">
+        <li class="list-item">
+          <i class="fas fa-lock icon primary"></i>
+          <p><b>Public event</b></p>
+        </li>
+        <li class="list-item">
+          <i class="fas fa-graduation-cap icon primary"></i>
+          <p>
+            <b>Event by <span class="primary">Sarah Cruise</span></b>
+          </p>
+        </li>
+        <li class="list-item">
+          <i class="fas fa-map-marker-alt icon primary"></i>
+          <p><b>Location Lorem Ipsum</b></p>
+        </li>
+        <li class="list-item">
+          <i class="fas fa-hourglass-half icon primary"></i>
+          <b>Duration 3 Days</b>
+        </li>
+        <li class="list-item">
+          <i class="far fa-heart icon primary"></i>
+          <p>
+            <b><span>350</span>500 available seats</b>
+          </p>
+        </li>
+      </ul>
+      <p class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+        blanditiis quam minus nemo aut tenetur iusto beatae voluptate? Eius
+        fugiat voluptate fuga. Nihil, sint est? Reiciendis maxime cumque
+        consequatur iure. consectetur adipisicing elit. Excepturi blanditiis
+        quam minus nemo aut tenetur iusto beatae voluptate? Eius fugiat
+        voluptate fuga. Nihil, sint est? Reiciendis maxime cumque consequatur
+        iure.
+      </p>
+      <button class="action-button primary">Read More</button>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="event-rigth-box">
+        <div class="top-title">
+          <h5 class="title">Location</h5>
+        </div>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards">
+              <div class="location-box">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.9562469018674!2d-118.21527628544473!3d34.044993425560826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c605f6b265a1%3A0xca0b13e00e59e449!2sHollenbeck%20Community%20Police%20Station!5e0!3m2!1sen!2s!4v1641888029628!5m2!1sen!2s"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+                <p class="primary">East Orange, <span>NJ 07017, USA</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-title">
+          <h5 class="title">Guests</h5>
+        </div>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards">
+              <div class="guest-box">
+                <p class="content">300<span>Interested</span></p>
+                <p class="content">150<span>Going</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-title">
+          <h5 class="title">Go with a Friend</h5>
+        </div>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards">
+              <div class="search-box">
+                <input
+                  type="text"
+                  placeholder="Search for Friends"
+                  class="feild"
+                />
+                <i class="fa fa-search icon"></i>
+              </div>
+              <div class="invite-box">
+                <div class="friend-box">
+                  <div class="image-box">
+                    <img
+                      class=""
+                      src="../../../assets/images/profile/profile-cover.jpg"
+                    />
+                  </div>
+                  <div class="invite-title">
+                    <h6 class="title">Javany Paucek</h6>
+                  </div>
+                </div>
+                <button class="invite-button">Invite</button>
+              </div>
+              <div class="invite-box">
+                <div class="friend-box">
+                  <div class="image-box">
+                    <img
+                      class=""
+                      src="../../../assets/images/profile/profile-cover.jpg"
+                    />
+                  </div>
+                  <div class="invite-title">
+                    <h6 class="title">Javany Paucek</h6>
+                  </div>
+                </div>
+                <button class="invite-button">Invite</button>
+              </div>
+              <div class="invite-box">
+                <div class="friend-box">
+                  <div class="image-box">
+                    <img
+                      class=""
+                      src="../../../assets/images/profile/profile-cover.jpg"
+                    />
+                  </div>
+                  <div class="invite-title">
+                    <h6 class="title">Javany Paucek</h6>
+                  </div>
+                </div>
+                <button class="invite-button">Invite</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

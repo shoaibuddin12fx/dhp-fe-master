@@ -1,0 +1,192 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create Event</h4>
+  </div>
+  <div class="popup-body">
+    <div class="create-main">
+      <div class="cover-box">
+        <h5 class="title">Host</h5>
+        <div class="host-box row gx-0">
+          <div class="col-lg-2">
+            <img
+              class="image"
+              src="../../../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </div>
+          <div class="col-lg-10">
+            <p class="title">Sarah Cruise</p>
+            <span class="content">Host</span>
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Event banner</h5>
+        <div class="browse" #image>
+          <input class="upload-field" type="file" id="file" accept="image/*" />
+          <label for="file" class="fa fa-camera icon"></label>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Event banner</h5>
+        <div class="event-name">
+          <input type="text" placeholder="Event name" class="field" />
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Date & Time</h5>
+        <div class="event-date">
+          <div class="row">
+            <div class="col-lg-6">
+              <input type="date" class="field" />
+            </div>
+            <div class="col-lg-6">
+              <input type="time" class="field" />
+            </div>
+            <div class="col-lg-12">
+              <form>
+                <mat-radio-group (ngModel)="(changeState)">
+                  <mat-radio-button
+                    value="1"
+                    #button
+                    [checked]="isVisible"
+                    (click)="checkState($event, button)"
+                    >End date and time</mat-radio-button
+                  >
+                </mat-radio-group>
+              </form>
+            </div>
+            <div class="row" *ngIf="changeState == 1">
+              <div class="col-lg-6">
+                <input type="date" class="field" />
+              </div>
+              <div class="col-lg-6">
+                <input type="time" class="field" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Event Type & Privacy</h5>
+        <div class="event-privacy">
+          <div class="row">
+            <div class="col-lg-6">
+              <select class="field arrow">
+                <option value="" disabled selected>Type</option>
+                <option value="male">Online</option>
+                <option value="female">In Person</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <select class="field arrow">
+                <option value="" disabled selected>Privacy</option>
+                <option value="male">Public</option>
+                <option value="female">Private</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Location</h5>
+        <div class="event-location">
+          <input
+            type="text"
+            placeholder="location(Section Hides on Online event selection)"
+            class="field"
+          />
+          <i class="fas fa-map-marker-alt icon"></i>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Meeting link</h5>
+        <div class="event-location">
+          <input
+            type="text"
+            placeholder="location(Section Hides on In Person event selection)"
+            class="field"
+          />
+          <i class="fas fa-link icon"></i>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Event Categories</h5>
+        <div class="event-privacy">
+          <div class="row">
+            <div class="col-lg-6">
+              <select class="field arrow">
+                <option value="male">Free</option>
+                <option value="female">Paid</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <div class="event-location">
+                <input
+                  type="text"
+                  placeholder="(Disabled on free)"
+                  class="field pl-35"
+                />
+                <span class="price-sign"
+                  ><i class="fas fa-pound-sign"></i
+                ></span>
+                <i class="fas fa-ticket-alt icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Seats</h5>
+        <div class="event-privacy">
+          <div class="event-location">
+            <input type="text" placeholder="seats (500)" class="field" />
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Event Discription</h5>
+        <div class="event-discripton">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Discription (optional)"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="document-main">
+      <figure class="cover-box">
+        <h5 class="title">Event Document 1</h5>
+        <div class="browse" #image>
+          <input class="upload-field" type="file" id="file" accept="image/*" />
+          <label for="file" class="fa fa-camera icon"></label>
+          <span>Upload Document PDF</span>
+        </div>
+      </figure>
+      <figure class="cover-box">
+        <h5 class="title">Event Document 2</h5>
+        <div class="browse" #image>
+          <input class="upload-field" type="file" id="file" accept="image/*" />
+          <label for="file" class="fa fa-camera icon"></label>
+          <span>Upload Document PDF</span>
+        </div>
+      </figure>
+      <figure class="cover-box">
+        <h5 class="title">Event Document 3</h5>
+        <div class="browse" #image>
+          <input class="upload-field" type="file" id="file" accept="image/*" />
+          <label for="file" class="fa fa-camera icon"></label>
+          <span>Upload Document PDF</span>
+        </div>
+      </figure>
+    </div> -->
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Continue</button>
+    </div>
+  </div>
+</div>

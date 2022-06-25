@@ -1,0 +1,121 @@
+@import "../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-body {
+    height: 70%;
+    overflow: overlay;
+    padding-right: 15px;
+    .profile-box {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      .image {
+        width: 80%;
+        padding: 2px;
+        object-fit: cover;
+        background-color: $theme-white;
+        border: 2px solid $theme-border;
+      }
+      .title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        padding-top: 8px;
+        color: $theme-black;
+      }
+      .button {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        border-width: 1px;
+        border-radius: 25px;
+        transition: 0.4s ease-in-out;
+      }
+    }
+    .messgae-box {
+      margin-top: 20px;
+      .field {
+        width: 100%;
+        height: 75px;
+        resize: none;
+        outline: none;
+        border: unset;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 600;
+        appearance: none;
+        padding-top: 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        color: $theme-black;
+        background-color: $theme-bg-sidebar;
+      }
+    }
+    .title {
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .image-upload-box {
+      display: flex;
+      flex-flow: wrap;
+      margin-top: 15px;
+      margin-left: -8px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex: 0 0 calc(100% + 8px);
+      .photo-box {
+        margin: 0;
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        position: relative;
+        margin-left: 8px;
+        flex: 0 0 calc(50% - 8px);
+        background-color: $theme-bg-sidebar;
+        .photo {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          object-fit: cover;
+          position: absolute;
+          border-radius: 8px;
+        }
+        .browse {
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          position: absolute;
+          border-radius: 8px;
+          background: #00000047;
+          transition: 0.2s ease-out;
+          .upload-field {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: absolute;
+          }
+          .icon {
+            top: 50%;
+            left: 50%;
+            cursor: pointer;
+            position: absolute;
+            color: $theme-white;
+            transform: translate(-50%, -50%);
+          }
+        }
+        &:hover {
+          .browse {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

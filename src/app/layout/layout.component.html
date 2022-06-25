@@ -1,0 +1,54 @@
+<app-header
+  (openSearchBar)="openSearchBar($event)"
+  [isSearchActive]="isSearch"
+></app-header>
+
+<app-side-menu></app-side-menu>
+
+<div class="main-section">
+  <!-- <div> -->
+  <div class="input-container" *ngIf="isSearch">
+    <input
+      type="text"
+      [(ngModel)]="searchValue"
+      placeholder="search?"
+      class="input"
+      (keyup)="searchText($event.target.value)"
+      (keyup.enter)="Search(1)"
+    />
+    <span
+      ><i
+        class="fas fa-times icon"
+        *ngIf="searchValue"
+        (click)="searchText(''); Search(2)"
+      ></i
+    ></span>
+  </div>
+  <div class="search-container" *ngIf="isSearch && searchResults.length > 0">
+    <div *ngFor="let item of searchResults">
+      <div
+        class="data-item"
+        (click)="goToRoute(item.id); searchText(''); Search(2)"
+      >
+        <div style="padding: 5px 35px">
+          <!-- <span>{{ item.type }}</span> -->
+          <span style="margin-left: 20px">{{
+            item.fullName ? item.fullName : item.name
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <router-outlet></router-outlet>
+</div>
+<app-active-bar
+  [isOpened]="showContactPopup$ | async"
+  [userProfiles]="userFriends"
+></app-active-bar>
+<app-contact-popup
+  [isOpened]="showContactPopup$ | async"
+  [userProfiles]="userProfiles"
+  [userChatGroups]="userChatGroups"
+  [unreadMessages]="unreadMessages"
+></app-contact-popup>

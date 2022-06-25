@@ -1,0 +1,85 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Become a volunteer</h4>
+  </div>
+  <div class="popup-body">
+    <div class="setup-box">
+      <ul class="listing">
+        <li class="item">
+          <span class="label">Volunteer Profile</span>
+          <ul class="image-upload-box">
+            <li class="image-main">
+              <figure class="cover-box">
+                <div class="browse" #image>
+                  <input
+                    class="upload-field"
+                    type="file"
+                    id="file"
+                    accept="image/*"
+                  />
+                  <div class="main" for="file">
+                    <label class="fa fa-camera icon"></label>
+                    <p>Profile Picture</p>
+                  </div>
+                </div>
+              </figure>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <form class="row">
+            <div class="col-lg-12 col-12">
+              <label class="label">Name</label>
+              <input class="field" type="text" placeholder="Name" />
+            </div>
+            <div class="col-lg-12">
+              <label class="label">Email</label>
+              <input class="field" type="mail" placeholder="Email" />
+            </div>
+            <div class="col-lg-12">
+              <label class="label">Contact Number</label>
+              <input class="field" type="text" placeholder="Contact Number" />
+            </div>
+            <div class="col-lg-12 col-12">
+              <label class="label">Category</label>
+              <select class="field arrow">
+                <option value="" disabled selected>Category</option>
+                <option value="1">Attorney</option>
+                <option value="2">Doctor</option>
+                <option value="3">Social Worker</option>
+                <option value="4">Politician</option>
+                <option value="5">Technology</option>
+                <option value="6">Engineering</option>
+                <option value="7">Self-Employed</option>
+                <option value="8">Media/Journalist</option>
+                <option value="9">Education</option>
+                <option value="10">Environment</option>
+              </select>
+            </div>
+            <div class="col-lg-12">
+              <label class="label">City</label>
+              <input class="field" type="text" placeholder="City" />
+            </div>
+            <div class="col-lg-12">
+              <label class="label">Country</label>
+              <input class="field" type="text" placeholder="Country" />
+            </div>
+            <div class="col-lg-12 col-12">
+              <label class="label">Reason for joining as volunteer?</label>
+              <textarea
+                class="field text-field"
+                placeholder="Reason here...."
+              ></textarea>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Submit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Apply</h4>
+  </div>
+  <div class="popup-body">
+    <div class="create-ad">
+      <label>Application Name</label>
+      <input type="text" placeholder="Name" class="field" />
+
+      <label>Application Email</label>
+      <input type="text" placeholder="Email" class="field" />
+
+      <label>Application Phone</label>
+      <input type="text" placeholder="Phone" class="field" />
+
+      <label>Upload Resume</label>
+      <div class="browse" #image>
+        <input class="upload-field" type="file" id="file" accept="image/*" />
+        <p class="content">Upload Resume <i class="far fa-file"></i></p>
+      </div>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Submit</button>
+    </div>
+  </div>
+</div>

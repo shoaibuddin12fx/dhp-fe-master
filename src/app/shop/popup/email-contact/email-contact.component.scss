@@ -1,0 +1,125 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  .popup-header {
+  }
+  .popup-body {
+    height: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    overflow: overlay;
+    padding-bottom: 0;
+    .arrow {
+      cursor: pointer;
+    }
+    label {
+      display: block;
+      font-weight: 800;
+      font-size: 13px;
+      padding-left: 10px;
+      margin-bottom: 5px;
+    }
+    .popup-map {
+      position: relative;
+      iframe {
+        width: 100%;
+        height: 180px;
+        border-radius: 5px;
+      }
+      .location-box {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 15px;
+        .location-search {
+          position: relative;
+          width: 60%;
+          input {
+            width: 100%;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            color: $theme-black;
+            &::placeholder {
+              font-size: 12px;
+              font-weight: 700;
+              color: $theme-content;
+            }
+          }
+          .icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $theme-primary;
+          }
+        }
+        button {
+          width: 70px;
+          padding: 7px 0;
+          font-size: 12px;
+          font-weight: 600;
+          border-radius: 25px;
+          color: $theme-white;
+          background-color: $theme-primary;
+        }
+      }
+    }
+    .billing-address {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 25px;
+      border-top: 1px solid $theme-background-light;
+      line-height: 1;
+      p {
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 800;
+        color: $theme-primary;
+      }
+    }
+    .shipping-address {
+      padding-bottom: 25px;
+      p {
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 800;
+        color: $theme-primary;
+      }
+    }
+    .billing-box {
+      margin-top: 30px;
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 40px;
+    .btn {
+      width: 120px;
+    }
+  }
+}
+::ng-deep .billing-address .mat-radio-label-content {
+  color: $theme-black;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+// .ng-select.ng-select-single .ng-select-containerr {
+//   background-color: #f3f3f3 !important;
+//   border: 1px solid #f3f3f3 !important;
+// }
+
+// .ng-select .ng-arrow-wrapper .ng-arrow {
+//   border-color: #83e3bd transparent transparent !important;
+//   border-style: solid;
+//   border-width: 5px 5px 2.5px;
+// }

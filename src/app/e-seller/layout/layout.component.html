@@ -1,0 +1,133 @@
+<div class="seller-layout">
+  <div class="header">
+    <div class="left-box">
+      <img class="image" src="../../../assets/images/seller/logo.jpg" />
+      <h4 class="title" mat-icon-button [matMenuTriggerFor]="ratailType">
+        {{ shop.name }}
+        <i class="fas fa-chevron-down icon"></i>
+      </h4>
+      <mat-menu #ratailType>
+        <button
+          mat-menu-item
+          (click)="navigate(item)"
+          *ngFor="let item of shops"
+        >
+          <p class="popup-title">
+            <span>{{ item.name }}</span>
+          </p>
+        </button>
+        <!-- <button mat-menu-item>
+          <p class="popup-title">
+            <span>DEF WHOLESALERS</span>
+          </p>
+        </button> -->
+      </mat-menu>
+    </div>
+    <ul class="social-icons">
+      <li class="social-list">
+        <i class="fa fa-comment icon">
+          <span class="badge">1</span>
+        </i>
+      </li>
+      <li class="social-list">
+        <i class="fa fa-bell icon"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="side-bar">
+    <div class="logo">
+      <img
+      [routerLink]="['/shop']"
+        src="../../../assets/images/authentication/logo-black.png"
+      />
+    </div>
+    <h4 class="title">E-SELLER</h4>
+    <div class="user-info">
+      <span
+        class="home"
+        [routerLink]="['/e-seller', 'main', shopId, 'dashboard']"
+        >Dashboard</span
+      >
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Products</mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="listing">
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shop.id, 'add-product']"
+            >
+              Add Products
+            </li>
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shop.id, 'manage-product']"
+            >
+              Manage products
+            </li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Orders & Reviews</mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="listing">
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shopId, 'manage-order']"
+            >
+              Manage Orders
+            </li>
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shopId, 'manage-reviews']"
+            >
+              Manage Reviews
+            </li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Promotions</mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="listing">
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shopId, 'add-voucher']"
+            >
+              Add Voucher
+            </li>
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shopId, 'manage-voucher']"
+            >
+              Manage Voucher
+            </li>
+          </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Settings</mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="listing">
+            <li
+              class="item"
+              [routerLink]="['/e-seller', 'main', shopId, 'shop-profile']"
+            >
+              Shop Profile
+            </li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <span class="home" [routerLink]="['/e-seller', 'main', shopId, 'faqs']"
+        >FAQs</span
+      >
+    </div>
+  </div>
+  <div class="main-section">
+    <router-outlet></router-outlet>
+  </div>
+</div>

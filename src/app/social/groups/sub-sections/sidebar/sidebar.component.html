@@ -1,0 +1,132 @@
+<div class="right-box-inner">
+  <div class="search-box">
+    <div class="search">
+      <i class="fa fa-search icon"></i>
+      <input
+        type="text"
+        placeholder="Discover Groups"
+        (change)="searchGroup($event.target.value)"
+      />
+    </div>
+    <button class="button" (click)="createGroupDialog()">
+      <i class="fas fa-pencil-alt icon"></i>Create Group
+    </button>
+
+    <!-- <div class="top-bar">
+      <h4 class="title">{{ title }}</h4>
+    </div> -->
+    <div class="card-main-box pb-30">
+      <div class="card-item" *ngFor="let group of groupList">
+        <div
+          class="cards row gx-0"
+          [routerLink]="
+            (group.privacyType === 'private' &&
+              (group?.isMember || group?.isAllowedToVisitPrivate)) ||
+            group.privacyType !== 'private'
+              ? ['/social/groups/admin', group.id, 'feed']
+              : null
+          "
+          (click)="onOpenPost(group)"
+        >
+          <!-- [routerLink]="['/social/groups/admin', group.id, 'feed']" -->
+          >
+          <div class="col-lg-3">
+            <img
+              class="avatar circle border"
+              [src]="
+                group?.profilePhoto ||
+                '../../../assets/images/home/main/abc-group-logo.PNG'
+              "
+            />
+          </div>
+          <div class="col-lg-9">
+            <p class="title">{{ group?.name }} ({{ group?.privacyType }})</p>
+            <span class="content"
+              >{{ group?.groupFriendCount }} member{{
+                group?.groupFriendCount > 1 ? "s" : ""
+              }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Groups you manage</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="card-main-box" *ngFor="let item of groupList">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-3">
+              <ng-container
+                *ngIf="item.profilePhoto !== ''; else elseProfilePhoto"
+              >
+                <img class="avatar circle border" [src]="item.profilePhoto" />
+              </ng-container>
+              <ng-template #elseProfilePhoto>
+                <img
+                  class="avatar circle border"
+                  src="../assets/images/home/sidebar/profile-image.PNG"
+                />
+              </ng-template>
+            </div>
+            <div class="col-lg-9">
+              <h4 class="title">{{ item.name }}</h4>
+              <p class="group-status">
+                {{ item.privacyType | uppercase }} Group({{
+                  item.groupFriendCount <= 9
+                    ? item.groupFriendCount
+                    : item.groupFriendCount - (item.groupFriendCount % 10)
+                }}<span *ngIf="item.groupFriendCount > 9">+</span> member<span
+                  *ngIf="item.groupFriendCount > 1"
+                  >s</span
+                >)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Groups you're joined</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="card-main-box">
+        <div class="card-item" *ngFor="let item of joinedGroups">
+          <div class="cards row gx-0">
+            <div class="col-lg-3">
+              <ng-container
+                *ngIf="item.profilePhoto !== ''; else elseProfilePhoto"
+              >
+                <img class="avatar circle border" [src]="item.profilePhoto" />
+              </ng-container>
+              <ng-template #elseProfilePhoto>
+                <img
+                  class="avatar circle border"
+                  src="../assets/images/home/sidebar/profile-image.PNG"
+                />
+              </ng-template>
+            </div>
+            <div class="col-lg-9">
+              <h4 class="title">{{ item.name }}</h4>
+              <p class="group-status">
+                {{ item.privacyType | uppercase }} Group({{
+                  item.groupFriendCount <= 9
+                    ? item.groupFriendCount
+                    : item.groupFriendCount - (item.groupFriendCount % 10)
+                }}<span *ngIf="item.groupFriendCount > 9">+</span> member<span
+                  *ngIf="item.groupFriendCount > 1"
+                  >s</span
+                >)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion> -->
+</div>

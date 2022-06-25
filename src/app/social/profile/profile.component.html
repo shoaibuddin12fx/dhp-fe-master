@@ -1,0 +1,101 @@
+<div class="main">
+  <div class="banner-profile">
+    <img
+      class="cover"
+      *ngIf="getCoverPhoto != ''; else templateName"
+      [src]="getCoverPhoto"
+    />
+    <ng-template #templateName>
+      <img
+        class="cover"
+        src="../../../assets/images/profile/profile-cover.jpg"
+      />
+    </ng-template>
+    <div *ngIf="isMyProfile">
+      <button class="upload-image" (click)="openEditCoverDialog()">
+        <i class="fas fa-camera icon"></i>
+      </button>
+      <button class="edit-profile" (click)="openEditProfileDialog()">
+        <i class="fas fa-pencil-alt icon"></i>
+        Edit Profile
+      </button>
+    </div>
+  </div>
+  <ul class="section-nav">
+    <li
+      class="item"
+      [routerLink]="[profileId, isMyProfile ? 'my-feed' : 'user-feed']"
+      [routerLinkActive]="['active']"
+    >
+      Feed
+    </li>
+    <li
+      class="item"
+      [routerLink]="[profileId, 'about']"
+      [routerLinkActive]="['active']"
+    >
+      About
+    </li>
+    <li
+      *ngIf="isMyProfile || profileData?.data?.isFriend"
+      class="item"
+      [routerLink]="[profileId, 'friends']"
+      [routerLinkActive]="['active']"
+    >
+      Friends
+    </li>
+    <li
+      *ngIf="isMyProfile || profileData?.data?.isFriend"
+      class="item"
+      [routerLink]="[profileId, 'followers']"
+      [routerLinkActive]="['active']"
+    >
+      Followers
+    </li>
+    <li
+      *ngIf="isMyProfile"
+      class="item"
+      [routerLink]="[profileId, 'groups']"
+      [routerLinkActive]="['active']"
+    >
+      Groups
+    </li>
+    <li
+      *ngIf="isMyProfile"
+      class="item"
+      [routerLink]="[profileId, 'events']"
+      [routerLinkActive]="['active']"
+    >
+      Events
+    </li>
+    <li *ngIf="!isMyProfile && !profileData?.data?.isFriend">
+      <button
+        class="button button-success add-friend"
+        (click)="AddFriend(profileId)"
+      >
+        <i class="fa fa-plus"></i>
+        Add Friend
+      </button>
+    </li>
+
+    <li *ngIf="!isMyProfile">
+      <button
+        class="button button-success message-btn"
+        (click)="openChatBox(profileData.data, true)"
+      >
+        <i class="far fa-comment-dots"></i>
+        message
+      </button>
+    </li>
+  </ul>
+  <div class="popup-box">
+    <app-chat-popup
+      *ngIf="showChatBox"
+      [recipient]="chatUserProfile"
+      (showChatBox)="closeChatBox($event)"
+    >
+    </app-chat-popup>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

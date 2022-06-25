@@ -1,0 +1,488 @@
+<div class="feed-layout">
+  <div class="main-box">
+    <div class="group-tab">
+      <mat-tab-group
+        mat-align-tabs="start"
+        (selectedTabChange)="onChange($event)"
+      >
+        <mat-tab label="Home">
+          <div class="tab-content">
+            <div class="post-sticky">
+              <app-post-upload
+                (upsertPost)="UpsertPost($event)"
+                [isGroupPost]="true"
+                [groupId]="groupId"
+                [groupPostApproval]="group?.postApproval"
+              >
+              </app-post-upload>
+            </div>
+            <app-activity-box
+              [isGroup]="true"
+              [groupId]="groupId"
+              (getGroupFeeds)="GetGroupFeeds()"
+              (deletedPost)="deletedPost($event)"
+              (upsertPost)="UpsertPost($event)"
+              [totalPostCount]="totalPostCount"
+            ></app-activity-box>
+          </div>
+        </mat-tab>
+        <ng-container *ngIf="isGroupAdmin">
+          <mat-tab label="Member Requests">
+            <div class="tab-content">
+              <div class="title-box">
+                <h6 class="title">Member Requests</h6>
+                <span>{{ requestedGroupMembers.length }} Pending</span>
+              </div>
+              <div class="search-box">
+                <div class="search">
+                  <i class="fa fa-search icon"></i>
+                  <input
+                    class="field"
+                    type="text"
+                    placeholder="Search by name"
+                  />
+                </div>
+                <div class="action-buttons">
+                  <button
+                    class="button"
+                    (click)="acceptAllRequestedGroupMembers(groupId, 1)"
+                  >
+                    Accept All
+                  </button>
+                  <button
+                    class="button"
+                    (click)="acceptAllRequestedGroupMembers(groupId, 2)"
+                  >
+                    Ignore All
+                  </button>
+                </div>
+              </div>
+              <ul class="members-list">
+                <li class="item" *ngFor="let item of requestedGroupMembers">
+                  <div class="left-box">
+                    <img
+                      *ngIf="item.profileImage"
+                      class="image"
+                      [src]="item.profileImage"
+                      alt=""
+                    />
+                    <img
+                      *ngIf="!item.profileImage"
+                      class="image"
+                      src="../../../../../assets/images/photos/profile.jpg"
+                    />
+                    <p class="title">{{ item.fullName }}</p>
+                  </div>
+                  <div class="action-button">
+                    <button
+                      class="button"
+                      (click)="
+                        acceptRequestedGroupMembers(item.userid, 1, item.id)
+                      "
+                    >
+                      Accept
+                    </button>
+                    <button
+                      class="button"
+                      (click)="
+                        acceptRequestedGroupMembers(item.userid, 2, item.id)
+                      "
+                    >
+                      Ignore
+                    </button>
+                    <!-- <button class="button">Block</button> -->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </mat-tab>
+          <mat-tab label="Pending Posts">
+            <!-- <app-pending-post [pendingPosts]="pendingPosts"></app-pending-post> -->
+            <div class="tab-content">
+              <div class="title-box">
+                <h6 class="title">Pending Posts</h6>
+                <span>{{ totalPendingPostCount }} Pending</span>
+              </div>
+              <div class="search-box">
+                <div class="search">
+                  <i class="fa fa-search icon"></i>
+                  <input
+                    class="field"
+                    type="text"
+                    placeholder="Search post by name"
+                  />
+                </div>
+                <div class="action-buttons">
+                  <button class="button" (click)="acceptAllPendingPost(1)">
+                    Accept All
+                  </button>
+                  <button class="button" (click)="acceptAllPendingPost(0)">
+                    Ignore All
+                  </button>
+                </div>
+              </div>
+              <!-- <div infinite-scroll [infiniteScrollDistance]="scrollDistance"
+                [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle"
+                (scrolled)="onScrollDown()" (scrolledUp)="onUp()"> -->
+              <div class="activity-box" *ngFor="let post of pendingPosts">
+                <div class="activity-info">
+                  <ng-container
+                    *ngIf="post?.user?.profileImage; else elseTemplate"
+                  >
+                    <img class="avatar" [src]="post?.user?.profileImage" />
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <img
+                      class="avatar"
+                      src="../assets/images/home/sidebar/profile-image2.png"
+                    />
+                  </ng-template>
+                  <div class="title-status">
+                    <h4 class="title">
+                      {{ post.user.firstName }} {{ post.user.lastName }}
+                    </h4>
+                    <span class="status">posted an update</span>
+                    <span class="post-time">{{
+                      post.createdDate | dateAgo
+                    }}</span>
+                    <p>
+                      {{ post.description }}
+                    </p>
+                  </div>
+                  <button
+                    class="button"
+                    (click)="acceptPendingPost(1, post.id)"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="button"
+                    (click)="acceptPendingPost(0, post.id)"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="activity-image-box pb-0">
+                  <div class="image-box">
+                    <img
+                      class="activity-image"
+                      *ngIf="post?.url && post?.url.length > 0"
+                      [src]="post?.url[0].url"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <mat-paginator
+              [length]="totalPendingPostCount"
+              [pageSize]="pageData.limit"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              (page)="search($event)"
+              aria-label="Select page"
+            >
+            </mat-paginator>
+          </mat-tab>
+          <mat-tab label="Group Rules">
+            <div class="tab-content">
+              <div class="title-box">
+                <h6 class="title">Group Rules</h6>
+                <button class="button" (click)="groupRuleDialog(null)">
+                  <i class="fas fa-plus icon"></i>
+                  Add Rules
+                </button>
+              </div>
+              <ul class="rules-list counter">
+                <li class="item" *ngFor="let item of groupRules">
+                  <span></span>
+                  <i class="fas fa-caret-right icon"></i>
+                  <h6 class="title">{{ item.title }}</h6>
+                  <p class="content">
+                    {{ item.description }}
+                  </p>
+                  <i
+                    class="fa fa-ellipsis-h setting"
+                    mat-icon-button
+                    [matMenuTriggerFor]="menu"
+                  ></i>
+                  <mat-menu #menu>
+                    <button mat-menu-item (click)="groupRuleDialog(item)">
+                      <p class="popup-title">
+                        <span>Edit</span>
+                      </p>
+                    </button>
+                    <button mat-menu-item (click)="deleteGroupRules(item)">
+                      <p class="popup-title">
+                        <span class="warning">Delete</span>
+                      </p>
+                    </button>
+                  </mat-menu>
+                </li>
+                <!-- <li class="item">
+                <span></span>
+                <i class="fas fa-caret-right icon"></i>
+                <h6 class="title">No foul Language</h6>
+                <p class="content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam odio praesentium ut maxime quae, itaque inventore
+                  error tempore quasi at natus labore voluptate aut modi. Quis
+                  ex accusamus at facere?
+                </p>
+                <i
+                  class="fa fa-ellipsis-h setting"
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                ></i>
+                <mat-menu #menu>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>Edit</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span class="warning">Delete</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </li>
+              <li class="item">
+                <span></span>
+                <i class="fas fa-caret-right icon"></i>
+                <h6 class="title">Age 16+</h6>
+                <p class="content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam odio praesentium ut maxime quae, itaque inventore
+                  error tempore quasi at natus labore voluptate aut modi. Quis
+                  ex accusamus at facere?
+                </p>
+                <i
+                  class="fa fa-ellipsis-h setting"
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                ></i>
+                <mat-menu #menu>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>Edit</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span class="warning">Delete</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </li> -->
+              </ul>
+            </div>
+          </mat-tab>
+          <mat-tab label="Reported Content" (click)="getReportedContent()">
+            <div class="tab-content">
+              <div class="title-box">
+                <h6 class="title">Reported Posts</h6>
+                <span>{{ reportedContent.length }}</span>
+              </div>
+              <div class="search-box">
+                <div class="search">
+                  <i class="fa fa-search icon"></i>
+                  <input
+                    class="field"
+                    type="text"
+                    placeholder="Search content by name"
+                  />
+                </div>
+                <div class="action-buttons">
+                  <button class="button" (click)="keepAllReportedContent()">
+                    Keep All
+                  </button>
+                  <button class="button" (click)="rejectAllReportedContent()">
+                    Remove All
+                  </button>
+                </div>
+              </div>
+              <span *ngFor="let item of reportedContent">
+                <div class="report-status">
+                  <div class="inner-title">
+                    <h6 class="title">{{ item.fullName }}</h6>
+                    <p>
+                      Reported this <span class="primary">post</span> for
+                      <span class="black">({{ item.reportType }})</span>
+                    </p>
+                  </div>
+                  <div class="action-buttons">
+                    <button class="button" (click)="keepReportedContent(item)">
+                      Keep
+                    </button>
+                    <button
+                      class="button"
+                      (click)="rejectReportedContent(item)"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+                <div class="event-invite">
+                  <div class="activity-box">
+                    <div class="activity-info">
+                      <img class="avatar" [src]="item.post.user.profileImage" />
+                      <div class="title-status">
+                        <h4 class="title">{{ item.post.user.fullName }}</h4>
+                        <span class="post-time">{{
+                          item.post.createdDate | date
+                        }}</span>
+                        <p class="content">
+                          {{ item.post.description }}
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="activity-image-box"
+                      *ngIf="item.post.type === 'photo'"
+                    >
+                      <div class="image-box" *ngFor="let url of item.post.url">
+                        <img class="activity-image" [src]="url.url" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <!--
+              <div class="report-status">
+                <div class="inner-title">
+                  <h6 class="title">Lelah Zbon</h6>
+                  <p>
+                    Reported this <span class="primary">comment</span> on
+                    <span class="black"> Anikas</span> post for
+                    <span class="black">(Foul Language)</span>
+                  </p>
+                </div>
+                <div class="action-buttons">
+                  <button class="button">Keep</button>
+                  <button class="button">Remove</button>
+                </div>
+              </div>
+              <div class="event-invite">
+                <div class="activity-box">
+                  <div class="activity-info">
+                    <img
+                      class="avatar"
+                      src="../../../../../assets/images/photos/cover.jpg"
+                    />
+                    <div class="title-status">
+                      <h4 class="title">Emmaneul treytel</h4>
+                      <span class="post-time">Jan 7 2020</span>
+                      <p class="content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores voluptas voluptate at tempore aspernatur eos,
+                        neque recusandae quis, soluta provident et.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="activity-image-box">
+                    <div class="image-box">
+                      <img
+                        class="activity-image"
+                        src="../../../../../assets/images/photos/cover.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </mat-tab>
+          <mat-tab label="Settings">
+            <div class="tab-content" *ngIf="group">
+              <div class="title-box">
+                <h6 class="title">Group Settings</h6>
+              </div>
+              <div class="row settings-box">
+                <div class="col-lg-12">
+                  <label class="title">Name</label>
+                  <input
+                    [(ngModel)]="group.name"
+                    class="field"
+                    type="text"
+                    placeholder="Enter Your Name"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <label class="title">Privacy</label>
+                  <select class="field arrow" [(ngModel)]="group.privacyType">
+                    <option value="" disabled selected>Privacy</option>
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <label class="title">Visibility</label>
+                  <select class="field arrow" [(ngModel)]="group.visiblity">
+                    <option value="" disabled selected>Visibility</option>
+                    <option value="true">Visible</option>
+                    <option value="false">Hidden</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <label class="title">Post Approval</label>
+                  <select class="field arrow" [(ngModel)]="group.postApproval">
+                    <option value="" disabled selected>Post Approval</option>
+                    <option value="true">On</option>
+                    <option value="false">Off</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <label class="title">Event Hosting</label>
+                  <select class="field arrow">
+                    <option value="" disabled selected>Event Hosting</option>
+                    <option value="male">On</option>
+                    <option value="female">Off</option>
+                  </select>
+                </div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                  <button class="button" (click)="updateSettings()">
+                    update
+                  </button>
+                </div>
+              </div>
+              <div class="title-box">
+                <h6 class="title">Blocked From Group</h6>
+              </div>
+
+              <div *ngIf="blockedGroupMembers.length <= 0">
+                <span style="font-size: 13px">No Record Found</span>
+              </div>
+              <ul class="block-list">
+                <li class="item" *ngFor="let item of blockedGroupMembers">
+                  <div class="left-box">
+                    <img
+                      *ngIf="item.profileImage"
+                      class="image"
+                      [src]="item.profileImage"
+                      alt=""
+                    />
+                    <img
+                      *ngIf="!item.profileImage"
+                      class="image"
+                      src="../../../../../assets/images/photos/profile.jpg"
+                    />
+                    <p class="title">{{ item.fullName }}</p>
+                  </div>
+                  <div class="action-button">
+                    <!-- <button class="button">Accept</button>
+                  <button class="button">Ignore</button> -->
+                    <button
+                      class="button"
+                      (click)="removeGroupBlockedUser(item.id)"
+                    >
+                      Unblock
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

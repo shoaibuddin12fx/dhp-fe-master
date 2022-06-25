@@ -1,0 +1,853 @@
+@import "../../../assets/partials/variable.scss";
+.profile-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .title-box {
+      .title {
+        font-size: 22px;
+      }
+    }
+    .matrimonial-box {
+      width: 100%;
+      padding: 10px;
+      position: relative;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      border: 2px solid $theme-light-border;
+      .inner-box {
+        display: flex;
+        margin-left: 0;
+        flex-flow: wrap;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 calc(100% + 20px);
+        .image-box {
+          padding: 8px;
+          overflow: hidden;
+          margin-left: 20px;
+          text-align: center;
+          flex: 0 0 calc(20% - 20px);
+          .image-main {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%;
+            .image {
+              width: 100px;
+              height: 100px;
+              filter: blur(5px);
+              object-fit: cover;
+              border-radius: 50%;
+            }
+            &::before {
+              top: 0;
+              left: 0;
+              width: 100%;
+              z-index: 99;
+              content: "";
+              height: 100%;
+              opacity: 0.6;
+              display: block;
+              position: absolute;
+              border-radius: 50%;
+              background-color: $theme-black;
+            }
+            .create-account {
+              left: 0;
+              top: 50%;
+              width: 100%;
+              z-index: 999;
+              display: flex;
+              flex-flow: wrap;
+              position: absolute;
+              align-items: center;
+              justify-content: center;
+              transform: translateY(-50%);
+              .icon {
+                color: #ffffffb5;
+              }
+              span {
+                width: 100%;
+                display: block;
+                font-size: 10px;
+                margin-top: 4px;
+                font-weight: 400;
+                text-align: center;
+                color: #ffffffb5;
+              }
+            }
+          }
+          .image {
+            width: 100px;
+            padding: 2px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid $theme-border;
+          }
+        }
+        .detail-box {
+          margin: 0;
+          padding: 0;
+          margin-left: 20px;
+          list-style-type: none;
+          flex: 0 0 calc(80% - 20px);
+          .item {
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 8px;
+            align-items: center;
+            color: $theme-content;
+            justify-content: flex-start;
+            span {
+              font-weight: 500;
+            }
+            .content {
+              margin: 0;
+              padding: 0 4px;
+              font-weight: 500;
+              color: $theme-black;
+              display: inline-block;
+            }
+            .create {
+              font-size: 14px;
+              font-weight: 600;
+              color: $theme-primary;
+              text-decoration: underline;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .setting {
+        top: 25px;
+        right: 25px;
+        position: absolute;
+        .icon {
+          width: 25px;
+          height: 25px;
+          display: flex;
+          font-size: 12px;
+          cursor: pointer;
+          flex-flow: wrap;
+          border-radius: 50%;
+          align-items: center;
+          color: $theme-content;
+          justify-content: center;
+          background-color: $theme-bg-sidebar;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      .card-main-box {
+        .card-item {
+          .cards {
+            .category {
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              list-style: none;
+              margin-top: -10px;
+              .list {
+                margin-bottom: 15px;
+                align-items: center;
+                line-height: 1;
+                display: flex;
+                flex-flow: wrap;
+                justify-content: space-between;
+                width: 100%;
+                cursor: pointer;
+                form {
+                  width: 100%;
+                  ::ng-deep .mat-radio-group {
+                    display: flex;
+                    flex-flow: wrap;
+                    line-height: 2.5;
+                    align-items: center;
+                    justify-content: space-between;
+                    .mat-radio-button {
+                      // line-height: 1;
+                    }
+                  }
+                  .title {
+                    margin: 0;
+                    color: $theme-content;
+                    width: 80%;
+                    &:hover {
+                      color: $theme-primary;
+                    }
+                  }
+                }
+                .title {
+                  color: $theme-content;
+                  text-decoration: none;
+                  font-size: 13px;
+                  font-weight: 500;
+                }
+                &:hover {
+                  .title {
+                    color: $theme-primary;
+                  }
+                }
+              }
+            }
+            .field {
+              width: 100%;
+              height: 35px;
+              outline: none;
+              border: unset;
+              padding: 0 20px;
+              font-size: 12px;
+              font-weight: 600;
+              appearance: none;
+              margin-bottom: 8px;
+              color: $theme-black;
+              border-radius: 25px;
+              background-color: $theme-white;
+              border: 1px solid $theme-background-light;
+              &::placeholder {
+                color: $theme-content;
+              }
+              &:last-child {
+                margin-bottom: 0px;
+              }
+              &.arrow {
+                cursor: pointer;
+                background-size: 25px 10px;
+                background-repeat: no-repeat;
+                background-position: center right;
+                background-image: url("../../../assets/images/profile/arrow.png");
+              }
+            }
+            .location {
+              position: relative;
+              width: 100%;
+              .feild {
+                padding: 6px 20px 6px 33px;
+                border-radius: 25px;
+                width: 100%;
+                font-size: 13px;
+                line-height: 1;
+                border: 1px solid $theme-border;
+                &::placeholder {
+                  font-size: 12px;
+                  color: $theme-content;
+                  line-height: 1;
+                  font-weight: 600;
+                }
+              }
+              button {
+                position: absolute;
+                left: 13px;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 1;
+                .icon {
+                  color: $theme-primary;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1920px) {
+  .profile-layout {
+    .left-box {
+      .title-box {
+        .title {
+          font-size: 30px;
+        }
+      }
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            .image-main {
+              width: 130px;
+              height: 130px;
+              .create-account {
+                .icon {
+                  font-size: 16px;
+                }
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+            .image {
+              width: 130px;
+              height: 130px;
+            }
+          }
+          .detail-box {
+            .item {
+              font-size: 18px;
+              .create {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                height: 48px;
+                font-size: 18px;
+                &.arrow {
+                  background-size: 45px 15px;
+                }
+              }
+              .location {
+                .feild {
+                  padding: 14px 15px 14px 40px;
+                  font-size: 18px;
+                  &::placeholder {
+                    font-size: 16px;
+                  }
+                }
+                button {
+                  .icon {
+                    font-size: 24px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1680px) {
+  .profile-layout {
+    .left-box {
+      .title-box {
+        .title {
+          font-size: 27px;
+        }
+      }
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            .image-main {
+              width: 120px;
+              height: 120px;
+              .create-account {
+                .icon {
+                }
+                span {
+                }
+              }
+            }
+            .image {
+              width: 120px;
+              height: 120px;
+            }
+          }
+          .detail-box {
+            .item {
+              font-size: 16px;
+              .create {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                height: 42px;
+                font-size: 16px;
+                &.arrow {
+                  background-size: 40px 13px;
+                }
+              }
+              .location {
+                .feild {
+                  padding: 10px 15px 10px 40px;
+                  font-size: 16px;
+                  &::placeholder {
+                    font-size: 14px;
+                  }
+                }
+                button {
+                  .icon {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .profile-layout {
+    .left-box {
+      .title-box {
+        .title {
+          font-size: 24px;
+        }
+      }
+      .matrimonial-box {
+        .setting {
+          .icon {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                height: 40px;
+                font-size: 14px;
+                &.arrow {
+                  background-size: 40px 13px;
+                }
+              }
+              .location {
+                .feild {
+                  padding: 8px 15px 8px 40px;
+                  &::placeholder {
+                    font-size: 14px;
+                  }
+                }
+                button {
+                  .icon {
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .profile-layout {
+    .left-box {
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            .image-main {
+              width: 110px;
+              height: 110px;
+              .create-account {
+                .icon {
+                }
+                span {
+                  font-size: 12px;
+                }
+              }
+            }
+            .image {
+              width: 110px;
+              height: 110px;
+            }
+          }
+          .detail-box {
+            .item {
+              font-size: 14px;
+              .create {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                height: 40px;
+                font-size: 14px;
+                &.arrow {
+                  background-size: 37px 13px;
+                }
+              }
+              .location {
+                .feild {
+                  padding: 8px 15px 8px 40px;
+                  &::placeholder {
+                    font-size: 14px;
+                  }
+                }
+                button {
+                  .icon {
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1366px) {
+  .profile-layout {
+    .left-box {
+      .title-box {
+        .title {
+          font-size: 22px;
+        }
+      }
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            margin-left: 10px;
+            flex: 0 0 calc(20% - 10px);
+            .image-main {
+              width: 100px;
+              height: 100px;
+              .create-account {
+                span {
+                  font-size: 10px;
+                }
+              }
+            }
+            .image {
+              width: 100px;
+              height: 100px;
+            }
+          }
+          .detail-box {
+            margin-left: 10px;
+            flex: 0 0 calc(80% - 10px);
+            .item {
+              font-size: 12px;
+              .create {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                height: 35px;
+                font-size: 12px;
+                &.arrow {
+                  background-size: 25px 10px;
+                }
+              }
+              .location {
+                .feild {
+                  padding: 6px 15px 6px 32px;
+                  &::placeholder {
+                    font-size: 12px;
+                  }
+                }
+                button {
+                  .icon {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .profile-layout {
+    .left-box {
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            flex: 0 0 calc(25% - 10px);
+          }
+          .detail-box {
+            flex: 0 0 calc(75% - 10px);
+            .item {
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .profile-layout {
+    .left-box {
+      flex: 0 0 60%;
+      .title-box {
+        .title {
+        }
+      }
+      .matrimonial-box {
+        padding: 12px;
+        .inner-box {
+          .image-box {
+            margin-left: 0px;
+            flex: 0 0 100%;
+            padding: 0;
+            margin-bottom: 10px;
+            text-align: start;
+            .image-main {
+              .create-account {
+                span {
+                }
+              }
+            }
+            .image {
+            }
+          }
+          .detail-box {
+            margin-left: 0px;
+            flex: 0 0 100%;
+            .item {
+              .create {
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+          }
+        }
+      }
+    }
+    .right-box {
+      flex: 0 0 40%;
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                &.arrow {
+                }
+              }
+              .location {
+                .feild {
+                  &::placeholder {
+                  }
+                }
+                button {
+                  .icon {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .profile-layout {
+    padding-right: 20px;
+    .left-box {
+      flex: 0 0 100%;
+      .title-box {
+        .title {
+        }
+      }
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            .image-main {
+              .create-account {
+                span {
+                }
+              }
+            }
+            .image {
+            }
+          }
+          .detail-box {
+            .item {
+              .create {
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+          }
+        }
+      }
+    }
+    .right-box {
+      display: none;
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                &.arrow {
+                }
+              }
+              .location {
+                .feild {
+                  &::placeholder {
+                  }
+                }
+                button {
+                  .icon {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .profile-layout {
+    padding-right: 10px;
+    .left-box {
+      .title-box {
+        padding: 10px 8px 15px;
+        .title {
+          font-size: 20px;
+        }
+      }
+      .matrimonial-box {
+        .inner-box {
+          .image-box {
+            .image-main {
+              width: 85px;
+              height: 85px;
+              .create-account {
+                span {
+                }
+              }
+            }
+            .image {
+              width: 85px;
+              height: 85px;
+            }
+          }
+          .detail-box {
+            .item {
+              align-items: flex-start;
+              .create {
+              }
+            }
+          }
+        }
+        .setting {
+          .icon {
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .card-main-box {
+          .card-item {
+            .cards {
+              .field {
+                &.arrow {
+                }
+              }
+              .location {
+                .feild {
+                  &::placeholder {
+                  }
+                }
+                button {
+                  .icon {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+::ng-deep.expansion-header .mat-expansion-indicator::after {
+  color: $theme-content !important;
+}

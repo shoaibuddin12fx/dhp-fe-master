@@ -1,0 +1,614 @@
+<div class="product-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">
+        <ng-container *ngIf="productId; else elseTemplate">
+          Update
+        </ng-container>
+        <ng-template #elseTemplate> Add New </ng-template>
+        Product
+      </h4>
+    </div>
+  </div>
+  <form
+    name="loginForm"
+    [formGroup]="createProductForm"
+    novalidate
+    id="form-login"
+    *ngIf="createProductForm"
+  >
+    <div class="setup-section">
+      <div class="setup-box">
+        <div class="title-box">
+          <h4 class="title">Basic Information</h4>
+        </div>
+        <ul class="listing">
+          <li class="row item">
+            <div class="col-lg-6 col-6">
+              <label class="label">Product Name</label>
+              <input
+                class="field"
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+              />
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm.get('name').hasError('required') &&
+                  (createProductForm.get('name').touched || isError)
+                "
+              >
+                Product Name is required.
+              </p>
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Main Category</label>
+              <ng-select
+                [items]="categoryList"
+                bindLabel="name"
+                bindValue="id"
+                formControlName="mainCategoryId"
+                [multiple]="false"
+                [searchable]="true"
+                [clearable]="createProductForm.get('mainCategoryId').value"
+                placeholder="Enter Category"
+                (change)="selectCategory()"
+              >
+              </ng-select>
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm
+                    .get('mainCategoryId')
+                    .hasError('required') &&
+                  (createProductForm.get('mainCategoryId').touched || isError)
+                "
+              >
+                Main Category is required.
+              </p>
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Product Category</label>
+              <ng-select
+                [items]="newProductCategoryList"
+                bindLabel="name"
+                bindValue="id"
+                formControlName="productCategoryId"
+                [multiple]="false"
+                [searchable]="true"
+                [clearable]="createProductForm.get('productCategoryId').value"
+                placeholder="Enter Product Category"
+                [disabled]="newProductCategoryList.length <= 0"
+                (change)="selectProductCategory()"
+              >
+              </ng-select>
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm
+                    .get('productCategoryId')
+                    .hasError('required') &&
+                  (createProductForm.get('productCategoryId').touched ||
+                    isError)
+                "
+              >
+                Product Category is required.
+              </p>
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Product Sub-Category</label>
+              <ng-select
+                [items]="newProductSubCategoryList"
+                bindLabel="name"
+                bindValue="id"
+                formControlName="productSubCategoryId"
+                [multiple]="false"
+                [searchable]="true"
+                [clearable]="
+                  createProductForm.get('productSubCategoryId').value
+                "
+                placeholder="Enter Product Sub Category"
+                [disabled]="newProductSubCategoryList.length <= 0"
+              >
+              </ng-select>
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm
+                    .get('productSubCategoryId')
+                    .hasError('required') &&
+                  (createProductForm.get('productSubCategoryId').touched ||
+                    isError)
+                "
+              >
+                Product Sub Category is required.
+              </p>
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Base Price</label>
+              <input
+                class="field"
+                type="number"
+                placeholder="price"
+                formControlName="price"
+                (change)="changeBasePrice($event.target.value)"
+                (keypress)="changeBasePrice($event.key)"
+              />
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm.get('price').value <= 0 &&
+                  (createProductForm.get('price').touched || invalidPrice)
+                "
+              >
+                Base Price cannot be less than or equal to 0.
+              </p>
+            </div>
+            <div class="col-lg-6 col-6">
+              <label class="label">Description</label>
+              <textarea
+                class="field text-field"
+                placeholder="Description......."
+                formControlName="description"
+              ></textarea>
+              <p
+                class="custom-error"
+                *ngIf="
+                  createProductForm.get('description').hasError('required') &&
+                  (createProductForm.get('description').touched || isError)
+                "
+              >
+                Description is required.
+              </p>
+            </div>
+            <div class="col-lg-12 col-12">
+              <label class="label">Product Images</label>
+              <app-file-upload
+                [images]="images"
+                [dataId]="shopId"
+                [isMultiple]="multiple"
+                [maxLength]="maxLength"
+                (imageDataEmitter)="getImages($event)"
+              ></app-file-upload>
+              <ul class="image-upload-box">
+                <li class="image-main">
+                  <!-- <figure class="upload-image">
+                    <img
+                      [src]="createProductForm.get('images') ? images : '../../../assets/images/home/sidebar/profile-image.PNG'"
+                      class="image" alt="" />
+                  </figure> -->
+                </li>
+                <!-- <li class="image-main">
+                  <figure class="cover-box">
+                    <div class="browse" #image>
+                      <input class="upload-field" type="file" id="file" accept="image/*" formControlName="images" />
+                      <div class="main" for="file">
+                        <label class="fa fa-camera icon"></label>
+                      </div>
+                    </div>
+                  </figure>
+                </li> -->
+              </ul>
+            </div>
+            <!-- </form> -->
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box">
+        <div class="title-box">
+          <h4 class="title">Price & Stock</h4>
+        </div>
+        <ul class="listing">
+          <li class="item row">
+            <div class="col-lg-6">
+              <div class="filter-main">
+                <label class="label">Color</label>
+                <ng-select
+                  [items]="colorList"
+                  bindLabel="name"
+                  bindValue="name"
+                  [multiple]="true"
+                  [searchable]="true"
+                  formControlName="colors"
+                  [clearable]="true"
+                  placeholder="Enter Color"
+                  (change)="selectColors($event)"
+                >
+                </ng-select>
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    createProductForm.get('colors').hasError('required') &&
+                    (createProductForm.get('colors').touched || isError)
+                  "
+                >
+                  Colors are required.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="filter-main">
+                <label class="label">Size</label>
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Name"
+                  formControlName="sizes"
+                  (keyup.enter)="selectSize($event)"
+                  (blur)="selectSize($event)"
+                />
+                <!-- <p class="custom-error"
+                  *ngIf="createProductForm.get('sizes').hasError('required') && (createProductForm.get('sizes').touched || isError)">
+                  Sizes are required.
+                </p> -->
+                <div class="filter-inner">
+                  <div
+                    class="item"
+                    *ngFor="let s of selectedSizes; let i = index"
+                  >
+                    <span class="title">{{ s }}</span>
+                    <i class="fas fa-times icon" (click)="removeSize(i)"></i>
+                  </div>
+                  <!-- <div class="item">
+                    <span class="title">Medium</span>
+                    <i class="fas fa-times icon"></i>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label class="label">Product Weight</label>
+              <input
+                class="field"
+                type="text"
+                placeholder="Weight(Kg)"
+                formControlName="productWeight"
+              />
+            </div>
+            <div class="col-lg-6">
+              <label class="label">Package Weight</label>
+              <input
+                class="field"
+                type="text"
+                placeholder="Weight(Kg)"
+                formControlName="packageWeight"
+              />
+            </div>
+            <div class="add-product">
+              <button class="button" type="button" (click)="addEmptyRow()">
+                <i class="fas fa-plus icon"></i>
+                Add New SKU
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <section class="data-table">
+      <div class="table-box" *ngIf="shopData.type === 1">
+        <table class="w-100">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Color</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>SKU</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody
+            *ngIf="createProductForm.get('productDetails')['controls']"
+            formArrayName="productDetails"
+          >
+            <tr
+              *ngFor="
+                let details of createProductForm.get('productDetails')[
+                  'controls'
+                ];
+                let i = index
+              "
+              [formGroupName]="i"
+            >
+              <td>
+                <div class="crud-buttons">
+                  <label class="switch">
+                    <input type="checkbox" checked formControlName="isActive" />
+                    <span class="slider"></span>
+                    <p>
+                      {{
+                        checkIsActive(details) === true ? "Active" : "InActive"
+                      }}
+                    </p>
+                  </label>
+                </div>
+              </td>
+              <td>
+                <select class="field arrow" formControlName="color">
+                  <option [value]="c" *ngFor="let c of selectedColors">
+                    {{ c }}
+                  </option>
+                </select>
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    productDetails()
+                      .controls[i].get('color')
+                      .hasError('required') &&
+                    (productDetails().controls[i].get('color').touched ||
+                      isError)
+                  "
+                >
+                  Color is required.
+                </p>
+                <!-- <ng-select [items]="selectedColors" bindLabel="name" bindValue="name" formControlName="color"
+                  [multiple]="true" [searchable]="true" [clearable]="true" placeholder="Enter Color">
+                </ng-select> -->
+              </td>
+              <td>
+                <select class="field arrow" formControlName="size">
+                  <option [value]="s" *ngFor="let s of selectedSizes">
+                    {{ s }}
+                  </option>
+                </select>
+                <!-- <ng-select [items]="selectedSizes" bindLabel="name" bindValue="name" formControlName="color"
+                  [multiple]="true" [searchable]="true" [clearable]="true" placeholder="Enter Color">
+                </ng-select> -->
+              </td>
+              <td>
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Quantity"
+                  formControlName="quantity"
+                />
+              </td>
+              <td>
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="Price"
+                  formControlName="price"
+                  (change)="checkDetailPrice($event.target.value, i)"
+                  (keypress)="checkDetailPrice($event.key, i)"
+                />
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    productDetails()
+                      .controls[i].get('price')
+                      .hasError('required') &&
+                    (productDetails().controls[i].get('price').touched ||
+                      isError)
+                  "
+                >
+                  Price is required.
+                </p>
+              </td>
+              <td>
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="SKU"
+                  formControlName="sku"
+                />
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    productDetails()
+                      .controls[i].get('sku')
+                      .hasError('required') &&
+                    (productDetails().controls[i].get('sku').touched || isError)
+                  "
+                >
+                  sku is required.
+                </p>
+              </td>
+              <td>
+                <div
+                  class="aciton-button"
+                  (click)="removeDetails(i)"
+                  *ngIf="
+                    createProductForm.get('productDetails')['controls'].length >
+                    1
+                  "
+                >
+                  <i class="fas fa-times icon"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-box" *ngIf="shopData.type !== 1">
+        <table class="w-100">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Color</th>
+              <th>Size</th>
+              <th>Quantity Range</th>
+              <th>Price</th>
+              <th>SKU</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody
+            *ngIf="createProductForm.get('productDetails')['controls']"
+            formArrayName="productDetails"
+          >
+            <tr
+              *ngFor="let details of productDetails().controls; let i = index"
+              [formGroupName]="i"
+            >
+              <td>
+                <div class="crud-buttons">
+                  <label class="switch">
+                    <input type="checkbox" checked formControlName="isActive" />
+                    <span class="slider"></span>
+                    <p>
+                      {{
+                        checkIsActive(details) === true ? "Active" : "InActive"
+                      }}
+                    </p>
+                  </label>
+                </div>
+              </td>
+              <td>
+                <select class="field arrow" formControlName="color">
+                  <option [value]="c" *ngFor="let c of selectedColors">
+                    {{ c }}
+                  </option>
+                </select>
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    productDetails()
+                      .controls[i].get('color')
+                      .hasError('required') &&
+                    (productDetails().controls[i].get('color').touched ||
+                      isError)
+                  "
+                >
+                  Color is required.
+                </p>
+                <!-- <select class="field arrow">
+                  <option value="" disabled selected>Color</option>
+                  <option value="unspecified">Red</option>
+                  <option value="unspecified">Blue</option>
+                </select> -->
+              </td>
+              <td>
+                <select class="field arrow" formControlName="size">
+                  <option [value]="s" *ngFor="let s of selectedSizes">
+                    {{ s }}
+                  </option>
+                </select>
+                <!-- <select class="field arrow">
+                  <option value="" disabled selected>Size</option>
+                  <option value="unspecified">Small</option>
+                  <option value="unspecified">Medium</option>
+                </select> -->
+              </td>
+              <td>
+                <span
+                  *ngIf="details.get('productDetailDetails')['controls']"
+                  formArrayName="productDetailDetails"
+                >
+                  <div
+                    class="variation"
+                    [formGroup]="detaildetails"
+                    *ngFor="
+                      let detaildetails of details.get('productDetailDetails')[
+                        'controls'
+                      ];
+                      let ind = index
+                    "
+                    [formGroupName]="ind"
+                  >
+                    <input
+                      class="field"
+                      type="number"
+                      placeholder="min"
+                      formControlName="min"
+                    />
+                    <input
+                      class="field mt-0"
+                      type="number"
+                      placeholder="max"
+                      formControlName="max"
+                    />
+                    <div class="actions">
+                      <i
+                        class="fas fa-plus icon"
+                        (click)="addDetailDetailEmptyRow(details)"
+                      ></i>
+                      <i
+                        class="fas fa-minus icon cross"
+                        *ngIf="
+                          details.get('productDetailDetails')['controls']
+                            .length > 1
+                        "
+                        (click)="removeDetailDetails(ind, details)"
+                      ></i>
+                    </div>
+                  </div>
+                </span>
+              </td>
+              <td>
+                <span
+                  *ngIf="details.get('productDetailDetails')['controls']"
+                  formArrayName="productDetailDetails"
+                >
+                  <div
+                    class=""
+                    [formGroup]="detaildetails"
+                    *ngFor="
+                      let detaildetails of details.get('productDetailDetails')[
+                        'controls'
+                      ];
+                      let ind = index
+                    "
+                    [formGroupName]="ind"
+                  >
+                    <input
+                      class="field"
+                      type="number"
+                      placeholder="Price"
+                      formControlName="price"
+                      (change)="setPrice(detaildetails, $event)"
+                    />
+                    <!-- <input class="field" type="text" placeholder="Price" /> -->
+                  </div>
+                </span>
+              </td>
+              <td>
+                <input
+                  class="field"
+                  type="text"
+                  placeholder="SKU"
+                  formControlName="sku"
+                />
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    productDetails()
+                      .controls[i].get('sku')
+                      .hasError('required') &&
+                    (productDetails().controls[i].get('sku').touched || isError)
+                  "
+                >
+                  SKU is required.
+                </p>
+              </td>
+              <td>
+                <div
+                  class="aciton-button"
+                  (click)="removeDetails(i)"
+                  *ngIf="
+                    createProductForm.get('productDetails')['controls'].length >
+                    1
+                  "
+                >
+                  <i class="fas fa-times icon"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="action-buttons">
+        <button
+          class="button"
+          type="button"
+          [routerLink]="['/e-seller', 'main', shopId, 'manage-product']"
+        >
+          Cancel
+        </button>
+        <button class="button" type="button" (click)="save()">Save</button>
+      </div>
+    </section>
+  </form>
+</div>

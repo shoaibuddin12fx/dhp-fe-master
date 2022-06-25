@@ -1,0 +1,144 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  overflow: hidden;
+  .popup-body {
+    overflow: overlay;
+    height: 75%;
+    overflow-x: hidden;
+    padding: 0 10px;
+    .package-main {
+      display: flex;
+      align-items: flex-start;
+      width: calc(100% + 10px);
+      counter-reset: title;
+      flex-flow: wrap;
+      .package-box {
+        width: calc(20% - 10px);
+        position: relative;
+        border: 2px solid transparent;
+        margin: 0 10px 12px 0;
+        cursor: pointer;
+        .content {
+          padding: 15px;
+          background: $theme-bg-sidebar;
+          h6 {
+            text-align: end;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+          }
+          .image-box {
+            width: 100%;
+            position: relative;
+            text-align: end;
+            .image {
+              width: 120px;
+              height: 120px;
+            }
+            .title {
+              position: absolute;
+              top: -20px;
+              left: 5px;
+              font-size: 7vw;
+              margin-bottom: 0;
+              letter-spacing: -5px;
+              color: $theme-white;
+              text-transform: uppercase;
+              -webkit-text-stroke-width: 2px;
+              -webkit-text-stroke-color: $theme-white;
+              &::before {
+                content: "0" counter(title);
+                counter-increment: title;
+              }
+            }
+          }
+          .package-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-top: 10px;
+            .list {
+              color: $theme-black;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 1.2;
+              &:nth-child(2) {
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        .icon {
+          display: none;
+        }
+        .count-box {
+          display: none;
+        }
+        &.select {
+          display: block;
+          position: relative;
+          .icon {
+            color: $theme-white;
+            position: absolute;
+            bottom: calc(0% - -45px);
+            right: 4px;
+            font-size: 14px;
+            display: block;
+          }
+          .count-box {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            background: $theme-bg-sidebar;
+            padding: 0 10px;
+            width: 100%;
+            .change {
+              line-height: 1;
+              cursor: pointer;
+              i {
+                font-size: 14px;
+              }
+            }
+            .field {
+              margin-bottom: 0;
+              height: 30px;
+              text-align: center;
+              font-weight: 800;
+              padding: 0 10px;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: calc(0% - -40px);
+            right: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 40px solid $theme-black;
+            border-left: 40px solid transparent;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 40px);
+            border: 2px solid $theme-black;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    .right-box {
+      .btn {
+        &:nth-child(2) {
+          width: 170px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

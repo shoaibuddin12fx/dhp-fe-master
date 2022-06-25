@@ -1,0 +1,287 @@
+<div class="friend-layout">
+  <div class="left-box">
+    <ul class="section-nav">
+      <li
+        class="item"
+        [routerLink]="['my-friends']"
+        [routerLinkActive]="['active']"
+      >
+        My Friends
+      </li>
+      <li
+        class="item"
+        [routerLink]="['friend-requests']"
+        [routerLinkActive]="['active']"
+      >
+        Requests
+        <span class="badge">{{ friendRequestCount }}</span>
+      </li>
+      <li
+        class="item"
+        [routerLink]="['follower']"
+        [routerLinkActive]="['active']"
+      >
+        Followers
+      </li>
+      <li
+        class="item"
+        [routerLink]="['following']"
+        [routerLinkActive]="['active']"
+      >
+        Following
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input
+            type="text"
+            placeholder="Search your Frineds"
+            (change)="Search($event.target.value)"
+          />
+        </div>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true" *ngIf="searchResults?.length">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Searched Results</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div
+              class="card-item"
+              *ngFor="let friend of searchResults"
+              [routerLink]="['/social', 'profile', friend.id, 'user-feed']"
+            >
+              <div *ngIf="user.id != friend.id">
+                <div class="cards row gx-0">
+                  <div class="col-lg-3">
+                    <!-- <ng-container *ngIf="friend.profileimage; else elseTemplate">
+                      <img class="avatar circle border" [src]="friend.profileimage" />
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                    </ng-template> -->
+
+                    <img
+                      class="avatar circle border"
+                      *ngIf="friend.profileImage"
+                      [src]="friend.profileImage"
+                    />
+                    <img
+                      class="avatar circle border"
+                      *ngIf="!friend.profileImage"
+                      [src]="image"
+                    />
+                  </div>
+                  <div class="col-lg-9">
+                    <p class="title">
+                      {{ friend?.firstName }} {{ friend?.lastName }}
+                    </p>
+                    <span class="content"
+                      >{{ friend.mutualFriendCount }} mutual friends</span
+                    >
+                  </div>
+                </div>
+                <div class="action-buttons">
+                  <ng-container
+                    *ngIf="
+                      !friend.isFriend && friend.friendStatus;
+                      else elseTemplate
+                    "
+                  >
+                    <button
+                      *ngIf="!friend.isFriend"
+                      class="button button-success"
+                      (click)="$event.stopPropagation()"
+                      disabled
+                    >
+                      {{ friend.friendStatus }}
+                    </button>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <button
+                      *ngIf="!friend.isFriend"
+                      class="button button-success"
+                      (click)="
+                        $event.stopPropagation();
+                        AddFriend(friend.id, 'searched')
+                      "
+                    >
+                      Add Friend
+                    </button>
+                  </ng-template>
+                  <button
+                    *ngIf="friend.isFriend"
+                    class="button button-success"
+                    disabled
+                  >
+                    Already Friend
+                  </button>
+                  <!-- <button class="button button-gray">Remove</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="isSuggestionTabExpended">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title">Suggested Friends</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div
+              class="card-item"
+              *ngFor="let friend of suggestedFriends"
+              [routerLink]="['/social', 'profile', friend.id, 'user-feed']"
+            >
+              <div *ngIf="user.id != friend.id">
+                <div class="cards row gx-0">
+                  <div class="col-lg-3">
+                    <!-- <ng-container *ngIf="friend.profileImage; else elseTemplate">
+                    </ng-container> -->
+                    <!-- <ng-template #elseTemplate>> -->
+                    <img
+                      class="avatar circle border"
+                      *ngIf="friend.profileImage"
+                      [src]="friend.profileImage"
+                    />
+                    <img
+                      class="avatar circle border"
+                      *ngIf="!friend.profileImage"
+                      [src]="image"
+                    />
+                    <!-- </ng-template> -->
+                    <!-- <img class="avatar circle border" src="../../../assets/images/groups/group-profile.jpg" /> -->
+                  </div>
+                  <div class="col-lg-9">
+                    <p class="title">
+                      {{ friend?.firstName }} {{ friend?.lastName }}
+                    </p>
+                    <span class="content"
+                      >{{ friend.mutualFriendCount }} mutual friends</span
+                    >
+                  </div>
+                </div>
+                <div class="action-buttons">
+                  <ng-container
+                    *ngIf="
+                      !friend.isFriend && friend.friendStatus;
+                      else elseTemplate
+                    "
+                  >
+                    <button
+                      *ngIf="!friend.isFriend"
+                      class="button button-success"
+                      (click)="$event.stopPropagation()"
+                      disabled
+                    >
+                      {{ friend.friendStatus }}
+                    </button>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <button
+                      *ngIf="!friend.isFriend"
+                      class="button button-success"
+                      (click)="
+                        $event.stopPropagation();
+                        AddFriend(friend.id, 'suggested')
+                      "
+                    >
+                      Add Friend
+                    </button>
+                  </ng-template>
+                  <button
+                    *ngIf="friend.isFriend"
+                    class="button button-success"
+                    disabled
+                  >
+                    Already Friend
+                  </button>
+                  <!-- <button class="button button-success"
+                    (click)="$event.stopPropagation(); AddFriend(friend.id, 'suggested')">Add
+                    Friend</button> -->
+                  <!-- <button class="button button-gray">Remove</button> -->
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/groups/group-profile.jpg"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">5 mutual friends</span>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="button button-success">Add Friend</button>
+                <button class="button button-gray">Remove</button>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/groups/group-profile.jpg"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">5 mutual friends</span>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="button button-success">Add Friend</button>
+                <button class="button button-gray">Remove</button>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/groups/group-profile.jpg"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">5 mutual friends</span>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="button button-success">Add Friend</button>
+                <button class="button button-gray">Remove</button>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar circle border"
+                    src="../../../assets/images/groups/group-profile.jpg"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="content">5 mutual friends</span>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="button button-success">Add Friend</button>
+                <button class="button button-gray">Remove</button>
+              </div>
+            </div> -->
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Share in a Group</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <div class="search">
+      <i class="fa fa-search icon"></i>
+      <input type="text" placeholder="Search for groups" [(ngModel)]="search" />
+    </div>
+    <ul class="group-list">
+      <li class="item" *ngFor="let item of myGroups | filter: [{ field: 'name', value: search }]">
+        <div class="group-box" (click)="share(item.id)">
+          <div class="image-box">
+            <ng-container *ngIf="item.profilePhoto !== ''; else elseProfilePhoto">
+              <img class="image" [src]="item.profilePhoto" />
+            </ng-container>
+            <ng-template #elseProfilePhoto>
+              <img class="image" src="../assets/images/home/sidebar/profile-image.PNG" />
+            </ng-template>
+            <!-- <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            /> -->
+          </div>
+          <p class="title">{{item.name}}</p>
+        </div>
+      </li>
+      <!-- <li class="item">
+        <div class="group-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">The A Group</p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="group-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">The A Group</p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="group-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">The A Group</p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="group-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">The A Group</p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="group-box">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </div>
+          <p class="title">The A Group</p>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</div>

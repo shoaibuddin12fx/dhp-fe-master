@@ -1,0 +1,222 @@
+<div class="side-bar" *ngIf="!isProfile">
+  <button class="logo">
+    <img src="../assets/images/home/sidebar/logo.PNG" />
+  </button>
+  <div class="profile">
+    <button
+      class="profile-image"
+      [routerLink]="['/social', 'profile', getUser?.id, 'my-feed']"
+    >
+      <img
+        height="100px"
+        width="100px"
+        *ngIf="getUser?.profilePhoto; else templateName"
+        [src]="getUser?.profilePhoto"
+      />
+      <ng-template #templateName>
+        <img src="../assets/images/home/sidebar/profile-image2.png" />
+      </ng-template>
+    </button>
+    <h4 class="title">{{ getUser?.fullName }}</h4>
+    <p class="designation">{{ getUser?.bio }}</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">{{ getUser?.friendsCount }}</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">{{ getUser?.followersCount }}</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+  </div>
+  <ul class="menu-list">
+    <li
+      class="list-item"
+      [routerLink]="['/social']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/social.svg" />
+      <p class="title">Social</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/event']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/events.svg" />
+      <p class="title">Events</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/classified-ads']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/classified-ads.svg" />
+      <p class="title">Classified<br />Ads</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/shop']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/shop.svg" />
+      <p class="title">Shop</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/job', 'home']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/jobs.svg" />
+      <p class="title">Jobs</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/polling']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/polling.svg" />
+      <p class="title">Polling</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/donation', 'home']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/donations.svg" />
+      <p class="title">Donation</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/matrimonial']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/matrimonial.svg" />
+      <p class="title">Matrimonial</p>
+    </li>
+    <li
+      class="list-item"
+      [routerLink]="['/volunteer']"
+      [routerLinkActive]="['active']"
+    >
+      <img src="../assets/images/home/sidebar/volunteer.svg" />
+      <p class="title">Volunteer</p>
+    </li>
+  </ul>
+</div>
+<div class="side-bar1" *ngIf="isProfile && profileUser">
+  <div class="logo">
+    <img src="../../../assets/images/authentication/logo-black.png" />
+  </div>
+  <div class="profile">
+    <button
+      class="profile-image"
+      [routerLink]="[
+        '/social',
+        'profile',
+        profileUser?.id,
+        profileUser?.id === getUser?.id ? 'my-feed' : 'user-feed'
+      ]"
+    >
+      <img
+        height="100px"
+        width="100px"
+        *ngIf="profileUser?.profilePhoto; else templateName"
+        [src]="
+          profileUser?.id == getUser?.id
+            ? getUser?.profilePhoto
+            : profileUser?.profilePhoto
+        "
+      />
+      <ng-template #templateName>
+        <img src="../assets/images/home/sidebar/profile-image2.png" />
+      </ng-template>
+    </button>
+    <h4 class="title">
+      {{
+        profileUser?.id == getUser?.id
+          ? getUser?.fullName
+          : profileUser?.fullName
+      }}
+    </h4>
+    <!-- <button class="profile-image">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+      <i class="fas fa-camera icon" (click)="openProfileImageDialog()"></i>
+    </button>
+    <h4 class="title">Sarah Cruise</h4> -->
+    <p class="designation">
+      {{ profileUser?.id == getUser?.id ? getUser?.bio : profileUser?.bio }}
+    </p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">
+          {{
+            profileUser?.id == getUser?.id
+              ? getUser?.friendsCount
+              : profileUser.friendsCount
+          }}
+        </p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">
+          {{
+            profileUser?.id == getUser?.id
+              ? getUser?.followersCount
+              : profileUser.followersCount
+          }}
+        </p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+  </div>
+  <ul class="user-info">
+    <li
+      class="list"
+      *ngIf="profileUser?.id == getUser?.id ? getUser?.work : profileUser?.work"
+    >
+      <i class="fas fa-briefcase icon"></i>
+      <span class="title"
+        >Works at
+        <b>{{
+          profileUser?.id == getUser?.id ? getUser?.work : profileUser?.work
+        }}</b></span
+      >
+    </li>
+    <li
+      class="list"
+      *ngIf="
+        profileUser?.id == getUser?.id ? getUser?.address : profileUser?.address
+      "
+    >
+      <i class="fa fa-home icon"></i>
+      <span class="title"
+        >Lives in
+        <b>{{
+          profileUser?.id == getUser?.id
+            ? getUser?.address
+            : profileUser?.address
+        }}</b></span
+      >
+    </li>
+    <li class="list" *ngIf="profileUser?.relationship">
+      <i class="fa fa-heart-o icon"></i>
+      <span class="title"
+        ><b>{{
+          profileUser?.id == getUser?.id
+            ? getUser?.relationship
+            : profileUser?.relationship
+        }}</b></span
+      >
+    </li>
+    <li
+      class="list spacing"
+      [routerLink]="['/social', 'profile', profileUser?.id, 'about']"
+    >
+      <button *ngIf="profileUser?.id == getUser?.id" class="button">
+        Edit details
+      </button>
+    </li>
+  </ul>
+</div>

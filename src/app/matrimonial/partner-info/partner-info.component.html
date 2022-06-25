@@ -1,0 +1,258 @@
+<div class="profile-layout">
+  <div class="left-box">
+    <app-header></app-header>
+    <div class="title-box">
+      <h4 class="title">Partner's Information</h4>
+    </div>
+
+    <div class="setup-main-box">
+      <div class="setup-box" #partnerPhysique>
+        <div class="title-box">
+          <h4 class="title">Partner's Physique</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6">
+                <label class="label">Age</label>
+                <div class="row">
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="Age" />
+                    <span>From</span>
+                  </div>
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="Age" />
+                    <span>To</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-6">
+                <label class="label">Complextion</label>
+                <select class="field arrow">
+                  <option value="" disabled selected>Complextion</option>
+                  <option value="male">Extremely fair skin</option>
+                  <option value="female">Fair skin</option>
+                  <option value="unspecified">Medium skin</option>
+                  <option value="unspecified">Olive skin</option>
+                  <option value="unspecified">Brown skin</option>
+                </select>
+              </div>
+              <div class="col-lg-6">
+                <label class="label">Height</label>
+                <div class="row">
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="0.00 Feet" />
+                    <span>From</span>
+                  </div>
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="0.00 Feet" />
+                    <span>To</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <label class="label">Weight</label>
+                <div class="row">
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="0 Kg" />
+                    <span>From</span>
+                  </div>
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="0 Kg" />
+                    <span>To</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box" #religion>
+        <div class="title-box">
+          <h4 class="title">Religion & Believe</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6 col-6">
+                <label class="label">Religion</label>
+                <select class="field arrow">
+                  <option value="" disabled selected>Religion</option>
+                  <option value="1">Islam</option>
+                  <option value="2">Buddhism</option>
+                  <option value="3">Christianity</option>
+                  <option value="4">Judaism</option>
+                  <option value="5">Hinduism</option>
+                </select>
+              </div>
+              <div class="col-lg-6 col-6">
+                <label class="label">Sectarian</label>
+                <input class="field" type="text" placeholder="Sectarian" />
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box" #gender>
+        <div class="title-box">
+          <h4 class="title">Gender & Marital Status</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6 col-6">
+                <label class="label">Gender</label>
+                <select class="field arrow">
+                  <option value="" disabled selected>Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="unspecified">Not Specified</option>
+                </select>
+              </div>
+              <div class="col-lg-6 col-6">
+                <label class="label">Marital Status</label>
+                <select class="field arrow">
+                  <option value="" disabled selected>Marital Status</option>
+                  <option value="male">Married</option>
+                  <option value="male">Widowed</option>
+                  <option value="male">Separated</option>
+                  <option value="male">Divorced</option>
+                </select>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box" #education>
+        <div class="title-box">
+          <h4 class="title">Education & Career</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6 col-6">
+                <label class="label">Education</label>
+                <select class="field arrow">
+                  <option value="" disabled selected>Education</option>
+                  <option value="1">Early childhood education</option>
+                  <option value="2">Primary education</option>
+                  <option value="3">Secondary education</option>
+                  <option value="4">Academy</option>
+                  <option value="5">Adult education</option>
+                </select>
+              </div>
+              <div class="col-lg-6 col-6">
+                <label class="label">Job/Career</label>
+                <input class="field" type="text" placeholder="Job/Career" />
+              </div>
+              <div class="col-lg-12 col-12">
+                <label class="label"
+                  >Average Income Expectations (Annually)</label
+                >
+                <div class="row">
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="$0" />
+                    <span>From</span>
+                  </div>
+                  <div class="col-lg-6 col-6 fixed">
+                    <input class="field" type="text" placeholder="$0" />
+                    <span>To</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box" #nationality>
+        <div class="title-box">
+          <h4 class="title">Nationality & Location</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6 col-6">
+                <label class="label">Nationality</label>
+                <input class="field" type="text" placeholder="Nationality" />
+              </div>
+              <div class="col-lg-6 col-6">
+                <label class="label">Location</label>
+                <input class="field" type="text" placeholder="City, Country" />
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="setup-box" #basic>
+        <div class="title-box">
+          <h4 class="title">Basic Background</h4>
+        </div>
+        <ul class="listing">
+          <li class="item">
+            <form class="row">
+              <div class="col-lg-6">
+                <label class="label">Caste</label>
+                <input class="field" type="text" placeholder="Caste" />
+              </div>
+              <div class="col-lg-6">
+                <label class="label">Mother tongue</label>
+                <input class="field" type="text" placeholder="Mother tongue" />
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <ul class="listing">
+        <li class="item active" (click)="scroll(partnerPhysique)">
+          <p class="title">Partner's<span>Physique</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/partner.png"
+          />
+        </li>
+        <li class="item" (click)="scroll(religion)">
+          <p class="title">Religion &<span>Believe</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/pray.png"
+          />
+        </li>
+        <li class="item" (click)="scroll(gender)">
+          <p class="title">Gender &<span>Marital Status</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/gender.png"
+          />
+        </li>
+        <li class="item" (click)="scroll(education)">
+          <p class="title">Education &<span>Career</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/education.png"
+          />
+        </li>
+        <li class="item" (click)="scroll(nationality)">
+          <p class="title">Nationality &<span>Location</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/locatiton.png"
+          />
+        </li>
+        <li class="item" (click)="scroll(basic)">
+          <p class="title">Basic<span>Background</span></p>
+          <img
+            class="image"
+            src="../../../assets/images/matrimonial/basic.png"
+          />
+        </li>
+      </ul>
+      <div class="action-button">
+        <button class="button">Submit Information</button>
+      </div>
+    </div>
+  </div>
+</div>

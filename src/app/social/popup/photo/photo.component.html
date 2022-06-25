@@ -1,0 +1,46 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title" *ngIf="type === 0">Profile</h4>
+    <h4 class="title" *ngIf="type === 1">Cover</h4>
+    <h4 class="title" *ngIf="type === 2">Photos</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <img class="image" [src]="url" />
+    <button class="button" mat-icon-button [matMenuTriggerFor]="photo">
+      <i class="fa fa-ellipsis-h icon"></i>
+    </button>
+    <mat-menu #photo>
+      <button mat-menu-item (click)="deletePost()">
+        <p class="popup-title">
+          <span>Delete</span>
+        </p>
+      </button>
+      <!-- <button mat-menu-item>
+        <p class="popup-title">
+          <span>Save to phone</span>
+        </p>
+      </button> -->
+      <!-- <p class="sub-title-menu">Share via</p>
+      <ul class="social-platform pl-25">
+        <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+          <i class="fab fa-facebook-f icon"></i>
+        </li>
+        <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+          <i class="fab fa-twitter icon"></i>
+        </li>
+        <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+          <i class="fab fa-instagram icon"></i>
+        </li>
+        <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+          <i class="fab fa-whatsapp icon"></i>
+        </li>
+        <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+          <i class="far fa-envelope icon"></i>
+        </li>
+      </ul> -->
+    </mat-menu>
+  </div>
+</div>

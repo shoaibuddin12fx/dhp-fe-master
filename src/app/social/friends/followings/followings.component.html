@@ -1,0 +1,61 @@
+<div class="friends-section">
+  <div
+    class="friend-box"
+    *ngFor="let item of followers"
+    [routerLink]="['/social', 'profile', item.followeeId, 'user-feed']"
+  >
+    <div class="friend-profile">
+      <ng-container *ngIf="item.profileImage; else elseTemplate">
+        <img [src]="item.profileImage" />
+      </ng-container>
+      <ng-template #elseTemplate>
+        <img src="../assets/images/home/sidebar/profile-image2.png" />
+      </ng-template>
+    </div>
+    <h4 class="title">{{ item.fullName }}</h4>
+    <p class="designation">{{ item.bio || "" }}</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">{{ item.totfriend }}</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">{{ item.totfollowers }}</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <p class="designation">{{ item.mutualFriendCount }} mutual friends</p>
+    <div class="action-buttons">
+      <button
+        class="button button-success"
+        *ngIf="item.isfollowedbyyou == '0'; else unFollowTemp"
+        (click)="$event.stopPropagation(); followUser(item)"
+      >
+        Follow
+      </button>
+      <ng-template #unFollowTemp
+        ><button
+          class="button button-warning"
+          (click)="$event.stopPropagation(); unFollowUser(item)"
+        >
+          Unfollow
+        </button></ng-template
+      >
+      <button
+        class="button button-success"
+        (click)="$event.stopPropagation(); AddFriend(item)"
+        *ngIf="item.isfriend == '0'; else addFriend"
+      >
+        Add Friend
+      </button>
+      <ng-template #addFriend>
+        <button
+          class="button button-success"
+          (click)="$event.stopPropagation(); unFriendUser(item)"
+        >
+          Unfriend
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

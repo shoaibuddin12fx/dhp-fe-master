@@ -1,0 +1,14 @@
+@import "../../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-body {
+    height: 70%;
+    overflow: overlay;
+    padding-right: 15px;
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 10px;
+      color: $theme-black;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Invite Friends</h4>
+  </div>
+  <div class="popup-body">
+    <label for="">Invite Friends</label>
+    <!-- [(ngModel)]="userIds" -->
+    <ng-select
+      class="field"
+      [items]="friends"
+      [virtualScroll]="true"
+      bindLabel="fullname"
+      (change)="getUserId($event)"
+      [multiple]="true"
+      [searchable]="true"
+      [clearable]="true"
+      placeholder="Enter Name"
+    >
+    </ng-select>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="onInviteFriends()">Send</button>
+    </div>
+  </div>
+</div>

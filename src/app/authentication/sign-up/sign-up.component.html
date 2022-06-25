@@ -1,0 +1,171 @@
+<div class="row gx-0">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="left-box">
+      <div class="logo">
+        <img src="../../../assets/images/authentication/logo-black.png" />
+      </div>
+      <div class="main-box">
+        <h2 class="title">sign up a new <span>account</span></h2>
+        <p *ngIf="errorMessage" class="error">
+          {{ errorMessage }}
+        </p>
+        <form [formGroup]="registerForm" class="form" (ngSubmit)="Register(f)">
+          <div class="field-container">
+            <i class="far fa-user icon"></i>
+            <input
+              class="field"
+              type="text"
+              placeholder="full name"
+              formControlName="firstName"
+              [ngClass]="{ error: submitted && f.firstName.errors }"
+            />
+            <div class="required" *ngIf="submitted && f.firstName.errors">
+              <i class="fas fa-exclamation-circle icon"></i>
+            </div>
+          </div>
+          <div class="field-container">
+            <i class="far fa-envelope icon"></i>
+            <input
+              class="field"
+              type="mail"
+              placeholder="email"
+              formControlName="email"
+              [ngClass]="{ error: submitted && f.email.errors }"
+            />
+            <div class="required" *ngIf="submitted && f.email.errors">
+              <i class="fas fa-exclamation-circle icon"></i>
+            </div>
+          </div>
+          <div class="field-container">
+            <i class="fas fa-unlock-alt icon"></i>
+            <input
+              class="field"
+              type="text"
+              placeholder="password"
+              formControlName="password"
+              *ngIf="showPassword"
+              [ngClass]="{ error: submitted && f.password.errors }"
+            />
+            <input
+              class="field"
+              type="password"
+              placeholder="password"
+              formControlName="password"
+              *ngIf="!showPassword"
+              [ngClass]="{ error: submitted && f.password.errors }"
+            />
+            <div class="show-password" (click)="showPassword = !showPassword">
+              <i class="far fa-eye icon"></i>
+            </div>
+            <span *ngIf="submitted && f.password.errors">{{
+              "Password should have at least 8 characters. Password should contain alphabetic and numeric values."
+            }}</span>
+          </div>
+          <div class="field-container">
+            <i class="fas fa-unlock-alt icon"></i>
+            <input
+              class="field"
+              type="text"
+              placeholder="confirm password"
+              formControlName="confirmPassword"
+              *ngIf="showPasswordC"
+              [ngClass]="{ error: submitted && f.confirmPassword.errors }"
+            />
+            <input
+              class="field"
+              type="password"
+              placeholder="confirm password"
+              formControlName="confirmPassword"
+              *ngIf="!showPasswordC"
+              [ngClass]="{ error: submitted && f.confirmPassword.errors }"
+            />
+            <div class="show-password" (click)="showPasswordC = !showPasswordC">
+              <i class="far fa-eye icon"></i>
+            </div>
+          </div>
+          <div class="field-container">
+            <i class="fas fa-birthday-cake icon"></i>
+            <input
+              class="field"
+              type="date"
+              placeholder="date of birth"
+              formControlName="dateOfBirth"
+              [ngClass]="{ error: submitted && f.dateOfBirth.errors }"
+            />
+          </div>
+          <div class="field-container">
+            <i class="fas fa-phone-volume icon rotate"></i>
+            <input
+              class="field"
+              type="tel"
+              placeholder="contact number"
+              formControlName="contactNo"
+              [ngClass]="{ error: submitted && f.contactNo.errors }"
+            />
+            <div class="required" *ngIf="submitted && f.contactNo.errors">
+              <i class="fas fa-exclamation-circle icon"></i>
+            </div>
+          </div>
+          <div class="field-container">
+            <i class="fas fa-mars icon"></i>
+            <select
+              class="field"
+              formControlName="gender"
+              [ngClass]="{ error: submitted && f.gender.errors }"
+            >
+              <option value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="no-specified">No-specified</option>
+            </select>
+            <div class="required" *ngIf="submitted && f.gender.errors">
+              <i class="fas fa-exclamation-circle icon"></i>
+            </div>
+          </div>
+          <p *ngIf="passwordNotMatched" class="error">
+            Please make sure your password match.
+          </p>
+          <div class="action-button">
+            <button class="button">
+              Sign up
+              <img
+                src="../../../assets/images/tail-spin.svg"
+                alt="loading"
+                width="23px"
+                *ngIf="showLoading"
+              />
+            </button>
+            <button class="button google-button border-gradient">
+              Sign in with google
+              <img
+                class="image"
+                src=".../../../../../assets/images/authentication/google-icon.PNG"
+              />
+            </button>
+          </div>
+        </form>
+        <p class="bottom-line">
+          Already have an account
+          <button class="button" [routerLink]="['/sign-in']">Sign in</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="right-box">
+      <div class="content-box">
+        <h1 class="title">
+          <b>Ultimate Solution</b> for
+          <br />
+          Overseas Pakistani
+          <br />
+          <b>Community</b>
+        </h1>
+        <p class="content">
+          We are the only and through web portal for overseas Pakistanis, <br />
+          connecting them accross the globe.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

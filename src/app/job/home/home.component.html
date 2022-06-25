@@ -1,0 +1,450 @@
+<div class="job-layout">
+  <div class="left-box">
+    <ul class="section-nav">
+      <li
+        class="item"
+        [routerLink]="['/job', 'home']"
+        [routerLinkActive]="['active']"
+      >
+        Jobs
+      </li>
+      <li
+        class="item"
+        [routerLink]="['/job', 'manage']"
+        [routerLinkActive]="['active']"
+      >
+        Manage Jobs
+      </li>
+    </ul>
+    <div class="job-box">
+      <div class="inner-box-main">
+        <div class="inner-box" [routerLink]="['/job', 'view']">
+          <div class="image-box">
+            <img
+              src="../../../assets/images/jobs/home/image.png"
+              class="image"
+              alt=""
+            />
+          </div>
+          <div class="content-box">
+            <h5 class="title">Sales & Customer Success Manager</h5>
+            <span class="address">4234 Chardonny Drive Fl, USA</span>
+            <div class="job-type">
+              <div class="left">
+                <span><i class="fas fa-globe"></i></span>
+                <span><i class="fab fa-linkedin-in"></i></span>
+                <span>Nozi Inc</span>
+              </div>
+              <div class="right">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button">
+          <i
+            class="fa fa-ellipsis-h icon"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+          ></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item (click)="openReportDialog()">
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="inner-box-main">
+        <div class="inner-box" [routerLink]="['/job', 'view']">
+          <div class="image-box">
+            <img
+              src="../../../assets/images/jobs/home/image-2.png"
+              class="image"
+              alt=""
+            />
+          </div>
+          <div class="content-box">
+            <h5 class="title">iOs and Andriod Developer Needed</h5>
+            <span class="address">4234 Chardonny Drive Fl, USA</span>
+            <div class="job-type">
+              <div class="left">
+                <span><i class="fas fa-globe"></i></span>
+                <span><i class="fab fa-linkedin-in"></i></span>
+                <span>Mexmon Team</span>
+              </div>
+              <div class="right">
+                <span><i class="fas fa-briefcase"></i>Computing and ICT</span>
+                <span><i class="fas fa-scroll"></i>Internship</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button">
+          <i
+            class="fa fa-ellipsis-h icon"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+          ></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item (click)="openReportDialog()">
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+      <div class="inner-box-main">
+        <div class="inner-box" [routerLink]="['/job', 'view']">
+          <div class="image-box">
+            <img
+              src="../../../assets/images/jobs/home/image-3.png"
+              class="image"
+              alt=""
+            />
+          </div>
+          <div class="content-box">
+            <h5 class="title">Officer, Global Product Development</h5>
+            <span class="address">3500 Reynolds Alley, IN, USA</span>
+            <div class="job-type">
+              <div class="left">
+                <span><i class="fas fa-globe"></i></span>
+                <span><i class="fab fa-linkedin-in"></i></span>
+                <span>Astray Dennison</span>
+              </div>
+              <div class="right">
+                <span><i class="fas fa-briefcase"></i>Finance</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button">
+          <i
+            class="fa fa-ellipsis-h icon"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+          ></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item (click)="openReportDialog()">
+            <p class="popup-title">
+              <span>Report</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="timelineShareDialog()">
+            <p class="popup-title">
+              <span>Share on timeline</span>
+            </p>
+          </button>
+          <button mat-menu-item (click)="sharePostDialog()">
+            <p class="popup-title">
+              <span>Share in a group</span>
+            </p>
+          </button>
+          <p class="sub-title-menu">Share via</p>
+          <ul class="social-platform pl-25">
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-facebook-f icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-twitter icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-instagram icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="fab fa-whatsapp icon"></i>
+            </li>
+            <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+              <i class="far fa-envelope icon"></i>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button" (click)="createJobDialog()">
+          <i class="fas fa-pencil-alt icon"></i>Create Job
+        </button>
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input type="text" class="feild" placeholder="Search Jobs" />
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Job Category</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <a class="title">Administrative</a>
+                    <div class="action-buttons">
+                      <button class="button button-success">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Commercial</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Engineering</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Computing and ICT</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Finance</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Marketing</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Health Care</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Education and Training</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Design, Arts and Media</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Performing Arts and Media</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Transportation</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Distribution and Logistics</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Domestic Services</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Telecommunication</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Sales Associates</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div class="top-bar">
+        <h4 class="title">Location</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="location">
+              <input
+                type="text"
+                class="feild"
+                placeholder="Search City, Country"
+              />
+              <button>
+                <i class="fas fa-map-marker-alt icon"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Job Type</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <a class="title">Full Time</a>
+                    <div class="action-buttons">
+                      <button class="button button-success">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Part Time</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Temoprary</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Internship</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Freelance</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

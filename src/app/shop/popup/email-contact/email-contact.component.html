@@ -1,0 +1,48 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <!-- <h4 class="title black">Shipping & Billing</h4> -->
+  </div>
+  <div class="popup-body">
+    <div>
+      <div class="shipping-address">
+        <p>
+          <ng-container *ngIf="type !== 'email'; else elseTemplate">
+            Phone number
+          </ng-container>
+          <ng-template #elseTemplate> Email </ng-template>
+        </p>
+      </div>
+      <form
+        name="form"
+        [formGroup]="form"
+        novalidate
+        *ngIf="form"
+        id="form-groupForm"
+      >
+        <div *ngIf="type !== 'email'">
+          <input
+            type="text"
+            placeholder="Phone number"
+            class="field"
+            formControlName="phoneNumber"
+          />
+        </div>
+        <div *ngIf="type === 'email'">
+          <input
+            type="text"
+            placeholder="Email"
+            class="field"
+            formControlName="email"
+          />
+        </div>
+      </form>
+    </div>
+    <br />
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" [mat-dialog-close]>Cancel</button>
+        <button class="btn add" (click)="add()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

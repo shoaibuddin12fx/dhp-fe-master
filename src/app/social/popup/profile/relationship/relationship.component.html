@@ -1,0 +1,24 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else elseTemplate"> Add </ng-container>
+      <ng-template #elseTemplate> Update </ng-template> Relationship Status
+    </h4>
+  </div>
+  <div class="popup-body">
+    <select class="field arrow" [(ngModel)]="relationship">
+      <option value="none" selected>None</option>
+      <option value="Single">Single</option>
+      <option value="Married">Married</option>
+      <option value="Engaged">Engaged</option>
+      <option value="Separated">Separated</option>
+      <option value="Divorced">Divorced</option>
+    </select>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Add</button>
+    </div>
+  </div>
+</div>

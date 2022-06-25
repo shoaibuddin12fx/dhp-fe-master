@@ -1,0 +1,159 @@
+@import "../../../assets/partials/variable.scss";
+.campaign-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .chart-box {
+      display: flex;
+      align-items: center;
+      flex: 0 0 calc(100% + 10px);
+      justify-content: flex-start;
+      margin-bottom: 30px;
+      .total-campaign {
+        background-color: $theme-bg-sidebar;
+        height: 150px;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        position: relative;
+        margin-left: 10px;
+        .content {
+          color: $theme-black;
+          font-size: 12px;
+          font-weight: 600;
+          margin-bottom: 0;
+          padding-top: 10px;
+        }
+        .number {
+          color: $theme-primary;
+          font-weight: 800;
+          font-size: 28px;
+          margin-bottom: 0;
+          position: absolute;
+          top: 55%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &:nth-child(1) {
+          flex: 0 0 calc(50% - 10px);
+        }
+        &:nth-child(2) {
+          flex: 0 0 calc(50% - 10px);
+        }
+      }
+    }
+    .campaign-main {
+      border: 1px solid $theme-light-border;
+      padding: 20px 20px;
+      border-radius: 10px;
+      padding-bottom: 15px;
+      .title-main {
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+      .head {
+        display: flex;
+        margin-bottom: 10px;
+        padding: 0 15px;
+        .name {
+          width: 50%;
+          font-size: 14px;
+          margin-bottom: 0;
+          font-weight: 600;
+        }
+        .amount {
+          width: 25%;
+          font-size: 14px;
+          margin-bottom: 0;
+          font-weight: 600;
+          padding: 0 5px;
+        }
+        .date {
+          width: 25%;
+          padding: 0 5px;
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+      .campaign-detail-main {
+        background: $theme-white;
+        position: relative;
+        border-radius: 7px;
+        overflow: hidden;
+        border: 1px solid $theme-light-border;
+        margin-bottom: 5px;
+        .campaign-detail {
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          height: 70px;
+          cursor: pointer;
+          .campaign-description {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            padding: 0 5px 0 0;
+            cursor: pointer;
+            .image-box {
+              flex: 0 0 25%;
+              max-width: 25%;
+              height: 45px;
+              .image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .detail {
+              flex: 0 0 75%;
+              max-width: 75%;
+              padding-left: 10px;
+              .title {
+                margin-bottom: 0px;
+                color: $theme-black;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.2;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              }
+            }
+          }
+          .donation-description {
+            width: 25%;
+            padding: 0 5px;
+            p {
+              margin-bottom: 0;
+              font-size: 14px;
+              font-weight: 500;
+              color: $theme-primary;
+            }
+          }
+          .date {
+            width: 25%;
+            padding: 0 5px;
+            .content {
+              margin-bottom: 0px;
+              color: $theme-black;
+              font-size: 14px;
+              font-weight: 500;
+              word-break: break-all;
+            }
+          }
+        }
+        &:nth-child(odd) {
+          background: $theme-bg-sidebar;
+          border: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="top-bar">
+  <h4 class="title">{{ title }}</h4>
+</div>
+<div class="card-main-box pb-30">
+  <div class="card-item" *ngFor="let group of groupList">
+    <div class="cards row gx-0">
+      <div class="col-lg-3">
+        <img
+          class="avatar circle border"
+          [src]="
+            group?.coverPhoto ||
+            '../../../assets/images/home/main/abc-group-logo.PNG'
+          "
+        />
+      </div>
+      <div class="col-lg-9">
+        <p class="title">{{ group?.name }}</p>
+        <span class="content"
+          >{{ group?.groupFriendCount }} member{{
+            group?.groupFriendCount > 1 ? "s" : ""
+          }}</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="card-item" *ngIf="groupList.length <= 0">No group found</div>
+</div>

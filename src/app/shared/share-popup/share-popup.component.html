@@ -1,0 +1,31 @@
+<i class="fas fa-share icon" mat-icon-button [matMenuTriggerFor]="share"></i>
+<mat-menu #share>
+  <button mat-menu-item (click)="timelineShareDialog()">
+    <p class="popup-title">
+      <span>Share on timeline</span>
+    </p>
+  </button>
+  <button mat-menu-item (click)="sharePostDialog()">
+    <p class="popup-title">
+      <span>Share in a group</span>
+    </p>
+  </button>
+  <!-- <p class="sub-title-menu">Share via</p> -->
+  <!-- <ul class="social-platform pl-25">
+    <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+      <i class="fab fa-facebook-f icon"></i>
+    </li>
+    <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+      <i class="fab fa-twitter icon"></i>
+    </li>
+    <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+      <i class="fab fa-instagram icon"></i>
+    </li>
+    <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+      <i class="fab fa-whatsapp icon"></i>
+    </li>
+    <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+      <i class="far fa-envelope icon"></i>
+    </li>
+  </ul> -->
+</mat-menu>

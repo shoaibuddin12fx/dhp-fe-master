@@ -1,0 +1,114 @@
+@import "../../../assets/partials/variable.scss";
+.profile-box {
+  margin: 0;
+  padding-bottom: 15px;
+  list-style-type: none;
+  padding: 25px 0 15px 0;
+  border-bottom: 1px solid $theme-background-light;
+  .inner-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .item {
+    display: flex;
+    position: relative;
+    padding-bottom: 10px;
+    align-items: center;
+    .profile-image {
+      display: flex;
+      align-items: center;
+      img {
+        width: 45px;
+        height: 45px;
+        padding: 2px;
+        display: block;
+        border-radius: 50%;
+        background-color: $theme-white;
+        border: 2px solid $theme-border;
+      }
+    }
+    .profile-info {
+      display: flex;
+      margin-left: 15px;
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      .profile-title {
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 0px;
+        color: $theme-black;
+        max-width: max-content;
+      }
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    .profile-button {
+      right: 0;
+      top: 50%;
+      display: flex;
+      cursor: pointer;
+      position: absolute;
+      align-items: center;
+      transform: translateY(-50%);
+      .request-button {
+        background: $theme-primary;
+        line-height: 1;
+        padding: 10px 0px;
+        color: $theme-white;
+        margin-right: 10px;
+        border-radius: 25px;
+        font-size: 12px;
+        width: 120px;
+      }
+      .add-friend-button {
+        background: $theme-bg-sidebar;
+        line-height: 1;
+        padding: 10px 0px 10px 15px;
+        color: $theme-primary;
+        margin-right: 10px;
+        border-radius: 25px;
+        font-size: 12px;
+        width: 120px;
+        position: relative;
+        .add-icon {
+          top: 50%;
+          left: 13px;
+          position: absolute;
+          transform: translateY(-50%);
+        }
+      }
+      .icon {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        font-size: 12px;
+        border-radius: 50%;
+        align-items: center;
+        color: $theme-content;
+        justify-content: center;
+        background: $theme-bg-sidebar;
+      }
+    }
+  }
+  .action-button {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    .button {
+      line-height: 1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 30px;
+      border-radius: 25px;
+      background: $theme-bg-sidebar;
+    }
+  }
+  &:last-child {
+    border-bottom: unset;
+  }
+}

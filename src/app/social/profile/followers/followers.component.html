@@ -1,0 +1,60 @@
+<div class="profile-layout">
+  <div class="main-box">
+    <div class="search-box">
+      <div class="search">
+        <i class="fa fa-search icon"></i>
+        <input type="text" placeholder="Search by name" [(ngModel)]="search" />
+      </div>
+    </div>
+    <div class="title-box" mat-icon-button [matMenuTriggerFor]="statusList">
+      <h4 class="title">
+        {{ selectedFilterOption }}<span>({{ filteredMembers.length }})</span>
+      </h4>
+      <i class="fas fa-chevron-down icon"></i>
+    </div>
+    <mat-menu #statusList>
+      <button
+        mat-menu-item
+        *ngFor="let item of filterOptions"
+        (click)="setFilterOption(item)"
+      >
+        <p class="popup-title">
+          <span>{{ item }}</span>
+        </p>
+      </button>
+      <!-- <button mat-menu-item>
+        <p class="popup-title">
+          <span>Blocked</span>
+        </p>
+      </button> -->
+    </mat-menu>
+    <ul class="friend-list">
+      <li
+        class="item row gx-0"
+        *ngFor="
+          let item of filteredMembers
+            | filter: [{ field: 'fullName', value: search }]
+        "
+      >
+        <app-member-item
+          [routerLink]="[
+            '/social',
+            'profile',
+            selectedFilterOption === 'Followers'
+              ? item.followerId
+              : item.followeeId,
+            'user-feed'
+          ]"
+          [selectedFilterOption]="selectedFilterOption"
+          [member]="item"
+          (followMember)="followMember($event)"
+          (unFollowMember)="unFollowMember($event)"
+          (addFriend)="addFriend($event)"
+          (unFriend)="unFriendMember($event)"
+          (reportMember)="openReportDialog()"
+        >
+        </app-member-item>
+      </li>
+    </ul>
+  </div>
+</div>

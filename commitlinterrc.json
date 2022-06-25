@@ -1,0 +1,37 @@
+{
+  "lang": "en-US",
+  "types": {
+    "feat": "New features that users can perceive",
+    "build": "Changes that affect the build system or external dependencies (scope examples: gulp, broccoli, npm)",
+    "deps": "Add, upgrade, remove dependencies",
+    "docs": "Document only changed",
+    "fix": "Bug fixes",
+    "style": false,
+    "refactor": false,
+    "test": false,
+    "perf": false,
+    "ci": false,
+    "temp": false,
+    "chore": false
+  },
+  "min-len": 10,
+  "max-len": 80,
+  "example": "feat: DHP-1 - Add new features",
+  "scopeDescriptions": [
+    "It can optionally be anything that specifies the location of the commit change.",
+    "For example, $ location, $ browser, $ compile, $ rootScope, ngHref, ngClick, ngView.",
+    "In app development, a scope is a page, module, or component."
+  ],
+  "invalidScopeDescriptions": [
+    "`scope` is optional, but cannot be empty if parentheses are present."
+  ],
+  "subjectDescriptions": [
+    "A very short description of the changes in one line."
+  ],
+  "invalidSubjectDescriptions": [
+    "Do not capitalize the first letter",
+    "No dot '.' At the end"
+  ],
+  "showInvalidHeader": false,
+  "debug": false
+}

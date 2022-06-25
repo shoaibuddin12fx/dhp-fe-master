@@ -1,0 +1,113 @@
+@import "../../../../assets/partials/variable.scss";
+.profile-layout {
+  display: flex;
+  padding: 20px;
+  flex-flow: wrap;
+  padding-left: 0;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .main-box {
+    flex: 0 0 100%;
+    .search-box {
+      margin-bottom: 10px;
+      .search {
+        input {
+          width: 250px;
+          padding-right: 20px;
+          background-color: $theme-bg-sidebar;
+        }
+      }
+    }
+    .title-box {
+      cursor: pointer;
+      width: max-content;
+      justify-content: flex-start;
+    }
+    .friend-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: wrap;
+      margin-left: -10px;
+      align-items: center;
+      list-style-type: none;
+      flex: 0 0 calc(100% + 10px);
+      justify-content: flex-start;
+      .item {
+        display: flex;
+        margin-left: 10px;
+        padding: 10px 10px;
+        border-radius: 15px;
+        align-items: center;
+        margin-bottom: 10px;
+        flex: 0 0 calc(33.33% - 10px);
+        justify-content: flex-start;
+        border: 1px solid $theme-border;
+        .profile-image {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          margin: 0 auto;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid $theme-white;
+          }
+          &:before {
+            top: 50%;
+            left: 50%;
+            width: 55px;
+            content: "";
+            height: 55px;
+            border-radius: 50%;
+            position: absolute;
+            background: $theme-gradient;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .profile-info {
+          margin: 10px;
+          display: flex;
+          flex-flow: wrap;
+          position: relative;
+          align-items: center;
+          justify-content: flex-start;
+          .title {
+            width: 90%;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: $theme-black;
+            max-width: max-content;
+          }
+          .content {
+            width: 90%;
+            display: block;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: $theme-content;
+          }
+          .icon {
+            top: 50%;
+            right: 0;
+
+            transform: translateY(-50%);
+            position: absolute;
+            color: $theme-content;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="wedding-rings" width="23" height="23" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAACGUlEQVRIiaWVzUtVYRCHn66mFBoYCqFBSLeiCO7GwlWQCzMpWrRIl2F/QkGrClpli1Bo0TIIFxoUFUZJEKEbgyIiKLRNBYXgIoy+wxjv7605Z7wXrQcOc96Z3/t53pnDf9INvJUNFIKnMmuBfqDoJHuBzbKJdqAPqKutPFagDRgBvgAlYAZYkChZm/gJ0AhsDyNUwRZyAVgE3slXAwzIIr/FB7XTVXMSOKxOdbL1sr3AqX8Z1LMeuKFVpucO0ORFa0K3lfER2AC8At7oo+5U14Imq3hbavTR9gOdQHMuPiT7QtdwWu3hMJJjI3AJ+J7bsj23NVHisvyvZa8tt8JEl1awT/5bwH3gpVbeAZzQkbQCR4At7py/alHP8pOU3ArP6IPlOaSJ/G4mgTHgkfPdzXecU6AvDJll1A2S1+4CHig2npwDclwNQ2U5IN287PWgKPNYcTu2pXRd1DlWY1q6or6FvW9aRr9VsafoZSFIstS6VRvn1O4JyjJLuyu4RjXWKfZBtkG2qUKfpOMX8C2Es6Ss+yzvUeA5sC0oyzftR8rSdH6lIMtyU7qDIZKlKN0EOjdrTAVZlt3SWRK1hOhfCqqObckzpY4XgzTLeensh3Hc1Ry7NXtyGf8Hq3DvXYb5GmLsUJIYZ3NZ+tO9pzofsK0+dEKrE7Mue+1Jfxc7IquAVnI/yV5R6a3KMeCeClEa1BLttO77ygB+A7bCjtDNFCrUAAAAAElFTkSuQmCC"/>
+  </g>
+</svg>

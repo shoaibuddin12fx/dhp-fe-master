@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="shop-bag" x="2" width="19" height="23" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAABcUlEQVQ4jaWUzytEURTHPz0/kklDaYaYkprYslDs2FqS/4Cl/BOsbC0s/Aeym/Jjj4WiZENZMY+GlR8zSkbXO7eOex/GnW+9d94595zPO+923uUPrQIvQB2oAetA9HtJuk4EUgH2gFj8C6A1teIHbUnhirO8JPHt9LJ0mYL91JUEVPeiTrtDQDtQFP8UGAZaVM6HxOeABeAMeAeuNXRG3hZ6zerOxsVuAm/AMnAIHHvfAmPAtORWZV8ngJJNWHP2wTwvephE8ym5G6iZ6VeL9rnPwyQaEDvi1ljYoFroFNvhYb7HMypW0LCCar0m9tXDJHoWWxX7ZGFW5pe5Uf4k0O1hEnUBU8o/d+fOOEdeWWPalfooUntwGwgri81G6nPKXlpjijUsK859IKwitsfAesV58NL+B8sZWM4JhsLyBpZvsjNb99WZnf7YS2tMd7qzUXGuAmF2CormCDJnujnsDoDHAJidhktzawN2mjwcS0DmE2cWZ1WyLLljAAAAAElFTkSuQmCC"/>
+  </g>
+</svg>

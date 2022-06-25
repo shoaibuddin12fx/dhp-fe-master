@@ -1,0 +1,77 @@
+<div class="addional-image">
+  <figure class="main-image">
+    <div class="col-md-12">
+      <div class="row">
+        <div
+          class="col-md-2 col-sm-3 col-6 p-0"
+          *ngFor="let url of images; let i = index"
+        >
+          <div class="upload-image-box">
+            <span>
+              <figure
+                *ngIf="!this.dataId"
+                class="addional-item"
+                style="background-image: url({{ url.data }});"
+              >
+                <i class="fa fa-times" (click)="deleteImage(i)"></i>
+              </figure>
+            </span>
+            <span>
+              <figure
+                *ngIf="this.dataId && url.data"
+                class="addional-item"
+                [style.background-image]="makeTrustedImage(url.data)"
+              >
+                <i class="fa fa-times" (click)="deleteImage(i)"></i>
+              </figure>
+            </span>
+            <span>
+              <figure
+                *ngIf="this.dataId && !url.data"
+                class="addional-item"
+                [style.background-image]="makeTrustedImage(url)"
+              >
+                <i class="fa fa-times" (click)="deleteImage(i)"></i>
+              </figure>
+            </span>
+          </div>
+        </div>
+        <div
+          class="col-md-2 col-sm-3 col-6 p-0"
+          *ngIf="images.length < maxLength"
+        >
+          <figure *ngIf="!isFileType" class="cover-box">
+            <div class="browse" #image>
+              <input
+                class="upload-field"
+                type="file"
+                id="file"
+                accept="image/*"
+                [multiple]="isMultiple"
+                (change)="onFileChange($event)"
+              />
+              <div class="main" for="file">
+                <label class="fa fa-camera icon"></label>
+              </div>
+            </div>
+          </figure>
+
+          <span *ngIf="isFileType">
+            <input
+              type="file"
+              (change)="upload($event)"
+              [multiple]="isMultiple"
+            />
+          </span>
+
+          <!-- <div class="upload-image-box"> -->
+          <!-- <figure class="additional-show-image" style="background-image: url('./assets/images/click-image.png');">
+              <input type="file" [multiple]="isMultiple" (change)="onFileChange($event)">
+            </figure> -->
+
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </figure>
+</div>

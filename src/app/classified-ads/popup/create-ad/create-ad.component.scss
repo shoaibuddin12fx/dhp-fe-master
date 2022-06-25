@@ -1,0 +1,182 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  overflow: hidden;
+  .popup-body {
+    overflow: overlay;
+    height: 70%;
+    padding: 0 10px;
+    margin: 20px 0 35px;
+    .create-ad {
+      label {
+        display: block;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .field {
+        height: 35px;
+      }
+      .text-area {
+        resize: unset;
+        height: 120px;
+        padding-top: 10px;
+      }
+      .active-package {
+        display: flex;
+        align-items: center;
+        background: $theme-black;
+        padding: 10px 15px;
+        justify-content: space-between;
+        p {
+          margin-bottom: 0;
+          color: #fff;
+          font-size: 12px;
+          span {
+            color: $theme-primary;
+            font-weight: 700;
+          }
+        }
+        .button {
+          color: $theme-primary;
+          text-decoration: underline;
+          font-size: 12px;
+        }
+      }
+      .category-box {
+        margin-top: 20px;
+        .field {
+          font-size: 13px;
+          color: $theme-content;
+        }
+        .arrow {
+          background-size: 30px 10px;
+          cursor: pointer;
+        }
+      }
+      .product-image {
+        margin: 20px 0;
+        .image-box {
+          display: flex;
+          align-items: center;
+          flex-flow: wrap;
+          .cover-box {
+            margin: 0;
+            cursor: pointer;
+            position: relative;
+            .image {
+              width: 60px;
+              height: 60px;
+              object-fit: cover;
+              margin-right: 5px;
+              border-radius: 3px;
+              cursor: pointer;
+              margin-bottom: 5px;
+            }
+            .upload-image {
+              width: 60px;
+              height: 60px;
+              background: $theme-bg-sidebar;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 3px;
+              border: 1px solid $theme-background-light;
+              cursor: pointer;
+              i {
+                font-size: 25px;
+                color: $theme-content;
+              }
+            }
+            .browse {
+              opacity: 0;
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              position: absolute;
+              border-radius: 15px;
+              background: #00000047;
+              transition: 0.2s ease-out;
+              top: 0;
+              left: 0;
+              .upload-field {
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                position: absolute;
+              }
+              .icon {
+                top: 50%;
+                left: 50%;
+                cursor: pointer;
+                position: absolute;
+                color: $theme-white;
+                transform: translate(-50%, -50%);
+              }
+            }
+            &:hover {
+              .browse {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+      .popup-map {
+        position: relative;
+        margin-bottom: 15px;
+        iframe {
+          width: 100%;
+          height: 180px;
+          border-radius: 5px;
+        }
+        .location-box {
+          position: absolute;
+          top: 40px;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 15px;
+          .location-search {
+            position: relative;
+            width: 55%;
+            input {
+              width: 100%;
+              padding: 8px 30px 8px 15px;
+              border-radius: 25px;
+              font-size: 13px;
+              font-weight: 600;
+              &::placeholder {
+                font-size: 13px;
+                font-weight: 600;
+                color: $theme-content;
+              }
+            }
+            .icon {
+              position: absolute;
+              right: 15px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: $theme-primary;
+            }
+          }
+          button {
+            width: 70px;
+            padding: 7px 0;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 25px;
+            color: $theme-white;
+            background-color: $theme-primary;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 30px;
+  }
+}

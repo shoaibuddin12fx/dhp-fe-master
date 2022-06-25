@@ -1,0 +1,91 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Edit Profile</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <form
+      name="groupForm"
+      [formGroup]="groupForm"
+      novalidate
+      *ngIf="groupForm"
+      id="form-groupForm"
+    >
+      <h5 class="title">Profile Picture and Cover Photo</h5>
+      <div class="image-upload-box">
+        <figure class="profile-box">
+          <ng-container *ngIf="profilePhoto !== ''; else elseProfilePhoto">
+            <img class="profile-photo" [src]="profilePhoto" />
+          </ng-container>
+          <ng-template #elseProfilePhoto>
+            <img
+              class="profile-photo"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </ng-template>
+          <div class="browse" #image>
+            <input
+              class="upload-field"
+              type="file"
+              id="profile-photo"
+              accept="image/*"
+              (change)="onProfileChange($event)"
+            />
+            <label for="file" class="fa fa-camera icon"></label>
+          </div>
+        </figure>
+        <figure class="cover-box">
+          <ng-container *ngIf="coverPhoto !== ''; else elseCoverPhoto">
+            <img class="cover-photo" [src]="coverPhoto" />
+          </ng-container>
+          <ng-template #elseCoverPhoto>
+            <img
+              class="cover-photo"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </ng-template>
+          <div class="browse" #image>
+            <input
+              class="upload-field"
+              type="file"
+              id="cover-photo"
+              accept="image/*"
+              (change)="onCoverChange($event)"
+            />
+            <label for="file" class="fa fa-camera icon"></label>
+          </div>
+        </figure>
+      </div>
+      <div class="field-container">
+        <label for="">Full Name</label>
+        <input
+          class="field"
+          type="text"
+          formControlName="fullName"
+          placeholder="Enter Your fullName"
+        />
+        <!-- <label for="">Last Name</label>
+        <input
+          class="field"
+          type="text"
+          formControlName="lastName"
+          placeholder="Enter Your Name"
+        /> -->
+        <label for="">Bio</label>
+        <input
+          class="field"
+          type="text"
+          formControlName="bio"
+          placeholder="Enter Your Bio"
+        />
+        <!-- <label for="">About</label>
+        <input class="field" type="text" placeholder="About Here" /> -->
+      </div>
+    </form>
+  </div>
+  <div class="action-buttons">
+    <button class="btn-save" (click)="save()">Save Changes</button>
+  </div>
+</div>

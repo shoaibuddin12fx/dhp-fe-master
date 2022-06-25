@@ -1,0 +1,513 @@
+<div class="manage-job-layout">
+  <div class="left-box">
+    <ul class="section-nav">
+      <li
+        class="item"
+        [routerLink]="['/job', 'home']"
+        [routerLinkActive]="['active']"
+      >
+        Jobs
+      </li>
+      <li
+        class="item"
+        [routerLink]="['/job', 'manage']"
+        [routerLinkActive]="['active']"
+      >
+        Manage Jobs
+      </li>
+    </ul>
+    <div class="my-job-main">
+      <div class="head">
+        <p class="name">Job Details</p>
+        <p class="status">Status</p>
+        <p class="date">Published date</p>
+      </div>
+      <div class="my-job-detail-main">
+        <div class="my-job-detail" [routerLink]="['/job', 'view']">
+          <div class="job-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/jobs/home/image.png"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Sales & Customer Success Manager</h6>
+              <div class="job-type">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+          <div class="status-description">
+            <span>Active</span>
+          </div>
+          <div class="date-description">
+            <p class="delivery">Nov 24 2020</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-edit icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>End</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Delete</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="my-job-detail-main">
+        <div class="my-job-detail" [routerLink]="['/job', 'view']">
+          <div class="job-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/jobs/home/image-2.png"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">iOs and Andriod Developer Needed</h6>
+              <div class="job-type">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+          <div class="status-description">
+            <span>Active</span>
+          </div>
+          <div class="date-description">
+            <p class="delivery">Nov 24 2020</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-edit icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>End</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Delete</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="my-job-detail-main">
+        <div class="my-job-detail" [routerLink]="['/job', 'view']">
+          <div class="job-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/jobs/home/image-3.png"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Officer, Global Product Development</h6>
+              <div class="job-type">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+          <div class="status-description">
+            <span>Active</span>
+          </div>
+          <div class="date-description">
+            <p class="delivery">Nov 24 2020</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-edit icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>End</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Delete</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="my-job-detail-main">
+        <div class="my-job-detail" [routerLink]="['/job', 'view']">
+          <div class="job-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/jobs/home/image.png"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Assistant, Projuct Manager-Commercial</h6>
+              <div class="job-type">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+          <div class="status-description">
+            <span class="heart">Ended</span>
+          </div>
+          <div class="date-description">
+            <p class="delivery">Nov 24 2020</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-edit icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>End</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Delete</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="my-job-detail-main">
+        <div class="my-job-detail" [routerLink]="['/job', 'view']">
+          <div class="job-description">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/jobs/home/image-2.png"
+              />
+            </div>
+            <div class="detail">
+              <h6 class="title">Sales & Customer Success Manager</h6>
+              <div class="job-type">
+                <span><i class="fas fa-briefcase"></i>Adminstrative</span>
+                <span><i class="fas fa-scroll"></i>Full-time</span>
+              </div>
+            </div>
+          </div>
+          <div class="status-description">
+            <span class="heart">Ended</span>
+          </div>
+          <div class="date-description">
+            <p class="delivery">Nov 24 2020</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="button">
+            <i class="fas fa-edit icon"></i>
+          </button>
+          <button class="button">
+            <i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+            ></i>
+          </button>
+          <mat-menu #menu>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>End</span>
+              </p>
+            </button>
+            <button mat-menu-item>
+              <p class="popup-title">
+                <span>Delete</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="timelineShareDialog()">
+              <p class="popup-title">
+                <span>Share on timeline</span>
+              </p>
+            </button>
+            <button mat-menu-item (click)="sharePostDialog()">
+              <p class="popup-title">
+                <span>Share in a group</span>
+              </p>
+            </button>
+            <p class="sub-title-menu">Share via</p>
+            <ul class="social-platform pl-25">
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-facebook-f icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-twitter icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-instagram icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="fab fa-whatsapp icon"></i>
+              </li>
+              <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+                <i class="far fa-envelope icon"></i>
+              </li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button" (click)="createJobDialog()">
+          <i class="fas fa-pencil-alt icon"></i>Create Job
+        </button>
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input type="text" class="feild" placeholder="Search Jobs" />
+        </div>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Job Type</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <a class="title">Full Time</a>
+                    <div class="action-buttons">
+                      <button class="button button-success">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Part Time</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Temoprary</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Internship</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Freelance</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Filter</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <a class="title">Live</a>
+                    <div class="action-buttons">
+                      <button class="button button-success">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <a class="title">Ended</a>
+                    <div class="action-buttons">
+                      <button class="button">
+                        <i class="fas fa-check icon"></i>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

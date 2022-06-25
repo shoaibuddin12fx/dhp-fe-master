@@ -1,0 +1,239 @@
+<div class="feed-layout">
+  <div class="left-box">
+    <div id="bannerSlider" class="carousel slide banner-ad" data-bs-ride="carousel">
+      <div class="carousel-inner banner-inner">
+        <div class="carousel-item active banner-item">
+          <img src="../assets/images/home/main/ad-banner.PNG" class="d-block w-100" />
+        </div>
+        <div class="carousel-item banner-item">
+          <img src="../assets/images/home/main/feed-image.PNG" class="d-block w-100" />
+        </div>
+        <div class="carousel-item banner-item">
+          <img src="../assets/images/home/main/ad-banner.PNG" class="d-block w-100" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#bannerSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--  -->
+    <app-post-upload (upsertPost)="UpsertPost($event)"></app-post-upload>
+    <!-- <div class="post-upload" id="getSticky">
+      <div class="left">
+        <img class="avatar" src="../assets/images/home/sidebar/profile-image.PNG" />
+        <textarea (click)="UploadModal('text')" class="post-content" [placeholder]="placeholder"
+          [(ngModel)]="description"></textarea>
+      </div>
+      <div class="right">
+        <button class="post-link" (click)="UploadModal('video')">
+          <i class="fa fa-link icon"></i>
+          <span>Video</span>
+        </button>
+        <button class="post-image" (click)="UploadModal('photo')">
+          <i class="fa fa-file-image-o icon"></i>
+          <span>Photo</span>
+        </button>
+      </div>
+    </div> -->
+    <!-- <div *ngIf="posts.length > 0">
+      <div class="activity-box" *ngFor="let post of posts">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+          <div class="title-status">
+            <h4 class="title">
+              {{ post.user.firstName }} {{ post.user.lastName }}
+            </h4>
+            <span class="status">posted an update</span>
+            <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+            <p>
+              {{ post.description }}
+            </p>
+          </div>
+          <span ngbDropdown style="position: initial">
+            <button class="settings" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="fa fa-ellipsis-h icon"></i>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="EditPost(post.id)">Edit</button>
+              <button ngbDropdownItem (click)="DeletePost(post.id)">
+                Delete
+              </button>
+            </div>
+          </span>
+        </div>
+        <div class="activity-image-box">
+          <div class="icon-box">
+            <div class="like">
+              <i class="fa fa-thumbs-o-up icon"></i>
+              <span>{{ post?.likeCount }}</span>
+            </div>
+            <div class="comment">
+              <i class="fa fa-commenting-o icon"></i>
+              <span>0</span>
+            </div>
+          </div>
+          <div class="image-box">
+            <img
+              class="activity-image"
+              *ngIf="post?.url && post?.url.length > 0"
+              [src]="post?.url[0].url"
+            />
+          </div>
+          <ul class="activity-bottom-menu">
+            <li
+              class="menu-item"
+              (click)="Like(post)"
+              [ngStyle]="{ color: post?.isLike ? '#23cf70' : '' }"
+            >
+              <i class="fa fa-thumbs-o-up icon"></i>
+              <span>Like</span>
+            </li>
+            <li class="menu-item">
+              <i class="fa fa-commenting-o icon"></i>
+              <span>Comment</span>
+            </li>
+            <li class="menu-item">
+              <i class="fa fa-heart-o"></i>
+            </li>
+            <li class="menu-item">
+              <i class="fa fa-share-square-o"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <!-- (GetNewsFeed)="GetNewsFeed()"
+      [posts]="posts"-->
+    <app-activity-box (getNewsFeed)="GetNewsFeed($event)" (deletedPost)="deletedPost($event)" (upsertedPost)="UpsertPost($event)"
+      [totalPostCount]="totalPostCount"></app-activity-box>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Featured Ads</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img class="avatar round" src="../../../assets/images/home/main/featured-ad-image.PNG" />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content">Lorem ipsum dolor sit amet consectetur</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img class="avatar round" src="../../../assets/images/home/main/featured-ad-image.PNG" />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content">Lorem ipsum dolor sit amet consectetur</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img class="avatar round" src="../../../assets/images/home/main/featured-ad-image.PNG" />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content">Lorem ipsum dolor sit amet consectetur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title">Your groups</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item" *ngFor="let g of myGroups">
+              <div class="cards row gx-0" [routerLink]="['/social/groups/admin', g.id, 'feed']">
+                <div class="col-lg-3">
+                  <!-- <img
+                    class="avatar border circle"
+                    src="../../../assets/images/home/main/abc-group-logo.PNG"
+                  /> -->
+
+                  <ng-container *ngIf="g.profilePhoto !== ''; else elseProfilePhoto">
+                    <img class="avatar border circle" [src]="g.profilePhoto" />
+                  </ng-container>
+                  <ng-template #elseProfilePhoto>
+                    <img class="avatar border circle" src="../assets/images/home/sidebar/profile-image.PNG" />
+                  </ng-template>
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">{{ g.name }}</p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar border circle"
+                    src="../../../assets/images/home/main/abc-group-logo.PNG"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">The A Group</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar border circle"
+                    src="../../../assets/images/home/main/abc-group-logo.PNG"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">The A Group</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title">My Videos</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item" *ngFor="let vp of videoPosts">
+              <div class="cards row gx-0" (click)="openPostViewDialog(vp)">
+                <div class="col-lg-4">
+                  <iframe [src]="vp?.url.url | safe: 'resourceUrl'"> </iframe>
+                </div>
+                <div class="col-lg-8">
+                  <p class="title" style="font-size: 12px !important">{{ vp.description }}</p>
+                </div>
+                <div class="col-lg-12">
+                  <a [href]="vp?.url.url" (click)="$event.stopPropagation()" target="_blank"
+                    style="font-size: 10px">{{vp?.url.url}}</a>
+                  <!-- <button (click)="$event.stopPropagation();" class="link">{{vp?.url.url}}</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

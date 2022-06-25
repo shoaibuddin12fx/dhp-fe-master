@@ -1,0 +1,197 @@
+<div class="title-box">
+  <h4 class="title">
+    Requests Received<span>({{ friends?.length }})</span>
+  </h4>
+  <button class="button" *ngIf="friends?.length > 0">View All</button>
+</div>
+<div *ngIf="friends?.length == 0" class="notify">
+  <i class="fas-solid fas-clock-rotate-left"></i>No pending requests.
+</div>
+<div *ngIf="friends?.length > 0">
+  <div class="friends-section">
+    <div
+      class="friend-box"
+      *ngFor="let friend of friends"
+      [routerLink]="['/social', 'profile', friend.userId, 'user-feed']"
+    >
+      <div class="friend-profile">
+        <ng-container *ngIf="friend.profileimage; else elseTemplate">
+          <img [src]="friend.profileimage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="../assets/images/home/sidebar/profile-image2.png" />
+        </ng-template>
+      </div>
+      <h4 class="title">{{ friend?.firstName }} {{ friend?.lastName }}</h4>
+      <p class="designation">Artist</p>
+      <ul class="social-graph">
+        <li class="list-item">
+          <p class="value">{{ friend?.friends }}</p>
+          <p class="title">Friends</p>
+        </li>
+        <li class="list-item">
+          <p class="value">{{ friend?.followers }}</p>
+          <p class="title">Followers</p>
+        </li>
+      </ul>
+
+      <p class="designation">{{ friend.mutualFriendCount }} mutual friends</p>
+      <div class="action-buttons">
+        <button
+          class="button button-success"
+          (click)="
+            $event.stopPropagation(); AcceptDeclineRequest(friend.id, 'a')
+          "
+        >
+          Accept
+        </button>
+        <button
+          class="button"
+          (click)="
+            $event.stopPropagation(); AcceptDeclineRequest(friend.id, 'd')
+          "
+          class="{{ friend.isDeclined ? 'gray' : 'button-warning' }}"
+          [disabled]="friend.isDeclined"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+    <!-- <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-success">Accept</button>
+      <button class="button button-warning">Decline</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-success">Accept</button>
+      <button class="button button-warning">Decline</button>
+    </div>
+  </div> -->
+  </div>
+</div>
+<div class="title-box">
+  <h4 class="title">
+    Requests Sent<span>({{ pendingFriends?.length }})</span>
+  </h4>
+  <button class="button" *ngIf="pendingFriends?.length > 0">View All</button>
+</div>
+<div *ngIf="pendingFriends?.length == 0" class="notify">
+  No pending requests.
+</div>
+<div *ngIf="pendingFriends?.length > 0">
+  <div class="friends-section">
+    <div
+      class="friend-box"
+      *ngFor="let friend of pendingFriends"
+      [routerLink]="['/social', 'profile', friend.friendId, 'user-feed']"
+    >
+      <div class="friend-profile">
+        <ng-container *ngIf="friend.profileImage; else elseTemplate">
+          <img [src]="friend.profileImage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="../assets/images/home/sidebar/profile-image2.png" />
+        </ng-template>
+      </div>
+      <h4 class="title">{{ friend?.firstName }} {{ friend?.lastName }}</h4>
+      <p class="designation">Artist</p>
+      <ul class="social-graph">
+        <li class="list-item">
+          <p class="value">{{ friend?.friends }}</p>
+          <p class="title">Friends</p>
+        </li>
+        <li class="list-item">
+          <p class="value">{{ friend?.followers }}</p>
+          <p class="title">Followers</p>
+        </li>
+      </ul>
+      <div class="action-buttons">
+        <button class="button button-gray" [disabled]="friend?.isRequest">
+          Request sent
+        </button>
+        <button
+          class="button button-warning"
+          (click)="
+            $event.stopPropagation(); AcceptDeclineRequest(friend.id, 'd')
+          "
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+    <!-- <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-gray">Request sent</button>
+      <button class="button button-warning">Cancel</button>
+    </div>
+  </div>
+  <div class="friend-box">
+    <div class="friend-profile">
+      <img src="../assets/images/home/sidebar/profile-image.PNG" />
+    </div>
+    <h4 class="title">Sarah Cruise</h4>
+    <p class="designation">Artist</p>
+    <ul class="social-graph">
+      <li class="list-item">
+        <p class="value">43</p>
+        <p class="title">Friends</p>
+      </li>
+      <li class="list-item">
+        <p class="value">90</p>
+        <p class="title">Followers</p>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="button button-gray">Request sent</button>
+      <button class="button button-warning">Cancel</button>
+    </div>
+  </div> -->
+  </div>
+</div>

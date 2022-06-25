@@ -1,0 +1,122 @@
+@import "../../../../assets/partials/variable.scss";
+.profile-layout {
+  display: flex;
+  padding: 20px;
+  flex-flow: wrap;
+  padding-left: 0;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .search-box {
+      margin-bottom: 10px;
+      .search {
+        input {
+          width: 250px;
+          padding-right: 20px;
+          background-color: $theme-bg-sidebar;
+        }
+      }
+    }
+    .event-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: wrap;
+      margin-left: -10px;
+      margin-bottom: 20px;
+      align-items: center;
+      list-style-type: none;
+      flex: 0 0 calc(100% + 10px);
+      justify-content: flex-start;
+      .item {
+        display: flex;
+        margin-left: 10px;
+        padding: 10px 10px;
+        border-radius: 15px;
+        align-items: center;
+        margin-bottom: 10px;
+        flex: 0 0 calc(50% - 10px);
+        justify-content: flex-start;
+        border: 1px solid $theme-border;
+        .profile-image {
+          width: 70px;
+          height: 70px;
+          display: flex;
+          margin: 0 auto;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 70px;
+            height: 70px;
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            border-radius: 8px;
+          }
+        }
+        .profile-info {
+          margin: 10px;
+          display: flex;
+          flex-flow: wrap;
+          position: relative;
+          align-items: center;
+          justify-content: flex-start;
+          .title {
+            width: 90%;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: $theme-black;
+            max-width: max-content;
+          }
+          .content {
+            width: 90%;
+            display: block;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: $theme-content;
+          }
+          .icon {
+            top: 50%;
+            right: 0;
+
+            transform: translateY(-50%);
+            position: absolute;
+            color: $theme-content;
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0 20px;
+    padding-right: 0;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      .card-main-box {
+        .card-item {
+          .cards {
+            cursor: pointer;
+            .title {
+              line-height: 1.2;
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

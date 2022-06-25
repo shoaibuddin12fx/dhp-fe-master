@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="briefcase" y="2" width="23" height="19" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAABmklEQVQ4ja3UvWtVQRAF8F8eiR+FYCxSWCnpVIyFhQQDYiSCWgppBCsb2/wBNimttVQbiyRColgopBAFEbERDBZqbBRE/IiIoEIiG2Zh37v33fjgHZh77+7MnDt7ZndtgR2Yx0aNLWFXc3ozFoL0C14X9inmHzRmb4FE8LlLyGr4u2IwHPtwEtuLwKF4t3AB2wrf38I/g1+F7w8e4U0aTNbo2Q87N4CvGMaVGgnWMRDWiVxAq2N+D2bzajaiQf3Eu9yPj/Gxt0/kw7Hib2kwHeRvMV4JbcdgZaYdR7ESfJey53qh4V2crtHyED7gWIWSU8WZSHZT0aiRGt3TdruP53iFKVzGDSziQFR6Bjs7cvfjfR6MxR9vYQK3e9yKcziBazHeXF3WsFW8H4ddxGEcxGgcsuN4hoexI9KKXuJ35J8v+TobNFR8J1lehCU8CdKroW8dyhNeIW/C06hsuSGmDb2Q/8SdymwDstZZjh/dQ/8LaxG1ecnlyvNk2t9H4mbrFanAs5H0PT3KC+leOFP1qZm9IhW6O3oyhfV/Fux9VOHxjmQAAAAASUVORK5CYII="/>
+  </g>
+</svg>

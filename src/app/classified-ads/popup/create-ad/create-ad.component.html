@@ -1,0 +1,106 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Post an Advertisment</h4>
+  </div>
+  <div class="popup-body">
+    <div class="create-ad">
+      <div class="active-package">
+        <p>
+          Pkg <span>04</span> active (<span>2</span> Featured Ads Remaining)
+        </p>
+        <button class="button" (click)="openPackageDialog()">
+          Other Packages
+        </button>
+      </div>
+      <div class="category-box">
+        <div class="row gx-0">
+          <div class="col-lg-6 pr-10">
+            <label>Category</label>
+            <select class="field arrow">
+              <option value="" disabled selected>Category</option>
+              <option value="male">Category One</option>
+              <option value="female">Category Two</option>
+            </select>
+          </div>
+          <div class="col-lg-6 pl-10">
+            <label>Sub Category</label>
+            <select class="field arrow">
+              <option value="" disabled selected>Sub Category</option>
+              <option value="male">Category One</option>
+              <option value="female">Category Two</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="product-image">
+        <label>Product/Promotion images</label>
+        <div class="image-box">
+          <figure class="cover-box">
+            <img
+              src="../../../../assets/images/home/sidebar/profile-image.PNG"
+              class="image"
+              alt=""
+            />
+            <div class="browse" #image>
+              <input
+                class="upload-field"
+                type="file"
+                id="file"
+                accept="image/*"
+              />
+              <label for="file" class="fa fa-camera icon"></label>
+            </div>
+          </figure>
+          <figure class="cover-box">
+            <span class="upload-image"><i class="fas fa-camera"></i></span>
+            <div class="browse" #image>
+              <input
+                class="upload-field"
+                type="file"
+                id="file"
+                accept="image/*"
+              />
+              <label for="file" class="fa fa-camera icon"></label>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <label>Title</label>
+      <input type="text" placeholder="Title" class="field" />
+      <label>Description</label>
+      <textarea class="field text-area" placeholder="Description"></textarea>
+      <label>Price</label>
+      <input type="text" placeholder="$0" class="field" />
+      <div class="popup-map">
+        <label>Address</label>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.43556854007!2d-118.69193128882294!3d34.020730494168454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1642767474772!5m2!1sen!2s"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+        <div class="location-box">
+          <div class="location-search">
+            <input type="text" class="feild" placeholder="Enter Location" />
+            <i class="fas fa-map-marker-alt icon"></i>
+          </div>
+          <button class="">Save</button>
+        </div>
+      </div>
+      <label>Email</label>
+      <input type="text" placeholder="Email(optional)" class="field" />
+      <label>Contact Number</label>
+      <input
+        type="text"
+        placeholder="Contact Number (optional)"
+        class="field"
+      />
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Submit</button>
+    </div>
+  </div>
+</div>

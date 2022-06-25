@@ -1,0 +1,75 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create Campaign</h4>
+  </div>
+  <div class="popup-body">
+    <div class="create-main">
+      <div class="cover-box">
+        <h5 class="title">Banner/Image</h5>
+        <div class="browse" #image>
+          <input class="upload-field" type="file" id="file" accept="image/*" />
+          <label for="file" class="fa fa-camera icon"></label>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Campaign Name</h5>
+        <div class="campaign-name">
+          <input type="text" placeholder="Campaign Name" class="field" />
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Campaign Category</h5>
+        <div class="campaign-name">
+          <select class="field arrow">
+            <option value="" disabled selected>Category</option>
+            <option value="male">Online</option>
+            <option value="female">In Person</option>
+          </select>
+        </div>
+      </div>
+      <div class="cover-box">
+        <div class="campaign-amount">
+          <div class="row">
+            <div class="col-lg-6 col-6">
+              <div class="amount">
+                <h5 class="title">Goal Amount</h5>
+                <input type="text" class="field pl-35" />
+                <span class="price-sign"
+                  ><i class="fas fa-dollar-sign"></i
+                ></span>
+              </div>
+            </div>
+            <div class="col-lg-6 col-6">
+              <h5 class="title">Due Date</h5>
+              <input type="date" class="field" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Beneficiary Name/Organization</h5>
+        <div class="campaign-name">
+          <input type="text" placeholder="Name/Organization" class="field" />
+        </div>
+      </div>
+      <div class="cover-box">
+        <h5 class="title">Description</h5>
+        <div class="campaign-discripton">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add">Create</button>
+    </div>
+  </div>
+</div>

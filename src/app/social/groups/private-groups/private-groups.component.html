@@ -1,0 +1,125 @@
+<div class="group-layout">
+  <div class="left-box">
+    <app-navbar></app-navbar>
+    <div class="discover-group-section">
+      <div
+        class="group-box"
+        *ngFor="let item of groupList"
+        (click)="onOpenPost(item)"
+      >
+        <div class="group-cover">
+          <ng-container *ngIf="item.coverPhoto !== ''; else elseCoverPhoto">
+            <img class="image" [src]="item.coverPhoto" />
+          </ng-container>
+          <ng-template #elseCoverPhoto>
+            <img
+              class="image"
+              src="../../../assets/images/groups/group-bg.jpg"
+            />
+          </ng-template>
+        </div>
+        <div class="group-info">
+          <div class="group-image">
+            <ng-container
+              *ngIf="item.profilePhoto !== ''; else elseProfilePhoto"
+            >
+              <img class="image" [src]="item.profilePhoto" />
+            </ng-container>
+            <ng-template #elseProfilePhoto>
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </ng-template>
+          </div>
+          <h4 class="title">{{ item.name }}</h4>
+          <p class="group-status">
+            {{ item.privacyType | uppercase }} Group({{
+              item.groupFriendCount <= 9
+                ? item.groupFriendCount
+                : item.groupFriendCount - (item.groupFriendCount % 10)
+            }}<span *ngIf="item.groupFriendCount > 9">+</span> member<span
+              *ngIf="item.groupFriendCount > 1"
+              >s</span
+            >)
+          </p>
+          <ul class="group-people">
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+            <li class="people-image">
+              <img
+                class="image"
+                src="../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </li>
+          </ul>
+          <!-- <ng-container *ngIf="!item.isMember; else alreadyMemberTemplate">
+            <ng-container *ngIf="item.privacyType === 'private' && item?.isPendingRequest ;else elseTemplate">
+              <button class="button button-gray" disabled>Request Pending</button>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <button class="button button-success" (click)="$event.stopPropagation(); requestToJoin(item)">
+                Request to join
+              </button>
+
+            </ng-template>
+          </ng-container> -->
+          <ng-container *ngIf="!item.isMember; else alreadyMemberTemplate">
+            <ng-container
+              *ngIf="
+                item.privacyType === 'private' && !item?.isRequestedToJoin;
+                else elseTemplate
+              "
+            >
+              <button
+                class="button button-success"
+                (click)="$event.stopPropagation(); requestToJoin(item)"
+              >
+                Request to join
+              </button>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <button class="button button-gray" disabled>
+                Request Pending
+              </button>
+            </ng-template>
+          </ng-container>
+          <ng-template #alreadyMemberTemplate>
+            <button class="button button-gray">Already a member</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <app-sidebar (updatedGroup)="setGroupData($event)"></app-sidebar>
+  </div>
+</div>

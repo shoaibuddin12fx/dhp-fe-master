@@ -1,0 +1,13 @@
+@import "../../../assets/partials/variable.scss";
+
+.right-box {
+  flex: 0 0 30%;
+  padding: 10px 20px;
+  padding-right: 0;
+  background-color: $theme-white;
+  .right-box-inner {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: $theme-bg-sidebar;
+  }
+}

@@ -1,0 +1,106 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create post</h4>
+  <button type="button" class="close" aria-label="Close" [mat-dialog-close]>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form
+  *ngIf="postForm"
+  name="groupForm"
+  [formGroup]="postForm"
+  novalidate
+  id="form-postForm"
+  (submit)="UploadPost()"
+>
+  <!-- <form enctype="multipart/form-data" (submit)="UploadPost()"> -->
+  <div class="modal-body">
+    <div class="post-upload">
+      <div class="left">
+        <img
+          class="avatar"
+          src="../assets/images/home/sidebar/profile-image.PNG"
+        />
+        <textarea
+          class="post-content"
+          name="description"
+          formControlName="description"
+          placeholder="Whats new Sarah?"
+        ></textarea>
+      </div>
+    </div>
+    <div style="display: flex" *ngIf="data.type === 'video'">
+      <span>Link:</span>
+      <input
+        type="text"
+        class="form-control"
+        name="link"
+        id="link"
+        placeholder="add link"
+        formControlName="mediaUrl"
+      />
+    </div>
+    <div>
+      <!-- (click)="FileSelected($event)" -->
+      <!-- <button class="post-link" *ngIf="data.type === 'video'">
+        <i class="fa fa-link icon"></i>
+        <span>Video</span>
+      </button> -->
+      <!-- <button>
+            <i class="fa fa-file-image-o icon"></i>
+            <span>Photo</span>
+        </button> -->
+      <span *ngIf="data.type === 'photo'">
+        <label
+          ><i class="fa fa-file-image-o icon"></i> Photo
+          <input
+            class="post-image"
+            type="file"
+            name="fileUpload"
+            accept="image/x-png,image/jpeg,"
+            (change)="FileSelected($event)"
+            ngDefaultControl
+            style="display: none"
+          />
+        </label>
+      </span>
+    </div>
+    <div *ngIf="selectedFile">
+      <div>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="selectedFile = null"
+          style="top: 0"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div>
+        <img [src]="selectedFile" alt="" width="230" />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button> -->
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      [disabled]="!postForm.value.description"
+    >
+      Post
+      <img
+        src="../../../../assets/images/tail-spin.svg"
+        alt="loading"
+        width="23px"
+        *ngIf="showLoading"
+      />
+    </button>
+  </div>
+</form>

@@ -1,0 +1,42 @@
+@import "../../../assets/partials/variable.scss";
+.watch-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .banner-ad {
+      .banner-inner {
+        .banner-item {
+          cursor: pointer;
+          img {
+            height: 250px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      .card-item {
+        .cards {
+          .avatar-height {
+            height: 80px;
+            object-position: top;
+          }
+        }
+      }
+    }
+  }
+}

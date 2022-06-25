@@ -1,0 +1,270 @@
+<div class="notification-layout">
+  <div class="left-box">
+    <app-header></app-header>
+    <h4 class="title-main">Today</h4>
+    <div class="activity-box">
+      <div class="event-invite">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/event/event-notification/event-profile.jpg"
+          />
+          <div class="title-status">
+            <h4 class="title">Emmaneul treytel</h4>
+            <p class="status">
+              invited you to an <span class="primary">event</span>
+            </p>
+            <span class="post-time">4 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+        <div class="activity-image-box">
+          <div class="image-box">
+            <img
+              class="activity-image"
+              src="../../../assets/images/event/event-notification/event-notify-bg.jpg"
+            />
+          </div>
+          <h6 class="event-name">Circus of Light</h6>
+        </div>
+      </div>
+      <div class="event-invite">
+        <div class="activity-info">
+          <button class="notification-icon">
+            <i class="far fa-bell icon"></i>
+          </button>
+          <div class="title-status">
+            <h4 class="title">Circus of Light</h4>
+            <p class="status">
+              <span class="primary">event</span> start in
+              <span class="black">24 hours</span>
+            </p>
+            <span class="post-time">10 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="event-invite">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/event/event-notification/event-profile2.jpg"
+          />
+          <div class="title-status">
+            <h4 class="title">Magdalen</h4>
+            <p class="status">
+              is interested in the <span class="primary">event</span> you shared
+              <span class="black">Circus of Light</span>
+            </p>
+            <span class="post-time">23 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <h4 class="title-main">Yesterday</h4>
+    <div class="activity-box">
+      <div class="event-invite">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/event/event-notification/event-profile.jpg"
+          />
+          <div class="title-status">
+            <h4 class="title">Emmaneul treytel</h4>
+            <p class="status">
+              invited you to an <span class="primary">event</span>
+            </p>
+            <span class="post-time">4 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+        <div class="activity-image-box">
+          <div class="image-box">
+            <img
+              class="activity-image"
+              src="../../../assets/images/event/event-notification/event-notify-bg.jpg"
+            />
+          </div>
+          <h6 class="event-name">Circus of Light</h6>
+        </div>
+      </div>
+      <div class="event-invite">
+        <div class="activity-info">
+          <button class="notification-icon">
+            <i class="far fa-bell icon"></i>
+          </button>
+          <div class="title-status">
+            <h4 class="title">Circus of Light</h4>
+            <p class="status">
+              <span class="primary">event</span> start in
+              <span class="black">24 hours</span>
+            </p>
+            <span class="post-time">10 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="event-invite">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/event/event-notification/event-profile2.jpg"
+          />
+          <div class="title-status">
+            <h4 class="title">Magdalen</h4>
+            <p class="status">
+              is interested in the <span class="primary">event</span> you shared
+              <span class="black">Circus of Light</span>
+            </p>
+            <span class="post-time">23 hours ago</span>
+          </div>
+          <button
+            class="settings"
+            mat-icon-button
+            [matMenuTriggerFor]="eventAction"
+          >
+            <i class="fa fa-ellipsis-h icon"></i>
+          </button>
+          <mat-menu #eventAction>
+            <button mat-menu-item>
+              <p class="popup-title" [routerLink]="['/event', 'my-events']">
+                <span>Hide</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Remove</span>
+              </p>
+            </button>
+            <button mat-menu-item [routerLink]="['/event', 'my-events']">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <app-right-bar></app-right-bar>
+    </div>
+  </div>
+</div>

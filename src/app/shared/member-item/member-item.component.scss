@@ -1,0 +1,66 @@
+@import "../../../assets/partials/variable.scss";
+.member-item {
+  display: flex;
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid $theme-white;
+    }
+    &:before {
+      top: 50%;
+      left: 50%;
+      width: 55px;
+      content: "";
+      height: 55px;
+      border-radius: 50%;
+      position: absolute;
+      background: $theme-gradient;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .profile-info {
+    margin: 10px;
+    display: flex;
+    flex-flow: wrap;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    .title {
+      width: 90%;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: $theme-black;
+      max-width: max-content;
+    }
+    .content {
+      width: 90%;
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: $theme-content;
+    }
+    .icon {
+      top: 50%;
+      right: 0;
+
+      transform: translateY(-50%);
+      position: absolute;
+      color: $theme-content;
+    }
+  }
+}

@@ -1,0 +1,163 @@
+<div class="watch-layout">
+  <div class="left-box">
+    <!-- <app-post-upload></app-post-upload>
+    <app-activity-box></app-activity-box> -->
+    <div class="post-upload" id="getSticky">
+      <div class="left">
+        <img
+          class="avatar"
+          src="../assets/images/home/sidebar/profile-image.PNG"
+        />
+        <!-- <input class="post-content" type="text" placeholder="Whats new Sarah?"> -->
+        <textarea
+          class="post-content"
+          [placeholder]="placeholder"
+          [(ngModel)]="description"
+          (click)="openVideoDialog('video')"
+        ></textarea>
+      </div>
+      <div class="right">
+        <button class="post-link" (click)="openVideoDialog('video')">
+          <i class="fa fa-link icon"></i>
+          <span>Video</span>
+        </button>
+        <!-- <button class="post-link" (click)="UploadModal('video')">
+          <i class="fa fa-link icon"></i>
+          <span>Video</span>
+        </button> -->
+      </div>
+    </div>
+
+    <app-activity-box
+      (getNewsFeed)="GetNewsFeed()"
+      (deletedPost)="deletedPost($event)"
+      (upsertedPost)="UpsertPost($event)"
+      [isVideo]="true"
+      [totalPostCount]="totalPostCount"
+    ></app-activity-box>
+
+    <!-- <div *ngIf="posts.length > 0">
+      <div class="activity-box" *ngFor="let post of posts">
+        <div class="activity-info">
+          <img
+            class="avatar"
+            src="../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+          <div class="title-status">
+            <h4 class="title">
+              {{ post.user.firstName }} {{ post.user.lastName }}
+            </h4>
+            <span class="status">posted an update</span>
+            <span class="post-time">{{ post.createdDate | dateAgo }}</span>
+            <p>
+              {{ post.description }}
+            </p>
+          </div>
+          <span ngbDropdown style="position: initial">
+            <button class="settings" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="fa fa-ellipsis-h icon"></i>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+             </div>
+          </span>
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="top-bar">
+        <h4 class="title">Featured ads</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-12">
+              <img
+                class="avatar avatar-height border-sm edge-sm"
+                src="../../../assets/images/watch/feature-cover.jpg"
+              />
+            </div>
+            <div class="col-lg-12">
+              <p class="title">Fastfood avertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-12">
+              <img
+                class="avatar avatar-height border-sm edge-sm"
+                src="../../../assets/images/watch/feature-cover.jpg"
+              />
+            </div>
+            <div class="col-lg-12">
+              <p class="title">Fastfood avertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-12">
+              <img
+                class="avatar avatar-height border-sm edge-sm"
+                src="../../../assets/images/watch/feature-cover.jpg"
+              />
+            </div>
+            <div class="col-lg-12">
+              <p class="title">Fastfood avertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Recently watched</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-4">
+                  <img
+                    class="avatar border-sm edge-sm"
+                    src="../../../assets/images/home/main/watch-thumbnail.PNG"
+                  />
+                </div>
+                <div class="col-lg-8">
+                  <p class="title">My first video</p>
+                  <button class="link">www.linkvideo.com</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-item">
+              <div class="cards row gx-0">
+                <div class="col-lg-4">
+                  <img
+                    class="avatar border-sm edge-sm"
+                    src="../../../assets/images/home/main/watch-thumbnail.PNG"
+                  />
+                </div>
+                <div class="col-lg-8">
+                  <p class="title">My first video</p>
+                  <button class="link">www.linkvideo.com</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion> -->
+    </div>
+  </div>
+</div>

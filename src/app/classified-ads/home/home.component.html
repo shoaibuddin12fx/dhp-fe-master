@@ -1,0 +1,1204 @@
+<div class="adverthome-layout">
+  <div class="left-box">
+    <app-classified-header></app-classified-header>
+    <div class="banner">
+      <div class="image-box">
+        <img
+          class="image"
+          src="../../../../assets/images/shop/retail/banner.jpg"
+          alt=""
+        />
+        <h1 class="banner-title">limited stock</h1>
+      </div>
+    </div>
+    <div class="advert-box">
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button" (click)="createAdDialog()">
+          <i class="fas fa-pencil-alt icon"></i>Post an AD
+        </button>
+        <div class="search">
+          <i class="fa fa-search icon"></i>
+          <input type="text" class="feild" placeholder="Search" />
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Adverts</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <li class="list">
+                    <form>
+                      <mat-radio-group>
+                        <p class="title">Featured only</p>
+                        <mat-radio-button value="1"></mat-radio-button>
+                        <p class="title">All adverts</p>
+                        <mat-radio-button value="2"></mat-radio-button>
+                      </mat-radio-group>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Category</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="card-main-box">
+            <div class="card-item">
+              <div class="cards">
+                <ul class="category">
+                  <mat-accordion>
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">Local Places</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">Services</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">For Rent</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">Real Estate for Sale</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">Items for Sale</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="false">
+                      <mat-expansion-panel-header
+                        class="expansion-header border-none h-20"
+                      >
+                        <mat-panel-title>
+                          <p class="expansion-title">Vehicles</p>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="sub-category">
+                        <li class="list">
+                          <a class="title">Grocery Stores</a>
+                          <div class="action-buttons">
+                            <button class="button button-success">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Restaurant</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Doctors</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Islamic Schools</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Classes/Workshop</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">General</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Lost & Found</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                        <li class="list">
+                          <a class="title">Mucicians/DJ</a>
+                          <div class="action-buttons">
+                            <button class="button">
+                              <i class="fas fa-check icon"></i>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div class="top-bar">
+        <h4 class="title">location</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards">
+            <form action="" class="location">
+              <input
+                type="text"
+                class="feild"
+                placeholder="Search City, Country"
+              />
+              <button>
+                <i class="fas fa-map-marker-alt icon"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-bar">
+        <h4 class="title">Price Range</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0 price-range-main">
+            <div class="col-lg-2">
+              <span>From</span>
+            </div>
+            <div class="col-lg-10">
+              <form action="" class="price-range">
+                <input type="text" class="feild" placeholder="$0" />
+              </form>
+            </div>
+            <div class="col-lg-2">
+              <span>To</span>
+            </div>
+            <div class="col-lg-10">
+              <form action="" class="price-range">
+                <input type="text" class="feild" placeholder="$0" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

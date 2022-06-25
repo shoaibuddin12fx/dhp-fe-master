@@ -1,0 +1,243 @@
+@import "../../../assets/partials/variable.scss";
+.feed-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .banner-ad {
+      margin-bottom: 10px;
+      .banner-inner {
+        .banner-item {
+          cursor: pointer;
+          img {
+            height: 250px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+    }
+  }
+}
+
+// ********** Responsive ********** //
+@media (max-width: 1920px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            cursor: pointer;
+            img {
+              height: 350px;
+            }
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .card-main-box {
+          .card-item {
+            .cards {
+              .avatar {
+                width: 90%;
+                height: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1680px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            cursor: pointer;
+            img {
+              height: 300px;
+            }
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            cursor: pointer;
+            img {
+              height: 250px;
+            }
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .card-main-box {
+          .card-item {
+            .cards {
+              .avatar {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            cursor: pointer;
+            img {
+              height: 230px;
+            }
+          }
+        }
+      }
+    }
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .feed-layout {
+    padding-right: 20px;
+    .left-box {
+      flex: 0 0 100%;
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            img {
+              height: 310px;
+              object-fit: fill;
+            }
+          }
+        }
+      }
+    }
+    .right-box {
+      display: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            img {
+              height: 240px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 640px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            img {
+              height: 220px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .feed-layout {
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            img {
+              height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .feed-layout {
+    padding: 10px 0;
+    padding-right: 10px;
+    .left-box {
+      .banner-ad {
+        .banner-inner {
+          .banner-item {
+            img {
+              height: 160px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+iframe {
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+}

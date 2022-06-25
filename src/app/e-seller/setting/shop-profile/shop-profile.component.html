@@ -1,0 +1,437 @@
+<div class="account-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Shop Profile</h4>
+    </div>
+  </div>
+  <mat-tab-group disableRipple>
+    <mat-tab label="General Information">
+      <div class="tab-content">
+        <form
+          class="row"
+          name="groupForm"
+          [formGroup]="form"
+          novalidate
+          *ngIf="form"
+          id="form-groupForm"
+        >
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Full Name <span class="required">*</span></label
+            >
+            <input
+              class="field"
+              [(ngModel)]="user.fullName"
+              [ngModelOptions]="{ standalone: true }"
+              type="text"
+            />
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">Email <span class="required">*</span></label>
+            <input class="field" formControlName="email" type="text" />
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Contact Number<span class="required">*</span></label
+            >
+            <input class="field" formControlName="contactNo" type="text" />
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Shop Name<span class="required">*</span></label
+            >
+            <input class="field" formControlName="name" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                form.get('name').hasError('required') &&
+                (form.get('name').touched || isError)
+              "
+            >
+              Shop Name is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Shop Type<span class="required">*</span></label
+            >
+            <select class="field" formControlName="type">
+              <option value="1">Retail</option>
+              <option value="2">Wholesale</option>
+            </select>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">Country<span class="required">*</span></label>
+            <ng-select
+              class="arrow"
+              [items]="countryList"
+              formControlName="country"
+              [multiple]="true"
+              [searchable]="true"
+              [clearable]="form.get('country').value"
+              placeholder="Enter Country"
+            >
+            </ng-select>
+            <p
+              class="custom-error"
+              *ngIf="
+                form.get('country').hasError('required') &&
+                (form.get('country').touched || isError)
+              "
+            >
+              Country is required.
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <span class="label">Upload Shop Logo</span>
+
+            <app-file-upload
+              [images]="images"
+              [dataId]="shopId"
+              [isMultiple]="multiple"
+              [maxLength]="maxLength"
+              (imageDataEmitter)="getImages($event)"
+            ></app-file-upload>
+          </div>
+          <div class="col-lg-6 col-6">
+            <button type="submit" class="btn btn-success" (click)="save()">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Bank Account">
+      <div class="tab-content">
+        <form class="row" [formGroup]="bankForm" novalidate *ngIf="bankForm">
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Account Title<span class="required">*</span></label
+            >
+            <input class="field" formControlName="accountTitle" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                bankForm.get('accountTitle').hasError('required') &&
+                (bankForm.get('accountTitle').touched || isError)
+              "
+            >
+              Account Title is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Account Number<span class="required">*</span></label
+            >
+            <input class="field" formControlName="accountNumber" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                bankForm.get('accountNumber').hasError('required') &&
+                (bankForm.get('accountNumber').touched || isError)
+              "
+            >
+              Account Number is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">IBAN</label>
+            <input class="field" formControlName="IBAN" type="text" />
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Bank Name<span class="required">*</span></label
+            >
+            <input class="field" formControlName="bankName" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                bankForm.get('bankName').hasError('required') &&
+                (bankForm.get('bankName').touched || isError)
+              "
+            >
+              Bank Name is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Branch Code<span class="required">*</span></label
+            >
+            <input class="field" formControlName="branchCode" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                bankForm.get('branchCode').hasError('required') &&
+                (bankForm.get('branchCode').touched || isError)
+              "
+            >
+              Branch Code is required.
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <button type="submit" class="btn btn-success" (click)="saveBank()">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Business Information">
+      <div class="tab-content">
+        <form
+          class="row"
+          [formGroup]="businessInfoForm"
+          novalidate
+          *ngIf="businessInfoForm"
+        >
+          <div class="col-lg-12 col-12">
+            <label class="label"
+              >Business Address<span class="required">*</span></label
+            >
+            <input
+              class="field"
+              formControlName="businessAddress"
+              type="text"
+            />
+            <p
+              class="custom-error"
+              *ngIf="
+                businessInfoForm.get('businessAddress').hasError('required') &&
+                (businessInfoForm.get('businessAddress').touched || isError)
+              "
+            >
+              business Address is required.
+            </p>
+          </div>
+          <div class="col-lg-12 col-12">
+            <label class="label"
+              >Passport/Driving License<span class="required">*</span></label
+            >
+            <div class="row">
+              <div class="col-lg-6 col-6">
+                <input class="field" formControlName="license" type="text" />
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    businessInfoForm.get('license').hasError('required') &&
+                    (businessInfoForm.get('license').touched || isError)
+                  "
+                >
+                  License is required.
+                </p>
+              </div>
+              <div class="col-lg-6 col-6">
+                <app-file-upload
+                  [isFileType]="true"
+                  [images]="images"
+                  [dataId]="shopId"
+                  [isMultiple]="false"
+                  [maxLength]="1"
+                  (fileEmitter)="getlicenseDocFile($event)"
+                ></app-file-upload>
+                <!-- <input type="file" /> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-12">
+            <label class="label"
+              >Corporation name Document<span class="required">*</span></label
+            >
+            <div class="row">
+              <div class="col-lg-6 col-6">
+                <input
+                  class="field"
+                  formControlName="corpNameDoc"
+                  type="text"
+                />
+              </div>
+              <div class="col-lg-6 col-6">
+                <app-file-upload
+                  [isFileType]="true"
+                  [images]="images"
+                  [dataId]="shopId"
+                  [isMultiple]="false"
+                  [maxLength]="1"
+                  (fileEmitter)="getCorpNameDocFile($event)"
+                ></app-file-upload>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-12">
+            <label class="label"
+              >Government Issued ID<span class="required">*</span></label
+            >
+            <div class="row">
+              <div class="col-lg-6 col-6">
+                <input
+                  class="field"
+                  formControlName="govtIssuedId"
+                  type="text"
+                />
+                <p
+                  class="custom-error"
+                  *ngIf="
+                    businessInfoForm.get('govtIssuedId').hasError('required') &&
+                    (businessInfoForm.get('govtIssuedId').touched || isError)
+                  "
+                >
+                  Government Issued Id is required.
+                </p>
+              </div>
+              <div class="col-lg-6 col-6"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">Person in Charge</label>
+            <input class="field" type="text" formControlName="personInCharge" />
+          </div>
+          <!-- <div class="col-lg-6 col-6">
+            <label class="label">Person in Charge Email</label>
+            <input class="field" formArrayName="inChargeContactNo" type="text" />
+          </div> -->
+          <div class="col-lg-6 col-6">
+            <label class="label">Person in Charge Contact Number</label>
+            <input
+              class="field"
+              formControlName="inChargeContactNo"
+              type="text"
+            />
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="saveBussinessInfo()"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Warehouse Address">
+      <div class="tab-content">
+        <form
+          class="row"
+          [formGroup]="warehouseForm"
+          novalidate
+          *ngIf="warehouseForm"
+        >
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Full Name<span class="required">*</span></label
+            >
+            <input
+              class="field"
+              formControlName="fullName"
+              type="text"
+              required
+            />
+            <p
+              class="custom-error"
+              *ngIf="
+                warehouseForm.get('fullName').hasError('required') &&
+                (warehouseForm.get('fullName').touched || isError)
+              "
+            >
+              Full Name is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label"
+              >Contact Number<span class="required">*</span></label
+            >
+            <input class="field" formControlName="contactNo" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                warehouseForm.get('contactNo').hasError('required') &&
+                (warehouseForm.get('contactNo').touched || isError)
+              "
+            >
+              Contact Number is required.
+            </p>
+          </div>
+          <div class="col-lg-12 col-12">
+            <label class="label">Address<span class="required">*</span></label>
+            <input class="field" formControlName="address" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                warehouseForm.get('address').hasError('required') &&
+                (warehouseForm.get('address').touched || isError)
+              "
+            >
+              Address is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">Country<span class="required">*</span></label>
+            <ng-select
+              class="arrow"
+              [items]="countryList"
+              formControlName="country"
+              [multiple]="true"
+              [searchable]="true"
+              [clearable]="form.get('country').value"
+              placeholder="Enter Country"
+            >
+            </ng-select>
+            <p
+              class="custom-error"
+              *ngIf="
+                warehouseForm.get('country').hasError('required') &&
+                (warehouseForm.get('country').touched || isError)
+              "
+            >
+              Country is required.
+            </p>
+            <!-- <input class="field" formControlName="country" type="text" /> -->
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">State</label>
+            <input class="field" formControlName="state" type="text" />
+          </div>
+          <div class="col-lg-6 col-6">
+            <label class="label">Email<span class="required">*</span></label>
+            <input class="field" formControlName="email" type="text" />
+            <p
+              class="custom-error"
+              *ngIf="
+                warehouseForm.get('email').hasError('required') &&
+                (warehouseForm.get('email').touched || isError)
+              "
+            >
+              Email is required.
+            </p>
+          </div>
+          <div class="col-lg-6 col-6">
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="saveWarehouse()"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <!-- <mat-tab label="Shop Logo">
+      <div class="tab-content">
+        <span class="label">Upload Shop Logo</span>
+
+        <app-file-upload
+          [images]="images"
+          [dataId]="shopId"
+          [isMultiple]="multiple"
+          [maxLength]="maxLength"
+          (imageDataEmitter)="getImages($event)"
+        ></app-file-upload>
+      </div>
+    </mat-tab> -->
+  </mat-tab-group>
+</div>

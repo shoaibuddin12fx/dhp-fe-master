@@ -1,0 +1,43 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else isNewTemplate"> Add </ng-container>
+      <ng-template #isNewTemplate> Update </ng-template>
+      Date of Birth
+    </h4>
+  </div>
+  <div class="popup-body">
+    <!-- <select class="field arrow" [(ngModel)]="dateOfBirth">
+      <option value="" disabled selected>Month</option>
+    </select>
+    <select class="field arrow">
+      <option value="" disabled selected>Date</option>
+    </select>
+    <select class="field arrow">
+      <option value="" disabled selected>Year</option>
+    </select> -->
+
+    <!-- <div class="field"> -->
+    <!-- <i class="fas fa-birthday-cake icon"></i> -->
+    <input
+      class="field"
+      type="date"
+      placeholder="date of birth"
+      [(ngModel)]="dateOfBirth"
+    />
+
+    <!-- <input
+      class="field"
+      type="text"
+      placeholder="Company name"
+      [(ngModel)]="dateOfBirth"
+    /> -->
+    <!-- </div> -->
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Save</button>
+    </div>
+  </div>
+</div>

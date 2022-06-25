@@ -1,0 +1,347 @@
+@import "../../../assets/partials/variable.scss";
+.job-view-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .job-view-box {
+      margin: 0px 0 20px;
+      .view-inner-box {
+        padding: 22px 0px 22px 45px;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .image-box {
+          flex: 0 0 12%;
+          max-width: 12%;
+          text-align: center;
+          .image {
+            width: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+        .content-box {
+          flex: 0 0 88%;
+          max-width: 88%;
+          padding: 0 80px 0 20px;
+          .title {
+            margin-bottom: 0;
+            font-size: 20px;
+            font-weight: 800;
+            color: $theme-black;
+            line-height: 1.3;
+          }
+          .name {
+            color: $theme-primary;
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            line-height: 1.2;
+            margin-bottom: 5px;
+          }
+          .address {
+            font-size: 12px;
+            font-weight: 500;
+            display: block;
+            color: $theme-content;
+            margin: 0px 0 5px;
+          }
+        }
+        .action-buttons {
+          position: absolute;
+          top: 25px;
+          right: 0px;
+          line-height: 1;
+          cursor: pointer;
+          .button {
+            .icon {
+              color: $theme-black;
+              background: $theme-bg-sidebar;
+              border-radius: 50%;
+              width: 22px;
+              height: 22px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 7px;
+              font-size: 12px;
+            }
+            &:last-child {
+              .icon {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+      .job-description-box {
+        border: 1px solid $theme-background-light;
+        border-radius: 8px;
+        padding: 25px 30px;
+        .title {
+          text-transform: capitalize;
+          font-weight: 700;
+          color: $theme-black;
+          margin-bottom: 20px;
+          font-size: 17px;
+        }
+        .description {
+          .content {
+            color: $theme-content;
+            font-size: 12px;
+          }
+        }
+        .listing {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          margin: 30px 0 0 0;
+          .item {
+            color: $theme-content;
+            font-size: 12px;
+            position: relative;
+            padding-left: 8px;
+            margin-left: 5px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 6px;
+              left: 0;
+              width: 3px;
+              height: 3px;
+              background-color: $theme-black;
+              border-radius: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+        .button {
+          background: $theme-primary;
+          color: $theme-white;
+          padding: 10px 30px;
+          border-radius: 25px;
+          font-size: 12px;
+          line-height: 1;
+          margin-top: 15px;
+        }
+      }
+      .related-job-box {
+        margin: 20px 0;
+        .related-title {
+          margin: 40px 0 20px 30px;
+          font-weight: 800;
+        }
+        .inner-box-main {
+          position: relative;
+          .inner-box {
+            padding: 22px 25px 22px 15px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid $theme-background-light;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .image-box {
+              flex: 0 0 12%;
+              max-width: 12%;
+              text-align: center;
+              .image {
+                width: 50px;
+                object-fit: cover;
+                border-radius: 8px;
+              }
+            }
+            .content-box {
+              flex: 0 0 88%;
+              max-width: 88%;
+              padding-left: 20px;
+              .title {
+                margin-bottom: 0;
+                font-size: 15px;
+                font-weight: 800;
+                color: $theme-black;
+                line-height: 1.3;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin-bottom: 0px;
+                padding-right: 55px;
+              }
+              .address {
+                font-size: 12px;
+                font-weight: 500;
+                display: block;
+                line-height: 1.3;
+                color: $theme-content;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin: 0px 0 5px;
+                padding-right: 55px;
+              }
+              .job-type {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 5px;
+                .left {
+                  flex: 0 0 50%;
+                  display: flex;
+                  span {
+                    margin-right: 5px;
+                    display: inline-block;
+                    font-size: 13px;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    i {
+                      font-size: 10px;
+                      width: 15px;
+                      height: 15px;
+                      border-radius: 50%;
+                      background-color: $theme-primary;
+                      color: $theme-white;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                  }
+                }
+                .right {
+                  flex: 0 0 50%;
+                  text-align: end;
+                  cursor: auto;
+                  span {
+                    display: inline-block;
+                    margin-right: 10px;
+                    color: $theme-content;
+                    font-size: 12px;
+                    i {
+                      font-size: 12px;
+                      padding-right: 10px;
+                    }
+                    &:last-child {
+                      margin-right: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+            .icon {
+              color: $theme-content;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-white;
+      border: 1px solid $theme-light-border;
+      .event-rigth-box {
+        .top-title {
+          .title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 0;
+          }
+        }
+        .card-main-box {
+          padding-bottom: 10px;
+          .card-item {
+            .cards {
+              .location-box {
+                iframe {
+                  width: 100%;
+                  height: 120px;
+                }
+                p {
+                  font-size: 12px;
+                  font-weight: 500;
+                }
+              }
+              .job-detail {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                width: 100%;
+                .item {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  margin-bottom: 15px;
+                  .icon {
+                    color: $theme-primary;
+                  }
+                  .right-detail {
+                    flex: 1;
+                    padding-left: 15px;
+                    .job-titel {
+                      display: block;
+                      font-size: 12px;
+                      line-height: 1.2;
+                      color: $theme-content;
+                    }
+                    .job-category {
+                      display: block;
+                      font-size: 14px;
+                      font-weight: 500;
+                      color: $theme-black;
+                    }
+                  }
+                  .button {
+                    background: $theme-primary;
+                    color: $theme-white;
+                    padding: 10px 30px;
+                    border-radius: 25px;
+                    font-size: 12px;
+                    line-height: 1;
+                    margin-top: 15px;
+                  }
+                  &:last-child {
+                    justify-content: center;
+                  }
+                }
+              }
+              &.c-auto {
+                cursor: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+::ng-deep.expansion-header .mat-expansion-indicator::after {
+  color: $theme-content !important;
+}

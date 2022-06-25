@@ -1,0 +1,69 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Group Members
+      <button class="btn close" style="float:right;" [mat-dialog-close]>X</button>
+    </h4>
+    
+  </div>
+  <div class="popup-body">
+    <ul class="profile-box">
+      <h5 class="inner-title">{{title}}</h5>
+      <li class="item">
+        <app-group-member-item
+          [memberList]="users"
+          [isAbout]="isAbout"
+          (onSuccess)="close()"
+        ></app-group-member-item>
+      </li>
+      <!-- <li class="item">
+        <button class="profile-image">
+          <img
+            class="image"
+            src="../../../../assets/images/home/sidebar/profile-image.PNG"
+          />
+        </button>
+        <div class="profile-info">
+          <p class="profile-title">Alfonzo Raynor</p>
+        </div>
+        <div
+          class="profile-button"
+          mat-icon-button
+          [matMenuTriggerFor]="admin"
+        >
+          <i class="fa fa-ellipsis-h icon"></i>
+        </div>
+        <mat-menu #admin>
+          <button mat-menu-item (click)="$event.stopPropagation()">
+            <p class="popup-title">
+              <span>Post Approval</span>
+              <mat-slide-toggle></mat-slide-toggle>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Remove as Admin</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Block from Group</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Remove Member</span>
+            </p>
+          </button>
+        </mat-menu>
+      </li> -->
+      <!-- <div class="action-button">
+        <button class="button" (click)="GroupMembersDialog(groupAdmins)">See all</button>
+      </div> -->
+    </ul>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+    </div>
+  </div>
+</div>

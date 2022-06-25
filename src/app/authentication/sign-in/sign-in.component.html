@@ -1,0 +1,112 @@
+<div class="row gx-0">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="left-box">
+      <div class="logo">
+        <img src="../../../assets/images/authentication/logo-black.png" />
+      </div>
+      <div class="main-box">
+        <h2 class="title">sign in your <span>account</span></h2>
+        <p *ngIf="errorMessage" class="error">
+          {{ errorMessage }}
+        </p>
+        <form class="form" #f="ngForm" (ngSubmit)="Login(f)">
+          <div class="field-container-main">
+            <div class="field-container">
+              <i class="far fa-envelope icon"></i>
+              <input
+                class="field"
+                type="mail"
+                placeholder="email"
+                [ngClass]="{ error: f.submitted && email.invalid }"
+                [(ngModel)]="model.email"
+                name="email"
+                #email="ngModel"
+                ngDefaultControl
+                required
+                email
+              />
+            </div>
+            <div class="field-container">
+              <i class="fas fa-unlock-alt icon"></i>
+              <input
+                class="field"
+                type="text"
+                placeholder="password"
+                *ngIf="showPassword"
+                [ngClass]="{ error: f.submitted && password.invalid }"
+                [(ngModel)]="model.password"
+                name="password"
+                #password="ngModel"
+                ngDefaultControl
+                required
+                minlength="6"
+              />
+              <input
+                class="field"
+                type="password"
+                placeholder="password"
+                *ngIf="!showPassword"
+                [ngClass]="{ error: f.submitted && password.invalid }"
+                [(ngModel)]="model.password"
+                name="password"
+                #password="ngModel"
+                ngDefaultControl
+                required
+                minlength="6"
+              />
+              <div class="show-password" (click)="showPassword = !showPassword">
+                <i class="far fa-eye icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="action-button">
+            <button class="button" [disabled]="showLoading">
+              Sign in
+              <img
+                src="../../../assets/images/tail-spin.svg"
+                alt="loading"
+                width="23px"
+                *ngIf="showLoading"
+              />
+            </button>
+            <button
+              type="button"
+              class="button google-button border-gradient"
+              (click)="signInWithGoogle()"
+            >
+              Sign in with google
+              <img
+                class="image"
+                src=".../../../../../assets/images/authentication/google-icon.PNG"
+              />
+            </button>
+          </div>
+        </form>
+        <div class="bottom-line">
+          <button class="button" [routerLink]="['/sign-up']">Sign up</button>
+          <span>for a new account</span>
+          <button class="forget-button" [routerLink]="['/forgot-password']">
+            Forget Password?
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+    <div class="right-box">
+      <div class="content-box">
+        <h1 class="title">
+          <b>Ultimate Solution</b> for
+          <br />
+          Overseas Pakistani
+          <br />
+          <b>Community</b>
+        </h1>
+        <p class="content">
+          We are the only and through web portal for overseas Pakistanis, <br />
+          connecting them accross the globe.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

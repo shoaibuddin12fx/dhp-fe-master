@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="newspaper" y="1" width="23" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAVCAYAAACt4nWrAAABbklEQVQ4jaWVPS9EQRSGH3sFQS0bolMo9LK9Ukeh8R9IdJr1H3SiUBFaBUIjFBKNfiNRiIKs+Agi616ZdSY5OzN39t71JnPvyfl4c/LOmRlycAC8AFmP6x046wtwJ0BL7HsvWgwTeVmJdPvqRYqjYTgq/yCIoa1IjDwkWSnyfs8dxiQwI0WZIkiBa+ApXObDav6mIo3I1Bx7DHBrYkU7XwdqYuvOjX3kZXeBKfqKp0Thdb4ATKl9eI5VF4EhGgVOgVkn/1HZ28B8lwk6Bxa1w5BvCfEJsCsTsANUVd6YrBiqoZjR9yPg+3R8lZw1AAw6uR2aN1UgkX/LKUi9tv7w7XkEljzxIp3YAOYCmmci5aZXoRIenM7dQ3QVODx27XuMgVGMoSZXQAh3AV9bUkv+owLWHlK+NIckD8NaFj0t9ljflCDTmJb6pul8D1gCLoBDYFkyjfZrJa/ecWBF7FXzGQEunU0yr5AZsV7f0DrAL0CPdbrmnlCSAAAAAElFTkSuQmCC"/>
+  </g>
+</svg>

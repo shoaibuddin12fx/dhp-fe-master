@@ -1,0 +1,50 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Edit Cover Photo</h4>
+    <button class="close-button" mat-dialog-close>
+      <i class="fa fa-close"></i>
+    </button>
+  </div>
+  <div class="popup-body">
+    <div class="image-upload-box">
+      <figure class="cover-box">
+        <img
+          class="cover-photo"
+          *ngIf="coverPhotoUrl; else defaultPhoto"
+          [src]="coverPhotoUrl"
+        />
+        <ng-template #defaultPhoto>
+          <img
+            class="cover-photo"
+            src="../../../../../assets/images/profile/profile-cover.jpg"
+          />
+        </ng-template>
+        <div class="browse" #image>
+          <input
+            class="upload-field"
+            type="file"
+            id="file"
+            accept="image/*"
+            (change)="onSelectImageFile($event)"
+          />
+          <label for="file" class="fa fa-camera icon"></label>
+        </div>
+      </figure>
+    </div>
+    <div class="image-gallery">
+      <h5 class="title">Select from photos</h5>
+      <div
+        class="image-box"
+        *ngFor="let photo of data?.photos"
+        (click)="onSelectPhoto(photo)"
+      >
+        <img [src]="photo?.url" [alt]="photo?.title" class="image" />
+      </div>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button class="btn-save" (click)="onUpdateCoverPhoto()">
+      Save Changes
+    </button>
+  </div>
+</div>

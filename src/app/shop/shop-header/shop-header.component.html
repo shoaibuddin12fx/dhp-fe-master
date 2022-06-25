@@ -1,0 +1,75 @@
+<div class="header">
+  <ul class="navigation">
+    <li class="list" mat-icon-button [matMenuTriggerFor]="storeType">
+      <a class="title">
+        <span *ngIf="shopType == 1"> Retail</span>
+        <span *ngIf="shopType == 2"> Wholesale</span>
+        <i class="fas fa-angle-down icon"></i>
+      </a>
+    </li>
+    <mat-menu #storeType>
+      <button mat-menu-item [routerLink]="['/shop', 1, 'home']">
+        <p class="popup-title">
+          <span>Retail</span>
+        </p>
+      </button>
+      <button mat-menu-item [routerLink]="['/shop', 2, 'home']">
+        <p class="popup-title">
+          <span>Wholesale</span>
+        </p>
+      </button>
+    </mat-menu>
+    <li class="list">
+      <a
+        class="title"
+        [routerLink]="['/shop', shopType, 'order']"
+        [routerLinkActive]="['active']"
+        >my orders</a
+      >
+    </li>
+    <li class="list">
+      <a
+        class="title"
+        [routerLink]="['/shop', shopType, 'customer-care']"
+        [routerLinkActive]="['active']"
+        >customer care</a
+      >
+    </li>
+  </ul>
+  <div class="search-bar">
+    <i class="fas fa-search icon"></i>
+    <input
+      type="text"
+      name=""
+      id=""
+      [(ngModel)]="searchValue"
+      placeholder="looking for something?"
+      class="feild"
+      (keyup)="searchText($event.target.value)"
+      (keyup.enter)="Search(1)"
+    />
+    <i
+      class="fas fa-times icon"
+      *ngIf="searchValue"
+      (click)="searchText(''); Search(2)"
+    ></i>
+  </div>
+  <div class="manage-store" [routerLink]="['/e-seller', 'shops']">
+    <p>Manage your Store</p>
+    <img
+      src="../../../../assets/images/shop/retail/pie.png"
+      alt=""
+      class="image"
+    />
+  </div>
+</div>
+<div class="search-container" *ngIf="searchResults.length > 0">
+  <div *ngFor="let item of searchResults">
+    <div
+      class="prod-item"
+      [routerLink]="['/shop', item.type, 'product', item.id]"
+    >
+      <div style="padding: 5px 35px">{{ item.name }}</div>
+    </div>
+  </div>
+</div>

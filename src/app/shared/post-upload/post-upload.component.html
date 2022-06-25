@@ -1,0 +1,31 @@
+<div class="post-upload post-sticky" id="getSticky">
+  <div class="left">
+    <ng-container *ngIf="user?.profileImage; else elseTemplate">
+      <img class="avatar" [src]="user?.profileImage" />
+    </ng-container>
+    <ng-template #elseTemplate>
+      <img
+        class="avatar"
+        src="../assets/images/home/sidebar/profile-image2.png"
+      />
+    </ng-template>
+    <!-- <img class="avatar" src="../assets/images/home/sidebar/profile-image.PNG" /> -->
+    <!-- <input class="post-content" type="text" placeholder="Whats new Sarah?"> -->
+    <textarea
+      (click)="openCreatePostDialog('text')"
+      class="post-content"
+      [(ngModel)]="description"
+      [placeholder]="placeholder"
+    ></textarea>
+  </div>
+  <div class="right">
+    <button class="post-image pr-8" (click)="openCreatePostDialog('photo')">
+      <i class="fa fa-file-image-o icon"></i>
+      <span>Photo</span>
+    </button>
+    <button class="post-link" (click)="openVideoDialog('video')">
+      <i class="fa fa-link icon"></i>
+      <span>Video</span>
+    </button>
+  </div>
+</div>

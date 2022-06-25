@@ -1,0 +1,32 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">{{ title }}</h4>
+  </div>
+  <div>
+    <div class="popup-body">
+      <div class="profile-box">
+        <ng-container *ngIf="groupCoverPhoto; else elseTemplate">
+          <img class="image" [src]="groupCoverPhoto" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img class="image" src="../../../assets/images/groups/group-bg.jpg" />
+        </ng-template>
+
+        <h4 class="title">{{ groupName }}</h4>
+        <button
+          class="button mt-4"
+          [ngClass]="isRequestedToJoin ? 'button-gray' : 'button-success'"
+          (click)="!isRequestedToJoin && requestToJoin()"
+          [disabled]="isRequestedToJoin"
+        >
+          {{ isRequestedToJoin ? "Request Pending" : "Request to join" }}
+        </button>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" (click)="closeDialog()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

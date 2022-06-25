@@ -1,0 +1,148 @@
+@import "../../../assets/partials/variable.scss";
+.public-layout {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: $theme-white;
+  .detial-box {
+    margin-bottom: 20px;
+    .title-box {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        width: max-content;
+        color: $theme-black;
+      }
+    }
+  }
+  .listing {
+    padding-left: 15px;
+    color: $theme-primary-dark;
+    .item {
+      width: 100%;
+      .box-title {
+        width: 100%;
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: $theme-primary-dark;
+      }
+      .main-box {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background: #f9f9fb;
+        .main-box-title {
+          font-size: 14px;
+          font-weight: 600;
+          margin-left: 2px;
+          color: $theme-black;
+          display: inline-block;
+        }
+        .inner-list {
+          padding: 0 15px;
+          list-style-type: none;
+          .item {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            .content {
+              width: 100%;
+              font-size: 14px;
+              font-weight: 400;
+              color: $theme-black;
+            }
+            .switch-box {
+              margin-left: 8px;
+              .switch {
+                position: relative;
+                display: inline-block;
+                width: 45px;
+                height: 20px;
+                input {
+                  opacity: 0;
+                  width: 0;
+                  height: 0;
+                  &:checked + .slider {
+                    background-color: $theme-primary;
+                  }
+
+                  &:focus + .slider {
+                    box-shadow: 0 0 1px $theme-primary;
+                  }
+
+                  &:checked + .slider:before {
+                    -webkit-transform: translateX(22px);
+                    -ms-transform: translateX(22px);
+                    transform: translateX(22px);
+                  }
+                }
+                .slider {
+                  position: absolute;
+                  cursor: pointer;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background-color: #ccc;
+                  -webkit-transition: 0.4s;
+                  transition: 0.4s;
+                  border-radius: 34px;
+
+                  &:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 4px;
+                    bottom: 2px;
+                    background-color: white;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                    border-radius: 50%;
+                  }
+                }
+                p {
+                  margin: 0;
+                  font-size: 10px;
+                  font-weight: 800;
+                  padding-top: 4px;
+                  color: $theme-black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 20px;
+      margin-right: 10px;
+      color: $theme-white;
+      border-radius: 25px;
+      background-color: $theme-warning;
+      &:last-child {
+        margin-right: 0;
+        background-color: $theme-primary;
+      }
+    }
+  }
+}

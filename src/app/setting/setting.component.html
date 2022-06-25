@@ -1,0 +1,42 @@
+<div class="setting-layout">
+  <div class="header">
+    <div class="left-box"></div>
+    <ul class="social-icons">
+      <li class="social-list">
+        <i class="fa fa-comment icon">
+          <span class="badge">1</span>
+        </i>
+      </li>
+      <li class="social-list">
+        <i class="fa fa-bell icon"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="side-bar">
+    <div class="logo">
+      <img
+        [routerLink]="['/settings']"
+        src="../../../assets/images/authentication/logo-black.png"
+      />
+    </div>
+    <h4 class="title">SETTINGS</h4>
+    <div class="user-info">
+      <span class="home" [routerLink]="['/settings', 'general']">General</span>
+      <span class="home" [routerLink]="['/settings', 'security-privacy']"
+        >Security and Privacy</span
+      >
+      <span class="home" [routerLink]="['/settings', 'language-region']"
+        >Language and Region</span
+      >
+      <span class="home" [routerLink]="['/settings', 'support-inbox']"
+        >Support Inbox</span
+      >
+      <span class="home" [routerLink]="['/settings', 'notification']"
+        >Notifications</span
+      >
+    </div>
+  </div>
+  <div class="main-section">
+    <router-outlet></router-outlet>
+  </div>
+</div>

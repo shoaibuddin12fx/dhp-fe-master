@@ -1,0 +1,181 @@
+<div class="events-layout">
+  <div class="main-box">
+    <div class="search-box">
+      <div class="search">
+        <i class="fa fa-search icon"></i>
+        <input type="text" placeholder="Discover events" />
+      </div>
+    </div>
+    <div class="events-box">
+      <div class="image-box">
+        <img
+          src="../../../../../assets/images/photos/cover.jpg"
+          class="image"
+          alt=""
+        />
+        <div class="inner-image">
+          <img
+            src="../../../../../assets/images/photos/cover.jpg"
+            class="image"
+            alt=""
+          />
+          <span class="free">free</span>
+        </div>
+      </div>
+      <div class="event-info">
+        <div class="title-main">
+          <h6 class="title">Art Expo</h6>
+          <p class="date">
+            <span>saturday</span>,
+            <span>january25, 2022</span>
+            at
+            <span>10 am</span>
+          </p>
+        </div>
+        <p class="content">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit earum
+          eos, voluptate quasi veniam architecto praesentium sapiente libero
+          officia delectus quaerat, soluta doloribus. Consequuntur adipisci
+          recusandae, nam nesciunt est eius?
+          <span class="menu-icon"
+            ><i
+              class="fa fa-ellipsis-h icon"
+              mat-icon-button
+              [matMenuTriggerFor]="event"
+            ></i
+          ></span>
+          <mat-menu #event>
+            <button mat-menu-item (click)="openReportDialog()">
+              <p class="popup-title">
+                <span>Report</span>
+              </p>
+            </button>
+          </mat-menu>
+        </p>
+        <div class="event-button">
+          <button class="button">
+            interested<i class="fas fa-heart icon"></i>
+          </button>
+          <div class="icon-box">
+            <span><i class="fa fa-thumbs-o-up icon"></i> like</span>
+            <span><i class="fa fa-commenting-o icon"></i> Comment</span>
+            <span>
+              <app-share-popup></app-share-popup>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="comment-box-main">
+        <div class="comment-item-top">
+          <div class="image-box">
+            <img
+              class="image"
+              src="../../../assets/images/home/sidebar/profile-image.PNG"
+            />
+          </div>
+          <div class="comment-box">
+            <textarea class="field" placeholder="write a comment"></textarea>
+          </div>
+        </div>
+        <ul class="comment-section">
+          <li class="comment-item">
+            <div class="image-box">
+              <img
+                class="image"
+                src="../../../assets/images/home/sidebar/profile-image.PNG"
+              />
+            </div>
+            <div class="comment-box">
+              <div class="comment-box-inner">
+                <p class="title">Emanuel Treutel</p>
+                <p class="comment">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur nemo iure esse commodi sit. Eveniet est nulla
+                  repellat cum, rerum beatae, fugit aut quidem perspiciatis
+                  maiores deleniti, quos ex voluptas.
+                </p>
+                <i
+                  class="fa fa-ellipsis-h icon"
+                  mat-icon-button
+                  [matMenuTriggerFor]="comment"
+                ></i>
+                <mat-menu #comment>
+                  <button mat-menu-item>
+                    <p class="popup-title">
+                      <span>Hide Comment</span>
+                    </p>
+                  </button>
+                  <button mat-menu-item (click)="openReportDialog()">
+                    <p class="popup-title">
+                      <span>Report</span>
+                    </p>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="actions">
+                <span class="like">Like</span>
+                <span class="reply">Reply</span>
+                <span class="time-ago">2 min ago</span>
+              </div>
+            </div>
+            <ul class="sub-comment-section">
+              <li class="sub-comment-item">
+                <div class="image-box">
+                  <img
+                    class="image"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <p class="title">Emanuel Treutel</p>
+                    <p class="comment">Lorem ipsum dolor sit amet</p>
+                    <i
+                      class="fa fa-ellipsis-h icon"
+                      mat-icon-button
+                      [matMenuTriggerFor]="comment"
+                    ></i>
+                    <mat-menu #comment>
+                      <button mat-menu-item>
+                        <p class="popup-title">
+                          <span>Hide Comment</span>
+                        </p>
+                      </button>
+                      <button mat-menu-item (click)="openReportDialog()">
+                        <p class="popup-title">
+                          <span>Report</span>
+                        </p>
+                      </button>
+                    </mat-menu>
+                  </div>
+                  <div class="actions">
+                    <span class="like">Like</span>
+                    <span class="reply">Reply</span>
+                    <span class="time-ago">2 min ago</span>
+                  </div>
+                </div>
+              </li>
+              <li class="sub-comment-item">
+                <div class="image-box">
+                  <img
+                    class="image"
+                    src="../../../assets/images/home/sidebar/profile-image.PNG"
+                  />
+                </div>
+                <div class="comment-box">
+                  <div class="comment-box-inner">
+                    <input
+                      class="field"
+                      type="text"
+                      placeholder="Reply to Emanuel Treutel"
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

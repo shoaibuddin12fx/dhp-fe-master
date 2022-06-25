@@ -1,0 +1,197 @@
+<div class="popup-box" [@slideToLeft]="isOpened ? 'open' : 'close'">
+  <div class="inner">
+    <div class="top-content">
+      <div class="title">
+        <!-- <div class="message-icon">
+          <i class="fa fa-comment icon">
+            <span class="badge">1</span>
+          </i>
+        </div> -->
+        <h5>Messages</h5>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="fas fa-ellipsis-h"></i>
+        </button>
+        <mat-menu #menu>
+          <button (click)="onToggleShowGroupChats()" mat-menu-item>
+            <p class="popup-title">
+              <span>Group chats only</span>
+              <mat-slide-toggle></mat-slide-toggle>
+            </p>
+          </button>
+          <!-- <button (click)="$event.stopPropagation()" mat-menu-item>
+            <p class="popup-title">
+              <span>New Message alerts</span>
+              <mat-slide-toggle></mat-slide-toggle>
+            </p>
+          </button> -->
+          <button (click)="$event.stopPropagation()" mat-menu-item>
+            <p class="popup-title">
+              <span>Status <b class="primary">(Active)</b></span>
+              <mat-slide-toggle></mat-slide-toggle>
+            </p>
+          </button>
+          <button (click)="openCreateGroup()" mat-menu-item>
+            <p class="popup-title">Create group</p>
+          </button>
+          <!-- <button (click)="$event.stopPropagation()" mat-menu-item>
+            <p class="popup-title warning">Block List</p>
+          </button> -->
+        </mat-menu>
+      </div>
+      <form action="">
+        <div class="field-container">
+          <input
+            type="text"
+            placeholder="search"
+            *ngIf="!showOnlyGroupChats"
+            (keyup)="chatSearchTerm($event.target.value)"
+          />
+          <input
+            type="text"
+            placeholder="search"
+            *ngIf="showOnlyGroupChats"
+            (keyup)="groupSearchTerm($event.target.value)"
+          />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <div class="content">
+      <ng-container *ngIf="!showOnlyGroupChats">
+        <div
+          class="friend-box"
+          *ngFor="let user of concatArr"
+          (click)="openChatBox(user, !!user?.isGroup)"
+        >
+          <div class="image-box">
+            <img *ngIf="user.profileImage" [src]="user.profileImage" alt="" />
+            <img
+              *ngIf="!user.profileImage"
+              class=""
+              src="../../../assets/images/profile/profile-cover.jpg"
+            />
+          </div>
+          <div class="right-box">
+            <h6 class="title">
+              {{ user?.fullName || user?.name }}
+              <span class="badge" *ngIf="user?.unreadMessagesCount">{{
+                user?.unreadMessagesCount
+              }}</span>
+            </h6>
+            <p class="message" *ngIf="user?.lastMessage">
+              {{ user?.lastMessage }}
+            </p>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="showOnlyGroupChats">
+        <div
+          class="friend-box"
+          *ngFor="let group of userChatGroups"
+          (click)="openChatBox(group, true)"
+        >
+          <div class="image-box">
+            <img
+              *ngIf="group?.profileImage"
+              [src]="group?.profileImage"
+              alt=""
+            />
+            <img
+              *ngIf="!group?.profileImage"
+              class=""
+              src="../../../assets/images/profile/profile-cover.jpg"
+            />
+          </div>
+          <div class="right-box">
+            <h6 class="title">
+              {{ group?.name }}
+              <span class="badge" *ngIf="group?.unreadMessagesCount">{{
+                group?.unreadMessagesCount
+              }}</span>
+            </h6>
+            <p class="message" *ngIf="group?.lastMessage">
+              {{ group?.lastMessage }}
+            </p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="message-box" *ngIf="showMessageBox">
+    <div class="title">
+      <h5>NEW GROUP</h5>
+      <button (click)="setShowMessageBox(false)">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- <form action="">
+      <div class="field-container">
+        <label for="">To:</label>
+        <input type="text" class="field" />
+        <span>Select multiple people to start a gooup chat</span>
+      </div>
+    </form> -->
+    <div class="content">
+      <div class="friend-box" *ngFor="let friend of userProfiles">
+        <div class="name">
+          <div class="image">
+            <img
+              class=""
+              [src]="
+                friend?.profileImage ||
+                '../../../assets/images/home/sidebar/profile-image.PNG'
+              "
+              alt=""
+            />
+          </div>
+          <p class="">{{ friend?.fullName }}</p>
+        </div>
+        <div class="checkbox" (click)="onSelectMember(friend)">
+          <button type="button">
+            <i class="fas" [class.fa-check]="friend?.selectedMember"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <div class="field-container">
+        <input
+          type="text"
+          [(ngModel)]="groupNameInput"
+          placeholder="Group name"
+        />
+        <button
+          class="btn btn-success"
+          [disabled]="!groupNameInput || !selectedMembers?.length"
+          (click)="onCreateGroup()"
+        >
+          Create group
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-chat-popup
+    [isMaster]="true"
+    modalId="0"
+    *ngIf="showChatBox[0]"
+    [userProfiles]="userProfiles"
+    [recipient]="recipient[0]"
+    [groupChatRoom]="groupChatRoom[0]"
+    (showChatBox)="closeChatBox(0)"
+    (hideChatBox)="closeChatBox(0)"
+  >
+  </app-chat-popup>
+
+  <app-chat-popup
+    [isMaster]="true"
+    modalId="1"
+    *ngIf="showChatBox[1]"
+    [userProfiles]="userProfiles"
+    [recipient]="recipient[1]"
+    [groupChatRoom]="groupChatRoom[1]"
+    (showChatBox)="closeChatBox(1)"
+    (hideChatBox)="closeChatBox(1)"
+  >
+  </app-chat-popup>
+</div>

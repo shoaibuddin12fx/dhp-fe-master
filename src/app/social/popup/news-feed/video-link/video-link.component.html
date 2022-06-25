@@ -1,0 +1,47 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create Post</h4>
+  </div>
+  <form
+    *ngIf="postForm"
+    name="postForm"
+    [formGroup]="postForm"
+    novalidate
+    id="form-postForm"
+    (submit)="UploadPost()"
+  >
+    <div class="popup-body">
+      <div class="profile-box">
+        <ng-container *ngIf="currentUser?.profileImage; else elseTemplate">
+          <img class="image" [src]="currentUser?.profileImage" />
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img
+            class="image"
+            src="../assets/images/home/sidebar/profile-image2.png"
+          />
+        </ng-template>
+        <h4 class="title">{{ currentUser.fullName }}</h4>
+      </div>
+      <div class="messgae-box">
+        <textarea
+          class="text-field field"
+          placeholder="What's New?"
+          formControlName="description"
+        ></textarea>
+        <input
+          class="field"
+          type="text"
+          placeholder="Enter Video Link"
+          formControlName="mediaUrl"
+        />
+      </div>
+    </div>
+    <div class="action-buttons">
+      <div class="right-box">
+        <button class="btn close" [mat-dialog-close]>Cancel</button>
+        <button class="btn add">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

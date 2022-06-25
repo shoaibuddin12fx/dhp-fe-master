@@ -1,0 +1,86 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-header {
+    position: relative;
+    .close-button {
+      top: 0;
+      right: 20px;
+      line-height: 1;
+      position: absolute;
+      color: $theme-content;
+      transform: translateY(-50%);
+    }
+  }
+  .popup-body {
+    height: 80%;
+    margin: 10px 0;
+    overflow: overlay;
+    margin-bottom: 20px;
+    .tips {
+      width: 100%;
+      display: block;
+      font-size: 12px;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      color: $theme-content;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .listing {
+      margin: 0;
+      padding: 0;
+      margin-top: 20px;
+      list-style-type: none;
+      .item {
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .button {
+          width: 10%;
+          border-width: 0;
+          .icon {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            font-size: 12px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid $theme-primary;
+          }
+          span {
+            width: 25px;
+            height: 25px;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid $theme-content;
+          }
+        }
+        .point {
+          width: 90%;
+          font-size: 12px;
+          font-weight: 600;
+          color: $theme-black;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    .btn-save {
+      width: 100%;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: $theme-white;
+      border-radius: 25px;
+      background-color: $theme-primary;
+    }
+  }
+}

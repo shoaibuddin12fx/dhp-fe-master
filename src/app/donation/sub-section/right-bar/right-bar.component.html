@@ -1,0 +1,108 @@
+<div class="right-box">
+  <div class="right-box-inner">
+    <div class="search-box">
+      <div class="search">
+        <i class="fa fa-search icon"></i>
+        <input type="text" placeholder="Search.." />
+      </div>
+      <button class="button" (click)="openCompaignDialog()">
+        Start a Campaign
+      </button>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Top Donors</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="card-main-box">
+          <div class="card-item">
+            <div class="cards">
+              <div class="donor row gx-0 align-items-center">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar edge-sm"
+                    src="../../../assets/images/donation/home/group-profile.jpg "
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anika Schuster</p>
+                  <span class="total-amount">$100,000.00</span>
+                  <span class="total-donation">300 donation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="cards">
+              <div class="donor row gx-0 align-items-center">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar edge-sm"
+                    src="../../../assets/images/donation/home/user.png"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anonymous</p>
+                  <span class="total-amount">$50,000.00</span>
+                  <span class="total-donation">200 donation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="cards">
+              <div class="donor row gx-0 align-items-center">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar edge-sm"
+                    src="../../../assets/images/donation/home/user.png"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anonymous</p>
+                  <span class="total-amount">$40,000.00</span>
+                  <span class="total-donation">50 donation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="cards">
+              <div class="donor row gx-0 align-items-center">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar edge-sm"
+                    src="../../../assets/images/donation/home/user.png"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anonymous</p>
+                  <span class="total-amount">$25,000.00</span>
+                  <span class="total-donation">150 donation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="cards">
+              <div class="donor row gx-0 align-items-center">
+                <div class="col-lg-3">
+                  <img
+                    class="avatar edge-sm"
+                    src="../../../assets/images/donation/home/user.png"
+                  />
+                </div>
+                <div class="col-lg-9">
+                  <p class="title">Anonymous</p>
+                  <span class="total-amount">$10,000.00</span>
+                  <span class="total-donation">5 donation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

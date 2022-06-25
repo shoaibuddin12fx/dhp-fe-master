@@ -1,0 +1,115 @@
+@import "../../../../assets/partials/variable.scss";
+.voucher-layout {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: $theme-white;
+  .detial-box {
+    .title-box {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        width: max-content;
+        color: $theme-black;
+      }
+    }
+  }
+  .setup-section {
+    width: 100%;
+    margin-top: 10px;
+    .setup-box {
+      width: 100%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .listing {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        .item {
+          .title-box {
+            padding: 0;
+            .title {
+              font-size: 22px;
+              font-weight: 600;
+              width: max-content;
+              color: $theme-black;
+              margin-top: 15px;
+            }
+          }
+          label {
+            width: 100%;
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: $theme-black;
+          }
+          .field {
+            width: 100%;
+            padding: 8px;
+            outline: none;
+            font-size: 13px;
+            font-weight: 500;
+            appearance: none;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            color: $theme-black;
+            border: 1px solid $theme-border;
+            &.arrow {
+              cursor: pointer;
+              background-size: 30px 10px;
+              background-repeat: no-repeat;
+              background-position: center right;
+              background-image: url("../../../../assets/images/profile/arrow.png");
+            }
+          }
+          .voucher-discount {
+            margin: 20px 0;
+            .discount-title {
+              font-size: 18px;
+              font-weight: 600;
+              margin-bottom: 0;
+            }
+          }
+          .text-field {
+            resize: none;
+            height: 100px;
+            padding-top: 5px;
+          }
+        }
+      }
+    }
+    .action-buttons {
+      display: flex;
+      flex-flow: wrap;
+      margin-top: 20px;
+      align-items: center;
+      justify-content: flex-end;
+      button {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 6px 20px;
+        margin-right: 10px;
+        color: $theme-white;
+        border-radius: 25px;
+        background-color: $theme-warning;
+        &:last-child {
+          margin-right: 0;
+          background-color: $theme-primary;
+        }
+      }
+    }
+  }
+}
+::ng-deep .voucher-discount .mat-radio-label-content {
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 4px;
+  padding-right: 20px;
+  color: $theme-black;
+}

@@ -1,0 +1,14 @@
+@import "../../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-body {
+    .field {
+      margin-bottom: 0;
+    }
+    .field-notify {
+      font-size: 14px;
+      font-weight: 600;
+      color: $theme-content;
+      padding: 15px 0 15px 15px;
+    }
+  }
+}

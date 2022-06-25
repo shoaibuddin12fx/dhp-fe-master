@@ -1,0 +1,23 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">
+      <ng-container *ngIf="isNew; else isNewTemplate"> Add </ng-container>
+      <ng-template #isNewTemplate> Update </ng-template>
+      Gender
+    </h4>
+  </div>
+  <div class="popup-body">
+    <select class="field arrow" [(ngModel)]="gender">
+      <option value="" disabled selected>Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="No-specified">No-specified</option>
+    </select>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="add()">Save</button>
+    </div>
+  </div>
+</div>

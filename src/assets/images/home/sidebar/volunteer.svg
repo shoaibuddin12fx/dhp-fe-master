@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#9dccb3"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-1">
+    <image id="hands-up" x="4" width="15" height="23" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXCAYAAADUUxW8AAABgUlEQVQ4jZWUvS8EYRDGfydHJER8fzQihERQSVQi/gWJhohCoaWnVUo0itNISBTnoyFRqRQqFQ2VhuokciSI42Tkec/Yvb3Ek2xm3pl5duadmV0q4AAoAmfJIX/RA2SBCxHXJS+BQ2AkxgBGgSkgp2B7ruQ71fkTKABdnrjoCEXZVpz+AGxLN9tcIFYBGWBLmQO+IpUVYrUCackT4Fh6LVDjMtuLqh0n5zMb2oFmV1oSzNcL1HlyFGZPuQQhzsrfBF6A6XSMBu9Agztbd1vdNTeAbmA/lDkPtEkf1jwXRJgFxoEm+a3kIdND5kbgGThXwLWb857koOQA0OK7bQ17AyZil/hFXtpr6EdoRFLjPO6V/QboD/a8dvc/CCvLmpTUP8gWv2tKvQ7ZWEh5ZBTfEbxLbmSVMKO41WjMjhx9CWSbiPmPYh51sFhhXME/GQx+RJ2Stp7l8CFj6a6eHBbmLoEc7KXvwX8Y4UXLwG0Zst05mrAE29nHyC8p+jwBYz8M4Bt4OFrkGUWjXQAAAABJRU5ErkJggg=="/>
+  </g>
+</svg>

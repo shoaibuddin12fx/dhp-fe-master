@@ -1,0 +1,80 @@
+@import "../../../../assets/partials/variable.scss";
+.setup-main-box {
+  overflow: hidden;
+  position: relative;
+  counter-reset: title;
+  .setup-box {
+    padding: 0 10px;
+    margin-left: auto;
+    position: relative;
+    width: calc(100% - 40px);
+    .listing {
+      margin: 20px 0;
+      padding: 0;
+      list-style-type: none;
+      .item {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        .label {
+          width: 40%;
+          font-size: 14px;
+          font-weight: 600;
+          margin-right: 5px;
+          padding-left: 5px;
+          margin-bottom: 8px;
+          color: $theme-content;
+        }
+        .content {
+          width: 60%;
+          font-size: 14px;
+          font-weight: 600;
+          text-align: right;
+          padding-left: 5px;
+          margin-bottom: 8px;
+          color: $theme-black;
+        }
+      }
+    }
+    &::before {
+      top: 10px;
+      left: -35px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50%;
+      position: absolute;
+      align-items: center;
+      color: $theme-primary-dark;
+      justify-content: center;
+      content: counter(title);
+      counter-increment: title;
+      border: 2px solid $theme-primary-dark;
+    }
+    &::after {
+      width: 2px;
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(0% + 50px);
+      left: calc(0% - 22px);
+      height: calc(100% - 30px);
+      border: 1px dashed $theme-primary-dark;
+    }
+  }
+  &:last-child {
+    &::after {
+      bottom: 0%;
+      width: 10px;
+      content: "";
+      height: 10px;
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(0% + 14px);
+      background-color: $theme-primary-dark;
+    }
+  }
+}

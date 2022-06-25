@@ -1,0 +1,64 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  .popup-body {
+    height: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    overflow: overlay;
+    padding-bottom: 0;
+    ::ng-deep {
+      .mat-tab-header {
+        border-bottom: unset;
+      }
+    }
+    .tab-content {
+      margin-top: 30px;
+      label {
+        display: block;
+        font-weight: 800;
+        font-size: 13px;
+        padding-left: 10px;
+        margin-bottom: 5px;
+      }
+      .text-field {
+        height: 100px;
+      }
+      .rating {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        line-height: 1;
+        flex-flow: wrap;
+        margin-top: 10px;
+        align-items: center;
+        list-style-type: none;
+        justify-content: flex-start;
+        .list {
+          font-size: 26px;
+          cursor: pointer;
+          margin-right: 8px;
+          .icon {
+            color: #feba00;
+            &.gray {
+              color: #c9c9c9;
+            }
+          }
+          .active-icon {
+            color: #feba00;
+          }
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 40px;
+    .btn {
+      width: 120px;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+<div class="popup-box">
+  <div class="popup-header">
+    <h4 class="title">Create Group</h4>
+  </div>
+  <div class="popup-body">
+    <form
+      name="groupForm"
+      [formGroup]="groupForm"
+      novalidate
+      *ngIf="groupForm"
+      id="form-groupForm"
+    >
+      <h5 class="title">Profile Picture and Cover Photo</h5>
+      <div class="image-upload-box">
+        <figure class="profile-box">
+          <ng-container *ngIf="profilePhoto !== ''; else elseProfilePhoto">
+            <img class="profile-photo" [src]="profilePhoto" />
+          </ng-container>
+          <ng-template #elseProfilePhoto>
+            <img
+              class="profile-photo"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </ng-template>
+          <div class="browse" #image>
+            <input
+              class="upload-field"
+              type="file"
+              id="file"
+              accept="image/*"
+              (change)="onProfileChange($event)"
+            />
+            <label for="file" class="fa fa-camera icon"></label>
+          </div>
+        </figure>
+        <figure class="cover-box">
+          <ng-container *ngIf="coverPhoto !== ''; else elseCoverPhoto">
+            <img class="cover-photo" [src]="coverPhoto" />
+          </ng-container>
+          <ng-template #elseCoverPhoto>
+            <img
+              class="cover-photo"
+              src="../../../../../assets/images/photos/profile.jpg"
+            />
+          </ng-template>
+          <div class="browse" #image>
+            <input
+              class="upload-field"
+              type="file"
+              id="file"
+              accept="image/*"
+              (change)="onCoverChange($event)"
+            />
+            <label for="file" class="fa fa-camera icon"></label>
+          </div>
+        </figure>
+      </div>
+      <div class="field-container">
+        <label for="">Group Name</label>
+        <input
+          class="field"
+          type="text"
+          placeholder="Enter Your Name"
+          formControlName="name"
+        />
+        <label for="">Group Privacy</label>
+        <select class="field arrow" formControlName="privacyType">
+          <option value="" disabled selected>Privacy</option>
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+        <label for="">Description</label>
+        <textarea
+          class="field text-field"
+          placeholder="Description"
+          formControlName="description"
+        ></textarea>
+        <label *ngIf="isFriendShow" for="">Invite Friends</label>
+        <!-- <input class="field" type="text" placeholder="Enter Name" /> -->
+        <ng-select
+          *ngIf="isFriendShow"
+          class="field"
+          [items]="friends"
+          [virtualScroll]="true"
+          bindLabel="fullname"
+          bindValue="userId"
+          formControlName="userIds"
+          [multiple]="true"
+          [searchable]="true"
+          [clearable]="true"
+          placeholder="Enter Name"
+        >
+          <!-- <ng-template ng-label-tmp let-item="item" let-search="searchTerm">
+            {{ item.fullName }}
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+            {{ item.firstName }} {{ item.lastName }}
+          </ng-template> -->
+        </ng-select>
+
+        <!-- <ng-select [items]="friends" [virtualScroll]="true" bindLabel="name" bindValue="id"
+      (change)="filterSearch()" [(ngModel)]="searchData[2].value" multiple="true">
+    </ng-select> -->
+      </div>
+    </form>
+  </div>
+  <div class="action-buttons">
+    <div class="right-box">
+      <button class="btn close" [mat-dialog-close]>Cancel</button>
+      <button class="btn add" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

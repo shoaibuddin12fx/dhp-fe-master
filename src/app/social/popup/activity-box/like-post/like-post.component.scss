@@ -1,0 +1,90 @@
+@import "../../../../../assets/partials/variable.scss";
+.popup-box {
+  .popup-header {
+    position: relative;
+    .close-button {
+      top: 0;
+      right: 20px;
+      line-height: 1;
+      position: absolute;
+      color: $theme-content;
+      transform: translateY(-50%);
+    }
+  }
+  .popup-body {
+    height: 90%;
+    overflow: overlay;
+    padding-right: 15px;
+    .like-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      .item {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: space-between;
+        .friend-box {
+          display: flex;
+          align-items: center;
+          .image-box {
+            width: 45px;
+            height: 45px;
+            position: relative;
+            border-radius: 50%;
+            &:before {
+              top: -2px;
+              right: -2px;
+              width: 15px;
+              content: "";
+              height: 15px;
+              display: block;
+              border-radius: 50%;
+              position: absolute;
+              border: 2px solid $theme-white;
+              background-color: $theme-primary;
+            }
+            .image {
+              width: 45px;
+              height: 45px;
+              cursor: pointer;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+          .title {
+            margin: 0;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 700;
+            padding-left: 10px;
+            display: inline-block;
+          }
+        }
+        .button {
+          width: 120px;
+          line-height: 1;
+          font-size: 12px;
+          font-weight: 700;
+          position: relative;
+          margin-right: 10px;
+          border-radius: 25px;
+          color: $theme-primary;
+          padding: 10px 0px 10px 15px;
+          background: $theme-bg-sidebar;
+          .add-icon {
+            position: absolute;
+            top: 50%;
+            left: 13px;
+            transform: translateY(-50%);
+          }
+          &.request-send {
+            color: $theme-white;
+            padding: 10px 15px 10px 15px;
+            background-color: $theme-primary;
+          }
+        }
+      }
+    }
+  }
+}

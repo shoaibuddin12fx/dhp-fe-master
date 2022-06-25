@@ -1,0 +1,513 @@
+<div class="adview-layout">
+  <div class="left-box">
+    <div class="banner-profile">
+      <img
+        class="cover"
+        src="../../../assets/images/profile/profile-cover.jpg"
+      />
+      <div class="tag-box">
+        <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+      </div>
+      <button class="button" mat-icon-button [matMenuTriggerFor]="share">
+        <i class="fa fa-ellipsis-h icon"></i>
+      </button>
+      <mat-menu #share>
+        <button mat-menu-item (click)="openReportDialog()">
+          <p class="popup-title">
+            <span>Report</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="timelineShareDialog()">
+          <p class="popup-title">
+            <span>Share on timeline</span>
+          </p>
+        </button>
+        <button mat-menu-item (click)="sharePostDialog()">
+          <p class="popup-title">
+            <span>Share in a group</span>
+          </p>
+        </button>
+        <p class="sub-title-menu">Share via</p>
+        <ul class="social-platform pl-25">
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-facebook-f icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-twitter icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-instagram icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="fab fa-whatsapp icon"></i>
+          </li>
+          <li class="item" mat-menu-item (click)="$event.stopPropagation()">
+            <i class="far fa-envelope icon"></i>
+          </li>
+        </ul>
+      </mat-menu>
+      <div class="banner-content">
+        <div class="left-content">
+          <div class="image-box">
+            <img
+              src="../../../assets/images/home/sidebar/profile-image.PNG"
+              class="image"
+            />
+          </div>
+          <p class="creater-name">
+            <span class="date">By</span>
+            <span class="name">Sarah Cruise</span>
+            <span class="date">Nov 02 2021</span>
+          </p>
+        </div>
+        <div class="right-content">
+          <span class="contact-info"
+            ><i class="fas fa-phone-alt icon"></i>000 000 0000</span
+          >
+          <span class="contact-info"
+            ><i class="fas fa-envelope icon"></i>sarahc@mail.com</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="adview-content-main">
+      <div class="adview-detail">
+        <div class="top-detail">
+          <h5 class="title">Burgers & Drinks (Midnight deals)</h5>
+          <p class="name">
+            <span><i class="fas fa-dollar-sign icon"></i>75 </span>usd
+          </p>
+        </div>
+        <div class="bottom-detail">
+          <span><i class="fas fa-grip-horizontal icon"></i>Restaurant</span>
+          <span
+            ><i class="fas fa-map-marker-alt icon"></i>4234 Chardonny Drive Fl,
+            USA (5 miles aways)</span
+          >
+        </div>
+      </div>
+      <div class="adview-description">
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+          blanditiis quam minus nemo aut tenetur iusto beatae voluptate? Eius
+          fugiat voluptate fuga. Nihil, sint est? Reiciendis maxime cumque
+          consequatur iure. consectetur adipisicing elit. Excepturi blanditiis
+          quam minus nemo aut tenetur iusto beatae voluptate? Eius fugiat
+          voluptate fuga. Nihil, sint est? Reiciendis maxime cumque consequatur
+          iure.
+        </p>
+        <ul class="adview-list">
+          <li class="list-item">
+            <p>- lore Ipsum dolor sit amet.</p>
+          </li>
+          <li class="list-item">
+            <p>- lore Ipsum dolor sit amet.</p>
+          </li>
+          <li class="list-item">
+            <p>- lore Ipsum dolor sit amet.</p>
+          </li>
+          <li class="list-item">
+            <p>- lore Ipsum dolor sit amet.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-detail">
+        <span><i class="fas fa-phone-alt icon"></i>000 000 0000</span>
+        <span><i class="fas fa-envelope icon"></i>sarahc@mail.com</span>
+        <div class="action-button">
+          <button class="button color-button">Contact via email</button>
+          <button class="button">Contact on Phone</button>
+        </div>
+      </div>
+    </div>
+    <div class="advert-box">
+      <h5 class="title-main">Related Ads</h5>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="tag-box">
+          <h2 class="tag"><i class="fas fa-crown icon"></i>Featured</h2>
+        </div>
+        <div class="row gx-0">
+          <div class="col-lg-3">
+            <div class="image-box" [routerLink]="['../ad-view']">
+              <img
+                src="../../../assets/images/groups/profile.jpg"
+                class="image"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="content-box">
+              <p class="name">Restaurant</p>
+              <h5 class="title" [routerLink]="['../ad-view']">
+                Burgers & Drinks (Midnight deals)
+              </h5>
+              <span class="address" [routerLink]="['../ad-view']"
+                >4234 Chardonny Drive Fl, USA (5 miles aways)</span
+              >
+              <p class="price">$75<span>usd</span></p>
+              <button
+                class="button"
+                mat-icon-button
+                [matMenuTriggerFor]="share"
+              >
+                <i class="fa fa-ellipsis-h icon"></i>
+              </button>
+              <mat-menu #share>
+                <button mat-menu-item>
+                  <p class="popup-title" (click)="openReportDialog()">
+                    <span>Report</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="timelineShareDialog()">
+                  <p class="popup-title">
+                    <span>Share on timeline</span>
+                  </p>
+                </button>
+                <button mat-menu-item (click)="sharePostDialog()">
+                  <p class="popup-title">
+                    <span>Share in a group</span>
+                  </p>
+                </button>
+                <p class="sub-title-menu">Share via</p>
+                <ul class="social-platform pl-25">
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-facebook-f icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-twitter icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-instagram icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="fab fa-whatsapp icon"></i>
+                  </li>
+                  <li
+                    class="item"
+                    mat-menu-item
+                    (click)="$event.stopPropagation()"
+                  >
+                    <i class="far fa-envelope icon"></i>
+                  </li>
+                </ul>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <div class="right-box-inner">
+      <div class="search-box">
+        <button class="button" (click)="createAdDialog()">
+          <i class="fas fa-pencil-alt icon"></i>Post an AD
+        </button>
+      </div>
+      <div class="top-bar">
+        <h4 class="title">More Ad by Sarah</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-bar">
+        <h4 class="title">Featured ads</h4>
+      </div>
+      <div class="card-main-box">
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="cards row gx-0">
+            <div class="col-lg-4">
+              <img
+                class="avatar round"
+                src="../../../assets/images/home/main/featured-ad-image.PNG"
+              />
+            </div>
+            <div class="col-lg-8">
+              <p class="title">Fastfood advertisement</p>
+              <span class="content"
+                >Lorem ipsum dolor sit amet consectetur</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

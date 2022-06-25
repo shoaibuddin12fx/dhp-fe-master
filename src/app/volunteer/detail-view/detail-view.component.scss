@@ -1,0 +1,434 @@
+@import "../../../assets/partials/variable.scss";
+.profile-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+    .banner-profile {
+      width: 100%;
+      height: 180px;
+      display: block;
+      position: relative;
+      margin-bottom: 20px;
+      .cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        border-radius: 8px;
+        object-position: top;
+      }
+      .profile-info {
+        left: 0;
+        top: 50%;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: flex-start;
+        transform: translateY(-50%);
+        .profile-image {
+          .image {
+            padding: 2px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid $theme-primary;
+          }
+        }
+        .profile-detail {
+          padding-left: 20px;
+          .title {
+            font-size: 20px;
+            font-weight: 900;
+            color: $theme-black;
+          }
+          .detail {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: wrap;
+            align-items: center;
+            list-style-type: none;
+            justify-content: flex-start;
+            .item {
+              font-size: 14px;
+              font-weight: 500;
+              margin-right: 12px;
+              margin-bottom: 1px;
+              color: $theme-black;
+              .icon {
+                font-size: 12px;
+                padding-right: 2px;
+                color: $theme-primary;
+                &.rotate {
+                  transform: rotate(90deg);
+                }
+              }
+              &:last-child {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .button {
+        right: 15px;
+        width: 120px;
+        padding: 5px;
+        bottom: 15px;
+        font-size: 12px;
+        font-weight: 500;
+        font-weight: 500;
+        position: absolute;
+        color: $theme-white;
+        border-radius: 25px;
+        background-color: $theme-black;
+      }
+    }
+    .content-box {
+      .title {
+        font-size: 18px;
+        font-weight: 600;
+        color: $theme-black;
+        padding-bottom: 5px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        border-bottom: 1px solid $theme-light-border;
+      }
+      .content {
+        font-size: 14px;
+        font-weight: 400;
+        color: $theme-content;
+      }
+    }
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      .card-main-box {
+        .card-item {
+          .cards {
+            .content {
+              .icon {
+                margin: 0 4px;
+                color: $theme-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Responsive //
+@media (max-width: 1920px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 230px;
+        .profile-info {
+          .profile-image {
+            .image {
+              width: 120px;
+              height: 120px;
+            }
+          }
+          .profile-detail {
+            .title {
+              font-size: 24px;
+            }
+            .detail {
+              .item {
+                font-size: 18px;
+                .icon {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+        .button {
+          width: 140px;
+          font-size: 16px;
+        }
+      }
+      .content-box {
+        .title {
+          font-size: 24px;
+        }
+        .content {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1680px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 210px;
+        .profile-info {
+          .profile-image {
+            .image {
+              width: 110px;
+              height: 110px;
+            }
+          }
+          .profile-detail {
+            .title {
+              font-size: 22px;
+            }
+            .detail {
+              .item {
+                font-size: 17px;
+                .icon {
+                  font-size: 17px;
+                }
+              }
+            }
+          }
+        }
+        .button {
+        }
+      }
+      .content-box {
+        .title {
+          font-size: 22px;
+        }
+        .content {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 200px;
+        .profile-info {
+          .profile-image {
+            .image {
+              width: 100px;
+              height: 100px;
+            }
+          }
+          .profile-detail {
+            .title {
+              font-size: 20px;
+            }
+            .detail {
+              .item {
+                font-size: 16px;
+                .icon {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+        .button {
+          width: 120px;
+          font-size: 15px;
+        }
+      }
+      .content-box {
+        .title {
+          font-size: 20px;
+        }
+        .content {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1366px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 180px;
+        .profile-info {
+          .profile-image {
+            .image {
+            }
+          }
+          .profile-detail {
+            .title {
+            }
+            .detail {
+              .item {
+                font-size: 14px;
+                .icon {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .button {
+          font-size: 12px;
+        }
+      }
+      .content-box {
+        .title {
+          font-size: 18px;
+        }
+        .content {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 150px;
+        .profile-info {
+          .profile-image {
+            .image {
+              width: 90px;
+              height: 90px;
+            }
+          }
+          .profile-detail {
+            .title {
+            }
+            .detail {
+              .item {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+      .content-box {
+        .title {
+          font-size: 16px;
+        }
+        .content {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .profile-layout {
+    padding-right: 20px;
+    .left-box {
+      flex: 0 0 100%;
+    }
+    .right-box {
+      display: none;
+    }
+  }
+}
+@media (max-width: 540px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 170px;
+        .profile-info {
+          .profile-image {
+            .image {
+            }
+          }
+          .profile-detail {
+            .title {
+            }
+            .detail {
+              .item {
+                .icon {
+                }
+              }
+            }
+          }
+        }
+        .button {
+          bottom: 6px;
+          right: 10px;
+        }
+      }
+      .content-box {
+        .title {
+        }
+        .content {
+        }
+      }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .profile-layout {
+    padding-right: 10px;
+    .left-box {
+      .banner-profile {
+        height: 200px;
+        .profile-info {
+          top: 40%;
+          padding: 15px;
+          display: block;
+          .profile-image {
+            .image {
+              width: 70px;
+              height: 70px;
+            }
+          }
+          .profile-detail {
+            padding-left: 0px;
+            .title {
+              font-size: 18px;
+              margin: 5px 0;
+            }
+          }
+        }
+        .button {
+          left: 15px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 414px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        height: 230px;
+        .profile-info {
+          top: 42%;
+        }
+        .button {
+          bottom: 15px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .profile-layout {
+    .left-box {
+      .banner-profile {
+        .button {
+          bottom: 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import "../../../assets/partials/variable.scss";
+.friend-layout {
+  display: flex;
+  padding: 20px 0;
+  flex-flow: wrap;
+  position: relative;
+  align-items: flex-start;
+  justify-content: fleAx-start;
+  background-color: $theme-white;
+  .left-box {
+    flex: 0 0 70%;
+  }
+  .right-box {
+    flex: 0 0 30%;
+    padding: 0px 20px;
+    background-color: $theme-white;
+    .right-box-inner {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: $theme-bg-sidebar;
+      // .title{
+      //   font-size: 20px;
+      // }
+    }
+  }
+}
+@media (max-width: 1920px) {
+  .friend-layout {
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .friend-layout {
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .friend-layout {
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .friend-layout {
+    .right-box {
+      .right-box-inner {
+        .title {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .friend-layout {
+    padding-right: 20px;
+    .left-box {
+      flex: 0 0 100%;
+    }
+    .right-box {
+      display: none;
+    }
+  }
+}
+@media (max-width: 460px) {
+  .friend-layout {
+    padding: 10px 0;
+    padding-right: 10px;
+  }
+}

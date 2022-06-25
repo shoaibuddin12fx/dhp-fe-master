@@ -1,0 +1,83 @@
+<div class="main-box">
+  <div class="banner">
+    <img class="cover" [src]="group.coverPhoto" />
+    <button *ngIf="isGroupAdmin" class="edit-profile" (click)="createGroupDialog()">
+      <i class="fas fa-pencil-alt icon"></i>
+      Edit
+    </button>
+  </div>
+  <div class="status-bar">
+    <div class="left-box">
+      <div class="profile-box">
+        <img class="image" [src]="group.profilePhoto" />
+        <h2 class="title">{{ group.name }}</h2>
+        <i *ngIf="isGroupAdmin" class="fas fa-pencil-alt icon" (click)="createGroupDialog()"></i>
+      </div>
+      <ul class="group-status">
+        <li class="item">{{ group.privacyType }} Group</li>
+        <li class="item">{{ group.groupFriendCount }} Members</li>
+        <li class="item">{{ group.visiblity ? "visible" : "Hidden" }}</li>
+      </ul>
+    </div>
+    <div class="right-box">
+      <ng-container *ngIf="isGroupAdmin">
+        <button class="button" mat-icon-button [matMenuTriggerFor]="menu">
+          Admin
+          <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <mat-menu #menu>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Resign as Admin</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span>Manage Notifications</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p class="popup-title">
+              <span class="warning">Leave Group</span>
+            </p>
+          </button>
+        </mat-menu>
+        <button class="button" (click)="inviteFriendDialog()">
+          <i class="fas fa-plus icon"></i>
+          Add Member
+        </button>
+      </ng-container>
+    </div>
+  </div>
+  <ul class="section-nav">
+    <li
+      class="item"
+      [routerLink]="[this.groupId, 'feed']"
+      [routerLinkActive]="['active']"
+    >
+      Feeds
+    </li>
+    <li
+      class="item"
+      [routerLink]="[this.groupId, 'about']"
+      [routerLinkActive]="['active']"
+    >
+      About
+    </li>
+    <li
+      class="item"
+      [routerLink]="[this.groupId, 'members']"
+      [routerLinkActive]="['active']"
+    >
+      Members
+    </li>
+    <li
+      class="item"
+      [routerLink]="[this.groupId, 'events']"
+      [routerLinkActive]="['active']"
+    >
+      Events
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,96 @@
+<div class="about-layout">
+  <div class="main-box">
+    <div class="about">
+      <h5 class="title">About this group</h5>
+      <p class="content">
+        {{ group.description }}
+      </p>
+      <div class="about-list">
+        <div class="list">
+          <h6><i class="fas fa-lock icon primary"></i>Privacy</h6>
+          <span>{{ group.privacyType }}</span>
+        </div>
+        <div class="list">
+          <h6><i class="fas fa-eye icon primary"></i>Visibility</h6>
+          <span>{{ group.visibility ? "Visible" : "Hidden" }}</span>
+        </div>
+        <div class="list">
+          <h6><i class="fas fa-history icon primary"></i>History</h6>
+          <span>Group Created {{ group.createdDate | date: "longDate" }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="about">
+      <h5 class="title">
+        Members <span class="member">{{ allMembers.length }}</span>
+      </h5>
+      <ul class="image-list">
+        <li class="list" *ngFor="let item of allMembers">
+          <img [src]="item.profileImage" class="image" />
+        </li>
+        <!-- <li class="list">
+          <img
+            src="../../../../../assets/images/photos/profile.jpg"
+            class="image"
+          />
+        </li>
+        <li class="list">
+          <img
+            src="../../../../../assets/images/photos/profile.jpg"
+            class="image"
+          />
+        </li>
+        <li class="list">
+          <img
+            src="../../../../../assets/images/photos/profile.jpg"
+            class="image"
+          />
+        </li>
+        <li class="list">
+          <img
+            src="../../../../../assets/images/photos/profile.jpg"
+            class="image"
+          />
+        </li> -->
+      </ul>
+      <div class="action-button">
+        <button class="button" (click)="GroupMembersDialog(allMembers)">
+          See all
+        </button>
+      </div>
+    </div>
+    <div class="about">
+      <h5 class="title">Rules</h5>
+      <ul class="rules">
+        <li class="list" *ngFor="let item of groupRules">
+          <i class="fas fa-caret-right icon"></i>
+          {{ item.title }}
+        </li>
+        <!-- <li class="list">
+          <i class="fas fa-caret-right icon"></i>
+          No foul language
+        </li>
+        <li class="list">
+          <i class="fas fa-caret-right icon"></i>
+          Age over 16years
+        </li> -->
+      </ul>
+      <div class="action-button">
+        <button class="button">See all</button>
+      </div>
+    </div>
+    <div class="about">
+      <h5 class="title">Activity</h5>
+      <div class="about-list">
+        <div class="list">
+          <h6><i class="fas fa-lock icon primary"></i>Post</h6>
+          <span>3 posts today</span>
+        </div>
+        <div class="list">
+          <h6><i class="fas fa-user-friends icon primary"></i>Members</h6>
+          <span>9 new members in this week</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

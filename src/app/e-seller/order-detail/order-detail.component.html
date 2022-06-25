@@ -1,0 +1,184 @@
+<div class="manage-order-layout">
+  <div class="detial-box">
+    <div class="title-box">
+      <h4 class="title">Order Detail for Order No. {{ orderNumber }}</h4>
+    </div>
+  </div>
+  <div class="setup-section">
+    <div class="setup-box">
+      <section class="data-table">
+        <div class="table-box">
+          <table class="w-100">
+            <thead>
+              <tr>
+                <!-- <th>Order Number</th> -->
+                <th>SKU</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Voucher</th>
+                <!-- <th>Shipping Fees</th> -->
+                <!-- <th>Grand Total</th>
+                <th>Status</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of orderDetails">
+                <!-- <td>{{orderData?.orderNumber}}</td> -->
+                <td>{{ item.sku }}</td>
+                <td>{{ item.productName }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.subTotal }}</td>
+                <td>{{ item.voucher }}</td>
+                <!-- <td>{{orderData?.shippingFees}}</td> -->
+                <!-- <td>550.00</td>
+                <td>Delivered</td> -->
+              </tr>
+              <tr>
+                <td colspan="4">Shipping Fees</td>
+                <td>{{ orderData?.shippingFees }}</td>
+              </tr>
+              <tr>
+                <td colspan="4">Grand Total</td>
+                <td>{{ getSubTotal() }}</td>
+              </tr>
+              <tr>
+                <td colspan="4">Status</td>
+                <td>{{ orderData?.status }}</td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="orderData?.orderDetails.length <= 0">
+              <td class="text-left" colspan="9">
+                <p class="record-status">No Record Available</p>
+              </td>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+      <div class="order-detail-main">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row align-item-start">
+              <div class="col-lg-12 h-auto mb-10">
+                <div class="order-detail">
+                  <h6 class="title">Customer Info</h6>
+                  <ul class="detail">
+                    <li class="list">
+                      Date
+                      <span class="content">{{
+                        orderData?.createdDate | date
+                      }}</span>
+                    </li>
+                    <li class="list">
+                      Time
+                      <span class="content">{{
+                        orderData?.createdDate | date: "h:mm"
+                      }}</span>
+                    </li>
+                    <li class="list">
+                      Customer
+                      <span class="content"
+                        >{{ orderData?.customer.firstName }}
+                        {{ orderData?.customer.lastName }}</span
+                      >
+                    </li>
+                    <li class="list">
+                      Contact Number
+                      <span class="content">{{ orderData?.phoneNumber }}</span>
+                    </li>
+                    <li class="list">
+                      Subtotal
+                      <span class="content">{{ getSubTotal() }}</span>
+                    </li>
+
+                    <li class="list">
+                      Shipping Fees
+                      <span class="content">{{ orderData?.shippingFees }}</span>
+                    </li>
+
+                    <li class="list">
+                      Grand Total
+                      <span class="content">{{
+                        +getSubTotal() + +orderData?.shippingFees
+                      }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-12 h-auto">
+                <div class="order-detail">
+                  <h6 class="title">Shipping Address</h6>
+                  <ul class="detail">
+                    <li class="list">
+                      <span class="content">{{ shippingData?.fullName }}</span>
+                    </li>
+                    <li class="list">
+                      <span class="content">{{
+                        shippingData?.phoneNumber
+                      }}</span>
+                    </li>
+                    <li class="list">
+                      <span class="content"
+                        >{{ shippingData?.country }}, {{ shippingData?.city }},
+                        {{ shippingData?.area }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row align-item-start">
+              <div class="col-lg-12 h-auto mb-10">
+                <div class="order-detail">
+                  <h6 class="title">Transaction Information</h6>
+                  <ul class="detail">
+                    <li class="list">
+                      Shipping Fee
+                      <span class="content">{{ orderData?.shippingFees }}</span>
+                    </li>
+                    <li class="list">
+                      Item Price
+                      <span class="content">{{ getSubTotal() }}</span>
+                    </li>
+                    <li class="list">
+                      Payment Fee
+                      <span class="content">{{ orderData?.paymentFee }}</span>
+                    </li>
+                    <li class="list">
+                      Commision
+                      <span class="content">{{ orderData?.commision }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-lg-12 h-auto">
+                <div class="order-detail">
+                  <h6 class="title">Billing Address</h6>
+                  <ul class="detail">
+                    <li class="list">
+                      <span class="content">{{ billingData?.fullName }}</span>
+                    </li>
+                    <li class="list">
+                      <span class="content">{{
+                        billingData?.phoneNumber
+                      }}</span>
+                    </li>
+                    <li class="list">
+                      <span class="content"
+                        >{{ billingData?.country }}, {{ billingData?.city }},
+                        {{ billingData?.area }}</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

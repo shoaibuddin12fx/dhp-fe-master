@@ -1,0 +1,53 @@
+@import "../../../../assets/partials/variable.scss";
+.popup-box {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  .popup-body {
+    height: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    overflow: overlay;
+    padding-bottom: 0;
+    .note {
+      font-size: 14px;
+      font-weight: 800;
+      color: $theme-black;
+    }
+    form {
+      padding-top: 20px;
+      width: 100%;
+      ::ng-deep .mat-radio-group {
+        display: flex;
+        flex-flow: wrap;
+        line-height: 2.5;
+        align-items: center;
+        justify-content: space-between;
+        .mat-radio-button {
+          width: 100%;
+          line-height: 1;
+          margin-bottom: 15px;
+          .mat-radio-label-content {
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+      }
+      .title {
+        margin: 0;
+        color: $theme-content;
+        width: 80%;
+        &:hover {
+          color: $theme-primary;
+        }
+      }
+    }
+  }
+  .action-buttons {
+    position: unset;
+    padding-bottom: 40px;
+    .btn {
+      width: 120px;
+    }
+  }
+}
