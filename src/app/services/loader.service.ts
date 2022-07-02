@@ -11,7 +11,7 @@ export class LoaderService {
   constructor(private spinner: NgxSpinnerService) {}
 
   PresentLoading() {
-    this.spinner.show();
+    // this.spinner.show();
   }
 
   DissmissLoading() {
